@@ -557,6 +557,72 @@
     ]
   },
   {
+    "objectID": "Omics/NetworkPlot.html",
+    "href": "Omics/NetworkPlot.html",
+    "title": "Network Plot",
+    "section": "",
+    "text": "In microbiome research, it is crucial to understand the interactions between microorganisms. Network analysis is a powerful method that can help us visualize and quantify these complex relationships. Next, we will introduce the network operation and annotation functions of the MetaNet package, which can make our network analysis more in-depth and intuitive.",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "NetworkPlot"
+    ]
+  },
+  {
+    "objectID": "Omics/NetworkPlot.html#example",
+    "href": "Omics/NetworkPlot.html#example",
+    "title": "Network Plot",
+    "section": "Example",
+    "text": "Example",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "NetworkPlot"
+    ]
+  },
+  {
+    "objectID": "Omics/NetworkPlot.html#setup",
+    "href": "Omics/NetworkPlot.html#setup",
+    "title": "Network Plot",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: MetaNet; pcutils; igraph; dplyr\n\n\n# Installing necessary packages\nif (!requireNamespace(\"MetaNet\", quietly = TRUE)) {\n  install.packages(\"MetaNet\")\n}\nif (!requireNamespace(\"pcutils\", quietly = TRUE)) {\n  install.packages(\"pcutils\")\n}\nif (!requireNamespace(\"igraph\", quietly = TRUE)) {\n  install.packages(\"igraph\")\n}\nif (!requireNamespace(\"dplyr\", quietly = TRUE)) {\n  install.packages(\"dplyr\")\n}\n\n# Load packages\nlibrary(MetaNet)\nlibrary(pcutils)\nlibrary(igraph)\nlibrary(dplyr)",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "NetworkPlot"
+    ]
+  },
+  {
+    "objectID": "Omics/NetworkPlot.html#data-preparation",
+    "href": "Omics/NetworkPlot.html#data-preparation",
+    "title": "Network Plot",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n1. Load data\n\nThe data uses the otutab dataset in pcutils\nMetaNet is an R package for comprehensive network analysis of omics data\nThe c_net_calculate() function is used to quickly calculate the correlation between variables\nThe c_net_build() function is used to build the network\n\n\ndata(otutab, package = \"pcutils\")\nt(otutab) -&gt; totu\nc_net_calculate(totu, method = \"spearman\") -&gt; corr\nc_net_build(corr, r_threshold = 0.6, p_threshold = 0.05, delete_single = T) -&gt; co_net\nclass(co_net) \n\n[1] \"metanet\" \"igraph\" \n\n\n\n\n2. Get network properties\nAfter building a network with MetaNet, you get a classification object, which comes from igraph. This means that you can use MetaNet’s proprietary functions and igraph’s general functions at the same time. Next, learn how to get basic information about the network:\n\n# Get overall network properties\nget_n(co_net)\n\n  n_type\n1 single\n\n# View node properties\nget_v(co_net) %&gt;% head(5)\n\n                          name  v_group  v_class size\n1 s__un_f__Thermomonosporaceae v_group1 v_class1    4\n2        s__Pelomonas_puraquae v_group1 v_class1    4\n3     s__Rhizobacter_bergeniae v_group1 v_class1    4\n4     s__Flavobacterium_terrae v_group1 v_class1    4\n5         s__un_g__Rhizobacter v_group1 v_class1    4\n                         label  shape   color\n1 s__un_f__Thermomonosporaceae circle #a6bce3\n2        s__Pelomonas_puraquae circle #a6bce3\n3     s__Rhizobacter_bergeniae circle #a6bce3\n4     s__Flavobacterium_terrae circle #a6bce3\n5         s__un_g__Rhizobacter circle #a6bce3\n\n# View edge properties\nget_e(co_net) %&gt;% head(5)\n\n  id                         from                            to    weight\n1  1 s__un_f__Thermomonosporaceae     s__Actinocorallia_herbida 0.6759546\n2  2 s__un_f__Thermomonosporaceae       s__Kribbella_catacumbae 0.6742386\n3  3 s__un_f__Thermomonosporaceae       s__Kineosporia_rhamnosa 0.7378741\n4  4 s__un_f__Thermomonosporaceae   s__un_f__Micromonosporaceae 0.6236449\n5  5 s__un_f__Thermomonosporaceae s__Flavobacterium_saliperosum 0.6045747\n        cor      p.value   e_type     width   color  e_class lty\n1 0.6759546 0.0020739524 positive 0.6759546 #48A4F0 e_class1   1\n2 0.6742386 0.0021502138 positive 0.6742386 #48A4F0 e_class1   1\n3 0.7378741 0.0004730567 positive 0.7378741 #48A4F0 e_class1   1\n4 0.6236449 0.0056818984 positive 0.6236449 #48A4F0 e_class1   1\n5 0.6045747 0.0078660171 positive 0.6045747 #48A4F0 e_class1   1\n\n\nThe data frames returned by these functions contain the most basic key information of multi-omics biological networks, such as node name, grouping, size, edge weight, etc. MetaNet has set some internal attributes (such as v_group, v_class, e_type, etc.) when building the network, which will affect subsequent analysis and visualization.\n\n\n3. Adding biological meaning to networks\nIn microbiome research, network structure alone is not enough, we need to integrate biological information such as taxonomy and abundance. MetaNet provides flexible annotation functions:\n\n# Adding classification information to a node\nc_net_annotate(co_net, taxonomy[\"Phylum\"], mode = \"v\") -&gt; co_net1\nanno &lt;- data.frame(\"from\" = \"s__un_f__Thermomonosporaceae\", \n                   \"to\" = \"s__Actinocorallia_herbida\", new_atr = \"new\")\nc_net_annotate(co_net, anno, mode = \"e\") -&gt; co_net1\n\nIn MetaNet, a c_net_set() function is provided, which can add multiple annotation tables at the same time and specify which columns are used to set node size, color and other attributes:\n\nAbundance_df &lt;- data.frame(\"Abundance\" = colSums(totu))\nco_net1 &lt;- c_net_set(co_net, taxonomy[\"Phylum\"], Abundance_df)\nco_net1 &lt;- co_net\nV(co_net1)$new_attri &lt;- seq_len(length(co_net1))\nE(co_net1)$new_attri &lt;- \"new attribute\"\nget_e(co_net1) %&gt;% head(5)\n\n  id                         from                            to    weight\n1  1 s__un_f__Thermomonosporaceae     s__Actinocorallia_herbida 0.6759546\n2  2 s__un_f__Thermomonosporaceae       s__Kribbella_catacumbae 0.6742386\n3  3 s__un_f__Thermomonosporaceae       s__Kineosporia_rhamnosa 0.7378741\n4  4 s__un_f__Thermomonosporaceae   s__un_f__Micromonosporaceae 0.6236449\n5  5 s__un_f__Thermomonosporaceae s__Flavobacterium_saliperosum 0.6045747\n        cor      p.value   e_type     width   color  e_class lty     new_attri\n1 0.6759546 0.0020739524 positive 0.6759546 #48A4F0 e_class1   1 new attribute\n2 0.6742386 0.0021502138 positive 0.6742386 #48A4F0 e_class1   1 new attribute\n3 0.7378741 0.0004730567 positive 0.7378741 #48A4F0 e_class1   1 new attribute\n4 0.6236449 0.0056818984 positive 0.6236449 #48A4F0 e_class1   1 new attribute\n5 0.6045747 0.0078660171 positive 0.6045747 #48A4F0 e_class1   1 new attribute\n\n\nIn this way, a network information with both statistical significance and biological background can be obtained.",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "NetworkPlot"
+    ]
+  },
+  {
+    "objectID": "Omics/NetworkPlot.html#visualization",
+    "href": "Omics/NetworkPlot.html#visualization",
+    "title": "Network Plot",
+    "section": "Visualization",
+    "text": "Visualization\n\n1. Build network\nSimple multi-omics network: contains information of microbiome, metabolome, transcriptome, etc.\n\n# Basic Network\ndata(\"multi_test\", package = \"MetaNet\")\ndata(\"c_net\", package = \"MetaNet\")\nmulti1 &lt;- multi_net_build(list(Microbiome = micro, Metabolome = metab, Transcriptome = transc))\nplot(multi1)\n\n\n\n\nBasic Network\n\n\n\n\n\n\n2. Add annotation\n\n# Set the node class\nmulti1_with_anno &lt;- c_net_set(multi1, \n                              micro_g, metab_g, \n                              transc_g, \n                              vertex_class = c(\"Phylum\", \"kingdom\", \"type\"))\n\n# Set the node size\nmulti1_with_anno &lt;- c_net_set(multi1_with_anno,\n                              data.frame(\"Abundance1\" = colSums(micro)),\n                              data.frame(\"Abundance2\" = colSums(metab)),\n                              data.frame(\"Abundance3\" = colSums(transc)),\n                              vertex_size = paste0(\"Abundance\", 1:3))\n\nplot(multi1_with_anno)\n\n\n\n\nAdd annotation\n\n\n\n\n\n\n3. Filter subnetwork\n\n# Filter subnetwork\ndata(\"multi_net\", package = \"MetaNet\")\nmulti2 &lt;- c_net_filter(multi1_with_anno, v_group %in% \n                         c(\"Microbiome\", \"Metabolome\")) %&gt;%\n  c_net_filter(., e_class == \"intra\", mode = \"e\")\n\nplot(multi2, lty_legend = T, main = \"Sub-network\") \n\n\n\n\nFilter subnetwork\n\n\n\n\n\n\n4. Merge Network\n\n# Network1\ndata(\"c_net\")\nplot(co_net)\n\n\n\n\nNetwork1\n\n\n\n\n\n# Network2\ndata(\"c_net\")\nplot(co_net2)\n\n\n\n\nNetwork2\n\n\n\n\n\n# Merge Network\nco_net_union &lt;- c_net_union(co_net, co_net2)\nplot(co_net_union)\n\n\n\n\nMerge Network\n\n\n\n\nThe MetaNet package provides a comprehensive set of tools for microbial network analysis, from basic network construction to advanced annotation and visualization. By flexibly using these functions, we can extract meaningful biological patterns from complex microbiome data and provide new perspectives for understanding the structure and function of microbial communities.",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "NetworkPlot"
+    ]
+  },
+  {
+    "objectID": "Omics/NetworkPlot.html#reference",
+    "href": "Omics/NetworkPlot.html#reference",
+    "title": "Network Plot",
+    "section": "Reference",
+    "text": "Reference\n[1] K. Contrepois, S. Wu, K. J. Moneghetti, D. Hornburg, et al., [Molecular Choreography of Acute Exercise (https://doi.org/10.1016/j.cell.2020.04.043). Cell. 181, 1112–1130.e16 (2020).\n[2] Y. Deng, Y. Jiang, Y. Yang, Z. He, et al., Molecular ecological network analyses. BMC bioinformatics (2012), doi:10.1186/1471-2105-13-113.\n[3] K. Faust, J. Raes, Microbial interactions: From networks to models. Nature Reviews Microbiology (2012), doi:10.1038/nrmicro2832.\n[4] Chen Peng (2025). MetaNet: Network Analysis for Omics Data. R package",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "NetworkPlot"
+    ]
+  },
+  {
     "objectID": "Correlation/Correlogram.html",
     "href": "Correlation/Correlogram.html",
     "title": "Correlogram",

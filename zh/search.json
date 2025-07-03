@@ -67,6 +67,72 @@
     "text": "先建图表征集issue，进行审核确定：\n\n根据目标任务确定执行的可视化图表类型。\n\n分别按图表建issue让成员列资料\n\n确定创建可视化教程所需的生物医学数据类型；\n根据可视化应用场景优化教程撰写的侧重点（eg. 需要着重介绍的函数/参数、是否要加入常用统计学分析）。\n\n分配成员申领完成\n完成图文撰写需要遵循项目文档规范\n\n参考根据现有可视化教程制作的qmd文档撰写；\n主要模块：可视化图表及其应用场景介绍、环境配置、基础绘图代码、进阶绘图代码、生物医学领域应用（及复现）……\n\n翻译任务的申领和处理"
   },
   {
+    "objectID": "Omics/NetworkPlot.html",
+    "href": "Omics/NetworkPlot.html",
+    "title": "网络图",
+    "section": "",
+    "text": "在微生物组学研究中，理解微生物之间的相互作用至关重要。而网络分析作为一种强大的方法，能够帮助我们可视化和量化这些复杂关系。接下来向大家介绍 MetaNet 包的网络操作与注释功能，它能让我们的网络分析更加深入和直观。",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "NetworkPlot"
+    ]
+  },
+  {
+    "objectID": "Omics/NetworkPlot.html#示例",
+    "href": "Omics/NetworkPlot.html#示例",
+    "title": "网络图",
+    "section": "示例",
+    "text": "示例",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "NetworkPlot"
+    ]
+  },
+  {
+    "objectID": "Omics/NetworkPlot.html#环境配置",
+    "href": "Omics/NetworkPlot.html#环境配置",
+    "title": "网络图",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统要求： 跨平台（Linux/MacOS/Windows）\n编程语言：R\n依赖包：MetaNet; pcutils; igraph; dplyr\n\n\n# 安装包\nif (!requireNamespace(\"MetaNet\", quietly = TRUE)) {\n  install.packages(\"MetaNet\")\n}\nif (!requireNamespace(\"pcutils\", quietly = TRUE)) {\n  install.packages(\"pcutils\")\n}\nif (!requireNamespace(\"igraph\", quietly = TRUE)) {\n  install.packages(\"igraph\")\n}\nif (!requireNamespace(\"dplyr\", quietly = TRUE)) {\n  install.packages(\"dplyr\")\n}\n\n# 加载包\nlibrary(MetaNet)\nlibrary(pcutils)\nlibrary(igraph)\nlibrary(dplyr)",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "NetworkPlot"
+    ]
+  },
+  {
+    "objectID": "Omics/NetworkPlot.html#数据准备",
+    "href": "Omics/NetworkPlot.html#数据准备",
+    "title": "网络图",
+    "section": "数据准备",
+    "text": "数据准备\n\n1. 导入数据\n\n数据使用 pcutils 中的 otutab 数据集\nMetaNet 是一个针对组学数据的综合网络分析 R 包\nc_net_calculate() 函数用于快速计算变量间的相关性\nc_net_build() 函数用于构建网络\n\n\ndata(otutab, package = \"pcutils\")\nt(otutab) -&gt; totu\nc_net_calculate(totu, method = \"spearman\") -&gt; corr\nc_net_build(corr, r_threshold = 0.6, p_threshold = 0.05, delete_single = T) -&gt; co_net\nclass(co_net) \n\n[1] \"metanet\" \"igraph\" \n\n\n\n\n2. 获取网络属性\n用 MetaNet 构建网络后，得到的是一个分类对象，它来自 igraph。意味着可以同时使用 MetaNet 的专有功能和 igraph 的通用功能。接下来了解如何获取网络的基本信息：\n\n# 获取整体网络属性\nget_n(co_net)\n\n  n_type\n1 single\n\n# 查看节点(顶点)属性\nget_v(co_net) %&gt;% head(5)\n\n                          name  v_group  v_class size\n1 s__un_f__Thermomonosporaceae v_group1 v_class1    4\n2        s__Pelomonas_puraquae v_group1 v_class1    4\n3     s__Rhizobacter_bergeniae v_group1 v_class1    4\n4     s__Flavobacterium_terrae v_group1 v_class1    4\n5         s__un_g__Rhizobacter v_group1 v_class1    4\n                         label  shape   color\n1 s__un_f__Thermomonosporaceae circle #a6bce3\n2        s__Pelomonas_puraquae circle #a6bce3\n3     s__Rhizobacter_bergeniae circle #a6bce3\n4     s__Flavobacterium_terrae circle #a6bce3\n5         s__un_g__Rhizobacter circle #a6bce3\n\n### 查看边属性\nget_e(co_net) %&gt;% head(5)\n\n  id                         from                            to    weight\n1  1 s__un_f__Thermomonosporaceae     s__Actinocorallia_herbida 0.6759546\n2  2 s__un_f__Thermomonosporaceae       s__Kribbella_catacumbae 0.6742386\n3  3 s__un_f__Thermomonosporaceae       s__Kineosporia_rhamnosa 0.7378741\n4  4 s__un_f__Thermomonosporaceae   s__un_f__Micromonosporaceae 0.6236449\n5  5 s__un_f__Thermomonosporaceae s__Flavobacterium_saliperosum 0.6045747\n        cor      p.value   e_type     width   color  e_class lty\n1 0.6759546 0.0020739524 positive 0.6759546 #48A4F0 e_class1   1\n2 0.6742386 0.0021502138 positive 0.6742386 #48A4F0 e_class1   1\n3 0.7378741 0.0004730567 positive 0.7378741 #48A4F0 e_class1   1\n4 0.6236449 0.0056818984 positive 0.6236449 #48A4F0 e_class1   1\n5 0.6045747 0.0078660171 positive 0.6045747 #48A4F0 e_class1   1\n\n\n这些函数返回的数据框包含了最基本的多组学生物网络的关键信息，如节点名称、分组、大小、边的权重等。 MetaNet 在构建网络时已经设置了一些内部属性（如v_group、v_class、e_type等），这些属性将影响后续的分析和可视化。\n\n\n3. 为网络添加生物学意义\n在微生物组研究中，仅有网络结构是不够的，我们需要整合分类学、丰度等生物学信息。MetaNet 提供了灵活的注释功能：\n\n# 向节点添加分类信息\nc_net_annotate(co_net, taxonomy[\"Phylum\"], mode = \"v\") -&gt; co_net1\nanno &lt;- data.frame(\"from\" = \"s__un_f__Thermomonosporaceae\", \n                   \"to\" = \"s__Actinocorallia_herbida\", new_atr = \"new\")\nc_net_annotate(co_net, anno, mode = \"e\") -&gt; co_net1\n\n在 MetaNet 中提供 c_net_set() 函数，它可以同时添加多个注释表并指定哪些列用于设置节点大小、颜色等属性：\n\nAbundance_df &lt;- data.frame(\"Abundance\" = colSums(totu))\nco_net1 &lt;- c_net_set(co_net, taxonomy[\"Phylum\"], Abundance_df)\nco_net1 &lt;- co_net\nV(co_net1)$new_attri &lt;- seq_len(length(co_net1))\nE(co_net1)$new_attri &lt;- \"new attribute\"\nget_e(co_net1) %&gt;% head(5)\n\n  id                         from                            to    weight\n1  1 s__un_f__Thermomonosporaceae     s__Actinocorallia_herbida 0.6759546\n2  2 s__un_f__Thermomonosporaceae       s__Kribbella_catacumbae 0.6742386\n3  3 s__un_f__Thermomonosporaceae       s__Kineosporia_rhamnosa 0.7378741\n4  4 s__un_f__Thermomonosporaceae   s__un_f__Micromonosporaceae 0.6236449\n5  5 s__un_f__Thermomonosporaceae s__Flavobacterium_saliperosum 0.6045747\n        cor      p.value   e_type     width   color  e_class lty     new_attri\n1 0.6759546 0.0020739524 positive 0.6759546 #48A4F0 e_class1   1 new attribute\n2 0.6742386 0.0021502138 positive 0.6742386 #48A4F0 e_class1   1 new attribute\n3 0.7378741 0.0004730567 positive 0.7378741 #48A4F0 e_class1   1 new attribute\n4 0.6236449 0.0056818984 positive 0.6236449 #48A4F0 e_class1   1 new attribute\n5 0.6045747 0.0078660171 positive 0.6045747 #48A4F0 e_class1   1 new attribute\n\n\n这样，就能获得一个既有统计意义又有生物学背景的网络信息。",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "NetworkPlot"
+    ]
+  },
+  {
+    "objectID": "Omics/NetworkPlot.html#可视化",
+    "href": "Omics/NetworkPlot.html#可视化",
+    "title": "网络图",
+    "section": "可视化",
+    "text": "可视化\n\n1. 构建网络\n简单多组学网络：包含微生物组，代谢组，转录组等信息。\n\n# 基础网络图\ndata(\"multi_test\", package = \"MetaNet\")\ndata(\"c_net\", package = \"MetaNet\")\nmulti1 &lt;- multi_net_build(list(Microbiome = micro, Metabolome = metab, Transcriptome = transc))\nplot(multi1)\n\n\n\n\n基础网络图\n\n\n\n\n\n\n2. 添加 annotation\n\n# 设置顶点类别\nmulti1_with_anno &lt;- c_net_set(multi1, \n                              micro_g, metab_g, \n                              transc_g, \n                              vertex_class = c(\"Phylum\", \"kingdom\", \"type\"))\n\n# 设置顶点大小\nmulti1_with_anno &lt;- c_net_set(multi1_with_anno,\n                              data.frame(\"Abundance1\" = colSums(micro)),\n                              data.frame(\"Abundance2\" = colSums(metab)),\n                              data.frame(\"Abundance3\" = colSums(transc)),\n                              vertex_size = paste0(\"Abundance\", 1:3))\n\nplot(multi1_with_anno)\n\n\n\n\n添加 annotation\n\n\n\n\n\n\n3. 筛选子网络\n\n# 筛选子网络\ndata(\"multi_net\", package = \"MetaNet\")\nmulti2 &lt;- c_net_filter(multi1_with_anno, v_group %in% \n                         c(\"Microbiome\", \"Metabolome\")) %&gt;%\n  c_net_filter(., e_class == \"intra\", mode = \"e\")\n\nplot(multi2, lty_legend = T, main = \"Sub-network\") \n\n\n\n\n筛选子网络\n\n\n\n\n\n\n4. 合并网络\n\n# 网络1\ndata(\"c_net\")\nplot(co_net)\n\n\n\n\n网络1\n\n\n\n\n\n# 网络2\ndata(\"c_net\")\nplot(co_net2)\n\n\n\n\n网络2\n\n\n\n\n\n# 合并网络\nco_net_union &lt;- c_net_union(co_net, co_net2)\nplot(co_net_union)\n\n\n\n\n合并网络\n\n\n\n\nMetaNet 包为微生物网络分析提供了全面的工具集，从基础的网络构建到高级的注释与可视化。通过灵活使用这些功能，我们能够从复杂的微生物组数据中提取有意义的生物学模式，为理解微生物群落结构与功能提供新视角。",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "NetworkPlot"
+    ]
+  },
+  {
+    "objectID": "Omics/NetworkPlot.html#参考文献",
+    "href": "Omics/NetworkPlot.html#参考文献",
+    "title": "网络图",
+    "section": "参考文献",
+    "text": "参考文献\n[1] K. Contrepois, S. Wu, K. J. Moneghetti, D. Hornburg, et al., [Molecular Choreography of Acute Exercise (https://doi.org/10.1016/j.cell.2020.04.043). Cell. 181, 1112–1130.e16 (2020).\n[2] Y. Deng, Y. Jiang, Y. Yang, Z. He, et al., Molecular ecological network analyses. BMC bioinformatics (2012), doi:10.1186/1471-2105-13-113.\n[3] K. Faust, J. Raes, Microbial interactions: From networks to models. Nature Reviews Microbiology (2012), doi:10.1038/nrmicro2832.\n[4] Chen Peng (2025). MetaNet: Network Analysis for Omics Data. R package",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "NetworkPlot"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Bizard",
