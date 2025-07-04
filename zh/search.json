@@ -4,49 +4,77 @@
     "href": "Ranking/VennPlot.html",
     "title": "韦恩图",
     "section": "",
-    "text": "对于Venn图的可视化，常用的R包有ggVennDiagram和VennDiagram包，相比于VennDiagram包而言ggVennDiagram具有适用于更多分组、可以适配ggplot2语法和可以灵活设置的输出格式等优点，学习和后期处理更简单。然而ggVennDiagram的集合颜色只能设置为与元素个数相关的连续型渐变色，不能设置为每个集合一种颜色的离散型色彩，VennDiagram则恰好相反，因此可以根据具体需求选择需要使用哪个R包进行绘图。"
+    "text": "对于Venn图的可视化，常用的R包有ggVennDiagram和VennDiagram包，相比于VennDiagram包而言ggVennDiagram具有适用于更多分组、可以适配ggplot2语法和可以灵活设置的输出格式等优点，学习和后期处理更简单。然而ggVennDiagram的集合颜色只能设置为与元素个数相关的连续型渐变色，不能设置为每个集合一种颜色的离散型色彩，VennDiagram则恰好相反，因此可以根据具体需求选择需要使用哪个R包进行绘图。",
+    "crumbs": [
+      "Ranking",
+      "VeenPlot"
+    ]
   },
   {
     "objectID": "Ranking/VennPlot.html#示例",
     "href": "Ranking/VennPlot.html#示例",
     "title": "韦恩图",
     "section": "示例",
-    "text": "示例"
+    "text": "示例",
+    "crumbs": [
+      "Ranking",
+      "VeenPlot"
+    ]
   },
   {
     "objectID": "Ranking/VennPlot.html#环境配置",
     "href": "Ranking/VennPlot.html#环境配置",
     "title": "韦恩图",
     "section": "环境配置",
-    "text": "环境配置\n\n系统要求： 跨平台（Linux/MacOS/Windows）\n编程语言：R\n依赖包：ggplot2; ggVennDiagram; VennDiagram\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"ggVennDiagram\", quietly = TRUE)) {\n  install.packages(\"ggVennDiagram\")\n}\nif (!requireNamespace(\"VennDiagram\", quietly = TRUE)) {\n  install.packages(\"VennDiagram\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(ggVennDiagram)\nlibrary(VennDiagram)"
+    "text": "环境配置\n\n系统要求： 跨平台（Linux/MacOS/Windows）\n编程语言：R\n依赖包：ggplot2; ggVennDiagram; VennDiagram\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"ggVennDiagram\", quietly = TRUE)) {\n  install.packages(\"ggVennDiagram\")\n}\nif (!requireNamespace(\"VennDiagram\", quietly = TRUE)) {\n  install.packages(\"VennDiagram\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(ggVennDiagram)\nlibrary(VennDiagram)",
+    "crumbs": [
+      "Ranking",
+      "VeenPlot"
+    ]
   },
   {
     "objectID": "Ranking/VennPlot.html#数据准备",
     "href": "Ranking/VennPlot.html#数据准备",
     "title": "韦恩图",
     "section": "数据准备",
-    "text": "数据准备\n数据使用模拟基因集，假设我们有多组不同的处理A~D，在不同处理下各自产生了一定数量的差异表达基因。 ggVennDiagram要求的输入格式为一个list，list中的每个元素都需要有对应的名称以及包含的子元素。\n\ngenes &lt;- paste(\"gene\",1:1000,sep=\"\")\nset.seed(123)\nx &lt;- list(A=sample(genes,300),\n          B=sample(genes,525),\n          C=sample(genes,440),\n          D=sample(genes,350))"
+    "text": "数据准备\n数据使用模拟基因集，假设我们有多组不同的处理A~D，在不同处理下各自产生了一定数量的差异表达基因。 ggVennDiagram要求的输入格式为一个list，list中的每个元素都需要有对应的名称以及包含的子元素。\n\ngenes &lt;- paste(\"gene\",1:1000,sep=\"\")\nset.seed(123)\nx &lt;- list(A=sample(genes,300),\n          B=sample(genes,525),\n          C=sample(genes,440),\n          D=sample(genes,350))",
+    "crumbs": [
+      "Ranking",
+      "VeenPlot"
+    ]
   },
   {
     "objectID": "Ranking/VennPlot.html#可视化",
     "href": "Ranking/VennPlot.html#可视化",
     "title": "韦恩图",
     "section": "可视化",
-    "text": "可视化\n\n\n\n\n\n\n提示\n\n\n\nggVennDiagram基本参数:\n\nx: 需要输入的list集合数据\ncategory.names: 集合名称，默认为list中定义的名称\nshow_intersect: 设置为TRUE时，输出可交互式图像\nset_color: 集合的描边颜色，可输入一个或数量与集合一致的颜色\nset_size: 集合标签的大小\nlabel: 集合中数字标签的类型，可从”both”, “count”, “percent”, “none”中选择一个输入，默认为”both”\nlabel_alpha: 数字标签的背景透明度\nlabel_geom: 数字标签的图层位置，可从”label”, “text”中选择一个，默认为”label”，当输入”text“时标签将位于集合色块的下方\nlabel_color: 数字标签的颜色\nlabel_size: 数字标签的大小\nlabel_percent_digit: 数字标签的小数保留位数\nlabel_txtWidth: 在交互模式时，显示交集元素的文本框宽度\nedge_lty: 集合描边的线条类型，默认为”solid“实线，其他可以设置的线条类型有：“blank”, “solid”, “dashed”, “dotted”, “dotdash”, “longdash”, “twodash”\nedge_size: 集合描边的线条宽度\nforce_upset: 是否使用upset图展示交集情况\nnintersects: 绘图采用的集合数量，如果为NULL则使用所有的集合\norder.intersect.by: 绘制upset图时交集的排列方式\norder.set.by: 绘制upset图时集合的排列方式\nrelative_height: 绘制upset图时上方柱状图的相对高度\nrelative_width: 绘制upset图时左侧柱状图的相对宽度\n\n\n\n\n1. 基础韦恩图\n\n# 基础韦恩图\nggVennDiagram(x)\n\n\n\n\n\n\n\n图 1: 基础韦恩图\n\n\n\n\n\n此图展示了在不同处理下差异基因的交集情况。\n\n\n2. 美化韦恩图\nggVennDiagram中集合的颜色是根据集合中包含的元素数量设置的连续型变量。可以通过ggplot2中的scale_fill_gradient或scale_fill_gradient2等函数修改集合颜色，例如使用以下代码实现连续色彩设置：\n\n# 颜色设置\nggVennDiagram(x) + scale_fill_gradient(low=\"grey90\",high = \"red\")\n\n\n\n\n\n\n\n图 2: 颜色设置\n\n\n\n\n\n也可以使用scale_fill_gradient2来更自由地定义颜色：\n\n# 颜色设置\nggVennDiagram(x) + scale_fill_gradient2(low=\"grey90\",mid = \"yellow\",midpoint = 100,high = \"red\")\n\n\n\n\n\n\n\n图 3: 颜色设置\n\n\n\n\n\n更复杂的色彩设置可以通过调用调色板完成：\n\n# 颜色设置\nggVennDiagram(x) + scale_fill_distiller(palette = \"Set1\") \n\n\n\n\n\n\n\n图 4: 颜色设置\n\n\n\n\n\n需要自定义调色板也非常简单：\n\n# 颜色设置\ncols &lt;- c('#E64E00','#65B48E','#E6EB00','#E64E00')\npal &lt;- colorRampPalette(cols)\nggVennDiagram(x) + scale_fill_gradientn(colors = pal(10)) # 数字为色阶数量\n\n\n\n\n\n\n\n图 5: 颜色设置\n\n\n\n\n\nggVennDiagram同样可以通过edge_lty、edge_size、set_color自定义集合的边框。\n\n# 边框设置\nggVennDiagram(x, set_color=c(\"blue\",\"red\",\"green\",\"purple\"), edge_lty=\"dashed\", edge_size=2)\n\n\n\n\n\n\n\n图 6: 边框设置\n\n\n\n\n\n字体设置可以通过以下参数修改：\n\n# 字体设置\n# 下列参数中较为特殊的是label，label的四个可选输入中\"percent\"为仅显示百分比， \"count\"为仅显示数量，“none”为不显示。\nggVennDiagram(x, set_size = 5, label = \"percent\", label_alpha = 0, \n              label_color = \"red\", label_size = 5, label_percent_digit = 2)\n\n\n\n\n\n\n\n图 7: 字体设置\n\n\n\n\n\n\n\n3. VennDiagram\n我们还可以通过VennDiagram包来绘制韦恩图。\n\n\n\n\n\n\n提示\n\n\n\nvenn.diagram基本参数:\n\nx: 需要输入的list集合数据\nfilename: 输出文件名\nimagetype: 输出文件类型可从”tiff”,“png”,“svg”中选择\nunits: 图片尺寸单位可从”cm”,“px”,“unit”中选择\nheight: 图片高度\nwidth: 图片宽度\nresolution: 图片分辨率\ncompression: 图片压缩算法\nscaled: 根据比例显示集合大小\nalpha: 集合透明度\nfill: 集合颜色\ncol: 线条颜色\nlwd: 线条粗细\nlty: 线条形状，1为实线, 2为虚线, blank为无线条\nlabel.col: 数字颜色\ncex: 数字大小\ncat.dist: 标签距离集合的远近\ncat.pos: 标签相对于集合的角度\ncat.cex: 标签字体大小\ncat.col: 标签颜色\n\n\n\nVennDiagram包的核心函数为venn.diagram，该函数不能直接将图像绘制到画板上，可以通过与grid::grid.draw()函数配合将图像绘制到画板。\n\np &lt;- venn.diagram(x,filename = NULL);grid::grid.draw(p)\n\n\n\n\n\n\n\n图 8: venn.diagram\n\n\n\n\n\nVennDiagram集合颜色设置于ggVennDiagram最大的区别在于颜色是根据不同集合设置的离散型颜色，设置方法如下：\n\n# 仅输入一个颜色时，所有集合显示同一个颜色，当输入颜色数量与集合数量一致时每个集合各自一个颜色，也可以使用指定命名的方式精确设置集合的颜色\np &lt;- venn.diagram(\n  x, filename = NULL,\n  fill = c(\"A\"=\"#2E75A2\",\"B\"=\"#FBD75F\",\"C\"=\"#379337\",\"D\"=\"#C13A3C\"),\n  alpha= 0.3);grid::grid.draw(p)\n\n\n\n\n\n\n\n图 9: 颜色设置\n\n\n\n\n\n线条设置：\n\np &lt;- venn.diagram(\n  x, filename = NULL,\n  col = c(\"A\"=\"#2E75A2\",\"B\"=\"#FBD75F\",\"C\"=\"#379337\",\"D\"=\"#C13A3C\"),\n  lwd = 0.3, lty = 2);grid::grid.draw(p)\n\n\n\n\n\n\n\n图 10: 线条设置\n\n\n\n\n\n字体设置，如果需要调整位置请使用 cat.dist、cat.pos 参数：\n\np &lt;- venn.diagram(\n  x, filename = NULL, \n  cat.col =c(\"A\"=\"#2E75A2\",\"B\"=\"#FBD75F\",\"C\"=\"#379337\",\"D\"=\"#C13A3C\"),\n  label.col = \"red\");grid::grid.draw(p)\n\n\n\n\n\n\n\n图 11: 字体设置\n\n\n\n\n\n按照比例展示集合大小，该模式仅适用于两个集合使用：\n\np &lt;- venn.diagram(\n  x[c(\"A\",\"B\")], filename = NULL, fill= c(\"A\"=\"#2E75A2\",\"B\"=\"#FBD75F\"),\n  scaled = T\n);grid::grid.draw(p)\n\n\n\n\n\n\n\n图 12: scaled"
+    "text": "可视化\n\n\n\n\n\n\n提示\n\n\n\nggVennDiagram基本参数:\n\nx: 需要输入的list集合数据\ncategory.names: 集合名称，默认为list中定义的名称\nshow_intersect: 设置为TRUE时，输出可交互式图像\nset_color: 集合的描边颜色，可输入一个或数量与集合一致的颜色\nset_size: 集合标签的大小\nlabel: 集合中数字标签的类型，可从”both”, “count”, “percent”, “none”中选择一个输入，默认为”both”\nlabel_alpha: 数字标签的背景透明度\nlabel_geom: 数字标签的图层位置，可从”label”, “text”中选择一个，默认为”label”，当输入”text“时标签将位于集合色块的下方\nlabel_color: 数字标签的颜色\nlabel_size: 数字标签的大小\nlabel_percent_digit: 数字标签的小数保留位数\nlabel_txtWidth: 在交互模式时，显示交集元素的文本框宽度\nedge_lty: 集合描边的线条类型，默认为”solid“实线，其他可以设置的线条类型有：“blank”, “solid”, “dashed”, “dotted”, “dotdash”, “longdash”, “twodash”\nedge_size: 集合描边的线条宽度\nforce_upset: 是否使用upset图展示交集情况\nnintersects: 绘图采用的集合数量，如果为NULL则使用所有的集合\norder.intersect.by: 绘制upset图时交集的排列方式\norder.set.by: 绘制upset图时集合的排列方式\nrelative_height: 绘制upset图时上方柱状图的相对高度\nrelative_width: 绘制upset图时左侧柱状图的相对宽度\n\n\n\n\n1. 基础韦恩图\n\n# 基础韦恩图\nggVennDiagram(x)\n\n\n\n\n\n\n\n图 1: 基础韦恩图\n\n\n\n\n\n此图展示了在不同处理下差异基因的交集情况。\n\n\n2. 美化韦恩图\nggVennDiagram中集合的颜色是根据集合中包含的元素数量设置的连续型变量。可以通过ggplot2中的scale_fill_gradient或scale_fill_gradient2等函数修改集合颜色，例如使用以下代码实现连续色彩设置：\n\n# 颜色设置\nggVennDiagram(x) + scale_fill_gradient(low=\"grey90\",high = \"red\")\n\n\n\n\n\n\n\n图 2: 颜色设置\n\n\n\n\n\n也可以使用scale_fill_gradient2来更自由地定义颜色：\n\n# 颜色设置\nggVennDiagram(x) + scale_fill_gradient2(low=\"grey90\",mid = \"yellow\",midpoint = 100,high = \"red\")\n\n\n\n\n\n\n\n图 3: 颜色设置\n\n\n\n\n\n更复杂的色彩设置可以通过调用调色板完成：\n\n# 颜色设置\nggVennDiagram(x) + scale_fill_distiller(palette = \"Set1\") \n\n\n\n\n\n\n\n图 4: 颜色设置\n\n\n\n\n\n需要自定义调色板也非常简单：\n\n# 颜色设置\ncols &lt;- c('#E64E00','#65B48E','#E6EB00','#E64E00')\npal &lt;- colorRampPalette(cols)\nggVennDiagram(x) + scale_fill_gradientn(colors = pal(10)) # 数字为色阶数量\n\n\n\n\n\n\n\n图 5: 颜色设置\n\n\n\n\n\nggVennDiagram同样可以通过edge_lty、edge_size、set_color自定义集合的边框。\n\n# 边框设置\nggVennDiagram(x, set_color=c(\"blue\",\"red\",\"green\",\"purple\"), edge_lty=\"dashed\", edge_size=2)\n\n\n\n\n\n\n\n图 6: 边框设置\n\n\n\n\n\n字体设置可以通过以下参数修改：\n\n# 字体设置\n# 下列参数中较为特殊的是label，label的四个可选输入中\"percent\"为仅显示百分比， \"count\"为仅显示数量，“none”为不显示。\nggVennDiagram(x, set_size = 5, label = \"percent\", label_alpha = 0, \n              label_color = \"red\", label_size = 5, label_percent_digit = 2)\n\n\n\n\n\n\n\n图 7: 字体设置\n\n\n\n\n\n\n\n3. VennDiagram\n我们还可以通过VennDiagram包来绘制韦恩图。\n\n\n\n\n\n\n提示\n\n\n\nvenn.diagram基本参数:\n\nx: 需要输入的list集合数据\nfilename: 输出文件名\nimagetype: 输出文件类型可从”tiff”,“png”,“svg”中选择\nunits: 图片尺寸单位可从”cm”,“px”,“unit”中选择\nheight: 图片高度\nwidth: 图片宽度\nresolution: 图片分辨率\ncompression: 图片压缩算法\nscaled: 根据比例显示集合大小\nalpha: 集合透明度\nfill: 集合颜色\ncol: 线条颜色\nlwd: 线条粗细\nlty: 线条形状，1为实线, 2为虚线, blank为无线条\nlabel.col: 数字颜色\ncex: 数字大小\ncat.dist: 标签距离集合的远近\ncat.pos: 标签相对于集合的角度\ncat.cex: 标签字体大小\ncat.col: 标签颜色\n\n\n\nVennDiagram包的核心函数为venn.diagram，该函数不能直接将图像绘制到画板上，可以通过与grid::grid.draw()函数配合将图像绘制到画板。\n\np &lt;- venn.diagram(x,filename = NULL);grid::grid.draw(p)\n\n\n\n\n\n\n\n图 8: venn.diagram\n\n\n\n\n\nVennDiagram集合颜色设置于ggVennDiagram最大的区别在于颜色是根据不同集合设置的离散型颜色，设置方法如下：\n\n# 仅输入一个颜色时，所有集合显示同一个颜色，当输入颜色数量与集合数量一致时每个集合各自一个颜色，也可以使用指定命名的方式精确设置集合的颜色\np &lt;- venn.diagram(\n  x, filename = NULL,\n  fill = c(\"A\"=\"#2E75A2\",\"B\"=\"#FBD75F\",\"C\"=\"#379337\",\"D\"=\"#C13A3C\"),\n  alpha= 0.3);grid::grid.draw(p)\n\n\n\n\n\n\n\n图 9: 颜色设置\n\n\n\n\n\n线条设置：\n\np &lt;- venn.diagram(\n  x, filename = NULL,\n  col = c(\"A\"=\"#2E75A2\",\"B\"=\"#FBD75F\",\"C\"=\"#379337\",\"D\"=\"#C13A3C\"),\n  lwd = 0.3, lty = 2);grid::grid.draw(p)\n\n\n\n\n\n\n\n图 10: 线条设置\n\n\n\n\n\n字体设置，如果需要调整位置请使用 cat.dist、cat.pos 参数：\n\np &lt;- venn.diagram(\n  x, filename = NULL, \n  cat.col =c(\"A\"=\"#2E75A2\",\"B\"=\"#FBD75F\",\"C\"=\"#379337\",\"D\"=\"#C13A3C\"),\n  label.col = \"red\");grid::grid.draw(p)\n\n\n\n\n\n\n\n图 11: 字体设置\n\n\n\n\n\n按照比例展示集合大小，该模式仅适用于两个集合使用：\n\np &lt;- venn.diagram(\n  x[c(\"A\",\"B\")], filename = NULL, fill= c(\"A\"=\"#2E75A2\",\"B\"=\"#FBD75F\"),\n  scaled = T\n);grid::grid.draw(p)\n\n\n\n\n\n\n\n图 12: scaled",
+    "crumbs": [
+      "Ranking",
+      "VeenPlot"
+    ]
   },
   {
     "objectID": "Ranking/VennPlot.html#应用场景",
     "href": "Ranking/VennPlot.html#应用场景",
     "title": "韦恩图",
     "section": "应用场景",
-    "text": "应用场景\n\n\n\n\n\n\n图 13: 韦恩图应用\n\n\n\n此图中R1-R4为四种不同的基因型，由于R2 R4在目的基因处基因型完全相同，因此R2R4共有的差异表达基因可能就是目的基因的下游 [4]。"
+    "text": "应用场景\n\n\n\n\n\n\n图 13: 韦恩图应用\n\n\n\n此图中R1-R4为四种不同的基因型，由于R2 R4在目的基因处基因型完全相同，因此R2R4共有的差异表达基因可能就是目的基因的下游 [4]。",
+    "crumbs": [
+      "Ranking",
+      "VeenPlot"
+    ]
   },
   {
     "objectID": "Ranking/VennPlot.html#参考文献",
     "href": "Ranking/VennPlot.html#参考文献",
     "title": "韦恩图",
     "section": "参考文献",
-    "text": "参考文献\n[1] Yu Y, Li W, Liu Y, Liu Y, Zhang Q, Ouyang Y, Ding W, Xue Y, Zou Y, Yan J, Jia A, Yan J, Hao X, Gou Y, Zhai Z, Liu L, Zheng Y, Zhang B, Xu J, Yang N, Xiao Y, Zhuo L, Lai Z, Yin P, Liu HJ, Fernie AR, Jackson D, Yan J. A Zea genus-specific micropeptide controls kernel dehydration in maize. Cell. 2025 Jan 9;188(1):44-59.e21. doi: 10.1016/j.cell.2024.10.030. Epub 2024 Nov 12. PMID: 39536747."
+    "text": "参考文献\n[1] Yu Y, Li W, Liu Y, Liu Y, Zhang Q, Ouyang Y, Ding W, Xue Y, Zou Y, Yan J, Jia A, Yan J, Hao X, Gou Y, Zhai Z, Liu L, Zheng Y, Zhang B, Xu J, Yang N, Xiao Y, Zhuo L, Lai Z, Yin P, Liu HJ, Fernie AR, Jackson D, Yan J. A Zea genus-specific micropeptide controls kernel dehydration in maize. Cell. 2025 Jan 9;188(1):44-59.e21. doi: 10.1016/j.cell.2024.10.030. Epub 2024 Nov 12. PMID: 39536747.",
+    "crumbs": [
+      "Ranking",
+      "VeenPlot"
+    ]
   },
   {
     "objectID": "GraphGallery.html",
