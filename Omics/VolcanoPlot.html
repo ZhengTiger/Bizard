@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
-<link rel="alternate" hreflang="en" href="https://openbiox.github.io/Bizard/Template/visualization_guidance_EN.html" />
-<link rel="alternate" hreflang="zh" href="https://openbiox.github.io/Bizard/zh/Template/visualization_guidance_EN.zh.html" />
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<link rel="alternate" hreflang="en" href="https://openbiox.github.io/Bizard/Omics/VolcanoPlot.html" />
+<link rel="alternate" hreflang="zh" href="https://openbiox.github.io/Bizard/zh/Omics/VolcanoPlot.zh.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>Contribution_guidance – A Biomedical Visualization Atlas</title>
+<meta name="author" content="[Editor] Demin Gao;">
+<meta name="author" content="[Contributors] Ye Xin, Hu Zheng.">
+<title>Volcano Plot – A Biomedical Visualization Atlas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,24 +58,13 @@ div.sourceCode
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
-
-
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script><script src="../site_libs/clipboard/clipboard.min.js"></script><script src="../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../site_libs/quarto-search/fuse.min.js"></script><script src="../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../">
+<link href="../About.html" rel="next">
+<link href="../Omics/NetworkPlot.html" rel="prev">
 <link href="../images/favicon.ico" rel="icon">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script><script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../site_libs/quarto-html/popper.min.js"></script><script src="../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../site_libs/quarto-html/anchor.min.js"></script><link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script><link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-2ff1059e6113a374d3990815464a10b5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -104,36 +93,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-sidebar docked quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Contribution_guidance</li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="../Omics/NetworkPlot.html">𝐎𝐌𝐈𝐂𝐒</a></li>
+<li class="breadcrumb-item"><a href="../Omics/VolcanoPlot.html">VolcanoPlot</a></li>
+</ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/Bizard_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
-      </a>
+      <img src="../images/Bizard_logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
       <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/openbiox/Bizard" title="Bizard GitHub website" class="quarto-navigation-tool px-1" aria-label="Bizard GitHub website"><i class="bi bi-github"></i></a>
     <a href="https://x.com/PengL_Robin" title="Peng Lab Twitter" class="quarto-navigation-tool px-1" aria-label="Peng Lab Twitter"><i class="bi bi-twitter"></i></a>
@@ -145,9 +126,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <div id="quarto-search" class="" title="Search"></div>
         </div>
         </div>
-    <div class="sidebar-menu-container"> 
+    <div class="dropdown" id="languages-links-parent">
+<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> English</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://openbiox.github.io/Bizard/zh/Omics/VolcanoPlot.html" id="language-link-zh">中文</a></li></ul>
+</div>
+<div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -171,8 +155,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Distribution/ViolinPlot.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Violin Plot</span></a>
@@ -209,7 +193,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
@@ -218,8 +202,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Correlation/Scatter.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Scatter Plot</span></a>
@@ -256,7 +240,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
@@ -265,8 +249,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Ranking/BarPlot.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bar Plot</span></a>
@@ -309,7 +293,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
@@ -318,8 +302,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Composition/GroupedBarplot.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Grouped and Stacked Barplot</span></a>
@@ -362,7 +346,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
@@ -371,8 +355,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../DataOverTime/LineChart.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Line Chart</span></a>
@@ -403,7 +387,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
@@ -412,8 +396,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Proportion/ChordDiagram.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chord Diagram</span></a>
@@ -444,7 +428,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
@@ -453,8 +437,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Animation/Animation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Animation</span></a>
@@ -467,17 +451,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
  <span class="menu-text">𝐎𝐌𝐈𝐂𝐒</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Omics/NetworkPlot.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">NetworkPlot</span></a>
@@ -485,12 +469,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Omics/VolcanoPlot.html" class="sidebar-item-text sidebar-link">
+  <a href="../Omics/VolcanoPlot.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">VolcanoPlot</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">𝐂𝐋𝐈𝐍𝐈𝐂𝐒</span></span>
@@ -502,44 +486,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#example" id="toc-example" class="nav-link active" data-scroll-target="#example">Example</a></li>
+<li><a href="#example" id="toc-example" class="nav-link active" data-scroll-target="#example">Example</a></li>
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
   <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation">Data Preparation</a></li>
-  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a>
+  <li>
+<a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a>
   <ul class="collapse">
-  <li><a href="#basic-plot" id="toc-basic-plot" class="nav-link" data-scroll-target="#basic-plot">1. Basic Plot</a></li>
-  <li><a href="#more-advanced-plots-e.g.histogram-with-density-curve" id="toc-more-advanced-plots-e.g.histogram-with-density-curve" class="nav-link" data-scroll-target="#more-advanced-plots-e.g.histogram-with-density-curve">2. More Advanced Plots (e.g.Histogram with Density Curve)</a></li>
-  </ul></li>
-  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">Applications</a>
-  <ul class="collapse">
-  <li><a href="#applications-of-basic-histogram" id="toc-applications-of-basic-histogram" class="nav-link" data-scroll-target="#applications-of-basic-histogram">1. Applications of Basic Histogram</a></li>
-  </ul></li>
-  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference">Reference</a></li>
-  <li><a href="#contributors" id="toc-contributors" class="nav-link" data-scroll-target="#contributors">Contributors</a></li>
+<li><a href="#basic-volcano-plot" id="toc-basic-volcano-plot" class="nav-link" data-scroll-target="#basic-volcano-plot">1. Basic volcano plot</a></li>
+  <li><a href="#labeled-volcano-plot" id="toc-labeled-volcano-plot" class="nav-link" data-scroll-target="#labeled-volcano-plot">2. Labeled volcano plot</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/openbiox/Bizard/blob/main/Template/visualization_guidance_EN.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/openbiox/Bizard/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
-    </div>
+</li>
+  </ul>
+<div class="toc-actions"><ul>
+<li><a href="https://github.com/openbiox/Bizard/blob/main/Omics/VolcanoPlot.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li>
+<li><a href="https://github.com/openbiox/Bizard/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
+</ul></div></nav>
+</div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Contribution_guidance</h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="../Omics/NetworkPlot.html">𝐎𝐌𝐈𝐂𝐒</a></li>
+<li class="breadcrumb-item"><a href="../Omics/VolcanoPlot.html">VolcanoPlot</a></li>
+</ol></nav><div class="quarto-title">
+<h1 class="title">Volcano Plot</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-contents">
+             <p><strong>[Editor]</strong> Demin Gao; </p>
+             <p><strong>[Contributors]</strong> Ye Xin, Hu Zheng. </p>
+          </div>
+  </div>
     
   
     
@@ -547,227 +535,191 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header>
-
-
-<p>Example guide for a visualization tutorial</p>
-<section id="example" class="level2">
-<h2 class="anchored" data-anchor-id="example">Example</h2>
-<p>【Figure. Example Plot】</p>
-<p>Show the title/diagram notes for the above example diagrams and interpret the meaning of the example diagram xy axes or other identifiers.</p>
-</section>
-<section id="setup" class="level2">
-<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+</header><p>The volcano plot is used to compare the two groups and obtain the up-regulation/down-regulation between the two groups. The screening basis is the p value and FC value, which are converted to -logP value and log2(FC) value. The imported data can be the OTU table or ASV table of the microbiome, the table of transcriptome gene expression, or the features table of metabolomics and other multi-omics data.</p>
+<section id="example" class="level2"><h2 class="anchored" data-anchor-id="example">Example</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="../images/Omics/VolcanoPlot_demo.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="NetworkPlot DEMO"></p>
+</figure>
+</div>
+</section><section id="setup" class="level2"><h2 class="anchored" data-anchor-id="setup">Setup</h2>
 <ul>
 <li><p>System Requirements: Cross-platform (Linux/MacOS/Windows)</p></li>
-<li><p>Programming Language: R</p></li>
-<li><p>Dependencies: (Populate R packages or other resources that the visualization tutorial depends on)</p></li>
+<li><p>Programming language: R</p></li>
+<li><p>Dependent packages: <code>tidyverse</code>; <code>readxl</code>; <code>ggrepel</code></p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Example Code-----</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Installing necessary packages</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"readr"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"readr"</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"ggplot2"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"tidyverse"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading the libraries</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr) </span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2) </span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installing necessary packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"tidyverse"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"readxl"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"readxl"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"ggrepel"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"ggrepel"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="data-preparation" class="level2">
-<h2 class="anchored" data-anchor-id="data-preparation">Data Preparation</h2>
-<ul>
-<li>R built-in datasets (e.g.&nbsp;iris, penguins) and biomedical related datasets (e.g.&nbsp;histology data, survival information, clinical indicators, etc.) need to be included.</li>
-<li>Biomedical related datasets need to be uploaded to the Bizard Tencent Cloud in order to get a link to the insertion tutorial, data from public datasets is best, and if provided by an individual/organization needs to ensure that the data can be made public. The size of the dataset should be less than 1MB.</li>
-</ul>
+</section><section id="data-preparation" class="level2"><h2 class="anchored" data-anchor-id="data-preparation">Data Preparation</h2>
+<p>We import the volcano plot example data from <a href="https://www.omicshare.com/tools/home/report/reportvolcano.html">omicshare</a>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data reading and processing codes can be freely chosen to be displayed or not------</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the TSV data</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_tsv</span>(<span class="st">"https://bizard-1301043367.cos.ap-guangzhou.myqcloud.com/TCGA-LIHC.htseq_counts.tsv.gz"</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter and reshape data for the first gene TSPAN6 (Ensembl ID: ENSG00000000003.13)</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>data1 <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Ensembl_ID <span class="sc">==</span> <span class="st">"ENSG00000000003.13"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="sc">-</span>Ensembl_ID, </span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"sample"</span>, </span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"expression"</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">var =</span> <span class="st">"var1"</span>)  <span class="co"># Add a column to differentiate the variables</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter and reshape data for the second gene SCYL3 (Ensembl ID: ENSG00000000457.12)</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>data2 <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Ensembl_ID <span class="sc">==</span> <span class="st">"ENSG00000000457.12"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="sc">-</span>Ensembl_ID, </span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"sample"</span>, </span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"expression"</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">var =</span> <span class="st">"var2"</span>)  <span class="co"># Add a column to differentiate the variables</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine the two datasets</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>data12 <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(data1, data2)</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co"># View the final combined dataset</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data12)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load excel data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"files/volcano.eg.xlsx"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename column names (handle special characters)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">log2FC =</span> <span class="st">"log2 Ratio(WT0/LOG)"</span>, <span class="at">Pvalue =</span> <span class="st">"Pvalue"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Handle the case where the p-value is 0 (avoid calculating -Inf)</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log10P =</span> <span class="sc">-</span><span class="fu">log10</span>(Pvalue <span class="sc">+</span> <span class="fl">1e-300</span>)) <span class="co"># Make sure to handle the case where P=0</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to numeric type and handle values that fail to convert (such as invalid characters)</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">log2FC =</span> <span class="fu">as.numeric</span>(log2FC) <span class="co"># Values that fail the conversion become NA</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the original value that caused the conversion to fail</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(log2FC)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(log2FC) <span class="co"># View the raw log2FC values for these lines</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 4
-  Ensembl_ID         sample           expression var  
-  &lt;chr&gt;              &lt;chr&gt;                 &lt;dbl&gt; &lt;chr&gt;
-1 ENSG00000000003.13 TCGA-DD-A4NG-01A      12.8  var1 
-2 ENSG00000000003.13 TCGA-G3-AAV4-01A       9.72 var1 
-3 ENSG00000000003.13 TCGA-2Y-A9H1-01A      11.3  var1 
-4 ENSG00000000003.13 TCGA-CC-A3M9-01A      11.6  var1 
-5 ENSG00000000003.13 TCGA-K7-AAU7-01A      11.5  var1 
-6 ENSG00000000003.13 TCGA-BC-A10W-01A      12.0  var1 </code></pre>
+<pre><code># A tibble: 0 × 1
+# ℹ 1 variable: log2FC &lt;dbl&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Repair the data as needed (e.g. replace or remove outliers)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Replace "Inf" with an actual value or filter out</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">log2FC =</span> <span class="fu">ifelse</span>(log2FC <span class="sc">==</span> <span class="st">"Inf"</span>, <span class="dv">100</span>, log2FC), <span class="co"># Adjust according to needs</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">log2FC =</span> <span class="fu">as.numeric</span>(log2FC)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(log2FC)) <span class="co"># Delete the rows that cannot be repaired</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Defining significance (satisfying both P value &lt; 0.05 and |log2FC| &gt; 1)</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Define significance categories (upregulated, downregulated, not significant)</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">significant =</span> <span class="fu">case_when</span>(</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>      Pvalue <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="sc">&amp;</span> log2FC <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"Upregulated"</span>, <span class="co"># Up (red)</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>      Pvalue <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="sc">&amp;</span> log2FC <span class="sc">&lt;</span> <span class="sc">-</span><span class="dv">2</span> <span class="sc">~</span> <span class="st">"Downregulated"</span>, <span class="co"># Down (green)</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Not significant"</span> <span class="co"># Not significant (grey)</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co"># View data structure</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 10
+  GeneID         LOG_count WT0_count LOG_rpkm WT0_rpkm  log2FC    Pvalue     FDR
+  &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+1 Unigene0000003     17243     17525   932.     942.    0.0168   5.15e-1 6.73e-1
+2 Unigene0000004        65       101     4.12     6.37  0.629    6.64e-3 1.79e-2
+3 Unigene0000005       909       984    36.9     39.7   0.108    1.26e-1 2.25e-1
+4 Unigene0000006      1376      1082    74.7     58.5  -0.353    1.17e-8 6.86e-8
+5 Unigene0000007       121        73    15.7      9.42 -0.736    7.42e-4 2.45e-3
+# ℹ 2 more variables: significant &lt;chr&gt;, log10P &lt;dbl&gt;</code></pre>
 </div>
 </div>
-</section>
-<section id="visualization" class="level2">
-<h2 class="anchored" data-anchor-id="visualization">Visualization</h2>
-<section id="basic-plot" class="level3">
-<h3 class="anchored" data-anchor-id="basic-plot">1. Basic Plot</h3>
-<p>Use the base functions to draw graphical annotations and profiles of images. e.g.@fig-BasicHist illustrates the distribution of expression levels for the TSPAN6 gene across different samples.</p>
+</section><section id="visualization" class="level2"><h2 class="anchored" data-anchor-id="visualization">Visualization</h2>
+<section id="basic-volcano-plot" class="level3"><h3 class="anchored" data-anchor-id="basic-volcano-plot">1. Basic volcano plot</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic Drawing Code Example-----</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-BasicHist</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Basic Histogram"</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| out.width: "95%"</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic Histogram</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data1, <span class="fu">aes</span>(<span class="at">x =</span> expression)) <span class="sc">+</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Gene Expression"</span>, <span class="at">y =</span> <span class="st">"Count"</span>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>p1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic volcano plot</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> log2FC, <span class="at">y =</span> <span class="sc">-</span><span class="fu">log10</span>(Pvalue))) <span class="sc">+</span> <span class="co"># Plot preliminary volcano</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Plot scatter points, colored by significant categories</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> significant), <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span> </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Set color mapping (up: red, down: green, no significant: gray)</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Upregulated"</span> <span class="ot">=</span> <span class="st">"red"</span>, <span class="st">"Downregulated"</span> <span class="ot">=</span> <span class="st">"green"</span>, <span class="st">"Not significant"</span> <span class="ot">=</span> <span class="st">"gray"</span>),</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">"Significance"</span> <span class="co"># Legend Title</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Adding a filter threshold line</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="dv">2</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"green"</span>, <span class="at">linewidth =</span> <span class="fl">0.5</span>) <span class="sc">+</span> <span class="co"># log2FC threshold line</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="sc">-</span><span class="fu">log10</span>(<span class="fl">0.05</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">linewidth =</span> <span class="fl">0.5</span>) <span class="sc">+</span> <span class="co"># p-value threshold line</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Adjust axes and titles</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"log2(Fold Change)"</span>, <span class="at">y =</span> <span class="st">"-log10(P-value)"</span>,</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Volcano Plot with Thresholds"</span>) <span class="sc">+</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">"bold"</span>), <span class="co"># Title centered bold</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"right"</span>) <span class="co"># Legend position</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="visualization_guidance_EN_files/figure-html/fig1BasicHist-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div id="fig-1.1BasicVolcano" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-1.1BasicVolcano-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="VolcanoPlot_files/figure-html/fig-1.1BasicVolcano-1.png" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1.1BasicVolcano-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 1: Basic volcano plot
+</figcaption></figure>
 </div>
 </div>
 </div>
-<p>Supplement the base code with important parameters that can be extended and provide the corresponding plotting code.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Key Parameters: <code>binwidth</code> / <code>bins</code></strong></p>
-<p>The <code>binwidth</code> or <code>bins</code> parameter determines how much data each bin will contain. Modifying these values can significantly affect the appearance of the histogram and the information conveyed.</p>
-</div>
-</div>
+</section><section id="labeled-volcano-plot" class="level3"><h3 class="anchored" data-anchor-id="labeled-volcano-plot">2. Labeled volcano plot</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code example (with supplementary parameter `bins`)-----</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-bins</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Key Parameters: `binwidth` / `bins`"</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig.width: 8</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig.heright: 2</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#| out.width: "95%"</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>p2_1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data1, <span class="fu">aes</span>(<span class="at">x =</span> expression)) <span class="sc">+</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Bins = 30"</span>) <span class="sc">+</span> </span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Gene Expression"</span>, <span class="at">y =</span> <span class="st">"Count"</span>)</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>p2_2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data1, <span class="fu">aes</span>(<span class="at">x =</span> expression)) <span class="sc">+</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">50</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Bins = 50"</span>) <span class="sc">+</span> </span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Gene Expression"</span>, <span class="at">y =</span> <span class="st">"Count"</span>)</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>cowplot<span class="sc">::</span><span class="fu">plot_grid</span>(p2_1, p2_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add Label</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Screening genes to be annotated</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>label_data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Pvalue <span class="sc">&lt;</span> <span class="fl">0.05</span>) <span class="sc">%&gt;%</span> <span class="co"># Screening of significant genes</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(significant) <span class="sc">%&gt;%</span> <span class="co"># Group by up and down</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">10</span>, <span class="fu">abs</span>(log2FC)) <span class="sc">%&gt;%</span> <span class="co"># Take the 10 with the largest absolute values of log2FC</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Define label colors (light red and light green)</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>label_colors <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Upregulated"</span> <span class="ot">=</span> <span class="st">"#FF9999"</span>,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Downregulated"</span> <span class="ot">=</span> <span class="st">"#99FF99"</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3: Draw a labeled volcano plot</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> </span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> log2FC, <span class="at">y =</span> <span class="sc">-</span><span class="fu">log10</span>(Pvalue))) <span class="sc">+</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> significant), <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add gene tags (only target genes are marked)</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> label_data,</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> GeneID, <span class="at">color =</span> significant), <span class="co"># Assume that the gene name column is named OTU ID</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">box.padding =</span> <span class="fl">0.5</span>, <span class="co"># Label padding</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">max.overlaps =</span> <span class="dv">50</span>, <span class="co"># Maximum overlap allowed</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">segment.color =</span> <span class="st">"grey50"</span>, <span class="co"># Connection line color</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">show.legend =</span> <span class="cn">FALSE</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Set color mapping (original color + label color)</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Upregulated"</span> <span class="ot">=</span> <span class="st">"red"</span>, <span class="st">"Downregulated"</span> <span class="ot">=</span> <span class="st">"green"</span>, <span class="st">"Not significant"</span> <span class="ot">=</span> <span class="st">"gray"</span>),</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">guide =</span> <span class="fu">guide_legend</span>(<span class="at">override.aes =</span> <span class="fu">list</span>(</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"green"</span>, <span class="st">"gray"</span>), <span class="co"># Legend color remains original</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>      <span class="at">label =</span> <span class="st">""</span> <span class="co"># No text is displayed in the legend</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>      ))) <span class="sc">+</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Control label color (light red and light green)</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> label_colors,</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">guide =</span> <span class="st">"none"</span> <span class="co"># Hide additional legend</span></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Keep the original threshold line and title</span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="dv">2</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="sc">-</span><span class="fu">log10</span>(<span class="fl">0.05</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Volcano Plot with Top 20 Labels"</span>) <span class="sc">+</span></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="visualization_guidance_EN_files/figure-html/fig2binwidth/bins-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div id="fig-1.1LabelVolcano" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-1.1LabelVolcano-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="VolcanoPlot_files/figure-html/fig-1.1LabelVolcano-1.png" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1.1LabelVolcano-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 2: Labeled volcano plot
+</figcaption></figure>
 </div>
 </div>
 </div>
-</section>
-<section id="more-advanced-plots-e.g.histogram-with-density-curve" class="level3">
-<h3 class="anchored" data-anchor-id="more-advanced-plots-e.g.histogram-with-density-curve">2. More Advanced Plots (e.g.Histogram with Density Curve)</h3>
-<p>Introduces complex types of visualization, such as using functions that contain more custom parameters, using multiple base chart overlays, adding statistical tests, and more.</p>
-<p>e.g.&nbsp;The density curve provides a smooth representation of the data distribution. Unlike the histogram, which depends on the number of bins, the density curve uses kernel density estimation (KDE) to smooth the distribution. This allows a clearer understanding of the overall trend and shape of the data.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Advanced Drawing Code Example-----</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-DensityCurve</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Histogram with Density Curve"</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| out.width: "95%"</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data1, <span class="fu">aes</span>(<span class="at">x =</span> expression)) <span class="sc">+</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)), <span class="at">bins =</span> <span class="dv">30</span>, <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">fill =</span> <span class="st">"#FF6666"</span>) <span class="sc">+</span> </span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Gene Expression"</span>, <span class="at">y =</span> <span class="st">"Density"</span>)</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>p1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="visualization_guidance_EN_files/figure-html/fig3w/Density Curve-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Optionally you can add a detailed description of the parameters using <code>callout-tip</code> if you need it.</p>
-</section>
-</section>
-<section id="applications" class="level2">
-<h2 class="anchored" data-anchor-id="applications">Applications</h2>
-<p>Demonstrate the practical application of visualization charts in the biomedical literature, with the option to show basic/advanced charts separately if they are widely used in various types of biomedical literature.</p>
-<p>e.g.</p>
-<section id="applications-of-basic-histogram" class="level3">
-<h3 class="anchored" data-anchor-id="applications-of-basic-histogram">1. Applications of Basic Histogram</h3>
-<div id="fig-HistApplications" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="HistApp1">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-HistApplications-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/Histogram_app1.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="HistApp1">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-HistApplications-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Applications of Basic Histogram
-</figcaption>
-</figure>
-</div>
-<p>Figure 9 shows the differences between the relative frequencies of human X and human Y chromosome’s histograms for n = 6. [1]</p>
-<p>Additional image figure notes and source documentation information are required. A code reproduction of the figure may be added at the author’s discretion.</p>
-</section>
-</section>
-<section id="reference" class="level2">
-<h2 class="anchored" data-anchor-id="reference">Reference</h2>
-<p>e.g.&nbsp;1. Costa, A. M., Machado, J. T., &amp; Quelhas, M. D. (2011). Histogram-based DNA analysis for the visualization of chromosome, genome, and species information. <em>Bioinformatics, 27</em>(9), 1207–1214. <a href="https://doi.org/10.1093/bioinformatics/btr131" class="uri">https://doi.org/10.1093/bioinformatics/btr131</a></p>
-</section>
-<section id="contributors" class="level2">
-<h2 class="anchored" data-anchor-id="contributors">Contributors</h2>
-<ul>
-<li><strong>Editor</strong>: Yours name.</li>
-<li><strong>Reviewers</strong>: Reviewers name.</li>
-</ul>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -1165,10 +1117,7 @@ Figure&nbsp;1: Applications of Basic Histogram
       }
     }
   });
-  </script>
-<input type="hidden" id="giscus-base-theme" value="preferred_color_scheme">
-<input type="hidden" id="giscus-alt-theme" value="preferred_color_scheme">
-<script>
+  </script><input type="hidden" id="giscus-base-theme" value="preferred_color_scheme"><input type="hidden" id="giscus-alt-theme" value="preferred_color_scheme"><script>
   function loadGiscus() {
     // Function to get the theme based on body class
     const getTheme = () => {
@@ -1194,23 +1143,33 @@ Figure&nbsp;1: Applications of Basic Histogram
     document.getElementById("quarto-content").appendChild(script);
   }
   loadGiscus();
-</script>
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="../Omics/NetworkPlot.html" class="pagination-link" aria-label="NetworkPlot">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">NetworkPlot</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../About.html" class="pagination-link" aria-label="About Us">
+        <span class="nav-page-text">About Us</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>© CC-By Peng Lab, 2024-2025. All rights reserved.</p>
 </div>   
     <div class="nav-footer-center">
 <p><a href="https://clustrmaps.com/site/1c4xe" title="Visit tracker"><img src="//clustrmaps.com/map_v2.png?cl=ffffff&amp;w=a&amp;t=n&amp;d=VK6_Uhjas4vA0CDps3EFeB0Fotb8hU50SYT4Fcq5nUI&amp;co=91c5eb&amp;ct=000000"></a></p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/openbiox/Bizard/blob/main/Template/visualization_guidance_EN.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/openbiox/Bizard/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul>
+<li><a href="https://github.com/openbiox/Bizard/blob/main/Omics/VolcanoPlot.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li>
+<li><a href="https://github.com/openbiox/Bizard/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
+</ul></div>
+</div>
     <div class="nav-footer-right">
 <p>This page is built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
   </div>
 </footer>
-
-
-
-
-</body></html>
+</body>
+</html>

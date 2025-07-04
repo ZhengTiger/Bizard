@@ -623,6 +623,61 @@
     ]
   },
   {
+    "objectID": "Omics/VolcanoPlot.html",
+    "href": "Omics/VolcanoPlot.html",
+    "title": "Volcano Plot",
+    "section": "",
+    "text": "The volcano plot is used to compare the two groups and obtain the up-regulation/down-regulation between the two groups. The screening basis is the p value and FC value, which are converted to -logP value and log2(FC) value. The imported data can be the OTU table or ASV table of the microbiome, the table of transcriptome gene expression, or the features table of metabolomics and other multi-omics data.",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "VolcanoPlot"
+    ]
+  },
+  {
+    "objectID": "Omics/VolcanoPlot.html#example",
+    "href": "Omics/VolcanoPlot.html#example",
+    "title": "Volcano Plot",
+    "section": "Example",
+    "text": "Example",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "VolcanoPlot"
+    ]
+  },
+  {
+    "objectID": "Omics/VolcanoPlot.html#setup",
+    "href": "Omics/VolcanoPlot.html#setup",
+    "title": "Volcano Plot",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: tidyverse; readxl; ggrepel\n\n\n# Installing necessary packages\nif (!requireNamespace(\"tidyverse\", quietly = TRUE)) {\n  install.packages(\"tidyverse\")\n}\nif (!requireNamespace(\"readxl\", quietly = TRUE)) {\n  install.packages(\"readxl\")\n}\nif (!requireNamespace(\"ggrepel\", quietly = TRUE)) {\n  install.packages(\"ggrepel\")\n}\n\n# Load packages\nlibrary(tidyverse)\nlibrary(readxl)\nlibrary(ggrepel)",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "VolcanoPlot"
+    ]
+  },
+  {
+    "objectID": "Omics/VolcanoPlot.html#data-preparation",
+    "href": "Omics/VolcanoPlot.html#data-preparation",
+    "title": "Volcano Plot",
+    "section": "Data Preparation",
+    "text": "Data Preparation\nWe import the volcano plot example data from omicshare.\n\n# Load excel data\ndata &lt;- read_excel(\"files/volcano.eg.xlsx\")\n\n# Rename column names (handle special characters)\ndata &lt;- data %&gt;%\n  rename(log2FC = \"log2 Ratio(WT0/LOG)\", Pvalue = \"Pvalue\")\n# Handle the case where the p-value is 0 (avoid calculating -Inf)\ndata &lt;- data %&gt;%\n  mutate(log10P = -log10(Pvalue + 1e-300)) # Make sure to handle the case where P=0\n# Convert to numeric type and handle values that fail to convert (such as invalid characters)\ndata &lt;- data %&gt;%\n  mutate(\n    log2FC = as.numeric(log2FC) # Values that fail the conversion become NA\n  )\n\n# Find the original value that caused the conversion to fail\ndata %&gt;%\n  filter(is.na(log2FC)) %&gt;%\n  select(log2FC) # View the raw log2FC values for these lines\n\n# A tibble: 0 × 1\n# ℹ 1 variable: log2FC &lt;dbl&gt;\n\n# Repair the data as needed (e.g. replace or remove outliers)\n# Example: Replace \"Inf\" with an actual value or filter out\ndata &lt;- data %&gt;%\n  mutate(\n    log2FC = ifelse(log2FC == \"Inf\", 100, log2FC), # Adjust according to needs\n    log2FC = as.numeric(log2FC)\n    ) %&gt;%\n  filter(!is.na(log2FC)) # Delete the rows that cannot be repaired\n\n# Defining significance (satisfying both P value &lt; 0.05 and |log2FC| &gt; 1)\n# Define significance categories (upregulated, downregulated, not significant)\ndata &lt;- data %&gt;%\n  mutate(\n    significant = case_when(\n      Pvalue &lt; 0.05 & log2FC &gt; 2 ~ \"Upregulated\", # Up (red)\n      Pvalue &lt; 0.05 & log2FC &lt; -2 ~ \"Downregulated\", # Down (green)\n      TRUE ~ \"Not significant\" # Not significant (grey)\n    )\n  )\n\n# View data structure\nhead(data, 5)\n\n# A tibble: 5 × 10\n  GeneID         LOG_count WT0_count LOG_rpkm WT0_rpkm  log2FC    Pvalue     FDR\n  &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;\n1 Unigene0000003     17243     17525   932.     942.    0.0168   5.15e-1 6.73e-1\n2 Unigene0000004        65       101     4.12     6.37  0.629    6.64e-3 1.79e-2\n3 Unigene0000005       909       984    36.9     39.7   0.108    1.26e-1 2.25e-1\n4 Unigene0000006      1376      1082    74.7     58.5  -0.353    1.17e-8 6.86e-8\n5 Unigene0000007       121        73    15.7      9.42 -0.736    7.42e-4 2.45e-3\n# ℹ 2 more variables: significant &lt;chr&gt;, log10P &lt;dbl&gt;",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "VolcanoPlot"
+    ]
+  },
+  {
+    "objectID": "Omics/VolcanoPlot.html#visualization",
+    "href": "Omics/VolcanoPlot.html#visualization",
+    "title": "Volcano Plot",
+    "section": "Visualization",
+    "text": "Visualization\n\n1. Basic volcano plot\n\n# Basic volcano plot\np &lt;- \n  ggplot(data, aes(x = log2FC, y = -log10(Pvalue))) + # Plot preliminary volcano\n  # Plot scatter points, colored by significant categories\n  geom_point(aes(color = significant), alpha = 0.6, size = 1.5) + \n  # Set color mapping (up: red, down: green, no significant: gray)\n  scale_color_manual(\n    values = c(\"Upregulated\" = \"red\", \"Downregulated\" = \"green\", \"Not significant\" = \"gray\"),\n    name = \"Significance\" # Legend Title\n    ) +\n  # Adding a filter threshold line\n  geom_vline(xintercept = c(-2, 2), linetype = \"dashed\", color = \"green\", linewidth = 0.5) + # log2FC threshold line\n  geom_hline(yintercept = -log10(0.05), linetype = \"dashed\", color = \"blue\", linewidth = 0.5) + # p-value threshold line\n  # Adjust axes and titles\n  labs(x = \"log2(Fold Change)\", y = \"-log10(P-value)\",\n       title = \"Volcano Plot with Thresholds\") +\n  theme_minimal() +\n  theme(plot.title = element_text(hjust = 0.5, face = \"bold\"), # Title centered bold\n        legend.position = \"right\") # Legend position\n\np\n\n\n\n\n\n\n\nFigure 1: Basic volcano plot\n\n\n\n\n\n\n\n2. Labeled volcano plot\n\n# Add Label\n# Step 1: Screening genes to be annotated\nlabel_data &lt;- data %&gt;%\n  filter(Pvalue &lt; 0.05) %&gt;% # Screening of significant genes\n  group_by(significant) %&gt;% # Group by up and down\n  top_n(10, abs(log2FC)) %&gt;% # Take the 10 with the largest absolute values of log2FC\n  ungroup()\n# Step 2: Define label colors (light red and light green)\nlabel_colors &lt;- c(\n  \"Upregulated\" = \"#FF9999\",\n  \"Downregulated\" = \"#99FF99\"\n  )\n# Step 3: Draw a labeled volcano plot\np &lt;- \n  ggplot(data, aes(x = log2FC, y = -log10(Pvalue))) +\n  geom_point(aes(color = significant), alpha = 0.6, size = 1.5) +\n  # Add gene tags (only target genes are marked)\n  geom_text_repel(\n    data = label_data,\n    aes(label = GeneID, color = significant), # Assume that the gene name column is named OTU ID\n    size = 3,\n    box.padding = 0.5, # Label padding\n    max.overlaps = 50, # Maximum overlap allowed\n    segment.color = \"grey50\", # Connection line color\n    show.legend = FALSE\n    ) +\n  # Set color mapping (original color + label color)\n  scale_color_manual(\n    values = c(\"Upregulated\" = \"red\", \"Downregulated\" = \"green\", \"Not significant\" = \"gray\"),\n    guide = guide_legend(override.aes = list(\n      color = c(\"red\", \"green\", \"gray\"), # Legend color remains original\n      label = \"\" # No text is displayed in the legend\n      ))) +\n  # Control label color (light red and light green)\n  scale_color_manual(\n    values = label_colors,\n    guide = \"none\" # Hide additional legend\n    ) +\n  # Keep the original threshold line and title\n  geom_vline(xintercept = c(-2, 2), linetype = \"dashed\", color = \"black\") +\n  geom_hline(yintercept = -log10(0.05), linetype = \"dashed\", color = \"black\") +\n  labs(title = \"Volcano Plot with Top 20 Labels\") +\n  theme_minimal()\n\np\n\n\n\n\n\n\n\nFigure 2: Labeled volcano plot",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "VolcanoPlot"
+    ]
+  },
+  {
     "objectID": "Correlation/Correlogram.html",
     "href": "Correlation/Correlogram.html",
     "title": "Correlogram",
