@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://openbiox.github.io/Bizard/GraphGallery.html</loc>
-    <lastmod>2025-07-04T09:18:13.372Z</lastmod>
-  </url>
-  <url>
-    <loc>https://openbiox.github.io/Bizard/Template/contribution_0323.html</loc>
-    <lastmod>2025-07-04T09:18:13.373Z</lastmod>
-  </url>
-  <url>
-    <loc>https://openbiox.github.io/Bizard/Omics/NetworkPlot.html</loc>
-    <lastmod>2025-07-04T09:18:13.372Z</lastmod>
-  </url>
-  <url>
-    <loc>https://openbiox.github.io/Bizard/Omics/VolcanoPlot.html</loc>
-    <lastmod>2025-07-04T09:18:13.372Z</lastmod>
-  </url>
-  <url>
-    <loc>https://openbiox.github.io/Bizard/Omics/SankeyBubblePlot.html</loc>
-    <lastmod>2025-07-04T09:18:13.372Z</lastmod>
+    <loc>https://openbiox.github.io/Bizard/Ranking/UpsetPlot.html</loc>
+    <lastmod>2025-07-04T12:55:22.294Z</lastmod>
   </url>
   <url>
     <loc>https://openbiox.github.io/Bizard/index.html</loc>
-    <lastmod>2025-07-04T09:18:13.415Z</lastmod>
+    <lastmod>2025-07-04T12:55:22.337Z</lastmod>
+  </url>
+  <url>
+    <loc>https://openbiox.github.io/Bizard/Omics/SankeyBubblePlot.html</loc>
+    <lastmod>2025-07-04T12:55:22.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://openbiox.github.io/Bizard/Omics/VolcanoPlot.html</loc>
+    <lastmod>2025-07-04T12:55:22.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://openbiox.github.io/Bizard/Omics/NetworkPlot.html</loc>
+    <lastmod>2025-07-04T12:55:22.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://openbiox.github.io/Bizard/Template/contribution_0323.html</loc>
+    <lastmod>2025-07-04T12:55:22.294Z</lastmod>
+  </url>
+  <url>
+    <loc>https://openbiox.github.io/Bizard/GraphGallery.html</loc>
+    <lastmod>2025-07-04T12:55:22.293Z</lastmod>
   </url>
 </urlset>

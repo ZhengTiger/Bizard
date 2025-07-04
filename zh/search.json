@@ -1,70 +1,198 @@
 [
   {
-    "objectID": "GraphGallery.html",
-    "href": "GraphGallery.html",
-    "title": "Graph Gallery",
+    "objectID": "Ranking/UpsetPlot.html",
+    "href": "Ranking/UpsetPlot.html",
+    "title": "Upset图",
     "section": "",
-    "text": "👋 Bizard 是一个为生物医学研究量身定制的高级可视化代码综合存储库。\n该工具包包括各种各样的图表选项，从变化分布到交互式可视化，系统组织以满足生物医学数据分析的独特需求。建立在强大的基础上，每个示例都包含可重复的 R 代码，详细注释和现实世界数据集，以确保可访问性和实际应用。\n借助初学者和经验丰富的研究人员的资源，Bizard 使用户能够创建直观，科学严格且视觉上令人信服的输出，从而在生物医学领域中推进数据可视化标准。",
+    "text": "Upset 图与 Venn 图类似，主要展示不同集合交叉点中的元素数量，然而当 Venn 图中集合达到 5 个时可读性开始急剧下降，Upset 图则可以很好的解决 Venn 图可读性差的问题，并且还能提供元素属性的附加统计信息。",
     "crumbs": [
-      "Graph Gallery"
+      "Ranking",
+      "UpsetPlot"
     ]
   },
   {
-    "objectID": "GraphGallery.html#under-construction-demo-only",
-    "href": "GraphGallery.html#under-construction-demo-only",
-    "title": "Graph Gallery",
-    "section": "UNDER CONSTRUCTION [DEMO ONLY]",
-    "text": "UNDER CONSTRUCTION [DEMO ONLY]",
+    "objectID": "Ranking/UpsetPlot.html#示例",
+    "href": "Ranking/UpsetPlot.html#示例",
+    "title": "Upset图",
+    "section": "示例",
+    "text": "示例\n\n\n\n\n\n此图为 Upset 图的基本样式，图像分为三部分，分别是上方的不同集合之间交集的元素数量发直方图，左侧为不同集合包含元素数量的直方图。中间的矩阵部分则是集合之间的交集情况，如下图所示：\n\n\n\n\n\n当一个交集的元素存在于某集合时使用黑点标记，否则使用白点标记，例如绿色部分仅在 B 集合处标记为黑色则表明该列为仅在 B 中存在的元素，以此类推。",
     "crumbs": [
-      "Graph Gallery"
+      "Ranking",
+      "UpsetPlot"
     ]
   },
   {
-    "objectID": "GraphGallery.html#distribution-gallery",
-    "href": "GraphGallery.html#distribution-gallery",
-    "title": "Graph Gallery",
-    "section": "Distribution Gallery",
-    "text": "Distribution Gallery",
+    "objectID": "Ranking/UpsetPlot.html#环境配置",
+    "href": "Ranking/UpsetPlot.html#环境配置",
+    "title": "Upset图",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统要求： 跨平台（Linux/MacOS/Windows）\n编程语言：R\n依赖包：UpSetR; ggupset\n\n\n# 安装包\nif (!requireNamespace(\"UpSetR\", quietly = TRUE)) {\n  install.packages(\"UpSetR\")\n}\nif (!requireNamespace(\"ggupset\", quietly = TRUE)) {\n  install.packages(\"ggupset\")\n}\n\n# 加载包\nlibrary(UpSetR)\nlibrary(ggupset)",
     "crumbs": [
-      "Graph Gallery"
+      "Ranking",
+      "UpsetPlot"
     ]
   },
   {
-    "objectID": "GraphGallery.html#correlation-gallery",
-    "href": "GraphGallery.html#correlation-gallery",
-    "title": "Graph Gallery",
-    "section": "Correlation Gallery",
-    "text": "Correlation Gallery\n\n\n\nCorrelation DEMO",
+    "objectID": "Ranking/UpsetPlot.html#数据准备",
+    "href": "Ranking/UpsetPlot.html#数据准备",
+    "title": "Upset图",
+    "section": "数据准备",
+    "text": "数据准备\n\nmovies 数据集由 GroupLens 实验室和 Bilal Alsallakh 创建；mutations 数据集最初由 TCGA 联盟创建，表示 284 个多形性胶质母细胞瘤中 100 个常见基因突变的突变情况。\n两个数据集均被包含至 UpSetR 包中\n\n\n# UpSetR 可以接受三种格式的数据，第一种是具有命名向量的list(见listInput变量)，第二种是表达式向量(见expressionInput变量)，第三种是0,1构成的数据框(见movies和mutations变量)\n# 读取 CSV 数据\n# list格式需要对list中的每个向量为一个集合，UpSetR要求对每个集合进行命名，向量中的元素为对应集合的成员。使用upset函数绘图时需要使用fromList函数对list数据进行格式转化。\nlistInput &lt;- list(one = c(1, 2, 3, 5, 7, 8, 11, 12, 13), two = c(1, 2, 4, 5, 10), three = c(1, 5, 6, 7, 8, 9, 10, 12, 13))\n#expression格式则接受一个类表达式的向量。表达式向量的元素是一个交集中集合的名称（以&分隔），以及该交集中的数字元素。使用upset函数绘图时需要使用fromExpression函数对list数据进行格式转化。\nexpressionInput &lt;- c(one = 2, two = 1, three = 2, `one&two` = 1, `one&three` = 4, `two&three` = 1, `one&two&three` = 2)\n\n# 数据框格式每列为一个集合，每行为一个元素。要求数据框由0 1组成，分别表示元素是否存在于集合，当列存在非01的值时，该列被认为是元素的属性。\nmovies &lt;- read.csv( system.file(\"extdata\", \"movies.csv\", package = \"UpSetR\"), header=T, sep=\";\" )\nmutations &lt;- read.csv( system.file(\"extdata\", \"mutations.csv\", package = \"UpSetR\"), header=T, sep = \",\")",
     "crumbs": [
-      "Graph Gallery"
+      "Ranking",
+      "UpsetPlot"
     ]
   },
   {
-    "objectID": "GraphGallery.html#ranking-gallery",
-    "href": "GraphGallery.html#ranking-gallery",
-    "title": "Graph Gallery",
-    "section": "Ranking Gallery",
-    "text": "Ranking Gallery\n\n\n\nRanking DEMO",
+    "objectID": "Ranking/UpsetPlot.html#可视化",
+    "href": "Ranking/UpsetPlot.html#可视化",
+    "title": "Upset图",
+    "section": "可视化",
+    "text": "可视化\n\n1. 基础 Upset 图\n此基础 Upset 图展示了包含不同元素的电影数量。\n\n# 使用上面三种数据类型绘制 Upset 图\nupset(fromList(listInput))\nupset(fromExpression(expressionInput))\nupset(movies)\n\n\n\n\n\n\n\n图 1: 基础 Upset 图\n\n\n\n\n\n\n\n\n\n\n\n图 2: 基础 Upset 图\n\n\n\n\n\n\n\n\n\n\n\n图 3: 基础 Upset 图\n\n\n\n\n\n\n\n\n\n\n\n提示\n\n\n\n关键参数: nsets\nnsets 参数决定了使用多少个集合绘制 UpSet 图，未设置时默认为 5。\n\n\n\n# 设置 nset 为 6，使用 mutations 数据集\nupset(mutations, nsets = 6)\n\n\n\n\n\n\n\n图 4: 关键参数: nsets\n\n\n\n\n\n此图使用了突变次数最多的 6 个基因，展示了包含不同突变的多形性胶质母细胞瘤数量。\n\n\n\n\n\n\n提示\n\n\n\n关键参数: order.by\norder.by 参数决定了 UpSet 图中交集的排列顺序，未设置时根据取交集的集合数量从小到大排列，设置为 “degree” 时根据交集的元素数量从大到小排列，设置为 “freq” 时根据交集的大小从大到小排列。\n\n\n\n# order.by不同的三种设置方式，使用mutations数据集\nupset(mutations)\nupset(mutations, order.by = \"degree\")\nupset(mutations, order.by = \"freq\")\n\n\n\n\n\n\n\n图 5: 关键参数: order.by\n\n\n\n\n\n\n\n\n\n\n\n图 6: 关键参数: order.by\n\n\n\n\n\n\n\n\n\n\n\n图 7: 关键参数: order.by\n\n\n\n\n\n\n\n\n\n\n\n提示\n\n\n\n关键参数: sets\nsets 参数可以指定需要绘制的集合，未设置时取元素最多的 nsets 个集合，另外 keep.order 参数可以使集合柱状图的顺序与 sets 输入的顺序保持一致。\n\n\n\n# 指定\"TTN\",\"NF1\",\"FLG\",\"KEL\"四个基因为目标集合，并使集合柱状图顺序与sets参数一致保持\nupset(mutations, sets = c(\"TTN\",\"NF1\",\"FLG\",\"KEL\"), keep.order = T)\n\n\n\n\n\n\n\n图 8: 关键参数: sets\n\n\n\n\n\n\n\n\n\n\n\n提示\n\n\n\n关键参数: empty.intersections\nempty.intersections 参数默认设置为 “NULL”，此时不显示空交集，当设置为任意参数时会显示空交集。\n\n\n\n#显示空交集\nupset(mutations, sets = c(\"TTN\",\"NF1\",\"FLG\",\"KEL\"), keep.order = T, empty.intersections=T)\n\n\n\n\n\n\n\n图 9: 关键参数: empty.intersections\n\n\n\n\n\n\n\n\n\n\n\n提示\n\n\n\n关键参数: decreasing\ndecreasing 参数设置则可以调转 order.by 或 keep.order 的方向，有多个排序方向需要控制时，输入含有多个元素的向量，如”c(T,F)”\n\n\n\n# 调换排序方向\nupset(mutations, sets = c(\"TTN\",\"NF1\",\"FLG\",\"KEL\"), keep.order = T, decreasing = c(T, T))\n\n\n\n\n\n\n\n图 10: 关键参数: decreasing\n\n\n\n\n\n\n\n2. 个性化 Upset 图\n图像比例方面，mb.ratio 参数默认为 “c(0.7, 0.3)”，可以指定交集柱状图与交集矩阵点图之间的比例大小，需要输入一个含有两个元素的向量，分别表示柱状图与矩阵点图的高度占全图的高度比例。\n\nupset(mutations, mb.ratio=c(0.5,0.5))\n\n\n\n\n\n\n\n图 11: 关键参数: mb.ratio\n\n\n\n\n\n图像颜色方面，UpSetR 包提供了多个参数可以设置 Upset 图中不同部分的颜色：\n\nupset(mutations,\n      shade.color = \"#4C4C4C\", # 交集矩阵点图阴影的颜色\n      matrix.color = \"#067522\", # 矩阵中点和线的颜色\n      main.bar.color = \"#3E7B92\", # 交集元素数量柱状图的颜色\n      sets.bar.color = \"#C9AE42\" # 集合数量柱状图的颜色\n)\n\n\n\n\n\n\n\n图 12: Upset图颜色设置\n\n\n\n\n\n如果想要突出某些交集，则需要使用到 UpSetR 包提供的 queries 参数，queries 参数需要输入一个列表 list，这个 list 中至少包含一个子 list，每个子 list 中需要包含以下字段：query、params、color、active 和 query.name。\n\nquery 可输入 intersects 或 elements，效果都一样\nparams 指定一个子集，输入同样为一个 list，list 中的元素可为集合的名称，多个元素表示取这些元素的交集。\ncolor 是将在 plot 上表示的颜色。如果没有提供颜色，将从 UpSetR 默认调色板中选择一种颜色。\nactive 决定查询将如何在图上表示。如果 active 为 TRUE，则交叉大小条将被表示查询的条覆盖。如果 active 为 FALSE，一个抖动点将被放置在相交的大小条上。\nquery.name 为当前突出集合的名称，需要用 query.legend 参数指定图例位置，query.legend 可以输入”top”或”bottom”\n\n\nupset(mutations, sets = c(\"TTN\",\"NF1\",\"FLG\",\"KEL\"), keep.order = T,\n      query.legend = \"top\", \n      queries = list(list(query = intersects, params = list(\"TTN\"), active = T, query.name = \"NAME\"),\n                     list(query = elements, params = list(\"TTN\",\"NF1\"))))\n\n\n\n\n\n\n\n图 13: 关键参数: queries\n\n\n\n\n\n图像标签与字体方面，同样有多个参数可以调整：\n\nupset(mutations,\n      number.angles = 30, # 交集柱状图上方的数字倾斜角度\n      point.size = 2, # 矩阵中点的大小\n      line.size = 1, # 矩阵中线的大小\n      sets.x.label = \"NAME1\", # 集合柱状图的轴标签\n      mainbar.y.label = \"NAME2\", # 交集柱状图的轴标签\n      text.scale = c(1.3, 1.3, 1, 1, 1.2,1)) # 文本大小设置，分别对应交集柱状图的轴标签，分别对应交集柱状图的数字，集合柱状图的轴标签，集合柱状图的数字，集合的名字，交集柱状图上方的数字\n\n\n\n\n\n\n\n图 14: Upset图像标签与字体\n\n\n\n\n\n\n\n3. 进阶 Upset 图\n有时候还需要展示集合中元素的某些属性，如展示 1995 年上市的电影在不同交集中的分布。同样需要用到 queries 参数，在 params 字段中输入一个记录不同电影上市年份信息的列名 与 1995，即可高亮显示对应 1995 年上市电影的分布情况。\n\nupset(movies, sets = c(\"Action\", \"Adventure\", \"Children\", \"War\", \"Noir\"),\n      queries = list(list(query = elements, params = list(\"ReleaseDate\",1995), active = T)))\n\n\n\n\n\n\n\n图 15: params 字段\n\n\n\n\n\n如果是复合条件，例如仅高亮 1995 年上市的动作电影，可以额外引入 expression 参数用于对查询条件进行进一步限制。\n\nupset(movies, sets = c(\"Action\", \"Adventure\", \"Children\", \"War\", \"Noir\"),\n      queries = list(list(query = intersects, params = list(\"Action\"), active = T)),\n      expression = \"ReleaseDate == 1995\")\n\n\n\n\n\n\n\n图 16: 关键参数: expression\n\n\n\n\n\n上述方法仅限于离散型变量，然而元素的属性还可能包括连续性变量，对于连续性变量推荐自定义函数进行查询，以下代码可以用于高亮 Watches 属性大于 100 的元素：\n\nMyfunc &lt;- function(row, num) {\n  data &lt;- row[\"Watches\"] &gt; num\n}\nupset(movies, sets = c(\"Action\", \"Adventure\", \"Children\", \"War\", \"Noir\"),\n      queries = list(list(query = Myfunc, params = list(100), active = T)))\n\n\n\n\n\n\n\n图 17: Upset图连续变量\n\n\n\n\n\nUpsetR 还支持同时绘制其他类型的图像包括直方图、散点图、密度图。前二者需要使用 attribute.plots 参数绘制，箱线图需要使用 boxplot.summary 参数绘制，箱线图与其他三种图像不能兼容。 attribute.plots 包含以下子参数：\n\ngridrows：指定扩展绘图窗口的范围以留出属性图（attribute plots）的空间。UpSetR 绘图基于 100x100 的网格布局。例如，若将 gridrows 设为 50，新的网格布局将变为 150x100，其中 1/3 的区域用于放置属性图。\nplots：接收一个参数 list，包括 plot、x、y（若适用）和 queries。\n\nplot：是一个返回 ggplot 对象的函数，可输入histogram或scatter_plot。\nx：定义 ggplot 中使用的 x 轴美学映射（以字符串形式输入）。\ny：定义 ggplot 中使用的 y 轴美学映射（以字符串形式输入）。\nqueries：控制是否在属性图上叠加查询结果。若为 TRUE，属性图会叠加查询数据；若为 FALSE，则不在属性图中显示查询结果。\n\nncols：指定属性图在 gridrows 预留空间中的排列方式。例如：\n\n若输入两个属性图且 ncols=1，则两图上下排列。\n若输入两个属性图且 ncols=2，则两图并排显示。\n\n\n\nupset(movies, sets = c(\"Action\", \"Adventure\", \"Children\", \"War\", \"Noir\"),\n      queries = list(list(query = intersects, params = list(\"War\"), active = T),\n                     list(query = elements, params = list(\"Noir\"))),\n      attribute.plots=list(gridrows = 100, \n                           ncols = 1,\n                           plots = list(list(plot=histogram, \n                                             x=\"AvgRating\",\n                                             queries=T),\n                                        list(plot = scatter_plot, \n                                             y = \"AvgRating\", \n                                             x = \"Watches\",\n                                             queries = T)\n                                        )\n                           )\n      )\n\n\n\n\n\n\n\n图 18: 关键参数: attribute.plots\n\n\n\n\n\nboxplot.summary 相对简单，只需要指定元素属于对应的列名即可：\n\nupset(movies, sets = c(\"Action\", \"Adventure\", \"Children\", \"War\", \"Noir\"),\n      queries = list(list(query = intersects, params = list(\"War\"), active = T),\n                     list(query = elements, params = list(\"Noir\"))),\n      boxplot.summary = c(\"AvgRating\", \"ReleaseDate\"))\n\n\n\n\n\n\n\n图 19: 关键参数: boxplot.summary\n\n\n\n\n\n\n\n4. 生物数据示例\n数据集采用 ggupset 包中的 df_complex_conditions 数据集\n\n# 整理格式\ndf &lt;- df_complex_conditions\ndf$\"T8\" &lt;- ifelse(df$Timepoint==8,1,0)\ndf$\"T24\" &lt;- ifelse(df$Timepoint==24,1,0)\ndf$\"T48\" &lt;- ifelse(df$Timepoint==48,1,0)\ndf$KO &lt;- ifelse(df$KO==\"TRUE\",1,0)\ndf$DrugA &lt;- ifelse(df$DrugA==\"Yes\",1,0)\n# 需要注意的是UpSetR包不支持tibble数据框，需要转化为传统的dataframe\ndf &lt;- data.frame(df[sample(360,180),c(3,4,1,2,5:7)])  # 这里为了美观随机挑选一半的数据\n\n# upset绘图\nupset(df,\n      queries = list(list(query = intersects, params = list(\"DrugA\",\"T48\"), active = T)),\n      boxplot.summary = c(\"response\"))\n\n\n\n\n\n\n\n图 20: 关键参数: boxplot.summary\n\n\n\n\n\n此图展示了敲除体 KO 与 WT(KO行为白点) 在施加或不施加药物(DrugA)处理在不同时间后生物体的响应情况。",
     "crumbs": [
-      "Graph Gallery"
+      "Ranking",
+      "UpsetPlot"
     ]
   },
   {
-    "objectID": "GraphGallery.html#others",
-    "href": "GraphGallery.html#others",
-    "title": "Graph Gallery",
-    "section": "Others",
-    "text": "Others",
+    "objectID": "Ranking/UpsetPlot.html#应用场景",
+    "href": "Ranking/UpsetPlot.html#应用场景",
+    "title": "Upset图",
+    "section": "应用场景",
+    "text": "应用场景\n\n\n\n\n\n\n图 21: Upset 图应用\n\n\n\n该图展示了人群中患不同疾病的统计情况以及他们的生存时间。 [1]",
     "crumbs": [
-      "Graph Gallery"
+      "Ranking",
+      "UpsetPlot"
     ]
   },
   {
-    "objectID": "Template/contribution_0323.html",
-    "href": "Template/contribution_0323.html",
-    "title": "中文",
+    "objectID": "Ranking/UpsetPlot.html#参考文献",
+    "href": "Ranking/UpsetPlot.html#参考文献",
+    "title": "Upset图",
+    "section": "参考文献",
+    "text": "参考文献\n[1] Peng X, Hu Y, Cai W. Association between urinary incontinence and mortality risk among US adults: a prospective cohort study. BMC Public Health. 2024 Oct 9;24(1):2753. doi: 10.1186/s12889-024-20091-x. PMID: 39385206; PMCID: PMC11463129.",
+    "crumbs": [
+      "Ranking",
+      "UpsetPlot"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Bizard",
     "section": "",
-    "text": "先建图表征集issue，进行审核确定：\n\n根据目标任务确定执行的可视化图表类型。\n\n分别按图表建issue让成员列资料\n\n确定创建可视化教程所需的生物医学数据类型；\n根据可视化应用场景优化教程撰写的侧重点（eg. 需要着重介绍的函数/参数、是否要加入常用统计学分析）。\n\n分配成员申领完成\n完成图文撰写需要遵循项目文档规范\n\n参考根据现有可视化教程制作的qmd文档撰写；\n主要模块：可视化图表及其应用场景介绍、环境配置、基础绘图代码、进阶绘图代码、生物医学领域应用（及复现）……\n\n翻译任务的申领和处理"
+    "text": "在生物医学研究中，数据可视化是解读复杂数据集、推动科学发现和指导临床决策的关键工具。R语言凭借其强大的统计功能和丰富的扩展包生态系统，已成为创建高质量可视化的基石。然而，R语言绘图工具包数量庞大且持续更新，研究人员常面临方法选择与图表定制的双重挑战——他们需要根据特定研究需求筛选合适方案并进行个性化调整。这一过程不仅需要高超的编程技能、跨学科协作能力，还需投入大量时间，这些因素都可能延缓研究进度，甚至影响实验结果的准确性。\n为应对这些挑战，我们开发了 Bizard。这个社区驱动的综合性平台整合了精选可视化代码库、进阶教程和协作论坛，通过优化资源获取路径与促进知识共享，致力于提升生物医学研究者的数据分析能力，加速科研成果向临床实践的转化。",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "Bizard",
+    "section": "",
+    "text": "在生物医学研究中，数据可视化是解读复杂数据集、推动科学发现和指导临床决策的关键工具。R语言凭借其强大的统计功能和丰富的扩展包生态系统，已成为创建高质量可视化的基石。然而，R语言绘图工具包数量庞大且持续更新，研究人员常面临方法选择与图表定制的双重挑战——他们需要根据特定研究需求筛选合适方案并进行个性化调整。这一过程不仅需要高超的编程技能、跨学科协作能力，还需投入大量时间，这些因素都可能延缓研究进度，甚至影响实验结果的准确性。\n为应对这些挑战，我们开发了 Bizard。这个社区驱动的综合性平台整合了精选可视化代码库、进阶教程和协作论坛，通过优化资源获取路径与促进知识共享，致力于提升生物医学研究者的数据分析能力，加速科研成果向临床实践的转化。",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "index.html#什么是-bizard",
+    "href": "index.html#什么是-bizard",
+    "title": "Bizard",
+    "section": "什么是 Bizard?",
+    "text": "什么是 Bizard?\nBizard 汇聚了强大的可视化工具、精选代码和协作功能，助力研究人员高效完成数据分析，并以清晰有力的方式呈现研究成果。\n\n全面可视化资源库: 整合来自多方的可视化代码，既有经典图表库（graphgallery）资源，也有全球专家的创新贡献，为生物医学研究提供前沿工具集。\n多样化图表支持: 提供涵盖变量分布、相关性分析、排序图表及交互式可视化等场景的R代码实现，满足多元数据分析需求。\n真实场景应用: 基于R原生数据集与真实生物医学数据案例，让可视化技术的学习和应用更贴近实际研究场景，加速临床转化进程。\n生物医学数据适配: 包含预处理算法、带注释的绘图代码和专用方法，适配生物医学数据的复杂性，即使编程基础有限也能实现高级可视化。\n统计分析一体化: 将统计分析与可视化模块无缝结合，确保结果兼具严谨性与表现力，提升研究可信度，推动循证医学发展。\n开放协作生态: 积极吸纳生物医学领域专家的贡献，通过集体智慧优化功能，应对数据可视化领域的动态挑战。\n多平台便捷访问: 通过开源GitHub仓库、互动论坛及微信公众号教程等多渠道提供资源，促进知识共享与协作创新。\n推动研究卓越: 赋能研究人员提升可视化技能，完善方法学标准，助力精准医疗与个性化治疗发展。\n未来愿景: 致力于拓展国际协作，持续提供创新解决方案，以应对生物医学数据可视化与分析日益增长的复杂性。\n\n\n\n\n\n\n\n注记\n\n\n\n如果您觉得这有用或有改进的建议，请在任何页面底部的GitHub讨论中留下您的评论，让我们知道。",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "Omics/SankeyBubblePlot.html#环境配置",
+    "href": "Omics/SankeyBubblePlot.html#环境配置",
+    "title": "组合桑基气泡图",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: 跨平台（Linux/MacOS/Windows）\n编程语言: R\n依赖包: tidyverse; readr; ggalluvial; patchwork\n\n\n# 安装包\nif (!requireNamespace(\"tidyverse\", quietly = TRUE)) {\n  install.packages(\"tidyverse\")\n}\nif (!requireNamespace(\"readr\", quietly = TRUE)) {\n  install.packages(\"readr\")\n}\nif (!requireNamespace(\"ggalluvial\", quietly = TRUE)) {\n  install.packages(\"ggalluvial\")\n}\nif (!requireNamespace(\"patchwork\", quietly = TRUE)) {\n  install.packages(\"patchwork\")\n}\n\n# 加载包\nlibrary(tidyverse)\nlibrary(readr)\nlibrary(ggalluvial)\nlibrary(patchwork)",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "SankeyBubblePlot"
+    ]
+  },
+  {
+    "objectID": "Omics/SankeyBubblePlot.html#数据准备",
+    "href": "Omics/SankeyBubblePlot.html#数据准备",
+    "title": "组合桑基气泡图",
+    "section": "数据准备",
+    "text": "数据准备\n我们导入来自 DAVID 的网络药理学注释分析通路富集数据。\n\n# 读取数据\ndata &lt;- read_tsv(\"files/DAVID.txt\")\n\n# 添加新分类列\nget_category &lt;- function(cat) {\n  if (grepl(\"BP\", cat)) return(\"BP\")\n  if (grepl(\"MF\", cat)) return(\"MF\")\n  if (grepl(\"CC\", cat)) return(\"CC\")\n  if (grepl(\"KEGG\", cat)) return(\"KEGG\")\n  return(NA)\n}\ndata$MainCategory &lt;- sapply(data$Category, get_category)\n\n# 剔除 SMART 和 NA\ndata2 &lt;- data %&gt;%\n  filter(!grepl(\"SMART\", Category)) %&gt;%\n  filter(!is.na(MainCategory))\n\n# 每类排序并取前10\ntopN &lt;- function(data, n=10) {\n  data %&gt;%\n  arrange(desc(Count), PValue) %&gt;%\n  head(n)\n}\nresult &lt;- data2 %&gt;%\n  group_by(MainCategory) %&gt;%\n  group_modify(~topN(.x, 10)) %&gt;%\n  ungroup()\n\n# KEGG 通路注释\nresult &lt;- result %&gt;%\n  mutate(\n    Source = ifelse(MainCategory == \"KEGG\", \"KEGG\", \"GO\"),\n    KEGG_Group = case_when(\n      MainCategory == \"KEGG\" & str_detect(Term,\"Neuro|synapse|neurodegeneration|Alzheimer|Parkinson|Prion\") ~ \"Nervous system\",\n      MainCategory == \"KEGG\" & str_detect(Term, \"Cytokine|inflammatory\") ~ \"Immune system\",\n      MainCategory == \"KEGG\" & str_detect(Term, \"Lipid|atherosclerosis\") ~ \"Lipid metabolism\",\n      MainCategory == \"KEGG\" ~ \"Other KEGG\",\n      TRUE ~ NA_character_\n      ),\n    GO_Group = ifelse(MainCategory != \"KEGG\", MainCategory, NA)\n    )\nalluvial_data &lt;- result %&gt;%\n  mutate(\n    Term = str_replace(Term, \"^GO:\\\\d+~\", \"\"), # 去除 GO 编号\n    Term = str_replace(Term, \"^hsa\\\\d+:?\", \"\") # 去除 KEGG 编号\n    )\n\n# GO 部分\ngo_links &lt;- result %&gt;%\n  filter(Source == \"GO\") %&gt;%\n  transmute(\n    Source = Source,\n    Group = GO_Group,\n    Term = Term,\n    Count = Count\n    )\n\n# KEGG 部分\nkegg_links &lt;- result %&gt;%\n  filter(Source == \"KEGG\") %&gt;%\n  transmute(\n    Source = Source,\n    Group = KEGG_Group,\n    Term = Term,\n    Count = Count\n    )\n\n# 生成桑基图数据\nalluvial_data &lt;- result %&gt;%\n  mutate(Group = ifelse(Source == \"KEGG\", KEGG_Group, GO_Group)) %&gt;%\n  select(Source, Group, Term, Count, FDR, FoldEnrichment, MainCategory)\n\n# 确保字符型\nalluvial_data$Source &lt;- as.character(alluvial_data$Source)\nalluvial_data$Group &lt;- as.character(alluvial_data$Group)\nalluvial_data$Term &lt;- as.character(alluvial_data$Term)\n\n# 合并\nalluvial_data &lt;- bind_rows(go_links, kegg_links)\n\n# 将 term 列按照 count 值从小到大排列，并且保证气泡图和桑基图的顺序一致\nterm_levels &lt;- alluvial_data %&gt;%\n  arrange(Source, Group, desc(Count)) %&gt;%\n  pull(Term) %&gt;%\n  unique()\nalluvial_data$Term &lt;- factor(alluvial_data$Term, levels = term_levels)\n\n# 查看数据结构\nhead(alluvial_data, 5)\n\n# A tibble: 5 × 4\n  Source Group Term                                                        Count\n  &lt;chr&gt;  &lt;chr&gt; &lt;fct&gt;                                                       &lt;dbl&gt;\n1 GO     BP    GO:0010628~positive regulation of gene expression              12\n2 GO     BP    GO:0045944~positive regulation of transcription by RNA pol…    11\n3 GO     BP    GO:0007187~G protein-coupled receptor signaling pathway, c…    10\n4 GO     BP    GO:0007268~chemical synaptic transmission                      10\n5 GO     BP    GO:0006954~inflammatory response                               10",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "SankeyBubblePlot"
+    ]
+  },
+  {
+    "objectID": "Omics/SankeyBubblePlot.html#可视化",
+    "href": "Omics/SankeyBubblePlot.html#可视化",
+    "title": "组合桑基气泡图",
+    "section": "可视化",
+    "text": "可视化\n\n1. 桑基图\n\n# 桑基图（Term列不显示标签）\n\n# 确保 Group 为字符型且无 NA\nalluvial_data$Group &lt;- as.character(alluvial_data$Group)\nalluvial_data$Group[is.na(alluvial_data$Group)] &lt;- \"Other\"\n# 计算每个 Group 的总 Count\ngroup_order &lt;- alluvial_data %&gt;%\n  group_by(Group) %&gt;%\n  summarise(group_count = sum(Count, na.rm = TRUE)) %&gt;%\n  arrange(desc(group_count)) %&gt;%\n  pull(Group)\n# 设置 group 为有序因子\nalluvial_data$Group &lt;- factor(alluvial_data$Group, levels = group_order)\n# 对 Term 列进行排序，设置 term 为有序因子\nterm_order &lt;- alluvial_data %&gt;%\n  group_by(Term) %&gt;%\n  summarise(total_count = sum(Count, na.rm = TRUE)) %&gt;%\n  arrange(desc(total_count)) %&gt;%\n  pull(Term)\nalluvial_data$Term &lt;- factor(alluvial_data$Term, levels = term_order)\n# 重新获取 group 的有序标签\ngroup_labels &lt;- levels(alluvial_data$Group)\ngroup_labels &lt;- c(\"BP\", \"MF\", \"CC\", \"Nervous system\", \"Immune system\", \"Lipid metabolism\", \"Other KEGG\")\nterm_labels &lt;- levels(alluvial_data$Term)\n\np1 &lt;- ggplot(\n  alluvial_data,\n  aes(axis1 = Source, axis2 = Group, axis3 = Term, y = 1)) +\n  geom_alluvium(aes(fill = Group), width = 1/12, alpha = 0.8) +\n  geom_stratum(width = 1/12, fill = \"grey\", color = \"black\") +\n  scale_fill_manual(values = c(\n    \"BP\" = \"#33ad37\",\"MF\" = \"#f2c867\",\"CC\" = \"#d45327\", \n    \"Nervous system\" = \"#2eb6aa\", \"Immune system\" = \"#3e4999\", \n    \"Lipid metabolism\" = \"#4fc1e4\", \"Other KEGG\" = \"#e0c4ce\")) +\n  geom_text(stat = \"stratum\", aes(label = ifelse(\n    after_stat(stratum) %in% group_labels, after_stat(stratum),\n    ifelse(after_stat(stratum) %in% term_labels, after_stat(stratum), \"\")\n    )), size = 3) +\n  scale_x_discrete(\n    limits = c(\"Source\", \"Group\", \"Term\"),\n    labels = c(\"Source\", \"Group\", \"term\"), expand = c(.05, .05)) +\n  labs(title = NULL, y = NULL, x = NULL) +\n  theme_minimal(base_size = 12) +\n  theme(\n    axis.title.x = element_blank(),\n    axis.text.x = element_text(size = 10),\n    axis.text.y = element_blank(),\n    axis.ticks.y = element_blank(),\n    plot.margin = margin(5, 5, 5, 5), # 这里和 p2 保持一致\n    panel.grid = element_blank()\n    ) +\n  guides(fill = \"none\")\n\np1\n\n\n\n\n\n\n\n图 1: 桑基图\n\n\n\n\n\n\n\n2. 气泡图\n\n# 气泡图（Term标签只在右侧）\n# 先准备 term_levels，确保顺序和 y 轴一致\nterm_levels &lt;- levels(alluvial_data$Term)\n# 生成气泡图数据\nalluvial_data &lt;- result %&gt;%\n  mutate(Group = ifelse(Source == \"KEGG\", KEGG_Group, GO_Group)) %&gt;%\n  select(Source, Group, Term, Count, FDR, FoldEnrichment, MainCategory)\n\np2 &lt;- ggplot(alluvial_data, aes(x = log2(FoldEnrichment), y = Term)) +\n  # 虚线棒：从 x = min_x - offset 到 x = log2(FoldEnrichment)\n  geom_segment(aes(\n    x = min(log2(FoldEnrichment), na.rm = TRUE) - 0.5,\n    xend = log2(FoldEnrichment),\n    y = Term, yend = Term),\n    linetype = \"dashed\", color = \"grey50\") +\n  # 左侧标签\n  geom_text(aes(\n    x = min(log2(FoldEnrichment), na.rm = TRUE) - 0.2,\n    label = Term\n    ), hjust = 1, size = 3) +\n  # 气泡\n  geom_point(aes(size = Count, color = -log10(FDR))) +\n  scale_y_discrete(limits = rev(term_levels), position = \"right\") +\n  scale_color_gradient(low = \"#4659a7\", high = \"#de4f30\") +\n  labs(title = NULL, x = \"log2(FoldEnrichment)\", y = NULL, color = \"-log10(FDR)\") +\n  theme_minimal() +\n  theme(\n    axis.text.y.left = element_blank(),\n    axis.text.y.right = element_blank(), # 右侧不显示标签\n    axis.title.y = element_blank(),\n    plot.margin = margin(5, 5, 5, 0),\n    panel.grid.major.y = element_blank()\n    )\n\np2\n\n\n\n\n\n\n\n图 2: 气泡图\n\n\n\n\n\n\n\n3. 拼接\n\ncombined_plot &lt;- p1 + p2 + plot_layout(widths = c(1.5, 2), guides = \"collect\")\nprint(combined_plot)\n\n\n\n\n\n\n\n图 3: 拼接",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "SankeyBubblePlot"
+    ]
+  },
+  {
+    "objectID": "Omics/VolcanoPlot.html",
+    "href": "Omics/VolcanoPlot.html",
+    "title": "火山图",
+    "section": "",
+    "text": "火山图用于两组之间的比较，得到两组之间的上调/下调，筛选依据为 p 值和 FC 值，转换为 -logP 值和 log2(FC) 值。导入数据可以是微生物组的 OTU 表格或 ASV 表格，或者转录组基因表达的表格，或者是代谢组学的 features 表格等多组学数据。",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "VolcanoPlot"
+    ]
+  },
+  {
+    "objectID": "Omics/VolcanoPlot.html#示例",
+    "href": "Omics/VolcanoPlot.html#示例",
+    "title": "火山图",
+    "section": "示例",
+    "text": "示例",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "VolcanoPlot"
+    ]
+  },
+  {
+    "objectID": "Omics/VolcanoPlot.html#环境配置",
+    "href": "Omics/VolcanoPlot.html#环境配置",
+    "title": "火山图",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统要求： 跨平台（Linux/MacOS/Windows）\n编程语言：R\n依赖包：tidyverse; readxl; ggrepel\n\n\n# 安装包\nif (!requireNamespace(\"tidyverse\", quietly = TRUE)) {\n  install.packages(\"tidyverse\")\n}\nif (!requireNamespace(\"readxl\", quietly = TRUE)) {\n  install.packages(\"readxl\")\n}\nif (!requireNamespace(\"ggrepel\", quietly = TRUE)) {\n  install.packages(\"ggrepel\")\n}\n\n# 加载包\nlibrary(tidyverse)\nlibrary(readxl)\nlibrary(ggrepel)",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "VolcanoPlot"
+    ]
+  },
+  {
+    "objectID": "Omics/VolcanoPlot.html#数据准备",
+    "href": "Omics/VolcanoPlot.html#数据准备",
+    "title": "火山图",
+    "section": "数据准备",
+    "text": "数据准备\n我们导入来自 omicshare 的火山图示例数据。\n\n# 读取Excel数据\ndata &lt;- read_excel(\"files/volcano.eg.xlsx\")\n\n# 重命名列名（处理特殊字符）\ndata &lt;- data %&gt;%\n  rename(log2FC = \"log2 Ratio(WT0/LOG)\", Pvalue = \"Pvalue\")\n# 处理 p-value 为 0 的情况（避免计算-Inf）\ndata &lt;- data %&gt;%\n  mutate(log10P = -log10(Pvalue + 1e-300)) # 确保处理了 P=0 的情况\n# 转为数值型，并处理转换失败的值（如无效字符）\ndata &lt;- data %&gt;%\n  mutate(\n    log2FC = as.numeric(log2FC) # 转换失败的值会变为 NA\n  )\n\n# 查找导致转换失败的原始值\ndata %&gt;%\n  filter(is.na(log2FC)) %&gt;%\n  select(log2FC) # 查看这些行的 log2FC 原始值\n\n# A tibble: 0 × 1\n# ℹ 1 variable: log2FC &lt;dbl&gt;\n\n# 根据实际情况修复数据（例如替换或删除异常值）\n# 示例：将\"Inf\"替换为实际数值或过滤掉\ndata &lt;- data %&gt;%\n  mutate(\n    log2FC = ifelse(log2FC == \"Inf\", 100, log2FC), # 根据需求调整\n    log2FC = as.numeric(log2FC)\n    ) %&gt;%\n  filter(!is.na(log2FC)) # 删除无法修复的行\n\n# 定义显著性（同时满足P值&lt;0.05且|log2FC|&gt;1）\n# 定义显著性分类（上调、下调、无显著）\ndata &lt;- data %&gt;%\n  mutate(\n    significant = case_when(\n      Pvalue &lt; 0.05 & log2FC &gt; 2 ~ \"Upregulated\", # 上调（红色）\n      Pvalue &lt; 0.05 & log2FC &lt; -2 ~ \"Downregulated\", # 下调（绿色）\n      TRUE ~ \"Not significant\" # 无显著（灰色）\n    )\n  )\n\n# 查看数据结构\nhead(data, 5)\n\n# A tibble: 5 × 10\n  GeneID         LOG_count WT0_count LOG_rpkm WT0_rpkm  log2FC    Pvalue     FDR\n  &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;\n1 Unigene0000003     17243     17525   932.     942.    0.0168   5.15e-1 6.73e-1\n2 Unigene0000004        65       101     4.12     6.37  0.629    6.64e-3 1.79e-2\n3 Unigene0000005       909       984    36.9     39.7   0.108    1.26e-1 2.25e-1\n4 Unigene0000006      1376      1082    74.7     58.5  -0.353    1.17e-8 6.86e-8\n5 Unigene0000007       121        73    15.7      9.42 -0.736    7.42e-4 2.45e-3\n# ℹ 2 more variables: significant &lt;chr&gt;, log10P &lt;dbl&gt;",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "VolcanoPlot"
+    ]
+  },
+  {
+    "objectID": "Omics/VolcanoPlot.html#可视化",
+    "href": "Omics/VolcanoPlot.html#可视化",
+    "title": "火山图",
+    "section": "可视化",
+    "text": "可视化\n\n1. 基础火山图\n\n# 基础火山图\np &lt;- \n  ggplot(data, aes(x = log2FC, y = -log10(Pvalue))) + # 初步绘制火山图\n  # 绘制散点，按显著分类着色\n  geom_point(aes(color = significant), alpha = 0.6, size = 1.5) + \n  # 设置颜色映射（上调红，下调绿，无显著灰）\n  scale_color_manual(\n    values = c(\"Upregulated\" = \"red\", \"Downregulated\" = \"green\", \"Not significant\" = \"gray\"),\n    name = \"Significance\" # 图例标题\n    ) +\n  # 添加筛选阈值线\n  geom_vline(xintercept = c(-2, 2), linetype = \"dashed\", color = \"green\", linewidth = 0.5) + # log2FC阈值线\n  geom_hline(yintercept = -log10(0.05), linetype = \"dashed\", color = \"blue\", linewidth = 0.5) + # p值阈值线\n  # 调整坐标轴和标题\n  labs(x = \"log2(Fold Change)\", y = \"-log10(P-value)\",\n       title = \"Volcano Plot with Thresholds\") +\n  theme_minimal() +\n  theme(plot.title = element_text(hjust = 0.5, face = \"bold\"), # 标题居中加粗\n        legend.position = \"right\") # 图例位置\n\np\n\n\n\n\n\n\n\n图 1: 基础火山图\n\n\n\n\n\n\n\n2. 带标签火山图\n\n# 添加标签\n# 步骤1：筛选需标注的基因\nlabel_data &lt;- data %&gt;%\n  filter(Pvalue &lt; 0.05) %&gt;% # 筛选显著基因\n  group_by(significant) %&gt;% # 按上下调控分组\n  top_n(10, abs(log2FC)) %&gt;% # 取 log2FC 绝对值最大的 10 个\n  ungroup()\n# 步骤2：定义标签颜色（浅红和浅绿）\nlabel_colors &lt;- c(\n  \"Upregulated\" = \"#FF9999\", # 浅红色\n  \"Downregulated\" = \"#99FF99\" # 浅绿色\n  )\n# 步骤3：绘制带标签的火山图\np &lt;- \n  ggplot(data, aes(x = log2FC, y = -log10(Pvalue))) +\n  geom_point(aes(color = significant), alpha = 0.6, size = 1.5) +\n  # 添加基因标签（仅标注目标基因）\n  geom_text_repel(\n    data = label_data,\n    aes(label = GeneID, color = significant), # 假设基因名列名为 OTU ID\n    size = 3,\n    box.padding = 0.5, # 标签间距\n    max.overlaps = 50, # 允许最大重叠\n    segment.color = \"grey50\", # 连接线颜色\n    show.legend = FALSE\n    ) +\n  # 设置颜色映射（原颜色+标签颜色）\n  scale_color_manual(\n    values = c(\"Upregulated\" = \"red\", \"Downregulated\" = \"green\", \"Not significant\" = \"gray\"),\n    guide = guide_legend(override.aes = list(\n      color = c(\"red\", \"green\", \"gray\"), # 图例颜色保持原色\n      label = \"\" # 图例中不显示文字\n      ))) +\n  # 控制标签颜色（浅红和浅绿）\n  scale_color_manual(\n    values = label_colors,\n    guide = \"none\" # 隐藏额外图例\n    ) +\n  # 保留原有阈值线和标题\n  geom_vline(xintercept = c(-2, 2), linetype = \"dashed\", color = \"black\") +\n  geom_hline(yintercept = -log10(0.05), linetype = \"dashed\", color = \"black\") +\n  labs(title = \"Volcano Plot with Top 20 Labels\") +\n  theme_minimal()\n\np\n\n\n\n\n\n\n\n图 2: 带标签火山图",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "VolcanoPlot"
+    ]
   },
   {
     "objectID": "Omics/NetworkPlot.html",
@@ -133,121 +261,70 @@
     ]
   },
   {
-    "objectID": "Omics/VolcanoPlot.html",
-    "href": "Omics/VolcanoPlot.html",
-    "title": "火山图",
+    "objectID": "Template/contribution_0323.html",
+    "href": "Template/contribution_0323.html",
+    "title": "中文",
     "section": "",
-    "text": "火山图用于两组之间的比较，得到两组之间的上调/下调，筛选依据为 p 值和 FC 值，转换为 -logP 值和 log2(FC) 值。导入数据可以是微生物组的 OTU 表格或 ASV 表格，或者转录组基因表达的表格，或者是代谢组学的 features 表格等多组学数据。",
-    "crumbs": [
-      "𝐎𝐌𝐈𝐂𝐒",
-      "VolcanoPlot"
-    ]
+    "text": "先建图表征集issue，进行审核确定：\n\n根据目标任务确定执行的可视化图表类型。\n\n分别按图表建issue让成员列资料\n\n确定创建可视化教程所需的生物医学数据类型；\n根据可视化应用场景优化教程撰写的侧重点（eg. 需要着重介绍的函数/参数、是否要加入常用统计学分析）。\n\n分配成员申领完成\n完成图文撰写需要遵循项目文档规范\n\n参考根据现有可视化教程制作的qmd文档撰写；\n主要模块：可视化图表及其应用场景介绍、环境配置、基础绘图代码、进阶绘图代码、生物医学领域应用（及复现）……\n\n翻译任务的申领和处理"
   },
   {
-    "objectID": "Omics/VolcanoPlot.html#示例",
-    "href": "Omics/VolcanoPlot.html#示例",
-    "title": "火山图",
-    "section": "示例",
-    "text": "示例",
-    "crumbs": [
-      "𝐎𝐌𝐈𝐂𝐒",
-      "VolcanoPlot"
-    ]
-  },
-  {
-    "objectID": "Omics/VolcanoPlot.html#环境配置",
-    "href": "Omics/VolcanoPlot.html#环境配置",
-    "title": "火山图",
-    "section": "环境配置",
-    "text": "环境配置\n\n系统要求： 跨平台（Linux/MacOS/Windows）\n编程语言：R\n依赖包：tidyverse; readxl; ggrepel\n\n\n# 安装包\nif (!requireNamespace(\"tidyverse\", quietly = TRUE)) {\n  install.packages(\"tidyverse\")\n}\nif (!requireNamespace(\"readxl\", quietly = TRUE)) {\n  install.packages(\"readxl\")\n}\nif (!requireNamespace(\"ggrepel\", quietly = TRUE)) {\n  install.packages(\"ggrepel\")\n}\n\n# 加载包\nlibrary(tidyverse)\nlibrary(readxl)\nlibrary(ggrepel)",
-    "crumbs": [
-      "𝐎𝐌𝐈𝐂𝐒",
-      "VolcanoPlot"
-    ]
-  },
-  {
-    "objectID": "Omics/VolcanoPlot.html#数据准备",
-    "href": "Omics/VolcanoPlot.html#数据准备",
-    "title": "火山图",
-    "section": "数据准备",
-    "text": "数据准备\n我们导入来自 omicshare 的火山图示例数据。\n\n# 读取Excel数据\ndata &lt;- read_excel(\"files/volcano.eg.xlsx\")\n\n# 重命名列名（处理特殊字符）\ndata &lt;- data %&gt;%\n  rename(log2FC = \"log2 Ratio(WT0/LOG)\", Pvalue = \"Pvalue\")\n# 处理 p-value 为 0 的情况（避免计算-Inf）\ndata &lt;- data %&gt;%\n  mutate(log10P = -log10(Pvalue + 1e-300)) # 确保处理了 P=0 的情况\n# 转为数值型，并处理转换失败的值（如无效字符）\ndata &lt;- data %&gt;%\n  mutate(\n    log2FC = as.numeric(log2FC) # 转换失败的值会变为 NA\n  )\n\n# 查找导致转换失败的原始值\ndata %&gt;%\n  filter(is.na(log2FC)) %&gt;%\n  select(log2FC) # 查看这些行的 log2FC 原始值\n\n# A tibble: 0 × 1\n# ℹ 1 variable: log2FC &lt;dbl&gt;\n\n# 根据实际情况修复数据（例如替换或删除异常值）\n# 示例：将\"Inf\"替换为实际数值或过滤掉\ndata &lt;- data %&gt;%\n  mutate(\n    log2FC = ifelse(log2FC == \"Inf\", 100, log2FC), # 根据需求调整\n    log2FC = as.numeric(log2FC)\n    ) %&gt;%\n  filter(!is.na(log2FC)) # 删除无法修复的行\n\n# 定义显著性（同时满足P值&lt;0.05且|log2FC|&gt;1）\n# 定义显著性分类（上调、下调、无显著）\ndata &lt;- data %&gt;%\n  mutate(\n    significant = case_when(\n      Pvalue &lt; 0.05 & log2FC &gt; 2 ~ \"Upregulated\", # 上调（红色）\n      Pvalue &lt; 0.05 & log2FC &lt; -2 ~ \"Downregulated\", # 下调（绿色）\n      TRUE ~ \"Not significant\" # 无显著（灰色）\n    )\n  )\n\n# 查看数据结构\nhead(data, 5)\n\n# A tibble: 5 × 10\n  GeneID         LOG_count WT0_count LOG_rpkm WT0_rpkm  log2FC    Pvalue     FDR\n  &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;\n1 Unigene0000003     17243     17525   932.     942.    0.0168   5.15e-1 6.73e-1\n2 Unigene0000004        65       101     4.12     6.37  0.629    6.64e-3 1.79e-2\n3 Unigene0000005       909       984    36.9     39.7   0.108    1.26e-1 2.25e-1\n4 Unigene0000006      1376      1082    74.7     58.5  -0.353    1.17e-8 6.86e-8\n5 Unigene0000007       121        73    15.7      9.42 -0.736    7.42e-4 2.45e-3\n# ℹ 2 more variables: significant &lt;chr&gt;, log10P &lt;dbl&gt;",
-    "crumbs": [
-      "𝐎𝐌𝐈𝐂𝐒",
-      "VolcanoPlot"
-    ]
-  },
-  {
-    "objectID": "Omics/VolcanoPlot.html#可视化",
-    "href": "Omics/VolcanoPlot.html#可视化",
-    "title": "火山图",
-    "section": "可视化",
-    "text": "可视化\n\n1. 基础火山图\n\n# 基础火山图\np &lt;- \n  ggplot(data, aes(x = log2FC, y = -log10(Pvalue))) + # 初步绘制火山图\n  # 绘制散点，按显著分类着色\n  geom_point(aes(color = significant), alpha = 0.6, size = 1.5) + \n  # 设置颜色映射（上调红，下调绿，无显著灰）\n  scale_color_manual(\n    values = c(\"Upregulated\" = \"red\", \"Downregulated\" = \"green\", \"Not significant\" = \"gray\"),\n    name = \"Significance\" # 图例标题\n    ) +\n  # 添加筛选阈值线\n  geom_vline(xintercept = c(-2, 2), linetype = \"dashed\", color = \"green\", linewidth = 0.5) + # log2FC阈值线\n  geom_hline(yintercept = -log10(0.05), linetype = \"dashed\", color = \"blue\", linewidth = 0.5) + # p值阈值线\n  # 调整坐标轴和标题\n  labs(x = \"log2(Fold Change)\", y = \"-log10(P-value)\",\n       title = \"Volcano Plot with Thresholds\") +\n  theme_minimal() +\n  theme(plot.title = element_text(hjust = 0.5, face = \"bold\"), # 标题居中加粗\n        legend.position = \"right\") # 图例位置\n\np\n\n\n\n\n\n\n\n图 1: 基础火山图\n\n\n\n\n\n\n\n2. 带标签火山图\n\n# 添加标签\n# 步骤1：筛选需标注的基因\nlabel_data &lt;- data %&gt;%\n  filter(Pvalue &lt; 0.05) %&gt;% # 筛选显著基因\n  group_by(significant) %&gt;% # 按上下调控分组\n  top_n(10, abs(log2FC)) %&gt;% # 取 log2FC 绝对值最大的 10 个\n  ungroup()\n# 步骤2：定义标签颜色（浅红和浅绿）\nlabel_colors &lt;- c(\n  \"Upregulated\" = \"#FF9999\", # 浅红色\n  \"Downregulated\" = \"#99FF99\" # 浅绿色\n  )\n# 步骤3：绘制带标签的火山图\np &lt;- \n  ggplot(data, aes(x = log2FC, y = -log10(Pvalue))) +\n  geom_point(aes(color = significant), alpha = 0.6, size = 1.5) +\n  # 添加基因标签（仅标注目标基因）\n  geom_text_repel(\n    data = label_data,\n    aes(label = GeneID, color = significant), # 假设基因名列名为 OTU ID\n    size = 3,\n    box.padding = 0.5, # 标签间距\n    max.overlaps = 50, # 允许最大重叠\n    segment.color = \"grey50\", # 连接线颜色\n    show.legend = FALSE\n    ) +\n  # 设置颜色映射（原颜色+标签颜色）\n  scale_color_manual(\n    values = c(\"Upregulated\" = \"red\", \"Downregulated\" = \"green\", \"Not significant\" = \"gray\"),\n    guide = guide_legend(override.aes = list(\n      color = c(\"red\", \"green\", \"gray\"), # 图例颜色保持原色\n      label = \"\" # 图例中不显示文字\n      ))) +\n  # 控制标签颜色（浅红和浅绿）\n  scale_color_manual(\n    values = label_colors,\n    guide = \"none\" # 隐藏额外图例\n    ) +\n  # 保留原有阈值线和标题\n  geom_vline(xintercept = c(-2, 2), linetype = \"dashed\", color = \"black\") +\n  geom_hline(yintercept = -log10(0.05), linetype = \"dashed\", color = \"black\") +\n  labs(title = \"Volcano Plot with Top 20 Labels\") +\n  theme_minimal()\n\np\n\n\n\n\n\n\n\n图 2: 带标签火山图",
-    "crumbs": [
-      "𝐎𝐌𝐈𝐂𝐒",
-      "VolcanoPlot"
-    ]
-  },
-  {
-    "objectID": "Omics/SankeyBubblePlot.html#环境配置",
-    "href": "Omics/SankeyBubblePlot.html#环境配置",
-    "title": "组合桑基气泡图",
-    "section": "环境配置",
-    "text": "环境配置\n\n系统: 跨平台（Linux/MacOS/Windows）\n编程语言: R\n依赖包: tidyverse; readr; ggalluvial; patchwork\n\n\n# 安装包\nif (!requireNamespace(\"tidyverse\", quietly = TRUE)) {\n  install.packages(\"tidyverse\")\n}\nif (!requireNamespace(\"readr\", quietly = TRUE)) {\n  install.packages(\"readr\")\n}\nif (!requireNamespace(\"ggalluvial\", quietly = TRUE)) {\n  install.packages(\"ggalluvial\")\n}\nif (!requireNamespace(\"patchwork\", quietly = TRUE)) {\n  install.packages(\"patchwork\")\n}\n\n# 加载包\nlibrary(tidyverse)\nlibrary(readr)\nlibrary(ggalluvial)\nlibrary(patchwork)",
-    "crumbs": [
-      "𝐎𝐌𝐈𝐂𝐒",
-      "SankeyBubblePlot"
-    ]
-  },
-  {
-    "objectID": "Omics/SankeyBubblePlot.html#数据准备",
-    "href": "Omics/SankeyBubblePlot.html#数据准备",
-    "title": "组合桑基气泡图",
-    "section": "数据准备",
-    "text": "数据准备\n我们导入来自 DAVID 的网络药理学注释分析通路富集数据。\n\n# 读取数据\ndata &lt;- read_tsv(\"files/DAVID.txt\")\n\n# 添加新分类列\nget_category &lt;- function(cat) {\n  if (grepl(\"BP\", cat)) return(\"BP\")\n  if (grepl(\"MF\", cat)) return(\"MF\")\n  if (grepl(\"CC\", cat)) return(\"CC\")\n  if (grepl(\"KEGG\", cat)) return(\"KEGG\")\n  return(NA)\n}\ndata$MainCategory &lt;- sapply(data$Category, get_category)\n\n# 剔除 SMART 和 NA\ndata2 &lt;- data %&gt;%\n  filter(!grepl(\"SMART\", Category)) %&gt;%\n  filter(!is.na(MainCategory))\n\n# 每类排序并取前10\ntopN &lt;- function(data, n=10) {\n  data %&gt;%\n  arrange(desc(Count), PValue) %&gt;%\n  head(n)\n}\nresult &lt;- data2 %&gt;%\n  group_by(MainCategory) %&gt;%\n  group_modify(~topN(.x, 10)) %&gt;%\n  ungroup()\n\n# KEGG 通路注释\nresult &lt;- result %&gt;%\n  mutate(\n    Source = ifelse(MainCategory == \"KEGG\", \"KEGG\", \"GO\"),\n    KEGG_Group = case_when(\n      MainCategory == \"KEGG\" & str_detect(Term,\"Neuro|synapse|neurodegeneration|Alzheimer|Parkinson|Prion\") ~ \"Nervous system\",\n      MainCategory == \"KEGG\" & str_detect(Term, \"Cytokine|inflammatory\") ~ \"Immune system\",\n      MainCategory == \"KEGG\" & str_detect(Term, \"Lipid|atherosclerosis\") ~ \"Lipid metabolism\",\n      MainCategory == \"KEGG\" ~ \"Other KEGG\",\n      TRUE ~ NA_character_\n      ),\n    GO_Group = ifelse(MainCategory != \"KEGG\", MainCategory, NA)\n    )\nalluvial_data &lt;- result %&gt;%\n  mutate(\n    Term = str_replace(Term, \"^GO:\\\\d+~\", \"\"), # 去除 GO 编号\n    Term = str_replace(Term, \"^hsa\\\\d+:?\", \"\") # 去除 KEGG 编号\n    )\n\n# GO 部分\ngo_links &lt;- result %&gt;%\n  filter(Source == \"GO\") %&gt;%\n  transmute(\n    Source = Source,\n    Group = GO_Group,\n    Term = Term,\n    Count = Count\n    )\n\n# KEGG 部分\nkegg_links &lt;- result %&gt;%\n  filter(Source == \"KEGG\") %&gt;%\n  transmute(\n    Source = Source,\n    Group = KEGG_Group,\n    Term = Term,\n    Count = Count\n    )\n\n# 生成桑基图数据\nalluvial_data &lt;- result %&gt;%\n  mutate(Group = ifelse(Source == \"KEGG\", KEGG_Group, GO_Group)) %&gt;%\n  select(Source, Group, Term, Count, FDR, FoldEnrichment, MainCategory)\n\n# 确保字符型\nalluvial_data$Source &lt;- as.character(alluvial_data$Source)\nalluvial_data$Group &lt;- as.character(alluvial_data$Group)\nalluvial_data$Term &lt;- as.character(alluvial_data$Term)\n\n# 合并\nalluvial_data &lt;- bind_rows(go_links, kegg_links)\n\n# 将 term 列按照 count 值从小到大排列，并且保证气泡图和桑基图的顺序一致\nterm_levels &lt;- alluvial_data %&gt;%\n  arrange(Source, Group, desc(Count)) %&gt;%\n  pull(Term) %&gt;%\n  unique()\nalluvial_data$Term &lt;- factor(alluvial_data$Term, levels = term_levels)\n\n# 查看数据结构\nhead(alluvial_data, 5)\n\n# A tibble: 5 × 4\n  Source Group Term                                                        Count\n  &lt;chr&gt;  &lt;chr&gt; &lt;fct&gt;                                                       &lt;dbl&gt;\n1 GO     BP    GO:0010628~positive regulation of gene expression              12\n2 GO     BP    GO:0045944~positive regulation of transcription by RNA pol…    11\n3 GO     BP    GO:0007187~G protein-coupled receptor signaling pathway, c…    10\n4 GO     BP    GO:0007268~chemical synaptic transmission                      10\n5 GO     BP    GO:0006954~inflammatory response                               10",
-    "crumbs": [
-      "𝐎𝐌𝐈𝐂𝐒",
-      "SankeyBubblePlot"
-    ]
-  },
-  {
-    "objectID": "Omics/SankeyBubblePlot.html#可视化",
-    "href": "Omics/SankeyBubblePlot.html#可视化",
-    "title": "组合桑基气泡图",
-    "section": "可视化",
-    "text": "可视化\n\n1. 桑基图\n\n# 桑基图（Term列不显示标签）\n\n# 确保 Group 为字符型且无 NA\nalluvial_data$Group &lt;- as.character(alluvial_data$Group)\nalluvial_data$Group[is.na(alluvial_data$Group)] &lt;- \"Other\"\n# 计算每个 Group 的总 Count\ngroup_order &lt;- alluvial_data %&gt;%\n  group_by(Group) %&gt;%\n  summarise(group_count = sum(Count, na.rm = TRUE)) %&gt;%\n  arrange(desc(group_count)) %&gt;%\n  pull(Group)\n# 设置 group 为有序因子\nalluvial_data$Group &lt;- factor(alluvial_data$Group, levels = group_order)\n# 对 Term 列进行排序，设置 term 为有序因子\nterm_order &lt;- alluvial_data %&gt;%\n  group_by(Term) %&gt;%\n  summarise(total_count = sum(Count, na.rm = TRUE)) %&gt;%\n  arrange(desc(total_count)) %&gt;%\n  pull(Term)\nalluvial_data$Term &lt;- factor(alluvial_data$Term, levels = term_order)\n# 重新获取 group 的有序标签\ngroup_labels &lt;- levels(alluvial_data$Group)\ngroup_labels &lt;- c(\"BP\", \"MF\", \"CC\", \"Nervous system\", \"Immune system\", \"Lipid metabolism\", \"Other KEGG\")\nterm_labels &lt;- levels(alluvial_data$Term)\n\np1 &lt;- ggplot(\n  alluvial_data,\n  aes(axis1 = Source, axis2 = Group, axis3 = Term, y = 1)) +\n  geom_alluvium(aes(fill = Group), width = 1/12, alpha = 0.8) +\n  geom_stratum(width = 1/12, fill = \"grey\", color = \"black\") +\n  scale_fill_manual(values = c(\n    \"BP\" = \"#33ad37\",\"MF\" = \"#f2c867\",\"CC\" = \"#d45327\", \n    \"Nervous system\" = \"#2eb6aa\", \"Immune system\" = \"#3e4999\", \n    \"Lipid metabolism\" = \"#4fc1e4\", \"Other KEGG\" = \"#e0c4ce\")) +\n  geom_text(stat = \"stratum\", aes(label = ifelse(\n    after_stat(stratum) %in% group_labels, after_stat(stratum),\n    ifelse(after_stat(stratum) %in% term_labels, after_stat(stratum), \"\")\n    )), size = 3) +\n  scale_x_discrete(\n    limits = c(\"Source\", \"Group\", \"Term\"),\n    labels = c(\"Source\", \"Group\", \"term\"), expand = c(.05, .05)) +\n  labs(title = NULL, y = NULL, x = NULL) +\n  theme_minimal(base_size = 12) +\n  theme(\n    axis.title.x = element_blank(),\n    axis.text.x = element_text(size = 10),\n    axis.text.y = element_blank(),\n    axis.ticks.y = element_blank(),\n    plot.margin = margin(5, 5, 5, 5), # 这里和 p2 保持一致\n    panel.grid = element_blank()\n    ) +\n  guides(fill = \"none\")\n\np1\n\n\n\n\n\n\n\n图 1: 桑基图\n\n\n\n\n\n\n\n2. 气泡图\n\n# 气泡图（Term标签只在右侧）\n# 先准备 term_levels，确保顺序和 y 轴一致\nterm_levels &lt;- levels(alluvial_data$Term)\n# 生成气泡图数据\nalluvial_data &lt;- result %&gt;%\n  mutate(Group = ifelse(Source == \"KEGG\", KEGG_Group, GO_Group)) %&gt;%\n  select(Source, Group, Term, Count, FDR, FoldEnrichment, MainCategory)\n\np2 &lt;- ggplot(alluvial_data, aes(x = log2(FoldEnrichment), y = Term)) +\n  # 虚线棒：从 x = min_x - offset 到 x = log2(FoldEnrichment)\n  geom_segment(aes(\n    x = min(log2(FoldEnrichment), na.rm = TRUE) - 0.5,\n    xend = log2(FoldEnrichment),\n    y = Term, yend = Term),\n    linetype = \"dashed\", color = \"grey50\") +\n  # 左侧标签\n  geom_text(aes(\n    x = min(log2(FoldEnrichment), na.rm = TRUE) - 0.2,\n    label = Term\n    ), hjust = 1, size = 3) +\n  # 气泡\n  geom_point(aes(size = Count, color = -log10(FDR))) +\n  scale_y_discrete(limits = rev(term_levels), position = \"right\") +\n  scale_color_gradient(low = \"#4659a7\", high = \"#de4f30\") +\n  labs(title = NULL, x = \"log2(FoldEnrichment)\", y = NULL, color = \"-log10(FDR)\") +\n  theme_minimal() +\n  theme(\n    axis.text.y.left = element_blank(),\n    axis.text.y.right = element_blank(), # 右侧不显示标签\n    axis.title.y = element_blank(),\n    plot.margin = margin(5, 5, 5, 0),\n    panel.grid.major.y = element_blank()\n    )\n\np2\n\n\n\n\n\n\n\n图 2: 气泡图\n\n\n\n\n\n\n\n3. 拼接\n\ncombined_plot &lt;- p1 + p2 + plot_layout(widths = c(1.5, 2), guides = \"collect\")\nprint(combined_plot)\n\n\n\n\n\n\n\n图 3: 拼接",
-    "crumbs": [
-      "𝐎𝐌𝐈𝐂𝐒",
-      "SankeyBubblePlot"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Bizard",
+    "objectID": "GraphGallery.html",
+    "href": "GraphGallery.html",
+    "title": "Graph Gallery",
     "section": "",
-    "text": "在生物医学研究中，数据可视化是解读复杂数据集、推动科学发现和指导临床决策的关键工具。R语言凭借其强大的统计功能和丰富的扩展包生态系统，已成为创建高质量可视化的基石。然而，R语言绘图工具包数量庞大且持续更新，研究人员常面临方法选择与图表定制的双重挑战——他们需要根据特定研究需求筛选合适方案并进行个性化调整。这一过程不仅需要高超的编程技能、跨学科协作能力，还需投入大量时间，这些因素都可能延缓研究进度，甚至影响实验结果的准确性。\n为应对这些挑战，我们开发了 Bizard。这个社区驱动的综合性平台整合了精选可视化代码库、进阶教程和协作论坛，通过优化资源获取路径与促进知识共享，致力于提升生物医学研究者的数据分析能力，加速科研成果向临床实践的转化。",
+    "text": "👋 Bizard 是一个为生物医学研究量身定制的高级可视化代码综合存储库。\n该工具包包括各种各样的图表选项，从变化分布到交互式可视化，系统组织以满足生物医学数据分析的独特需求。建立在强大的基础上，每个示例都包含可重复的 R 代码，详细注释和现实世界数据集，以确保可访问性和实际应用。\n借助初学者和经验丰富的研究人员的资源，Bizard 使用户能够创建直观，科学严格且视觉上令人信服的输出，从而在生物医学领域中推进数据可视化标准。",
     "crumbs": [
-      "Welcome"
+      "Graph Gallery"
     ]
   },
   {
-    "objectID": "index.html#welcome",
-    "href": "index.html#welcome",
-    "title": "Bizard",
-    "section": "",
-    "text": "在生物医学研究中，数据可视化是解读复杂数据集、推动科学发现和指导临床决策的关键工具。R语言凭借其强大的统计功能和丰富的扩展包生态系统，已成为创建高质量可视化的基石。然而，R语言绘图工具包数量庞大且持续更新，研究人员常面临方法选择与图表定制的双重挑战——他们需要根据特定研究需求筛选合适方案并进行个性化调整。这一过程不仅需要高超的编程技能、跨学科协作能力，还需投入大量时间，这些因素都可能延缓研究进度，甚至影响实验结果的准确性。\n为应对这些挑战，我们开发了 Bizard。这个社区驱动的综合性平台整合了精选可视化代码库、进阶教程和协作论坛，通过优化资源获取路径与促进知识共享，致力于提升生物医学研究者的数据分析能力，加速科研成果向临床实践的转化。",
+    "objectID": "GraphGallery.html#under-construction-demo-only",
+    "href": "GraphGallery.html#under-construction-demo-only",
+    "title": "Graph Gallery",
+    "section": "UNDER CONSTRUCTION [DEMO ONLY]",
+    "text": "UNDER CONSTRUCTION [DEMO ONLY]",
     "crumbs": [
-      "Welcome"
+      "Graph Gallery"
     ]
   },
   {
-    "objectID": "index.html#什么是-bizard",
-    "href": "index.html#什么是-bizard",
-    "title": "Bizard",
-    "section": "什么是 Bizard?",
-    "text": "什么是 Bizard?\nBizard 汇聚了强大的可视化工具、精选代码和协作功能，助力研究人员高效完成数据分析，并以清晰有力的方式呈现研究成果。\n\n全面可视化资源库: 整合来自多方的可视化代码，既有经典图表库（graphgallery）资源，也有全球专家的创新贡献，为生物医学研究提供前沿工具集。\n多样化图表支持: 提供涵盖变量分布、相关性分析、排序图表及交互式可视化等场景的R代码实现，满足多元数据分析需求。\n真实场景应用: 基于R原生数据集与真实生物医学数据案例，让可视化技术的学习和应用更贴近实际研究场景，加速临床转化进程。\n生物医学数据适配: 包含预处理算法、带注释的绘图代码和专用方法，适配生物医学数据的复杂性，即使编程基础有限也能实现高级可视化。\n统计分析一体化: 将统计分析与可视化模块无缝结合，确保结果兼具严谨性与表现力，提升研究可信度，推动循证医学发展。\n开放协作生态: 积极吸纳生物医学领域专家的贡献，通过集体智慧优化功能，应对数据可视化领域的动态挑战。\n多平台便捷访问: 通过开源GitHub仓库、互动论坛及微信公众号教程等多渠道提供资源，促进知识共享与协作创新。\n推动研究卓越: 赋能研究人员提升可视化技能，完善方法学标准，助力精准医疗与个性化治疗发展。\n未来愿景: 致力于拓展国际协作，持续提供创新解决方案，以应对生物医学数据可视化与分析日益增长的复杂性。\n\n\n\n\n\n\n\n注记\n\n\n\n如果您觉得这有用或有改进的建议，请在任何页面底部的GitHub讨论中留下您的评论，让我们知道。",
+    "objectID": "GraphGallery.html#distribution-gallery",
+    "href": "GraphGallery.html#distribution-gallery",
+    "title": "Graph Gallery",
+    "section": "Distribution Gallery",
+    "text": "Distribution Gallery",
     "crumbs": [
-      "Welcome"
+      "Graph Gallery"
+    ]
+  },
+  {
+    "objectID": "GraphGallery.html#correlation-gallery",
+    "href": "GraphGallery.html#correlation-gallery",
+    "title": "Graph Gallery",
+    "section": "Correlation Gallery",
+    "text": "Correlation Gallery\n\n\n\nCorrelation DEMO",
+    "crumbs": [
+      "Graph Gallery"
+    ]
+  },
+  {
+    "objectID": "GraphGallery.html#ranking-gallery",
+    "href": "GraphGallery.html#ranking-gallery",
+    "title": "Graph Gallery",
+    "section": "Ranking Gallery",
+    "text": "Ranking Gallery\n\n\n\nRanking DEMO",
+    "crumbs": [
+      "Graph Gallery"
+    ]
+  },
+  {
+    "objectID": "GraphGallery.html#others",
+    "href": "GraphGallery.html#others",
+    "title": "Graph Gallery",
+    "section": "Others",
+    "text": "Others",
+    "crumbs": [
+      "Graph Gallery"
     ]
   }
 ]
