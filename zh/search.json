@@ -144,91 +144,80 @@
     "text": "先建图表征集issue，进行审核确定：\n\n根据目标任务确定执行的可视化图表类型。\n\n分别按图表建issue让成员列资料\n\n确定创建可视化教程所需的生物医学数据类型；\n根据可视化应用场景优化教程撰写的侧重点（eg. 需要着重介绍的函数/参数、是否要加入常用统计学分析）。\n\n分配成员申领完成\n完成图文撰写需要遵循项目文档规范\n\n参考根据现有可视化教程制作的qmd文档撰写；\n主要模块：可视化图表及其应用场景介绍、环境配置、基础绘图代码、进阶绘图代码、生物医学领域应用（及复现）……\n\n翻译任务的申领和处理"
   },
   {
-    "objectID": "Omics/SankeyBubblePlot.html#环境配置",
-    "href": "Omics/SankeyBubblePlot.html#环境配置",
-    "title": "组合桑基气泡图",
-    "section": "环境配置",
-    "text": "环境配置\n\n系统: 跨平台（Linux/MacOS/Windows）\n编程语言: R\n依赖包: tidyverse; readr; ggalluvial; patchwork\n\n\n# 安装包\nif (!requireNamespace(\"tidyverse\", quietly = TRUE)) {\n  install.packages(\"tidyverse\")\n}\nif (!requireNamespace(\"readr\", quietly = TRUE)) {\n  install.packages(\"readr\")\n}\nif (!requireNamespace(\"ggalluvial\", quietly = TRUE)) {\n  install.packages(\"ggalluvial\")\n}\nif (!requireNamespace(\"patchwork\", quietly = TRUE)) {\n  install.packages(\"patchwork\")\n}\n\n# 加载包\nlibrary(tidyverse)\nlibrary(readr)\nlibrary(ggalluvial)\nlibrary(patchwork)",
-    "crumbs": [
-      "𝐎𝐌𝐈𝐂𝐒",
-      "SankeyBubblePlot"
-    ]
-  },
-  {
-    "objectID": "Omics/SankeyBubblePlot.html#数据准备",
-    "href": "Omics/SankeyBubblePlot.html#数据准备",
-    "title": "组合桑基气泡图",
-    "section": "数据准备",
-    "text": "数据准备\n我们导入来自 DAVID 的网络药理学注释分析通路富集数据。\n\n# 读取数据\ndata &lt;- read_tsv(\"files/DAVID.txt\")\n\n# 添加新分类列\nget_category &lt;- function(cat) {\n  if (grepl(\"BP\", cat)) return(\"BP\")\n  if (grepl(\"MF\", cat)) return(\"MF\")\n  if (grepl(\"CC\", cat)) return(\"CC\")\n  if (grepl(\"KEGG\", cat)) return(\"KEGG\")\n  return(NA)\n}\ndata$MainCategory &lt;- sapply(data$Category, get_category)\n\n# 剔除 SMART 和 NA\ndata2 &lt;- data %&gt;%\n  filter(!grepl(\"SMART\", Category)) %&gt;%\n  filter(!is.na(MainCategory))\n\n# 每类排序并取前10\ntopN &lt;- function(data, n=10) {\n  data %&gt;%\n  arrange(desc(Count), PValue) %&gt;%\n  head(n)\n}\nresult &lt;- data2 %&gt;%\n  group_by(MainCategory) %&gt;%\n  group_modify(~topN(.x, 10)) %&gt;%\n  ungroup()\n\n# KEGG 通路注释\nresult &lt;- result %&gt;%\n  mutate(\n    Source = ifelse(MainCategory == \"KEGG\", \"KEGG\", \"GO\"),\n    KEGG_Group = case_when(\n      MainCategory == \"KEGG\" & str_detect(Term,\"Neuro|synapse|neurodegeneration|Alzheimer|Parkinson|Prion\") ~ \"Nervous system\",\n      MainCategory == \"KEGG\" & str_detect(Term, \"Cytokine|inflammatory\") ~ \"Immune system\",\n      MainCategory == \"KEGG\" & str_detect(Term, \"Lipid|atherosclerosis\") ~ \"Lipid metabolism\",\n      MainCategory == \"KEGG\" ~ \"Other KEGG\",\n      TRUE ~ NA_character_\n      ),\n    GO_Group = ifelse(MainCategory != \"KEGG\", MainCategory, NA)\n    )\nalluvial_data &lt;- result %&gt;%\n  mutate(\n    Term = str_replace(Term, \"^GO:\\\\d+~\", \"\"), # 去除 GO 编号\n    Term = str_replace(Term, \"^hsa\\\\d+:?\", \"\") # 去除 KEGG 编号\n    )\n\n# GO 部分\ngo_links &lt;- result %&gt;%\n  filter(Source == \"GO\") %&gt;%\n  transmute(\n    Source = Source,\n    Group = GO_Group,\n    Term = Term,\n    Count = Count\n    )\n\n# KEGG 部分\nkegg_links &lt;- result %&gt;%\n  filter(Source == \"KEGG\") %&gt;%\n  transmute(\n    Source = Source,\n    Group = KEGG_Group,\n    Term = Term,\n    Count = Count\n    )\n\n# 生成桑基图数据\nalluvial_data &lt;- result %&gt;%\n  mutate(Group = ifelse(Source == \"KEGG\", KEGG_Group, GO_Group)) %&gt;%\n  select(Source, Group, Term, Count, FDR, FoldEnrichment, MainCategory)\n\n# 确保字符型\nalluvial_data$Source &lt;- as.character(alluvial_data$Source)\nalluvial_data$Group &lt;- as.character(alluvial_data$Group)\nalluvial_data$Term &lt;- as.character(alluvial_data$Term)\n\n# 合并\nalluvial_data &lt;- bind_rows(go_links, kegg_links)\n\n# 将 term 列按照 count 值从小到大排列，并且保证气泡图和桑基图的顺序一致\nterm_levels &lt;- alluvial_data %&gt;%\n  arrange(Source, Group, desc(Count)) %&gt;%\n  pull(Term) %&gt;%\n  unique()\nalluvial_data$Term &lt;- factor(alluvial_data$Term, levels = term_levels)\n\n# 查看数据结构\nhead(alluvial_data, 5)\n\n# A tibble: 5 × 4\n  Source Group Term                                                        Count\n  &lt;chr&gt;  &lt;chr&gt; &lt;fct&gt;                                                       &lt;dbl&gt;\n1 GO     BP    GO:0010628~positive regulation of gene expression              12\n2 GO     BP    GO:0045944~positive regulation of transcription by RNA pol…    11\n3 GO     BP    GO:0007187~G protein-coupled receptor signaling pathway, c…    10\n4 GO     BP    GO:0007268~chemical synaptic transmission                      10\n5 GO     BP    GO:0006954~inflammatory response                               10",
-    "crumbs": [
-      "𝐎𝐌𝐈𝐂𝐒",
-      "SankeyBubblePlot"
-    ]
-  },
-  {
-    "objectID": "Omics/SankeyBubblePlot.html#可视化",
-    "href": "Omics/SankeyBubblePlot.html#可视化",
-    "title": "组合桑基气泡图",
-    "section": "可视化",
-    "text": "可视化\n\n1. 桑基图\n\n# 桑基图（Term列不显示标签）\n\n# 确保 Group 为字符型且无 NA\nalluvial_data$Group &lt;- as.character(alluvial_data$Group)\nalluvial_data$Group[is.na(alluvial_data$Group)] &lt;- \"Other\"\n# 计算每个 Group 的总 Count\ngroup_order &lt;- alluvial_data %&gt;%\n  group_by(Group) %&gt;%\n  summarise(group_count = sum(Count, na.rm = TRUE)) %&gt;%\n  arrange(desc(group_count)) %&gt;%\n  pull(Group)\n# 设置 group 为有序因子\nalluvial_data$Group &lt;- factor(alluvial_data$Group, levels = group_order)\n# 对 Term 列进行排序，设置 term 为有序因子\nterm_order &lt;- alluvial_data %&gt;%\n  group_by(Term) %&gt;%\n  summarise(total_count = sum(Count, na.rm = TRUE)) %&gt;%\n  arrange(desc(total_count)) %&gt;%\n  pull(Term)\nalluvial_data$Term &lt;- factor(alluvial_data$Term, levels = term_order)\n# 重新获取 group 的有序标签\ngroup_labels &lt;- levels(alluvial_data$Group)\ngroup_labels &lt;- c(\"BP\", \"MF\", \"CC\", \"Nervous system\", \"Immune system\", \"Lipid metabolism\", \"Other KEGG\")\nterm_labels &lt;- levels(alluvial_data$Term)\n\np1 &lt;- ggplot(\n  alluvial_data,\n  aes(axis1 = Source, axis2 = Group, axis3 = Term, y = 1)) +\n  geom_alluvium(aes(fill = Group), width = 1/12, alpha = 0.8) +\n  geom_stratum(width = 1/12, fill = \"grey\", color = \"black\") +\n  scale_fill_manual(values = c(\n    \"BP\" = \"#33ad37\",\"MF\" = \"#f2c867\",\"CC\" = \"#d45327\", \n    \"Nervous system\" = \"#2eb6aa\", \"Immune system\" = \"#3e4999\", \n    \"Lipid metabolism\" = \"#4fc1e4\", \"Other KEGG\" = \"#e0c4ce\")) +\n  geom_text(stat = \"stratum\", aes(label = ifelse(\n    after_stat(stratum) %in% group_labels, after_stat(stratum),\n    ifelse(after_stat(stratum) %in% term_labels, after_stat(stratum), \"\")\n    )), size = 3) +\n  scale_x_discrete(\n    limits = c(\"Source\", \"Group\", \"Term\"),\n    labels = c(\"Source\", \"Group\", \"term\"), expand = c(.05, .05)) +\n  labs(title = NULL, y = NULL, x = NULL) +\n  theme_minimal(base_size = 12) +\n  theme(\n    axis.title.x = element_blank(),\n    axis.text.x = element_text(size = 10),\n    axis.text.y = element_blank(),\n    axis.ticks.y = element_blank(),\n    plot.margin = margin(5, 5, 5, 5), # 这里和 p2 保持一致\n    panel.grid = element_blank()\n    ) +\n  guides(fill = \"none\")\n\np1\n\n\n\n\n\n\n\n图 1: 桑基图\n\n\n\n\n\n\n\n2. 气泡图\n\n# 气泡图（Term标签只在右侧）\n# 先准备 term_levels，确保顺序和 y 轴一致\nterm_levels &lt;- levels(alluvial_data$Term)\n# 生成气泡图数据\nalluvial_data &lt;- result %&gt;%\n  mutate(Group = ifelse(Source == \"KEGG\", KEGG_Group, GO_Group)) %&gt;%\n  select(Source, Group, Term, Count, FDR, FoldEnrichment, MainCategory)\n\np2 &lt;- ggplot(alluvial_data, aes(x = log2(FoldEnrichment), y = Term)) +\n  # 虚线棒：从 x = min_x - offset 到 x = log2(FoldEnrichment)\n  geom_segment(aes(\n    x = min(log2(FoldEnrichment), na.rm = TRUE) - 0.5,\n    xend = log2(FoldEnrichment),\n    y = Term, yend = Term),\n    linetype = \"dashed\", color = \"grey50\") +\n  # 左侧标签\n  geom_text(aes(\n    x = min(log2(FoldEnrichment), na.rm = TRUE) - 0.2,\n    label = Term\n    ), hjust = 1, size = 3) +\n  # 气泡\n  geom_point(aes(size = Count, color = -log10(FDR))) +\n  scale_y_discrete(limits = rev(term_levels), position = \"right\") +\n  scale_color_gradient(low = \"#4659a7\", high = \"#de4f30\") +\n  labs(title = NULL, x = \"log2(FoldEnrichment)\", y = NULL, color = \"-log10(FDR)\") +\n  theme_minimal() +\n  theme(\n    axis.text.y.left = element_blank(),\n    axis.text.y.right = element_blank(), # 右侧不显示标签\n    axis.title.y = element_blank(),\n    plot.margin = margin(5, 5, 5, 0),\n    panel.grid.major.y = element_blank()\n    )\n\np2\n\n\n\n\n\n\n\n图 2: 气泡图\n\n\n\n\n\n\n\n3. 拼接\n\ncombined_plot &lt;- p1 + p2 + plot_layout(widths = c(1.5, 2), guides = \"collect\")\nprint(combined_plot)\n\n\n\n\n\n\n\n图 3: 拼接",
-    "crumbs": [
-      "𝐎𝐌𝐈𝐂𝐒",
-      "SankeyBubblePlot"
-    ]
-  },
-  {
-    "objectID": "Omics/VolcanoPlot.html",
-    "href": "Omics/VolcanoPlot.html",
-    "title": "火山图",
+    "objectID": "Omics/GeneStructurePlot.html",
+    "href": "Omics/GeneStructurePlot.html",
+    "title": "基因结构图",
     "section": "",
-    "text": "火山图用于两组之间的比较，得到两组之间的上调/下调，筛选依据为 p 值和 FC 值，转换为 -logP 值和 log2(FC) 值。导入数据可以是微生物组的 OTU 表格或 ASV 表格，或者转录组基因表达的表格，或者是代谢组学的 features 表格等多组学数据。",
+    "text": "在生物学，尤其是分子生物学研究中解析基因的表达调控模式一直以来都是研究的重点内容，而在此过程中难免会有绘制一个基因的结构或者上下游关系的需求，因此本教程将基于R包gggenes对常见的一些基因结构画法进行总结。",
     "crumbs": [
       "𝐎𝐌𝐈𝐂𝐒",
-      "VolcanoPlot"
+      "GeneStructurePlot"
     ]
   },
   {
-    "objectID": "Omics/VolcanoPlot.html#示例",
-    "href": "Omics/VolcanoPlot.html#示例",
-    "title": "火山图",
+    "objectID": "Omics/GeneStructurePlot.html#示例",
+    "href": "Omics/GeneStructurePlot.html#示例",
+    "title": "基因结构图",
     "section": "示例",
     "text": "示例",
     "crumbs": [
       "𝐎𝐌𝐈𝐂𝐒",
-      "VolcanoPlot"
+      "GeneStructurePlot"
     ]
   },
   {
-    "objectID": "Omics/VolcanoPlot.html#环境配置",
-    "href": "Omics/VolcanoPlot.html#环境配置",
-    "title": "火山图",
+    "objectID": "Omics/GeneStructurePlot.html#环境配置",
+    "href": "Omics/GeneStructurePlot.html#环境配置",
+    "title": "基因结构图",
     "section": "环境配置",
-    "text": "环境配置\n\n系统要求： 跨平台（Linux/MacOS/Windows）\n编程语言：R\n依赖包：tidyverse; readxl; ggrepel\n\n\n# 安装包\nif (!requireNamespace(\"tidyverse\", quietly = TRUE)) {\n  install.packages(\"tidyverse\")\n}\nif (!requireNamespace(\"readxl\", quietly = TRUE)) {\n  install.packages(\"readxl\")\n}\nif (!requireNamespace(\"ggrepel\", quietly = TRUE)) {\n  install.packages(\"ggrepel\")\n}\n\n# 加载包\nlibrary(tidyverse)\nlibrary(readxl)\nlibrary(ggrepel)",
+    "text": "环境配置\n\n系统要求： 跨平台（Linux/MacOS/Windows）\n编程语言：R\n依赖包：tidyverse; gggenes; ggtree\n\n\n# 安装包\nif (!requireNamespace(\"tidyverse\", quietly = TRUE)) {\n  install.packages(\"tidyverse\")\n}\nif (!requireNamespace(\"gggenes\", quietly = TRUE)) {\n  install.packages(\"gggenes\")\n}\nif (!requireNamespace(\"ggtree\", quietly = TRUE)) {\n  install.packages(\"ggtree\")\n}\n\n# 加载包\nlibrary(tidyverse)\nlibrary(gggenes)\nlibrary(ggtree)",
     "crumbs": [
       "𝐎𝐌𝐈𝐂𝐒",
-      "VolcanoPlot"
+      "GeneStructurePlot"
     ]
   },
   {
-    "objectID": "Omics/VolcanoPlot.html#数据准备",
-    "href": "Omics/VolcanoPlot.html#数据准备",
-    "title": "火山图",
+    "objectID": "Omics/GeneStructurePlot.html#数据准备",
+    "href": "Omics/GeneStructurePlot.html#数据准备",
+    "title": "基因结构图",
     "section": "数据准备",
-    "text": "数据准备\n我们导入来自 omicshare 的火山图示例数据。\n\n# 读取Excel数据\ndata &lt;- read_excel(\"files/volcano.eg.xlsx\")\n\n# 重命名列名（处理特殊字符）\ndata &lt;- data %&gt;%\n  rename(log2FC = \"log2 Ratio(WT0/LOG)\", Pvalue = \"Pvalue\")\n# 处理 p-value 为 0 的情况（避免计算-Inf）\ndata &lt;- data %&gt;%\n  mutate(log10P = -log10(Pvalue + 1e-300)) # 确保处理了 P=0 的情况\n# 转为数值型，并处理转换失败的值（如无效字符）\ndata &lt;- data %&gt;%\n  mutate(\n    log2FC = as.numeric(log2FC) # 转换失败的值会变为 NA\n  )\n\n# 查找导致转换失败的原始值\ndata %&gt;%\n  filter(is.na(log2FC)) %&gt;%\n  select(log2FC) # 查看这些行的 log2FC 原始值\n\n# A tibble: 0 × 1\n# ℹ 1 variable: log2FC &lt;dbl&gt;\n\n# 根据实际情况修复数据（例如替换或删除异常值）\n# 示例：将\"Inf\"替换为实际数值或过滤掉\ndata &lt;- data %&gt;%\n  mutate(\n    log2FC = ifelse(log2FC == \"Inf\", 100, log2FC), # 根据需求调整\n    log2FC = as.numeric(log2FC)\n    ) %&gt;%\n  filter(!is.na(log2FC)) # 删除无法修复的行\n\n# 定义显著性（同时满足P值&lt;0.05且|log2FC|&gt;1）\n# 定义显著性分类（上调、下调、无显著）\ndata &lt;- data %&gt;%\n  mutate(\n    significant = case_when(\n      Pvalue &lt; 0.05 & log2FC &gt; 2 ~ \"Upregulated\", # 上调（红色）\n      Pvalue &lt; 0.05 & log2FC &lt; -2 ~ \"Downregulated\", # 下调（绿色）\n      TRUE ~ \"Not significant\" # 无显著（灰色）\n    )\n  )\n\n# 查看数据结构\nhead(data, 5)\n\n# A tibble: 5 × 10\n  GeneID         LOG_count WT0_count LOG_rpkm WT0_rpkm  log2FC    Pvalue     FDR\n  &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;\n1 Unigene0000003     17243     17525   932.     942.    0.0168   5.15e-1 6.73e-1\n2 Unigene0000004        65       101     4.12     6.37  0.629    6.64e-3 1.79e-2\n3 Unigene0000005       909       984    36.9     39.7   0.108    1.26e-1 2.25e-1\n4 Unigene0000006      1376      1082    74.7     58.5  -0.353    1.17e-8 6.86e-8\n5 Unigene0000007       121        73    15.7      9.42 -0.736    7.42e-4 2.45e-3\n# ℹ 2 more variables: significant &lt;chr&gt;, log10P &lt;dbl&gt;",
+    "text": "数据准备\n数据使用gggenes中自带的example_genes数据集、example_subgenes数据集以及example_features数据集，分别记录了基因的位置信息、基因子结构的位置信息、基因上标记点的位置信息。\nexample_genes为一个数据框（dataframe），包含一个记录染色体或链信息的列作为纵坐标，一个记录基因或序列ID的列作为染色的映射索引，两个记录基因起始和终止位置的列，一个记录基因方向的列，每一行为一个基因，下表为example_genes的数据示例：\n\nhead(example_genes)\n\n  molecule gene start   end  strand orientation\n1  Genome1 genA 15389 17299 reverse           1\n2  Genome1 genB 17301 18161 forward           0\n3  Genome1 genC 18176 18640 reverse           1\n4  Genome1 genD 18641 18985 forward           0\n5  Genome1 genE 18999 20078 reverse           1\n6  Genome1 genF 20086 20451 forward           1\n\n\nexample_subgenes需要包含example_genes的所有列，并且需要额外包含一个记录基因子结构ID的列，两个记录基因子结构起始和终止位置的列，每一行为一个基因子结构，下表为example_subgenes的数据示例：\n\nhead(example_subgenes)\n\n  molecule gene  start    end  strand subgene   from     to orientation\n1  Genome5 genA 405113 407035 forward  genA-1 405774 406538           0\n2  Genome5 genB 407035 407916 forward  genB-1 407458 407897           0\n3  Genome5 genC 407927 408394 forward  genC-1 407942 408158           0\n4  Genome5 genC 407927 408394 forward  genC-2 408186 408209           0\n5  Genome5 genC 407927 408394 forward  genC-3 408233 408257           0\n6  Genome5 genF 409836 410315 forward  genF-1 409938 410016           0\n\n\nexample_features需要包含一个记录染色体或链信息的列，一个记录标记点名称的列，一个记录标记点类型的列，一个记录标记点位置的列，一个记录标记点方向的列，每一行为一个标记，下表为example_features的数据示例：\n\nhead(example_features)\n\n  molecule name             type position forward\n1  Genome1 tss9              tss    22988      NA\n2  Genome1  rs4 restriction site    18641      NA\n3  Genome1 ori5              ori    18174      NA\n4  Genome2  rs0 restriction site    12256      NA\n5  Genome2  rs1 restriction site    14076      NA\n6  Genome2 ori1              ori    13355   FALSE",
     "crumbs": [
       "𝐎𝐌𝐈𝐂𝐒",
-      "VolcanoPlot"
+      "GeneStructurePlot"
     ]
   },
   {
-    "objectID": "Omics/VolcanoPlot.html#可视化",
-    "href": "Omics/VolcanoPlot.html#可视化",
-    "title": "火山图",
+    "objectID": "Omics/GeneStructurePlot.html#可视化",
+    "href": "Omics/GeneStructurePlot.html#可视化",
+    "title": "基因结构图",
     "section": "可视化",
-    "text": "可视化\n\n1. 基础火山图\n\n# 基础火山图\np &lt;- \n  ggplot(data, aes(x = log2FC, y = -log10(Pvalue))) + # 初步绘制火山图\n  # 绘制散点，按显著分类着色\n  geom_point(aes(color = significant), alpha = 0.6, size = 1.5) + \n  # 设置颜色映射（上调红，下调绿，无显著灰）\n  scale_color_manual(\n    values = c(\"Upregulated\" = \"red\", \"Downregulated\" = \"green\", \"Not significant\" = \"gray\"),\n    name = \"Significance\" # 图例标题\n    ) +\n  # 添加筛选阈值线\n  geom_vline(xintercept = c(-2, 2), linetype = \"dashed\", color = \"green\", linewidth = 0.5) + # log2FC阈值线\n  geom_hline(yintercept = -log10(0.05), linetype = \"dashed\", color = \"blue\", linewidth = 0.5) + # p值阈值线\n  # 调整坐标轴和标题\n  labs(x = \"log2(Fold Change)\", y = \"-log10(P-value)\",\n       title = \"Volcano Plot with Thresholds\") +\n  theme_minimal() +\n  theme(plot.title = element_text(hjust = 0.5, face = \"bold\"), # 标题居中加粗\n        legend.position = \"right\") # 图例位置\n\np\n\n\n\n\n\n\n\n图 1: 基础火山图\n\n\n\n\n\n\n\n2. 带标签火山图\n\n# 添加标签\n# 步骤1：筛选需标注的基因\nlabel_data &lt;- data %&gt;%\n  filter(Pvalue &lt; 0.05) %&gt;% # 筛选显著基因\n  group_by(significant) %&gt;% # 按上下调控分组\n  top_n(10, abs(log2FC)) %&gt;% # 取 log2FC 绝对值最大的 10 个\n  ungroup()\n# 步骤2：定义标签颜色（浅红和浅绿）\nlabel_colors &lt;- c(\n  \"Upregulated\" = \"#FF9999\", # 浅红色\n  \"Downregulated\" = \"#99FF99\" # 浅绿色\n  )\n# 步骤3：绘制带标签的火山图\np &lt;- \n  ggplot(data, aes(x = log2FC, y = -log10(Pvalue))) +\n  geom_point(aes(color = significant), alpha = 0.6, size = 1.5) +\n  # 添加基因标签（仅标注目标基因）\n  geom_text_repel(\n    data = label_data,\n    aes(label = GeneID, color = significant), # 假设基因名列名为 OTU ID\n    size = 3,\n    box.padding = 0.5, # 标签间距\n    max.overlaps = 50, # 允许最大重叠\n    segment.color = \"grey50\", # 连接线颜色\n    show.legend = FALSE\n    ) +\n  # 设置颜色映射（原颜色+标签颜色）\n  scale_color_manual(\n    values = c(\"Upregulated\" = \"red\", \"Downregulated\" = \"green\", \"Not significant\" = \"gray\"),\n    guide = guide_legend(override.aes = list(\n      color = c(\"red\", \"green\", \"gray\"), # 图例颜色保持原色\n      label = \"\" # 图例中不显示文字\n      ))) +\n  # 控制标签颜色（浅红和浅绿）\n  scale_color_manual(\n    values = label_colors,\n    guide = \"none\" # 隐藏额外图例\n    ) +\n  # 保留原有阈值线和标题\n  geom_vline(xintercept = c(-2, 2), linetype = \"dashed\", color = \"black\") +\n  geom_hline(yintercept = -log10(0.05), linetype = \"dashed\", color = \"black\") +\n  labs(title = \"Volcano Plot with Top 20 Labels\") +\n  theme_minimal()\n\np\n\n\n\n\n\n\n\n图 2: 带标签火山图",
+    "text": "可视化\n\n1. 基因结构图基础\ngggenes作为ggplot2的扩展，其功能由一个主要函数geom_gene_arrow以及若干次要函数完成，首先介绍gggenes的基础用法：\n\n1.1 绘制一连串的基因相对位置\n\n# 绘制一连串的基因相对位置\nggplot(example_genes, aes(xmin = start, xmax = end, y = molecule)) +\n    geom_gene_arrow() +\n    facet_wrap(~ molecule, scales = \"free\", ncol = 1)  # gggenes通常配合facet_wrap函数进行分面使用。需要注意的是，画图界面过小的话会提示报错：“Viewport has zero dimension(s)”，只需将画图窗口拉大或者设置更大的界面即可。\n\n\n\n\n\n\n\n图 1: 绘制一连串的基因相对位置\n\n\n\n\n\n\n\n1.2 绘制一组基因\n如果关注的是基因本身的结构而不是基因的位置可以将基因ID作为纵轴：\n\n# 绘制一组基因\ndf &lt;- subset(example_genes, molecule == \"Genome4\")\ndf$end &lt;- df$end-df$start\ndf$start &lt;- 1\nggplot(df, aes(xmin = start, xmax = end, y = gene)) +\n    geom_gene_arrow()\n\n\n\n\n\n\n\n图 2: 绘制一组基因\n\n\n\n\n\n\n\n1.3 绘制基因子结构\n有时我们会关注于基因上更精细的结构，比如CDS位置或者特殊的motif位置等，此时则需要gggenes中提供的另一个扩展函数geom_subgene_arrow来完成，需要注意的是虽然example_subgenes也可以作为geom_gene_arrow的输入但是由于数据中的每一行都会创建一个基因的轮廓图像，因此在一个基因含有多个子结构的时候不建议这么做，建议的使用方法还是将基因信息以及子结构信息单独分为俩个数据框处理。使用方法如下：\n\n# 绘制基因子结构\nggplot(example_genes, aes(xmin = start, xmax = end, y = molecule)) +\n    facet_wrap(~ molecule, scales = \"free\", ncol = 1) +\n    geom_gene_arrow(fill = \"white\") +\n    geom_subgene_arrow(data = example_subgenes,\n                       aes(fill = gene, xsubmin = from, xsubmax = to),\n                       color=\"black\", alpha=.7)\n\n\n\n\n\n\n\n图 3: 绘制基因子结构\n\n\n\n\n\n\n\n1.4 绘制基因标记点\n有时我们会关注基因或序列上的某个特殊点位，例如酶切位点或者启动子位点等，与基因或者其子结构不同的是标记常常为一个或有限的几个碱基，此时不适合使用箭头的画图方法，而geom_feature和geom_feature_label拓展函数则可以很好的完成这种标记任务：\n\n# 绘制基因标记点\nggplot(example_genes, aes(xmin = start, xmax = end, y = molecule)) +\n    facet_wrap(~ molecule, scales = \"free\", ncol = 1) +\n    geom_gene_arrow(fill = \"white\")+\n    geom_feature(\n        data = example_features,\n        aes(x = position, y = molecule, forward = forward)\n    ) +\n    geom_feature_label(\n        data = example_features,\n        aes(x = position, y = molecule, label = name, forward = forward),\n        feature_height = unit(4, \"mm\"), #当标记点无法正常显示时，可以设置该参数调整标记的标签高度\n        label_height = unit(3, \"mm\") #当标记点标签大小不合适时，可以设置该参数调整标记的标签大小\n    ) +\n    theme_genes() #这个主题下面会提到\n\n\n\n\n\n\n\n图 4: 绘制基因标记点\n\n\n\n\n\n\n\n1.5 与进化树和作图\n我们可能会关注不同物种或品种在某个染色体区域的基因差异，此时我们可以将进化树与基因结构图联用，除了使用拼图的方法以外，R包ggtree也提供了一个接口用于二者联用： 首先我们需要获取一个树结构，这里直接用gggenes的数据集构造一个tree，实际使用时读取一个树文件即可。 根据基因结构生成一个进化树，实际使用不需要生成：\n\nget_genes &lt;- function(data, genome) {\n    filter(data, molecule == genome) %&gt;% pull(gene)\n}\n\ng &lt;- unique(example_genes[,1])\nn &lt;- length(g)\nd &lt;- matrix(nrow = n, ncol = n)\nrownames(d) &lt;- colnames(d) &lt;- g\ngenes &lt;- lapply(g, get_genes, data = example_genes)\n\nfor (i in 1:n) {\n    for (j in 1:i) {\n        jaccard_sim &lt;- length(intersect(genes[[i]], genes[[j]])) / \n            length(union(genes[[i]], genes[[j]]))\n        d[j, i] &lt;- d[i, j] &lt;- 1 - jaccard_sim\n    }\n}\ntree &lt;- ape::bionj(d) \n\n画图时使用ggtree函数，并在geom_facet中指定基因结构数据，并指定geom = geom_motif panel = 'Alignment'，on 参数用于指定需要对齐的基因名称（必须是所有物种共有的，如果没有的话暂时不知道怎么设置）。坐标映射参数为xmin和xmax。需要注意的是在上方被作为纵轴的染色体ID（这里可以是不同物种的名称）必须位于数据框的第一列，ggtree会通过比较树的枝标签以及基因结构的第一列来决定基因结构的纵轴位置。 画图代码如下：\n\n# 与进化树和作图\nggtree(tree, branch.length='none') + \n    geom_tiplab() + xlim_tree(5.5) + \n    geom_facet(data = example_genes,\n               geom = geom_motif,\n               mapping = aes(xmin = start, xmax = end, fill = gene), \n               panel = 'Alignment',on = 'genE', \n               label = 'gene', align = 'left') +\n    scale_fill_brewer(palette = \"Set3\") +  #修改配色的方法下面会提到\n    scale_x_continuous(expand=c(0,0)) +\n    theme(strip.text=element_blank())\n\n\n\n\n\n\n\n图 5: 与进化树和作图\n\n\n\n\n\n\n\n\n2. 图像美化\n\n2.1 theme_genes 主题\n在gggenes中，有一个名为theme_genes的图像主题，非常适合用于绘制基因结构：\n\n# theme_genes主题\nggplot(example_genes, aes(xmin = start, xmax = end, y = molecule)) +\n    geom_gene_arrow() +\n    facet_wrap(~ molecule, scales = \"free\", ncol = 1) +\n    theme_genes() \n\n\n\n\n\n\n\n图 6: theme_genes主题\n\n\n\n\n\n\n\n2.2 修改颜色\n对不同的基因添加颜色(子结构同理，不再赘述)：\n\n# 修改颜色\nggplot(example_genes, aes(xmin = start, xmax = end, y = molecule, fill=gene)) +\n    geom_gene_arrow() +\n    facet_wrap(~ molecule, scales = \"free\", ncol = 1) +\n    theme_genes()\n\n\n\n\n\n\n\n图 7: 修改颜色\n\n\n\n\n\n更换配色方案可以使用调色板或者手动设置：\n\n# 修改颜色\nggplot(example_genes, aes(xmin = start, xmax = end, y = molecule, fill = gene)) +\n    geom_gene_arrow() +\n    facet_wrap(~ molecule, scales = \"free\", ncol = 1) +\n    scale_fill_brewer(palette = \"Set3\") +\n    theme_genes()\n\n\n\n\n\n\n\n图 8: 修改颜色\n\n\n\n\n\n自定义配色：\n\n# 修改颜色\nggplot(example_genes, aes(xmin = start, xmax = end, y = molecule, fill = gene)) +\n    geom_gene_arrow() +\n    facet_wrap(~ molecule, scales = \"free\", ncol = 1) +\n    scale_fill_manual(values=c(\"genA\"=\"#266CAF\",\n                               \"genB\"=\"#BF3237\",\n                               \"genC\"=\"#54AC78\",\n                               \"genD\"=\"#FBD75F\")) +\n    theme_genes()\n\n\n\n\n\n\n\n图 9: 修改颜色\n\n\n\n\n\n\n\n2.3 为基因添加标签\n添加基因标签需要使用geom_gene_label扩展函数，该函数只需要额外定义一个label映射即可\n\n# 为基因添加标签\nggplot(example_genes, aes(xmin = start, xmax = end, y = molecule, fill = gene)) +\n    geom_gene_arrow() +\n    geom_gene_label(aes(label = gene),align = \"left\") +\n    facet_wrap(~ molecule, scales = \"free\", ncol = 1) +\n    scale_fill_brewer(palette = \"Set3\") +\n    theme_genes()\n\n\n\n\n\n\n\n图 10: 为基因添加标签\n\n\n\n\n\n\n\n2.4 修改基因箭头形状\n想要修改箭头性状需要用到geom_gene_arrow中的两个参数：arrowhead_height arrowhead_width，分别定义箭头的高度与宽度\n\n# 修改基因箭头形状\nggplot(example_genes, aes(xmin = start, xmax = end, y = molecule, fill = gene)) +\n    geom_gene_arrow(arrowhead_height = unit(3, \"mm\"), arrowhead_width = unit(1, \"mm\")) +\n    facet_wrap(~ molecule, scales = \"free\", ncol = 1) +\n    scale_fill_brewer(palette = \"Set3\") +\n    theme_genes()\n\n\n\n\n\n\n\n图 11: 修改基因箭头形状\n\n\n\n\n\n\n\n2.5 修改基因的方向\n修改基因方向一般需要设置forward映射，映射列的内容必须是可以转化为布尔值的值，例如：0/1，T/F，TRUE/FALSE，”True“/“False”等，可以使用as.logical函数自行判断。 在没有设置的情况下，基因的箭头默认指向xmax的方向，当设置forward的映射后，布尔值为TRUE的基因指向xmax的方向，布尔值为FALSE的基因指向xmin的方向。因此如果在你的数据中xmin和xmax本身就带有方向性，也可以不进行forward映射。\n\n# 修改基因的方向\nggplot(example_genes, aes(xmin = start, xmax = end, y = molecule, fill = gene, forward = orientation)) +\n    geom_gene_arrow() +\n    facet_wrap(~ molecule, scales = \"free\", ncol = 1) +\n    scale_fill_brewer(palette = \"Set3\") +\n    theme_genes()\n\n\n\n\n\n\n\n图 12: 修改基因的方向",
     "crumbs": [
       "𝐎𝐌𝐈𝐂𝐒",
-      "VolcanoPlot"
+      "GeneStructurePlot"
+    ]
+  },
+  {
+    "objectID": "Omics/GeneStructurePlot.html#应用场景",
+    "href": "Omics/GeneStructurePlot.html#应用场景",
+    "title": "基因结构图",
+    "section": "应用场景",
+    "text": "应用场景\n\n\n\n\n\n\n图 13: 基因结构图应用\n\n\n\n图中展示了植物在进化过程中，NLR基因的丢失分化模型 [1]。",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "GeneStructurePlot"
+    ]
+  },
+  {
+    "objectID": "Omics/GeneStructurePlot.html#参考文献",
+    "href": "Omics/GeneStructurePlot.html#参考文献",
+    "title": "基因结构图",
+    "section": "参考文献",
+    "text": "参考文献\n[1] Guo BC, Zhang YR, Liu ZG, Li XC, Yu Z, Ping BY, Sun YQ, van den Burg H, Ma FW, Zhao T. Deciphering Plant NLR Genomic Evolution: Synteny-Informed Classification Unveils Insights into TNL Gene Loss. Mol Biol Evol. 2025 Feb 3;42(2):msaf015. doi: 10.1093/molbev/msaf015. PMID: 39835721; PMCID: PMC11789945.",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "GeneStructurePlot"
     ]
   },
   {
@@ -295,6 +284,94 @@
     "crumbs": [
       "𝐎𝐌𝐈𝐂𝐒",
       "NetworkPlot"
+    ]
+  },
+  {
+    "objectID": "Omics/VolcanoPlot.html",
+    "href": "Omics/VolcanoPlot.html",
+    "title": "火山图",
+    "section": "",
+    "text": "火山图用于两组之间的比较，得到两组之间的上调/下调，筛选依据为 p 值和 FC 值，转换为 -logP 值和 log2(FC) 值。导入数据可以是微生物组的 OTU 表格或 ASV 表格，或者转录组基因表达的表格，或者是代谢组学的 features 表格等多组学数据。",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "VolcanoPlot"
+    ]
+  },
+  {
+    "objectID": "Omics/VolcanoPlot.html#示例",
+    "href": "Omics/VolcanoPlot.html#示例",
+    "title": "火山图",
+    "section": "示例",
+    "text": "示例",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "VolcanoPlot"
+    ]
+  },
+  {
+    "objectID": "Omics/VolcanoPlot.html#环境配置",
+    "href": "Omics/VolcanoPlot.html#环境配置",
+    "title": "火山图",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统要求： 跨平台（Linux/MacOS/Windows）\n编程语言：R\n依赖包：tidyverse; readxl; ggrepel\n\n\n# 安装包\nif (!requireNamespace(\"tidyverse\", quietly = TRUE)) {\n  install.packages(\"tidyverse\")\n}\nif (!requireNamespace(\"readxl\", quietly = TRUE)) {\n  install.packages(\"readxl\")\n}\nif (!requireNamespace(\"ggrepel\", quietly = TRUE)) {\n  install.packages(\"ggrepel\")\n}\n\n# 加载包\nlibrary(tidyverse)\nlibrary(readxl)\nlibrary(ggrepel)",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "VolcanoPlot"
+    ]
+  },
+  {
+    "objectID": "Omics/VolcanoPlot.html#数据准备",
+    "href": "Omics/VolcanoPlot.html#数据准备",
+    "title": "火山图",
+    "section": "数据准备",
+    "text": "数据准备\n我们导入来自 omicshare 的火山图示例数据。\n\n# 读取Excel数据\ndata &lt;- read_excel(\"files/volcano.eg.xlsx\")\n\n# 重命名列名（处理特殊字符）\ndata &lt;- data %&gt;%\n  rename(log2FC = \"log2 Ratio(WT0/LOG)\", Pvalue = \"Pvalue\")\n# 处理 p-value 为 0 的情况（避免计算-Inf）\ndata &lt;- data %&gt;%\n  mutate(log10P = -log10(Pvalue + 1e-300)) # 确保处理了 P=0 的情况\n# 转为数值型，并处理转换失败的值（如无效字符）\ndata &lt;- data %&gt;%\n  mutate(\n    log2FC = as.numeric(log2FC) # 转换失败的值会变为 NA\n  )\n\n# 查找导致转换失败的原始值\ndata %&gt;%\n  filter(is.na(log2FC)) %&gt;%\n  select(log2FC) # 查看这些行的 log2FC 原始值\n\n# A tibble: 0 × 1\n# ℹ 1 variable: log2FC &lt;dbl&gt;\n\n# 根据实际情况修复数据（例如替换或删除异常值）\n# 示例：将\"Inf\"替换为实际数值或过滤掉\ndata &lt;- data %&gt;%\n  mutate(\n    log2FC = ifelse(log2FC == \"Inf\", 100, log2FC), # 根据需求调整\n    log2FC = as.numeric(log2FC)\n    ) %&gt;%\n  filter(!is.na(log2FC)) # 删除无法修复的行\n\n# 定义显著性（同时满足P值&lt;0.05且|log2FC|&gt;1）\n# 定义显著性分类（上调、下调、无显著）\ndata &lt;- data %&gt;%\n  mutate(\n    significant = case_when(\n      Pvalue &lt; 0.05 & log2FC &gt; 2 ~ \"Upregulated\", # 上调（红色）\n      Pvalue &lt; 0.05 & log2FC &lt; -2 ~ \"Downregulated\", # 下调（绿色）\n      TRUE ~ \"Not significant\" # 无显著（灰色）\n    )\n  )\n\n# 查看数据结构\nhead(data, 5)\n\n# A tibble: 5 × 10\n  GeneID         LOG_count WT0_count LOG_rpkm WT0_rpkm  log2FC    Pvalue     FDR\n  &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;\n1 Unigene0000003     17243     17525   932.     942.    0.0168   5.15e-1 6.73e-1\n2 Unigene0000004        65       101     4.12     6.37  0.629    6.64e-3 1.79e-2\n3 Unigene0000005       909       984    36.9     39.7   0.108    1.26e-1 2.25e-1\n4 Unigene0000006      1376      1082    74.7     58.5  -0.353    1.17e-8 6.86e-8\n5 Unigene0000007       121        73    15.7      9.42 -0.736    7.42e-4 2.45e-3\n# ℹ 2 more variables: significant &lt;chr&gt;, log10P &lt;dbl&gt;",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "VolcanoPlot"
+    ]
+  },
+  {
+    "objectID": "Omics/VolcanoPlot.html#可视化",
+    "href": "Omics/VolcanoPlot.html#可视化",
+    "title": "火山图",
+    "section": "可视化",
+    "text": "可视化\n\n1. 基础火山图\n\n# 基础火山图\np &lt;- \n  ggplot(data, aes(x = log2FC, y = -log10(Pvalue))) + # 初步绘制火山图\n  # 绘制散点，按显著分类着色\n  geom_point(aes(color = significant), alpha = 0.6, size = 1.5) + \n  # 设置颜色映射（上调红，下调绿，无显著灰）\n  scale_color_manual(\n    values = c(\"Upregulated\" = \"red\", \"Downregulated\" = \"green\", \"Not significant\" = \"gray\"),\n    name = \"Significance\" # 图例标题\n    ) +\n  # 添加筛选阈值线\n  geom_vline(xintercept = c(-2, 2), linetype = \"dashed\", color = \"green\", linewidth = 0.5) + # log2FC阈值线\n  geom_hline(yintercept = -log10(0.05), linetype = \"dashed\", color = \"blue\", linewidth = 0.5) + # p值阈值线\n  # 调整坐标轴和标题\n  labs(x = \"log2(Fold Change)\", y = \"-log10(P-value)\",\n       title = \"Volcano Plot with Thresholds\") +\n  theme_minimal() +\n  theme(plot.title = element_text(hjust = 0.5, face = \"bold\"), # 标题居中加粗\n        legend.position = \"right\") # 图例位置\n\np\n\n\n\n\n\n\n\n图 1: 基础火山图\n\n\n\n\n\n\n\n2. 带标签火山图\n\n# 添加标签\n# 步骤1：筛选需标注的基因\nlabel_data &lt;- data %&gt;%\n  filter(Pvalue &lt; 0.05) %&gt;% # 筛选显著基因\n  group_by(significant) %&gt;% # 按上下调控分组\n  top_n(10, abs(log2FC)) %&gt;% # 取 log2FC 绝对值最大的 10 个\n  ungroup()\n# 步骤2：定义标签颜色（浅红和浅绿）\nlabel_colors &lt;- c(\n  \"Upregulated\" = \"#FF9999\", # 浅红色\n  \"Downregulated\" = \"#99FF99\" # 浅绿色\n  )\n# 步骤3：绘制带标签的火山图\np &lt;- \n  ggplot(data, aes(x = log2FC, y = -log10(Pvalue))) +\n  geom_point(aes(color = significant), alpha = 0.6, size = 1.5) +\n  # 添加基因标签（仅标注目标基因）\n  geom_text_repel(\n    data = label_data,\n    aes(label = GeneID, color = significant), # 假设基因名列名为 OTU ID\n    size = 3,\n    box.padding = 0.5, # 标签间距\n    max.overlaps = 50, # 允许最大重叠\n    segment.color = \"grey50\", # 连接线颜色\n    show.legend = FALSE\n    ) +\n  # 设置颜色映射（原颜色+标签颜色）\n  scale_color_manual(\n    values = c(\"Upregulated\" = \"red\", \"Downregulated\" = \"green\", \"Not significant\" = \"gray\"),\n    guide = guide_legend(override.aes = list(\n      color = c(\"red\", \"green\", \"gray\"), # 图例颜色保持原色\n      label = \"\" # 图例中不显示文字\n      ))) +\n  # 控制标签颜色（浅红和浅绿）\n  scale_color_manual(\n    values = label_colors,\n    guide = \"none\" # 隐藏额外图例\n    ) +\n  # 保留原有阈值线和标题\n  geom_vline(xintercept = c(-2, 2), linetype = \"dashed\", color = \"black\") +\n  geom_hline(yintercept = -log10(0.05), linetype = \"dashed\", color = \"black\") +\n  labs(title = \"Volcano Plot with Top 20 Labels\") +\n  theme_minimal()\n\np\n\n\n\n\n\n\n\n图 2: 带标签火山图",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "VolcanoPlot"
+    ]
+  },
+  {
+    "objectID": "Omics/SankeyBubblePlot.html#环境配置",
+    "href": "Omics/SankeyBubblePlot.html#环境配置",
+    "title": "组合桑基气泡图",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: 跨平台（Linux/MacOS/Windows）\n编程语言: R\n依赖包: tidyverse; readr; ggalluvial; patchwork\n\n\n# 安装包\nif (!requireNamespace(\"tidyverse\", quietly = TRUE)) {\n  install.packages(\"tidyverse\")\n}\nif (!requireNamespace(\"readr\", quietly = TRUE)) {\n  install.packages(\"readr\")\n}\nif (!requireNamespace(\"ggalluvial\", quietly = TRUE)) {\n  install.packages(\"ggalluvial\")\n}\nif (!requireNamespace(\"patchwork\", quietly = TRUE)) {\n  install.packages(\"patchwork\")\n}\n\n# 加载包\nlibrary(tidyverse)\nlibrary(readr)\nlibrary(ggalluvial)\nlibrary(patchwork)",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "SankeyBubblePlot"
+    ]
+  },
+  {
+    "objectID": "Omics/SankeyBubblePlot.html#数据准备",
+    "href": "Omics/SankeyBubblePlot.html#数据准备",
+    "title": "组合桑基气泡图",
+    "section": "数据准备",
+    "text": "数据准备\n我们导入来自 DAVID 的网络药理学注释分析通路富集数据。\n\n# 读取数据\ndata &lt;- read_tsv(\"files/DAVID.txt\")\n\n# 添加新分类列\nget_category &lt;- function(cat) {\n  if (grepl(\"BP\", cat)) return(\"BP\")\n  if (grepl(\"MF\", cat)) return(\"MF\")\n  if (grepl(\"CC\", cat)) return(\"CC\")\n  if (grepl(\"KEGG\", cat)) return(\"KEGG\")\n  return(NA)\n}\ndata$MainCategory &lt;- sapply(data$Category, get_category)\n\n# 剔除 SMART 和 NA\ndata2 &lt;- data %&gt;%\n  filter(!grepl(\"SMART\", Category)) %&gt;%\n  filter(!is.na(MainCategory))\n\n# 每类排序并取前10\ntopN &lt;- function(data, n=10) {\n  data %&gt;%\n  arrange(desc(Count), PValue) %&gt;%\n  head(n)\n}\nresult &lt;- data2 %&gt;%\n  group_by(MainCategory) %&gt;%\n  group_modify(~topN(.x, 10)) %&gt;%\n  ungroup()\n\n# KEGG 通路注释\nresult &lt;- result %&gt;%\n  mutate(\n    Source = ifelse(MainCategory == \"KEGG\", \"KEGG\", \"GO\"),\n    KEGG_Group = case_when(\n      MainCategory == \"KEGG\" & str_detect(Term,\"Neuro|synapse|neurodegeneration|Alzheimer|Parkinson|Prion\") ~ \"Nervous system\",\n      MainCategory == \"KEGG\" & str_detect(Term, \"Cytokine|inflammatory\") ~ \"Immune system\",\n      MainCategory == \"KEGG\" & str_detect(Term, \"Lipid|atherosclerosis\") ~ \"Lipid metabolism\",\n      MainCategory == \"KEGG\" ~ \"Other KEGG\",\n      TRUE ~ NA_character_\n      ),\n    GO_Group = ifelse(MainCategory != \"KEGG\", MainCategory, NA)\n    )\nalluvial_data &lt;- result %&gt;%\n  mutate(\n    Term = str_replace(Term, \"^GO:\\\\d+~\", \"\"), # 去除 GO 编号\n    Term = str_replace(Term, \"^hsa\\\\d+:?\", \"\") # 去除 KEGG 编号\n    )\n\n# GO 部分\ngo_links &lt;- result %&gt;%\n  filter(Source == \"GO\") %&gt;%\n  transmute(\n    Source = Source,\n    Group = GO_Group,\n    Term = Term,\n    Count = Count\n    )\n\n# KEGG 部分\nkegg_links &lt;- result %&gt;%\n  filter(Source == \"KEGG\") %&gt;%\n  transmute(\n    Source = Source,\n    Group = KEGG_Group,\n    Term = Term,\n    Count = Count\n    )\n\n# 生成桑基图数据\nalluvial_data &lt;- result %&gt;%\n  mutate(Group = ifelse(Source == \"KEGG\", KEGG_Group, GO_Group)) %&gt;%\n  select(Source, Group, Term, Count, FDR, FoldEnrichment, MainCategory)\n\n# 确保字符型\nalluvial_data$Source &lt;- as.character(alluvial_data$Source)\nalluvial_data$Group &lt;- as.character(alluvial_data$Group)\nalluvial_data$Term &lt;- as.character(alluvial_data$Term)\n\n# 合并\nalluvial_data &lt;- bind_rows(go_links, kegg_links)\n\n# 将 term 列按照 count 值从小到大排列，并且保证气泡图和桑基图的顺序一致\nterm_levels &lt;- alluvial_data %&gt;%\n  arrange(Source, Group, desc(Count)) %&gt;%\n  pull(Term) %&gt;%\n  unique()\nalluvial_data$Term &lt;- factor(alluvial_data$Term, levels = term_levels)\n\n# 查看数据结构\nhead(alluvial_data, 5)\n\n# A tibble: 5 × 4\n  Source Group Term                                                        Count\n  &lt;chr&gt;  &lt;chr&gt; &lt;fct&gt;                                                       &lt;dbl&gt;\n1 GO     BP    GO:0010628~positive regulation of gene expression              12\n2 GO     BP    GO:0045944~positive regulation of transcription by RNA pol…    11\n3 GO     BP    GO:0007187~G protein-coupled receptor signaling pathway, c…    10\n4 GO     BP    GO:0007268~chemical synaptic transmission                      10\n5 GO     BP    GO:0006954~inflammatory response                               10",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "SankeyBubblePlot"
+    ]
+  },
+  {
+    "objectID": "Omics/SankeyBubblePlot.html#可视化",
+    "href": "Omics/SankeyBubblePlot.html#可视化",
+    "title": "组合桑基气泡图",
+    "section": "可视化",
+    "text": "可视化\n\n1. 桑基图\n\n# 桑基图（Term列不显示标签）\n\n# 确保 Group 为字符型且无 NA\nalluvial_data$Group &lt;- as.character(alluvial_data$Group)\nalluvial_data$Group[is.na(alluvial_data$Group)] &lt;- \"Other\"\n# 计算每个 Group 的总 Count\ngroup_order &lt;- alluvial_data %&gt;%\n  group_by(Group) %&gt;%\n  summarise(group_count = sum(Count, na.rm = TRUE)) %&gt;%\n  arrange(desc(group_count)) %&gt;%\n  pull(Group)\n# 设置 group 为有序因子\nalluvial_data$Group &lt;- factor(alluvial_data$Group, levels = group_order)\n# 对 Term 列进行排序，设置 term 为有序因子\nterm_order &lt;- alluvial_data %&gt;%\n  group_by(Term) %&gt;%\n  summarise(total_count = sum(Count, na.rm = TRUE)) %&gt;%\n  arrange(desc(total_count)) %&gt;%\n  pull(Term)\nalluvial_data$Term &lt;- factor(alluvial_data$Term, levels = term_order)\n# 重新获取 group 的有序标签\ngroup_labels &lt;- levels(alluvial_data$Group)\ngroup_labels &lt;- c(\"BP\", \"MF\", \"CC\", \"Nervous system\", \"Immune system\", \"Lipid metabolism\", \"Other KEGG\")\nterm_labels &lt;- levels(alluvial_data$Term)\n\np1 &lt;- ggplot(\n  alluvial_data,\n  aes(axis1 = Source, axis2 = Group, axis3 = Term, y = 1)) +\n  geom_alluvium(aes(fill = Group), width = 1/12, alpha = 0.8) +\n  geom_stratum(width = 1/12, fill = \"grey\", color = \"black\") +\n  scale_fill_manual(values = c(\n    \"BP\" = \"#33ad37\",\"MF\" = \"#f2c867\",\"CC\" = \"#d45327\", \n    \"Nervous system\" = \"#2eb6aa\", \"Immune system\" = \"#3e4999\", \n    \"Lipid metabolism\" = \"#4fc1e4\", \"Other KEGG\" = \"#e0c4ce\")) +\n  geom_text(stat = \"stratum\", aes(label = ifelse(\n    after_stat(stratum) %in% group_labels, after_stat(stratum),\n    ifelse(after_stat(stratum) %in% term_labels, after_stat(stratum), \"\")\n    )), size = 3) +\n  scale_x_discrete(\n    limits = c(\"Source\", \"Group\", \"Term\"),\n    labels = c(\"Source\", \"Group\", \"term\"), expand = c(.05, .05)) +\n  labs(title = NULL, y = NULL, x = NULL) +\n  theme_minimal(base_size = 12) +\n  theme(\n    axis.title.x = element_blank(),\n    axis.text.x = element_text(size = 10),\n    axis.text.y = element_blank(),\n    axis.ticks.y = element_blank(),\n    plot.margin = margin(5, 5, 5, 5), # 这里和 p2 保持一致\n    panel.grid = element_blank()\n    ) +\n  guides(fill = \"none\")\n\np1\n\n\n\n\n\n\n\n图 1: 桑基图\n\n\n\n\n\n\n\n2. 气泡图\n\n# 气泡图（Term标签只在右侧）\n# 先准备 term_levels，确保顺序和 y 轴一致\nterm_levels &lt;- levels(alluvial_data$Term)\n# 生成气泡图数据\nalluvial_data &lt;- result %&gt;%\n  mutate(Group = ifelse(Source == \"KEGG\", KEGG_Group, GO_Group)) %&gt;%\n  select(Source, Group, Term, Count, FDR, FoldEnrichment, MainCategory)\n\np2 &lt;- ggplot(alluvial_data, aes(x = log2(FoldEnrichment), y = Term)) +\n  # 虚线棒：从 x = min_x - offset 到 x = log2(FoldEnrichment)\n  geom_segment(aes(\n    x = min(log2(FoldEnrichment), na.rm = TRUE) - 0.5,\n    xend = log2(FoldEnrichment),\n    y = Term, yend = Term),\n    linetype = \"dashed\", color = \"grey50\") +\n  # 左侧标签\n  geom_text(aes(\n    x = min(log2(FoldEnrichment), na.rm = TRUE) - 0.2,\n    label = Term\n    ), hjust = 1, size = 3) +\n  # 气泡\n  geom_point(aes(size = Count, color = -log10(FDR))) +\n  scale_y_discrete(limits = rev(term_levels), position = \"right\") +\n  scale_color_gradient(low = \"#4659a7\", high = \"#de4f30\") +\n  labs(title = NULL, x = \"log2(FoldEnrichment)\", y = NULL, color = \"-log10(FDR)\") +\n  theme_minimal() +\n  theme(\n    axis.text.y.left = element_blank(),\n    axis.text.y.right = element_blank(), # 右侧不显示标签\n    axis.title.y = element_blank(),\n    plot.margin = margin(5, 5, 5, 0),\n    panel.grid.major.y = element_blank()\n    )\n\np2\n\n\n\n\n\n\n\n图 2: 气泡图\n\n\n\n\n\n\n\n3. 拼接\n\ncombined_plot &lt;- p1 + p2 + plot_layout(widths = c(1.5, 2), guides = \"collect\")\nprint(combined_plot)\n\n\n\n\n\n\n\n图 3: 拼接",
+    "crumbs": [
+      "𝐎𝐌𝐈𝐂𝐒",
+      "SankeyBubblePlot"
     ]
   },
   {

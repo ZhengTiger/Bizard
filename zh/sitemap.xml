@@ -2,38 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://openbiox.github.io/Bizard/Ranking/VennPlot.html</loc>
-    <lastmod>2025-07-05T08:53:59.605Z</lastmod>
+    <lastmod>2025-07-05T13:03:51.424Z</lastmod>
   </url>
   <url>
     <loc>https://openbiox.github.io/Bizard/GraphGallery.html</loc>
-    <lastmod>2025-07-05T08:53:59.604Z</lastmod>
+    <lastmod>2025-07-05T13:03:51.423Z</lastmod>
   </url>
   <url>
     <loc>https://openbiox.github.io/Bizard/Template/contribution_0323.html</loc>
-    <lastmod>2025-07-05T08:53:59.605Z</lastmod>
+    <lastmod>2025-07-05T13:03:51.424Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Omics/SankeyBubblePlot.html</loc>
-    <lastmod>2025-07-05T08:53:59.604Z</lastmod>
-  </url>
-  <url>
-    <loc>https://openbiox.github.io/Bizard/Omics/VolcanoPlot.html</loc>
-    <lastmod>2025-07-05T08:53:59.604Z</lastmod>
+    <loc>https://openbiox.github.io/Bizard/Omics/GeneStructurePlot.html</loc>
+    <lastmod>2025-07-05T13:03:51.423Z</lastmod>
   </url>
   <url>
     <loc>https://openbiox.github.io/Bizard/Omics/NetworkPlot.html</loc>
-    <lastmod>2025-07-05T08:53:59.604Z</lastmod>
+    <lastmod>2025-07-05T13:03:51.424Z</lastmod>
+  </url>
+  <url>
+    <loc>https://openbiox.github.io/Bizard/Omics/VolcanoPlot.html</loc>
+    <lastmod>2025-07-05T13:03:51.424Z</lastmod>
+  </url>
+  <url>
+    <loc>https://openbiox.github.io/Bizard/Omics/SankeyBubblePlot.html</loc>
+    <lastmod>2025-07-05T13:03:51.424Z</lastmod>
   </url>
   <url>
     <loc>https://openbiox.github.io/Bizard/Omics/ManhattanPlot.html</loc>
-    <lastmod>2025-07-05T08:53:59.604Z</lastmod>
+    <lastmod>2025-07-05T13:03:51.423Z</lastmod>
   </url>
   <url>
     <loc>https://openbiox.github.io/Bizard/index.html</loc>
-    <lastmod>2025-07-05T08:53:59.652Z</lastmod>
+    <lastmod>2025-07-05T13:03:51.474Z</lastmod>
   </url>
   <url>
     <loc>https://openbiox.github.io/Bizard/Ranking/UpsetPlot.html</loc>
-    <lastmod>2025-07-05T08:53:59.605Z</lastmod>
+    <lastmod>2025-07-05T13:03:51.424Z</lastmod>
   </url>
 </urlset>
