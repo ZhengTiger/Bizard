@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<link rel="alternate" hreflang="en" href="https://openbiox.github.io/Bizard/Omics/NetworkPlot.html" />
-<link rel="alternate" hreflang="zh" href="https://openbiox.github.io/Bizard/zh/Omics/NetworkPlot.zh.html" />
+<link rel="alternate" hreflang="en" href="https://zhengtiger.github.io/Bizard/Omics/NetworkPlot.html" />
+<link rel="alternate" hreflang="zh" href="https://zhengtiger.github.io/Bizard/zh/Omics/NetworkPlot.zh.html" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.31">
@@ -59,6 +59,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script><script src="../site_libs/clipboard/clipboard.min.js"></script><script src="../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../site_libs/quarto-search/fuse.min.js"></script><script src="../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../">
+<link href="../Omics/SankeyBubblePlot.html" rel="next">
+<link href="../Omics/MultiVolcanoPlot.html" rel="prev">
 <link href="../images/favicon.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script><script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script><script src="../site_libs/quarto-html/popper.min.js"></script><script src="../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../site_libs/quarto-html/anchor.min.js"></script><link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
@@ -99,7 +101,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Network Plot</li></ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="../Omics/CollinearityPlot.html">𝐎𝐌𝐈𝐂𝐒</a></li>
+<li class="breadcrumb-item"><a href="../Omics/NetworkPlot.html">NetworkPlot</a></li>
+</ol></nav><a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -122,7 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         </div>
         </div>
     <div class="dropdown" id="languages-links-parent">
-<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> English</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://openbiox.github.io/Bizard/zh/Omics/NetworkPlot.html" id="language-link-zh">中文</a></li></ul>
+<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i> English</button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://zhengtiger.github.io/Bizard/zh/Omics/NetworkPlot.html" id="language-link-zh">中文</a></li></ul>
 </div>
 <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
@@ -287,6 +292,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Table</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Ranking/UpsetPlot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UpsetPlot</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Ranking/VennPlot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VennPlot</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -448,9 +465,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">𝐎𝐌𝐈𝐂𝐒</span></span>
-  </li>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">𝐎𝐌𝐈𝐂𝐒</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Omics/CollinearityPlot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CollinearityPlot</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Omics/GeneStructurePlot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GeneStructurePlot</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Omics/ManhattanPlot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ManhattanPlot</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Omics/MultiVolcanoPlot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MultiVolcanoPlot</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Omics/NetworkPlot.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">NetworkPlot</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Omics/SankeyBubblePlot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SankeyBubblePlot</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Omics/VolcanoPlot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VolcanoPlot</span></a>
+  </div>
+</li>
+      </ul>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">𝐂𝐋𝐈𝐍𝐈𝐂𝐒</span></span>
@@ -718,12 +784,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference">Reference</a></li>
   </ul>
 <div class="toc-actions"><ul>
-<li><a href="https://github.com/openbiox/Bizard/blob/main/Omics/NetworkPlot.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li>
-<li><a href="https://github.com/openbiox/Bizard/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
+<li><a href="https://github.com/zhengtiger/Bizard/blob/main/Omics/NetworkPlot.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li>
+<li><a href="https://github.com/zhengtiger/Bizard/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
 </ul></div></nav>
 </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="../Omics/CollinearityPlot.html">𝐎𝐌𝐈𝐂𝐒</a></li>
+<li class="breadcrumb-item"><a href="../Omics/NetworkPlot.html">NetworkPlot</a></li>
+</ol></nav><div class="quarto-title">
 <h1 class="title">Network Plot</h1>
 </div>
 
@@ -1041,7 +1110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/openbiox\.github\.io\/Bizard\/");
+        var filterRegex = new RegExp("https:\/\/zhengtiger\.github\.io\/Bizard\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1393,7 +1462,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     document.getElementById("quarto-content").appendChild(script);
   }
   loadGiscus();
-</script>
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="../Omics/MultiVolcanoPlot.html" class="pagination-link" aria-label="MultiVolcanoPlot">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">MultiVolcanoPlot</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../Omics/SankeyBubblePlot.html" class="pagination-link" aria-label="SankeyBubblePlot">
+        <span class="nav-page-text">SankeyBubblePlot</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
@@ -1402,8 +1481,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="nav-footer-center">
 <p><a href="https://clustrmaps.com/site/1c4xe" title="Visit tracker"><img src="//clustrmaps.com/map_v2.png?cl=ffffff&amp;w=a&amp;t=n&amp;d=VK6_Uhjas4vA0CDps3EFeB0Fotb8hU50SYT4Fcq5nUI&amp;co=91c5eb&amp;ct=000000"></a></p>
 <div class="toc-actions d-sm-block d-md-none"><ul>
-<li><a href="https://github.com/openbiox/Bizard/blob/main/Omics/NetworkPlot.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li>
-<li><a href="https://github.com/openbiox/Bizard/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
+<li><a href="https://github.com/zhengtiger/Bizard/blob/main/Omics/NetworkPlot.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li>
+<li><a href="https://github.com/zhengtiger/Bizard/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li>
 </ul></div>
 </div>
     <div class="nav-footer-right">
