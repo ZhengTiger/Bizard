@@ -1,1 +1,1 @@
-Sitemap: https://ZhengTiger.github.io/Bizard/sitemap.xml
+Sitemap: https://openbiox.github.io/Bizard/sitemap.xml
