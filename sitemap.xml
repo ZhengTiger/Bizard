@@ -1,183 +1,215 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://openbiox.github.io/Bizard/Template/visualization_guidance_EN.html</loc>
-    <lastmod>2025-07-08T02:14:17.752Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Template/visualization_guidance_EN.html</loc>
+    <lastmod>2025-07-08T02:30:29.865Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Template/contribution_0323.html</loc>
-    <lastmod>2025-07-08T02:14:17.751Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Template/contribution_0323.html</loc>
+    <lastmod>2025-07-08T02:30:29.864Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Ranking/Table.html</loc>
-    <lastmod>2025-07-08T02:14:17.749Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Ranking/VennPlot.html</loc>
+    <lastmod>2025-07-07T13:37:03.586Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Ranking/Parallel.html</loc>
-    <lastmod>2025-07-08T02:14:17.749Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Ranking/Table.html</loc>
+    <lastmod>2025-07-08T02:30:29.864Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Ranking/CircularBarplot.html</loc>
-    <lastmod>2025-07-08T02:14:17.748Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Ranking/Parallel.html</loc>
+    <lastmod>2025-07-08T02:30:29.862Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Proportion/Sankey.html</loc>
-    <lastmod>2025-07-08T02:14:17.748Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Ranking/CircularBarplot.html</loc>
+    <lastmod>2025-07-08T02:30:29.862Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Proportion/EdgeBundling.html</loc>
-    <lastmod>2025-07-08T02:14:17.746Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Proportion/Sankey.html</loc>
+    <lastmod>2025-07-08T02:30:29.861Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Proportion/ArcDiagram.html</loc>
-    <lastmod>2025-07-08T02:14:17.746Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Proportion/EdgeBundling.html</loc>
+    <lastmod>2025-07-08T02:30:29.861Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Hiplot/000-test-demo.html</loc>
-    <lastmod>2025-07-08T02:14:17.745Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Proportion/ArcDiagram.html</loc>
+    <lastmod>2025-07-08T02:30:29.861Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Distribution/ViolinPlot.html</loc>
-    <lastmod>2025-07-08T02:14:17.743Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Omics/SankeyBubblePlot.html</loc>
+    <lastmod>2025-07-07T13:37:03.563Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Distribution/Histogram.html</loc>
-    <lastmod>2025-07-08T02:14:17.742Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Omics/MultiVolcanoPlot.html</loc>
+    <lastmod>2025-07-07T13:31:50.088Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Distribution/BoxPlot.html</loc>
-    <lastmod>2025-07-08T02:14:17.740Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Omics/GeneStructurePlot.html</loc>
+    <lastmod>2025-07-07T13:37:03.540Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/DataOverTime/Timeseries.html</loc>
-    <lastmod>2025-07-08T02:14:17.740Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Hiplot/000-test-demo.html</loc>
+    <lastmod>2025-07-08T02:30:29.859Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/DataOverTime/StackedArea.html</loc>
-    <lastmod>2025-07-08T02:14:17.739Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Distribution/ViolinPlot.html</loc>
+    <lastmod>2025-07-08T02:30:29.858Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/DataOverTime/AreaChart.html</loc>
-    <lastmod>2025-07-08T02:14:17.739Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Distribution/Histogram.html</loc>
+    <lastmod>2025-07-08T02:30:29.858Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Correlation/Heatmap.html</loc>
-    <lastmod>2025-07-08T02:14:17.737Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Distribution/BoxPlot.html</loc>
+    <lastmod>2025-07-08T02:30:29.856Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Correlation/Correlogram.html</loc>
-    <lastmod>2025-07-08T02:14:17.736Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/DataOverTime/Timeseries.html</loc>
+    <lastmod>2025-07-08T02:30:29.855Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Correlation/Bubble.html</loc>
-    <lastmod>2025-07-08T02:14:17.734Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/DataOverTime/StackedArea.html</loc>
+    <lastmod>2025-07-08T02:30:29.855Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Composition/Treemap.html</loc>
-    <lastmod>2025-07-08T02:14:17.734Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/DataOverTime/AreaChart.html</loc>
+    <lastmod>2025-07-08T02:30:29.855Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Composition/GroupedBarplot.html</loc>
-    <lastmod>2025-07-08T02:14:17.733Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Correlation/Heatmap.html</loc>
+    <lastmod>2025-07-08T02:30:29.853Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Composition/Dendrogram.html</loc>
-    <lastmod>2025-07-08T02:14:17.733Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Correlation/Correlogram.html</loc>
+    <lastmod>2025-07-08T02:30:29.852Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Animation/Interactivity.html</loc>
-    <lastmod>2025-07-08T02:14:17.731Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Correlation/Bubble.html</loc>
+    <lastmod>2025-07-08T02:30:29.850Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/About.html</loc>
-    <lastmod>2025-07-08T02:14:17.730Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Composition/Treemap.html</loc>
+    <lastmod>2025-07-08T02:30:29.836Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Animation/Animation.html</loc>
-    <lastmod>2025-07-08T02:14:17.731Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Composition/GroupedBarplot.html</loc>
+    <lastmod>2025-07-08T02:30:29.834Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Composition/CircularPacking.html</loc>
-    <lastmod>2025-07-08T02:14:17.731Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Composition/Dendrogram.html</loc>
+    <lastmod>2025-07-08T02:30:29.834Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Composition/Donut.html</loc>
-    <lastmod>2025-07-08T02:14:17.733Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Animation/Interactivity.html</loc>
+    <lastmod>2025-07-08T02:30:29.834Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Composition/PieChart.html</loc>
-    <lastmod>2025-07-08T02:14:17.733Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/About.html</loc>
+    <lastmod>2025-07-08T02:30:29.833Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Composition/Waffle.html</loc>
-    <lastmod>2025-07-08T02:14:17.734Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Animation/Animation.html</loc>
+    <lastmod>2025-07-08T02:30:29.833Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Correlation/ConnectedScatter.html</loc>
-    <lastmod>2025-07-08T02:14:17.736Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Composition/CircularPacking.html</loc>
+    <lastmod>2025-07-08T02:30:29.834Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Correlation/Density2D.html</loc>
-    <lastmod>2025-07-08T02:14:17.736Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Composition/Donut.html</loc>
+    <lastmod>2025-07-08T02:30:29.834Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Correlation/Scatter.html</loc>
-    <lastmod>2025-07-08T02:14:17.737Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Composition/PieChart.html</loc>
+    <lastmod>2025-07-08T02:30:29.836Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/DataOverTime/LineChart.html</loc>
-    <lastmod>2025-07-08T02:14:17.739Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Composition/Waffle.html</loc>
+    <lastmod>2025-07-08T02:30:29.850Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/DataOverTime/Streamgraph.html</loc>
-    <lastmod>2025-07-08T02:14:17.739Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Correlation/ConnectedScatter.html</loc>
+    <lastmod>2025-07-08T02:30:29.852Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Distribution/Beeswarm.html</loc>
-    <lastmod>2025-07-08T02:14:17.740Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Correlation/Density2D.html</loc>
+    <lastmod>2025-07-08T02:30:29.852Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Distribution/Density.html</loc>
-    <lastmod>2025-07-08T02:14:17.742Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Correlation/Scatter.html</loc>
+    <lastmod>2025-07-08T02:30:29.853Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Distribution/Ridgeline.html</loc>
-    <lastmod>2025-07-08T02:24:23.180Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/DataOverTime/LineChart.html</loc>
+    <lastmod>2025-07-08T02:30:29.855Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/GraphGallery.html</loc>
-    <lastmod>2025-07-08T02:14:17.743Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/DataOverTime/Streamgraph.html</loc>
+    <lastmod>2025-07-08T02:30:29.855Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/index.html</loc>
-    <lastmod>2025-07-08T02:14:17.818Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Distribution/Beeswarm.html</loc>
+    <lastmod>2025-07-08T02:30:29.856Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Proportion/ChordDiagram.html</loc>
-    <lastmod>2025-07-08T02:14:17.746Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Distribution/Density.html</loc>
+    <lastmod>2025-07-08T02:30:29.858Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Proportion/Network.html</loc>
-    <lastmod>2025-07-08T02:14:17.746Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Distribution/Ridgeline.html</loc>
+    <lastmod>2025-07-08T02:30:30.533Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Ranking/BarPlot.html</loc>
-    <lastmod>2025-07-08T02:14:17.748Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/GraphGallery.html</loc>
+    <lastmod>2025-07-08T02:30:29.858Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Ranking/Lollipop.html</loc>
-    <lastmod>2025-07-08T02:14:17.748Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/index.html</loc>
+    <lastmod>2025-07-08T02:30:29.927Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Ranking/Radar.html</loc>
-    <lastmod>2025-07-08T02:14:17.749Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Omics/ManhattanPlot.html</loc>
+    <lastmod>2025-07-07T13:37:03.552Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Ranking/Wordcloud.html</loc>
-    <lastmod>2025-07-08T02:14:17.749Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Omics/NetworkPlot.html</loc>
+    <lastmod>2025-07-03T13:32:49.356Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/Template/visualization_guidance_CH.html</loc>
-    <lastmod>2025-07-08T02:14:17.751Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Omics/VolcanoPlot.html</loc>
+    <lastmod>2025-07-04T02:33:07.866Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ZhengTiger.github.io/Bizard/Proportion/ChordDiagram.html</loc>
+    <lastmod>2025-07-08T02:30:29.861Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ZhengTiger.github.io/Bizard/Proportion/Network.html</loc>
+    <lastmod>2025-07-08T02:30:29.861Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ZhengTiger.github.io/Bizard/Ranking/BarPlot.html</loc>
+    <lastmod>2025-07-08T02:30:29.862Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ZhengTiger.github.io/Bizard/Ranking/Lollipop.html</loc>
+    <lastmod>2025-07-08T02:30:29.862Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ZhengTiger.github.io/Bizard/Ranking/Radar.html</loc>
+    <lastmod>2025-07-08T02:30:29.864Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ZhengTiger.github.io/Bizard/Ranking/UpsetPlot.html</loc>
+    <lastmod>2025-07-07T13:37:03.574Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ZhengTiger.github.io/Bizard/Ranking/Wordcloud.html</loc>
+    <lastmod>2025-07-08T02:30:29.864Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ZhengTiger.github.io/Bizard/Template/visualization_guidance_CH.html</loc>
+    <lastmod>2025-07-08T02:30:29.865Z</lastmod>
   </url>
 </urlset>

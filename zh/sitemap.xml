@@ -1,15 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://openbiox.github.io/Bizard/Template/contribution_0323.html</loc>
-    <lastmod>2025-07-08T02:14:17.751Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Template/contribution_0323.html</loc>
+    <lastmod>2025-07-08T02:30:29.864Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/GraphGallery.html</loc>
-    <lastmod>2025-07-08T02:14:17.743Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Ranking/UpsetPlot.html</loc>
+    <lastmod>2025-07-07T13:37:03.580Z</lastmod>
   </url>
   <url>
-    <loc>https://openbiox.github.io/Bizard/index.html</loc>
-    <lastmod>2025-07-08T02:14:17.818Z</lastmod>
+    <loc>https://ZhengTiger.github.io/Bizard/Omics/SankeyBubblePlot.html</loc>
+    <lastmod>2025-07-07T13:37:03.568Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ZhengTiger.github.io/Bizard/Omics/MultiVolcanoPlot.html</loc>
+    <lastmod>2025-07-07T13:31:42.813Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ZhengTiger.github.io/Bizard/Omics/GeneStructurePlot.html</loc>
+    <lastmod>2025-07-07T13:37:03.545Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ZhengTiger.github.io/Bizard/GraphGallery.html</loc>
+    <lastmod>2025-07-08T02:30:29.859Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ZhengTiger.github.io/Bizard/index.html</loc>
+    <lastmod>2025-07-08T02:30:29.927Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ZhengTiger.github.io/Bizard/Omics/ManhattanPlot.html</loc>
+    <lastmod>2025-07-07T13:37:03.558Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ZhengTiger.github.io/Bizard/Omics/NetworkPlot.html</loc>
+    <lastmod>2025-07-03T13:18:12.720Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ZhengTiger.github.io/Bizard/Omics/VolcanoPlot.html</loc>
+    <lastmod>2025-07-04T02:42:41.176Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ZhengTiger.github.io/Bizard/Ranking/VennPlot.html</loc>
+    <lastmod>2025-07-07T13:37:03.591Z</lastmod>
   </url>
 </urlset>
