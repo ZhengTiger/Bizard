@@ -357,6 +357,314 @@
     ]
   },
   {
+    "objectID": "Hiplot/059-gantt.html",
+    "href": "Hiplot/059-gantt.html",
+    "title": "Gantt",
+    "section": "",
+    "text": "The Gantt chart is a type of bar chart that illustrates a project schedule.",
+    "crumbs": [
+      "HIPLOT",
+      "Gantt"
+    ]
+  },
+  {
+    "objectID": "Hiplot/059-gantt.html#setup",
+    "href": "Hiplot/059-gantt.html#setup",
+    "title": "Gantt",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: tidyverse; ggthemes\n\n\n# Install packages\nif (!requireNamespace(\"tidyverse\", quietly = TRUE)) {\n  install.packages(\"tidyverse\")\n}\nif (!requireNamespace(\"ggthemes\", quietly = TRUE)) {\n  install.packages(\"ggthemes\")\n}\n\n# Load packages\nlibrary(tidyverse)\nlibrary(ggthemes)",
+    "crumbs": [
+      "HIPLOT",
+      "Gantt"
+    ]
+  },
+  {
+    "objectID": "Hiplot/059-gantt.html#data-preparation",
+    "href": "Hiplot/059-gantt.html#data-preparation",
+    "title": "Gantt",
+    "section": "Data Preparation",
+    "text": "Data Preparation\nData were loaded for 4 samples (4 patients), 3 items (3 treatments), and the start and end times of each treatment.\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/059-gantt-data.txt\", header = T)\n\n# Convert data structure\nusr_ylab &lt;- colnames(data)[1]\nif (!is.numeric(data[, 2])) {\n  data[, 2] &lt;- factor(data[, 2], levels = unique(data[, 2]))\n}\ndata_gather &lt;- gather(data, \"state\", \"date\", 3:4)\nsample &lt;- levels(data_gather$sample)\ndata_gather$sample &lt;- factor(data_gather$sample,\n  levels = rev(unique(data_gather$sample))\n)\n\n# View data\nhead(data_gather)\n\n    sample   item state date\n1 patient1 treat1 start    1\n2 patient2 treat1 start    2\n3 patient2 treat2 start    5\n4 patient2 treat3 start    7\n5 patient3 treat3 start    6\n6 patient3 treat1 start    3",
+    "crumbs": [
+      "HIPLOT",
+      "Gantt"
+    ]
+  },
+  {
+    "objectID": "Hiplot/059-gantt.html#visualization",
+    "href": "Hiplot/059-gantt.html#visualization",
+    "title": "Gantt",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Gantt\np &lt;- ggplot(data_gather, aes(date, sample, color = item)) +\n  geom_line(size = 10, alpha = 1) +\n  labs(x = \"Time\", y = \"sample\", title = \"Gantt Plot\") +\n  theme(axis.ticks = element_blank()) +\n  scale_color_manual(values = c(\"#e04d39\",\"#5bbad6\",\"#1e9f86\")) +\n  theme_stata() +\n  theme(text = element_text(family = \"Arial\"),\n        plot.title = element_text(size = 12,hjust = 0.5),\n        axis.title = element_text(size = 12),\n        axis.text = element_text(size = 10),\n        axis.text.x = element_text(angle = 0, hjust = 0.5, vjust = 1),\n        legend.position = \"right\",\n        legend.direction = \"vertical\",\n        legend.title = element_text(size = 10),\n        legend.text = element_text(size = 10))\n\np\n\n\n\n\n\n\n\nFigure 1: Gantt\n\n\n\n\n\nThe horizontal axis represents the time schedule, the vertical axis represents 4 patients, and the 3 colors represent 3 treatments. The figure can observe the time schedule of different treatments for each patient.",
+    "crumbs": [
+      "HIPLOT",
+      "Gantt"
+    ]
+  },
+  {
+    "objectID": "Hiplot/057-funnel-plot-metafor.html",
+    "href": "Hiplot/057-funnel-plot-metafor.html",
+    "title": "Funnel Plot (metafor)",
+    "section": "",
+    "text": "Can be used to show potential bias factors in Meta-analysis.",
+    "crumbs": [
+      "HIPLOT",
+      "Funnel Plot (metafor)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/057-funnel-plot-metafor.html#setup",
+    "href": "Hiplot/057-funnel-plot-metafor.html#setup",
+    "title": "Funnel Plot (metafor)",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: metafor; ggplotify\n\n\n# Install packages\nif (!requireNamespace(\"metafor\", quietly = TRUE)) {\n  install.packages(\"metafor\")\n}\nif (!requireNamespace(\"ggplotify\", quietly = TRUE)) {\n  install.packages(\"ggplotify\")\n}\n\n# Load packages\nlibrary(metafor)\nlibrary(ggplotify)",
+    "crumbs": [
+      "HIPLOT",
+      "Funnel Plot (metafor)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/057-funnel-plot-metafor.html#data-preparation",
+    "href": "Hiplot/057-funnel-plot-metafor.html#data-preparation",
+    "title": "Funnel Plot (metafor)",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/057-funnel-plot-metafor-data.txt\", header = T)\n\n# Convert data structure\ndata2 &lt;- escalc(ri=ri, ni=ni, data = data, measure=\"ZCOR\")\nres &lt;- rma(yi, vi, data = data2)\n\n# View data\nhead(data2)\n\n\n              authors year  ni    ri controls          design   a_measure \n1     Axelsson et al. 2009 109 0.187     none cross-sectional self-report \n2     Axelsson et al. 2011 749 0.162     none cross-sectional self-report \n3        Bruce et al. 2010  55 0.340     none     prospective       other \n4  Christensen et al. 1999 107 0.320     none cross-sectional self-report \n5 Christensen & Smith 1995  72 0.270     none     prospective       other \n6        Cohen et al. 2004  65 0.000     none     prospective       other \n  c_measure meanage quality     yi     vi \n1     other   22.00       1 0.1892 0.0094 \n2       NEO   53.59       1 0.1634 0.0013 \n3       NEO   43.36       2 0.3541 0.0192 \n4     other   41.70       1 0.3316 0.0096 \n5       NEO   46.39       2 0.2769 0.0145 \n6       NEO   41.20       2 0.0000 0.0161",
+    "crumbs": [
+      "HIPLOT",
+      "Funnel Plot (metafor)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/057-funnel-plot-metafor.html#visualization",
+    "href": "Hiplot/057-funnel-plot-metafor.html#visualization",
+    "title": "Funnel Plot (metafor)",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Funnel Plot\np &lt;- as.ggplot(function(){\n  funnel(x = res, main = \"Funnel Plot (metafor)\",\n         level = c(90, 95, 99), shade = c(\"white\",\"#a90e07\",\"#d23e0b\"), refline = 0)\n  })\n\np\n\n\n\n\n\n\n\nFigure 1: Funnel Plot",
+    "crumbs": [
+      "HIPLOT",
+      "Funnel Plot (metafor)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/055-fishplot.html",
+    "href": "Hiplot/055-fishplot.html",
+    "title": "Fishplot",
+    "section": "",
+    "text": "Clone evolution analysis",
+    "crumbs": [
+      "HIPLOT",
+      "Fishplot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/055-fishplot.html#setup",
+    "href": "Hiplot/055-fishplot.html#setup",
+    "title": "Fishplot",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: fishplot\n\n\n# Install packages\nif (!requireNamespace(\"fishplot\", quietly = TRUE)) {\n  install_github(\"chrisamiller/fishplot\")\n}\n\n# Load packages\nlibrary(fishplot)",
+    "crumbs": [
+      "HIPLOT",
+      "Fishplot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/055-fishplot.html#data-preparation",
+    "href": "Hiplot/055-fishplot.html#data-preparation",
+    "title": "Fishplot",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/055-fishplot-data.txt\", header = T)\n\n# View data\nhead(data)\n\n  timepoints parents sample.name event1 event2 event3 event4\n1          0       0     Sample1    100      2      2     98\n2         30       1     Sample1     45      0      0      0\n3         75       1     Sample1      0      0      2     95\n4        150       3     Sample1      0      0      1     40\n\n\n\ntimepoints: specifying the timepoints for each column of the matrix\nparents: specifying parental relationships between clones\nsamplename: samplename (support multiple samples)\nother: a numeric matrix containing tumor fraction estimates for all clones at all timepoints",
+    "crumbs": [
+      "HIPLOT",
+      "Fishplot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/055-fishplot.html#visualization",
+    "href": "Hiplot/055-fishplot.html#visualization",
+    "title": "Fishplot",
+    "section": "Visualization",
+    "text": "Visualization\n\n## Create a fish object\nfish = createFishObject(as.matrix(data[,4:7]), parents=data$parents, \n                        timepoints=data$timepoints, \n                        col = c(\"#888888\",\"#e8130c\",\"#f8150d\",\"#55158f\"))\n## Calculate the layout of the drawing\nfish = layoutClones(fish)\n## Draw the plot, using the splining method (recommended), and providing both timepoints to label and a plot title\nfishPlot(fish,shape=\"spline\", title.btm=\"Sample1\", title = \"Fishplot\",\n         cex.title=1, vlines=c(0,30,75,150), \n         vlab=c(\"Day 0\",\"Day 30\",\"Day 75\",\"Day 150\"))\n\n\n\n\n\n\n\nFigure 1: Fishplot",
+    "crumbs": [
+      "HIPLOT",
+      "Fishplot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/053-ezcox.html",
+    "href": "Hiplot/053-ezcox.html",
+    "title": "Cox Models Forest",
+    "section": "",
+    "text": "Cox model forest is a visual representation of a COX model that constructs a risk forest map to facilitate variable screening.",
+    "crumbs": [
+      "HIPLOT",
+      "Cox Models Forest"
+    ]
+  },
+  {
+    "objectID": "Hiplot/053-ezcox.html#setup",
+    "href": "Hiplot/053-ezcox.html#setup",
+    "title": "Cox Models Forest",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ezcox\n\n\n# Install packages\nif (!requireNamespace(\"ezcox\", quietly = TRUE)) {\n  install.packages(\"ezcox\")\n}\n\n# Load packages\nlibrary(ezcox)",
+    "crumbs": [
+      "HIPLOT",
+      "Cox Models Forest"
+    ]
+  },
+  {
+    "objectID": "Hiplot/053-ezcox.html#data-preparation",
+    "href": "Hiplot/053-ezcox.html#data-preparation",
+    "title": "Cox Models Forest",
+    "section": "Data Preparation",
+    "text": "Data Preparation\nThe loaded data are time,status and multiple variable factor.\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/053-ezcox-data.txt\", header = T)\n\n# View data\nhead(data)\n\n  time status sex ph.ecog age\n1  306      2   1       1  74\n2  455      2   1       0  68\n3 1010      1   1       0  56\n4  210      2   1       1  57\n5  883      2   1       0  60\n6 1022      1   1       1  74",
+    "crumbs": [
+      "HIPLOT",
+      "Cox Models Forest"
+    ]
+  },
+  {
+    "objectID": "Hiplot/053-ezcox.html#visualization",
+    "href": "Hiplot/053-ezcox.html#visualization",
+    "title": "Cox Models Forest",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Cox Models Forest\np &lt;- show_forest(\n  data = data,\n  covariates = c(\"sex\", \"ph.ecog\"),\n  controls = \"age\",\n  merge_models = F,\n  drop_controls = F,\n  add_caption = T\n)\n\np\n\n\n\n\n\n\n\nFigure 1: Cox Models Forest\n\n\n\n\n\nThe first column of the table shows the variables and sample numbers, the second column shows the forest plot, and the third column shows the CI 95% confidence interval range, its mean and P values.\nForest map interpretation.\nThe middle vertical line represents the invalid line, the horizontal line represents the 95% confidence interval of the variable factor, and the length represents the magnitude of the confidence interval. If the confidence interval of a variable factor intersects the invalid line, the variable factor is considered to have no statistical significance, and the position of the square is the point estimation of HR.\nAge is the control variable.\nThe incidence of the ph.ecog factor is greater than that of the age factor, and the ph.ecog factor increases the occurrence of survival (P&lt;0.001, statistically significant).\nThe incidence of sex is less than that of age, and sex reduces the incidence of survival (P =0.002&lt;0.05, statistically significant).",
+    "crumbs": [
+      "HIPLOT",
+      "Cox Models Forest"
+    ]
+  },
+  {
+    "objectID": "Hiplot/051-eulerr.html",
+    "href": "Hiplot/051-eulerr.html",
+    "title": "Eulerr Plot",
+    "section": "",
+    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: eulerr; ggplotify\n\n\n# Install packages\nif (!requireNamespace(\"eulerr\", quietly = TRUE)) {\n  install.packages(\"eulerr\")\n}\nif (!requireNamespace(\"ggplotify\", quietly = TRUE)) {\n  install.packages(\"ggplotify\")\n}\n\n# Load packages\nlibrary(eulerr)\nlibrary(ggplotify)",
+    "crumbs": [
+      "HIPLOT",
+      "Eulerr Plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/051-eulerr.html#setup",
+    "href": "Hiplot/051-eulerr.html#setup",
+    "title": "Eulerr Plot",
+    "section": "",
+    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: eulerr; ggplotify\n\n\n# Install packages\nif (!requireNamespace(\"eulerr\", quietly = TRUE)) {\n  install.packages(\"eulerr\")\n}\nif (!requireNamespace(\"ggplotify\", quietly = TRUE)) {\n  install.packages(\"ggplotify\")\n}\n\n# Load packages\nlibrary(eulerr)\nlibrary(ggplotify)",
+    "crumbs": [
+      "HIPLOT",
+      "Eulerr Plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/051-eulerr.html#data-preparation",
+    "href": "Hiplot/051-eulerr.html#data-preparation",
+    "title": "Eulerr Plot",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/051-eulerr-data.txt\", header = T)\n\n# convert data structure\ngenes &lt;- as.numeric(data[, 2])\nnames(genes) &lt;- as.character(data[, 1])\neuler_set &lt;- euler(genes)\n  \n# View data\nhead(data)\n\n      Term Value\n1       SE    13\n2    Treat    28\n3 Anti-CCP   101\n4    DAS28    91\n5 SE&Treat     1\n6 SE&DAS28    14",
+    "crumbs": [
+      "HIPLOT",
+      "Eulerr Plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/051-eulerr.html#visualization",
+    "href": "Hiplot/051-eulerr.html#visualization",
+    "title": "Eulerr Plot",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Eulerr Plot\nfill &lt;- c(\"#3B4992FF\",\"#EE0000FF\",\"#008B45FF\",\"#631879FF\",\"#008280FF\",\"#BB0021FF\",\n          \"#5F559BFF\",\"#A20056FF\")\np &lt;- as.ggplot(\n  plot(euler_set,\n    labels = list(col = rep(\"white\", length(genes))),\n    fills = list(fill = fill),\n    quantities = list(type = c(\"percent\", \"counts\"),\n    col = rep(\"white\", length(genes))),\n    main = \"Eulerr\")\n)\n\np\n\n\n\n\n\n\n\nFigure 1: Eulerr Plot",
+    "crumbs": [
+      "HIPLOT",
+      "Eulerr Plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/049-easy-pairs.html",
+    "href": "Hiplot/049-easy-pairs.html",
+    "title": "Easy Pairs",
+    "section": "",
+    "text": "Display a matrix of plots for viewing correlation relationship and distributions of multiple variables.",
+    "crumbs": [
+      "HIPLOT",
+      "Easy Pairs"
+    ]
+  },
+  {
+    "objectID": "Hiplot/049-easy-pairs.html#setup",
+    "href": "Hiplot/049-easy-pairs.html#setup",
+    "title": "Easy Pairs",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: GGally\n\n\n# Install packages\nif (!requireNamespace(\"GGally\", quietly = TRUE)) {\n  install.packages(\"GGally\")\n}\n\n# Load packages\nlibrary(GGally)",
+    "crumbs": [
+      "HIPLOT",
+      "Easy Pairs"
+    ]
+  },
+  {
+    "objectID": "Hiplot/049-easy-pairs.html#data-preparation",
+    "href": "Hiplot/049-easy-pairs.html#data-preparation",
+    "title": "Easy Pairs",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/049-easy-pairs-data.txt\", header = T)\n\n# View data\nhead(data)\n\n  total_bill  tip gender smoker day   time size\n1      16.99 1.01 Female     No Sun Dinner    2\n2      10.34 1.66   Male     No Sun Dinner    3\n3      21.01 3.50   Male     No Sun Dinner    3\n4      23.68 3.31   Male     No Sun Dinner    2\n5      24.59 3.61 Female     No Sun Dinner    4\n6      25.29 4.71   Male     No Sun Dinner    4",
+    "crumbs": [
+      "HIPLOT",
+      "Easy Pairs"
+    ]
+  },
+  {
+    "objectID": "Hiplot/049-easy-pairs.html#visualization",
+    "href": "Hiplot/049-easy-pairs.html#visualization",
+    "title": "Easy Pairs",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Easy Pairs\np &lt;- ggpairs(data, columns = c(\"total_bill\", \"time\", \"tip\"),\n             mapping = aes_string(color = \"gender\")) +\n  ggtitle(\"Easy Pairs\") +\n  scale_fill_manual(values = c(\"#3B4992FF\",\"#EE0000FF\")) +\n  theme_bw() +\n  theme(text = element_text(family = \"Arial\"),\n        plot.title = element_text(size = 12,hjust = 0.5),\n        axis.title = element_text(size = 12),\n        axis.text = element_text(size = 10),\n        axis.text.x = element_text(angle = 0, hjust = 0.5,vjust = 1),\n        legend.position = \"right\",\n        legend.direction = \"vertical\",\n        legend.title = element_text(size = 10),\n        legend.text = element_text(size = 10))\n\np\n\n\n\n\n\n\n\nFigure 1: Easy Pairs",
+    "crumbs": [
+      "HIPLOT",
+      "Easy Pairs"
+    ]
+  },
+  {
+    "objectID": "Hiplot/047-dual-y-axis.html",
+    "href": "Hiplot/047-dual-y-axis.html",
+    "title": "Dual Y Axis Chart",
+    "section": "",
+    "text": "The dual Y-axis graph can put two groups of data with larger orders of magnitude in the same graph for display.",
+    "crumbs": [
+      "HIPLOT",
+      "Dual Y Axis Chart"
+    ]
+  },
+  {
+    "objectID": "Hiplot/047-dual-y-axis.html#setup",
+    "href": "Hiplot/047-dual-y-axis.html#setup",
+    "title": "Dual Y Axis Chart",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# Load packages\nlibrary(ggplot2)",
+    "crumbs": [
+      "HIPLOT",
+      "Dual Y Axis Chart"
+    ]
+  },
+  {
+    "objectID": "Hiplot/047-dual-y-axis.html#data-preparation",
+    "href": "Hiplot/047-dual-y-axis.html#data-preparation",
+    "title": "Dual Y Axis Chart",
+    "section": "Data Preparation",
+    "text": "Data Preparation\nThe loaded data is divided into three columns, the first column is the value of the x-axis, the second column is the value of the left Y-axis, and the third column is the value of the right Y-axis.\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/047-dual-y-axis-data.txt\", header = T)\n\n# View data\nhead(data)\n\n  x     data1     data2\n1 1 0.6105444 1000.5383\n2 2 0.9961953  981.0398\n3 3 0.6314076  961.0601\n4 4 0.8651855  941.2540\n5 5 0.8169382  922.3971\n6 6 0.1877025  903.3067",
+    "crumbs": [
+      "HIPLOT",
+      "Dual Y Axis Chart"
+    ]
+  },
+  {
+    "objectID": "Hiplot/047-dual-y-axis.html#visualization",
+    "href": "Hiplot/047-dual-y-axis.html#visualization",
+    "title": "Dual Y Axis Chart",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Dual Y Axis Chart\np &lt;- ggplot(data, aes(x = x)) +\n  geom_line(aes(y = data[, 2]), size = 1, color = \"#D72C15\") +\n  geom_line(aes(y = data[, 3] / as.numeric(10)), size = 1, color = \"#02657B\") +\n  scale_y_continuous(\n    name = colnames(data)[2],\n    sec.axis = sec_axis(~ . * as.numeric(10), name = colnames(data)[3])) +\n  ggtitle(\"Dual Y Axis Chart\") + xlab(\"x\") +\n  theme_bw() +\n  theme(text = element_text(family = \"Arial\"),\n        plot.title = element_text(size = 12,hjust = 0.5),\n        axis.title = element_text(size = 12),\n        axis.text = element_text(size = 10),\n        axis.text.x = element_text(angle = 0, hjust = 0.5,vjust = 1),\n        legend.position = \"right\",\n        legend.direction = \"vertical\",\n        legend.title = element_text(size = 10),\n        legend.text = element_text(size = 10))\n\np\n\n\n\n\n\n\n\nFigure 1: Dual Y Axis Chart\n\n\n\n\n\nInterpretation of case statistics graphics In the case data, the Y-axis scale on the left is in the range of 0-100, while the Y-axis scale on the right is 0-1000.",
+    "crumbs": [
+      "HIPLOT",
+      "Dual Y Axis Chart"
+    ]
+  },
+  {
     "objectID": "Hiplot/045-donut.html",
     "href": "Hiplot/045-donut.html",
     "title": "Donut",
@@ -922,7 +1230,7 @@
     "href": "Hiplot/018-calibration-curve.html#visualization",
     "title": "Calibration Curve",
     "section": "Visualization",
-    "text": "Visualization\n\n# Calibration Curve\np &lt;- as.ggplot(function() {\n  plot(lrm.cal,\n       xlab = \"Nomogram Predicted Survival\",\n       ylab = \"Actual Survival\",\n       main = \"Calibration Curve\"\n       )\n})\n\n\nn=168   Mean absolute error=0.063   Mean squared error=0.0046\n0.9 Quantile of absolute error=0.092\n\np\n\n\n\n\n\n\n\nFigure 1: Calibration Curve",
+    "text": "Visualization\n\n# Calibration Curve\np &lt;- as.ggplot(function() {\n  plot(lrm.cal,\n       xlab = \"Nomogram Predicted Survival\",\n       ylab = \"Actual Survival\",\n       main = \"Calibration Curve\"\n       )\n})\n\n\nn=168   Mean absolute error=0.064   Mean squared error=0.00474\n0.9 Quantile of absolute error=0.092\n\np\n\n\n\n\n\n\n\nFigure 1: Calibration Curve",
     "crumbs": [
       "HIPLOT",
       "Calibration Curve"
@@ -3032,6 +3340,314 @@
     "crumbs": [
       "HIPLOT",
       "Dotchart"
+    ]
+  },
+  {
+    "objectID": "Hiplot/048-dumbbell.html",
+    "href": "Hiplot/048-dumbbell.html",
+    "title": "Dumbbell Chart",
+    "section": "",
+    "text": "Dumbbell Chart can display the data change.",
+    "crumbs": [
+      "HIPLOT",
+      "Dumbbell Chart"
+    ]
+  },
+  {
+    "objectID": "Hiplot/048-dumbbell.html#setup",
+    "href": "Hiplot/048-dumbbell.html#setup",
+    "title": "Dumbbell Chart",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; ggalt\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"ggalt\", quietly = TRUE)) {\n  install.packages(\"ggalt\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(ggalt)",
+    "crumbs": [
+      "HIPLOT",
+      "Dumbbell Chart"
+    ]
+  },
+  {
+    "objectID": "Hiplot/048-dumbbell.html#data-preparation",
+    "href": "Hiplot/048-dumbbell.html#data-preparation",
+    "title": "Dumbbell Chart",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/048-dumbbell-data.txt\", header = T)\n\n# View data\nhead(data)\n\n    country  y1952  y2007\n1 Argentina 62.485 75.320\n2   Bolivia 40.414 65.554\n3    Brazil 50.917 72.390\n4    Canada 68.750 80.653\n5     Chile 54.745 78.553\n6  Colombia 50.643 72.889",
+    "crumbs": [
+      "HIPLOT",
+      "Dumbbell Chart"
+    ]
+  },
+  {
+    "objectID": "Hiplot/048-dumbbell.html#visualization",
+    "href": "Hiplot/048-dumbbell.html#visualization",
+    "title": "Dumbbell Chart",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Dumbbell Chart\ncolors &lt;- c(\"#3B4992FF\",\"#EE0000FF\")\np &lt;- ggplot(data, aes(y = reorder(country, y1952), x = y1952, xend = y2007)) +\n  geom_dumbbell(size = 1, size_x = 3,  size_xend = 3, colour = \"#AFAFAF\",  \n                colour_x = colors[1],  colour_xend = colors[2]) +\n  labs(title = \"Dummbbell Chart\", x = \"Life Expectancy (years)\",\n       y = \"country\") +\n  theme_minimal() +\n  theme(text = element_text(family = \"Arial\"),\n        plot.title = element_text(size = 12,hjust = 0.5),\n        axis.title = element_text(size = 12),\n        axis.text = element_text(size = 10),\n        axis.text.x = element_text(angle = 0, hjust = 0.5,vjust = 1),\n        legend.position = \"right\",\n        legend.direction = \"vertical\",\n        legend.title = element_text(size = 10),\n        legend.text = element_text(size = 10))\n\np\n\n\n\n\n\n\n\nFigure 1: Dumbbell Chart",
+    "crumbs": [
+      "HIPLOT",
+      "Dumbbell Chart"
+    ]
+  },
+  {
+    "objectID": "Hiplot/050-easy-som.html",
+    "href": "Hiplot/050-easy-som.html",
+    "title": "Easy SOM",
+    "section": "",
+    "text": "Establish the SOM model and conduct the visulization.",
+    "crumbs": [
+      "HIPLOT",
+      "Easy SOM"
+    ]
+  },
+  {
+    "objectID": "Hiplot/050-easy-som.html#setup",
+    "href": "Hiplot/050-easy-som.html#setup",
+    "title": "Easy SOM",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: kohonen\n\n\n# Install packages\nif (!requireNamespace(\"kohonen\", quietly = TRUE)) {\n  install.packages(\"kohonen\")\n}\n\n# Load packages\nlibrary(kohonen)",
+    "crumbs": [
+      "HIPLOT",
+      "Easy SOM"
+    ]
+  },
+  {
+    "objectID": "Hiplot/050-easy-som.html#data-preparation",
+    "href": "Hiplot/050-easy-som.html#data-preparation",
+    "title": "Easy SOM",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/050-easy-som-data.txt\", header = T)\n\n# convert data structure\ntarget &lt;- data[,1]\ntarget &lt;- factor(target, levels = unique(target))\ndata &lt;- data[,-1]\ndata &lt;- as.data.frame(data)\nfor (i in 1:ncol(data)) {\n  data[,i] &lt;- as.numeric(data[,i])\n}\ndata &lt;- as.matrix(data)\nset.seed(7)\nkohmap &lt;- xyf(scale(data), target, grid = somgrid(xdim=6, ydim=4, topo=\"hexagonal\"), rlen=100)\n\ncolor_key &lt;- c(\"#A50026\",\"#D73027\",\"#F46D43\",\"#FDAE61\",\"#FEE090\",\"#FFFFBF\",\"#E0F3F8\",\n               \"#ABD9E9\",\"#74ADD1\",\"#4575B4\",\"#313695\")\ncolors &lt;- function (n, alpha, rev = FALSE) {\n  colorRampPalette(color_key)(n)\n}\n\n# View data\nhead(data)\n\n     alcohol malic.acid  ash ash.alkalinity magnesium tot..phenols flavonoids\n[1,]   12.86       1.35 2.32           18.0       122         1.51       1.25\n[2,]   12.88       2.99 2.40           20.0       104         1.30       1.22\n[3,]   12.81       2.31 2.40           24.0        98         1.15       1.09\n[4,]   12.70       3.55 2.36           21.5       106         1.70       1.20\n[5,]   12.51       1.24 2.25           17.5        85         2.00       0.58\n[6,]   12.60       2.46 2.20           18.5        94         1.62       0.66\n     non.flav..phenols proanth col..int. col..hue OD.ratio proline\n[1,]              0.21    0.94      4.10     0.76     1.29     630\n[2,]              0.24    0.83      5.40     0.74     1.42     530\n[3,]              0.27    0.83      5.70     0.66     1.36     560\n[4,]              0.17    0.84      5.00     0.78     1.29     600\n[5,]              0.60    1.25      5.45     0.75     1.51     650\n[6,]              0.63    0.94      7.10     0.73     1.58     695",
+    "crumbs": [
+      "HIPLOT",
+      "Easy SOM"
+    ]
+  },
+  {
+    "objectID": "Hiplot/050-easy-som.html#visualization",
+    "href": "Hiplot/050-easy-som.html#visualization",
+    "title": "Easy SOM",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Easy SOM\np &lt;- function () {\n  par(mfrow = c(3,2))\n  xyfpredictions &lt;- classmat2classvec(getCodes(kohmap, 2))\n  plot(kohmap, type=\"counts\", col = as.integer(target),\n       palette.name = colors,\n       pchs = as.integer(target), \n       main = \"Counts plot\", shape = \"straight\", border = NA)\n  \n  som.hc &lt;- cutree(hclust(object.distances(kohmap, \"codes\")), 3)\n  add.cluster.boundaries(kohmap, som.hc)\n\n  plot(kohmap, type=\"mapping\",\n       labels = as.integer(target), col = colors(3)[as.integer(target)],\n       palette.name = colors,\n       shape = \"straight\",\n       main = \"Mapping plot\")\n\n  ## add background colors to units according to their predicted class labels\n  xyfpredictions &lt;- classmat2classvec(getCodes(kohmap, 2))\n  bgcols &lt;- colors(3)\n  plot(kohmap, type=\"mapping\", col = as.integer(target),\n       pchs = as.integer(target), bgcol = bgcols[as.integer(xyfpredictions)],\n       main = \"Another mapping plot\", shape = \"straight\", border = NA)\n  \n  similarities &lt;- plot(kohmap, type=\"quality\", shape = \"straight\",\n                       palette.name = colors)\n  \n  plot(kohmap, type=\"codes\", shape = \"straight\", \n       main = c(\"Codes X\", \"Codes Y\"), palette.name = colors)\n\n  set.seed(7)\n  sommap &lt;- som(scale(data), grid = somgrid(6, 4, \"hexagonal\"))\n\n  ## and the same for rectangular maps\n  plot(sommap, type=\"dist.neighbours\", \n       shape = \"straight\",\n       palette.name = colors,\n       main = \"SOM neighbour distances\")\n  ## use hierarchical clustering to cluster the codebook vectors\n  som.hc &lt;- cutree(hclust(object.distances(sommap, \"codes\")), 3)\n  add.cluster.boundaries(sommap, som.hc)\n\n  ## Show 'component planes'\n  for (i in 1:ncol(getCodes(sommap, 1))) {\n    set.seed(7)\n    sommap &lt;- som(scale(data), grid = somgrid(6, 4, \"hexagonal\"))\n    plot(sommap, shape = \"straight\", type = \"property\", \n        property = getCodes(sommap, 1)[,i],\n        palette.name = colors,\n        main = colnames(getCodes(sommap, 1))[i])\n  }\n}\n\np()\n\n\n\n\n\n\n\nFigure 1: Easy SOM\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Easy SOM\n\n\n\n\n\n\n\n\n\n\n\nFigure 3: Easy SOM\n\n\n\n\n\n\n\n\n\n\n\nFigure 4: Easy SOM",
+    "crumbs": [
+      "HIPLOT",
+      "Easy SOM"
+    ]
+  },
+  {
+    "objectID": "Hiplot/052-extended-scatter.html",
+    "href": "Hiplot/052-extended-scatter.html",
+    "title": "Extended Scatter",
+    "section": "",
+    "text": "An extended scatter plot adds marginal plots to the basic scatter plot to provide a more comprehensive view of the data distribution.",
+    "crumbs": [
+      "HIPLOT",
+      "Extended Scatter"
+    ]
+  },
+  {
+    "objectID": "Hiplot/052-extended-scatter.html#setup",
+    "href": "Hiplot/052-extended-scatter.html#setup",
+    "title": "Extended Scatter",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; ggExtra\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"ggExtra\", quietly = TRUE)) {\n  install.packages(\"ggExtra\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(ggExtra)",
+    "crumbs": [
+      "HIPLOT",
+      "Extended Scatter"
+    ]
+  },
+  {
+    "objectID": "Hiplot/052-extended-scatter.html#data-preparation",
+    "href": "Hiplot/052-extended-scatter.html#data-preparation",
+    "title": "Extended Scatter",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/052-extended-scatter-data.txt\", header = T)\n\n# View data\nhead(data)\n\n   mpg cyl disp  hp drat    wt  qsec vs am gear carb\n1 21.0   6  160 110 3.90 2.620 16.46  0  1    4    4\n2 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4\n3 22.8   4  108  93 3.85 2.320 18.61  1  1    4    1\n4 21.4   6  258 110 3.08 3.215 19.44  1  0    3    1\n5 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2\n6 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1",
+    "crumbs": [
+      "HIPLOT",
+      "Extended Scatter"
+    ]
+  },
+  {
+    "objectID": "Hiplot/052-extended-scatter.html#visualization",
+    "href": "Hiplot/052-extended-scatter.html#visualization",
+    "title": "Extended Scatter",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Extended Scatter\np &lt;- ggplot(data, aes(x = wt, y = mpg, color = cyl, size = cyl)) +\n  geom_point() +\n  geom_rug(alpha = 0.2, size = 1.5, col = \"#4f80b3\") +\n  theme(legend.position = \"none\")\n\np &lt;- ggMarginal(\n  p, type = \"densigram\", fill = \"#7054cc\", color = \"#7f0080\",\n  size = 4, bins = 30)\n\np\n\n\n\n\n\n\n\nFigure 1: Extended Scatter",
+    "crumbs": [
+      "HIPLOT",
+      "Extended Scatter"
+    ]
+  },
+  {
+    "objectID": "Hiplot/054-fan.html",
+    "href": "Hiplot/054-fan.html",
+    "title": "Fan Plot",
+    "section": "",
+    "text": "The pie chart is a statistical chart designed to clearly show the percentage of each data group by the size of the pie.",
+    "crumbs": [
+      "HIPLOT",
+      "Fan Plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/054-fan.html#setup",
+    "href": "Hiplot/054-fan.html#setup",
+    "title": "Fan Plot",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: plotrix; ggplotify\n\n\n# Install packages\nif (!requireNamespace(\"plotrix\", quietly = TRUE)) {\n  install.packages(\"plotrix\")\n}\nif (!requireNamespace(\"ggplotify\", quietly = TRUE)) {\n  install.packages(\"ggplotify\")\n}\n\n# Load packages\nlibrary(plotrix)\nlibrary(ggplotify)",
+    "crumbs": [
+      "HIPLOT",
+      "Fan Plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/054-fan.html#data-preparation",
+    "href": "Hiplot/054-fan.html#data-preparation",
+    "title": "Fan Plot",
+    "section": "Data Preparation",
+    "text": "Data Preparation\nThe loaded data are different groups and their data.\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/054-fan-data.txt\", header = T)\n\n# View data\nhead(data)\n\n   group value\n1 Group1    13\n2 Group2    34\n3 Group3    21\n4 Group4    43",
+    "crumbs": [
+      "HIPLOT",
+      "Fan Plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/054-fan.html#visualization",
+    "href": "Hiplot/054-fan.html#visualization",
+    "title": "Fan Plot",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Fan Plot\np &lt;- as.ggplot(function() {\n  fan.plot(data[, 2], main = \"\", labels = as.character(data[, 1]),\n           col = c(\"#E64B35FF\",\"#4DBBD5FF\",\"#00A087FF\",\"#3C5488FF\"))\n  })\n\np\n\n\n\n\n\n\n\nFigure 1: Fan Plot\n\n\n\n\n\nDifferent colors represent different groups and different areas represent data and proportion.",
+    "crumbs": [
+      "HIPLOT",
+      "Fan Plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/056-flowerplot.html",
+    "href": "Hiplot/056-flowerplot.html",
+    "title": "Flower plot",
+    "section": "",
+    "text": "Flower plot with multiple sets.",
+    "crumbs": [
+      "HIPLOT",
+      "Flower plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/056-flowerplot.html#setup",
+    "href": "Hiplot/056-flowerplot.html#setup",
+    "title": "Flower plot",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: flowerplot; ggplotify\n\n\n# Install packages\nif (!requireNamespace(\"fishplot\", quietly = TRUE)) {\n  install_github(\"dongwei1220/flowerplot\")\n}\nif (!requireNamespace(\"ggplotify\", quietly = TRUE)) {\n  install.packages(\"ggplotify\")\n}\n\n# Load packages\nlibrary(flowerplot)\nlibrary(ggplotify)",
+    "crumbs": [
+      "HIPLOT",
+      "Flower plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/056-flowerplot.html#data-preparation",
+    "href": "Hiplot/056-flowerplot.html#data-preparation",
+    "title": "Flower plot",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/056-flowerplot-data.txt\", header = T)\n\n# View data\nhead(data)\n\n     Set1   Set2  Set3  Set4   Set5    Set6   Set7     Set8\n1   ZMIZ1  ADCY5  TNS1  TNS1   TNS1   ZMIZ1 SORBS1     RGS3\n2    TNS1  ACTN4 ZMIZ1 ZMIZ1  ZMIZ1    TNS1   TNS1    FHOD3\n3   CASZ1 SORBS1  RXRA  RXRA TSPAN9   CASZ1  ZMIZ1 PPARGC1B\n4    NFIC   TNS1 AHDC1 NCOR2   MIDN    NFIC  RBM20     NNMT\n5 CACNA1C  ZMIZ1 ACTN4  MIDN  NCOR2 CACNA1C TSPAN9   SORBS2\n6   AHDC1  RBM20  MIDN AHDC1  AHDC1   AHDC1  SYNPO   FAM53B",
+    "crumbs": [
+      "HIPLOT",
+      "Flower plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/056-flowerplot.html#visualization",
+    "href": "Hiplot/056-flowerplot.html#visualization",
+    "title": "Flower plot",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Flower plot\np &lt;- as.ggplot(function(){\n  flowerplot(\n    flower_dat = data,\n    angle = 90,\n    a = 0.5,\n    b = 2,\n    r = 1,\n    ellipse_col = \"RdBu\",\n    circle_col = \"#FFFFFF\",\n    label_text_cex = 1\n  )})\n\np\n\n\n\n\n\n\n\nFigure 1: Flower plot",
+    "crumbs": [
+      "HIPLOT",
+      "Flower plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/058-funnel-plot.html",
+    "href": "Hiplot/058-funnel-plot.html",
+    "title": "Funnel Plot",
+    "section": "",
+    "text": "Can be used to show potential bias factors in Meta-analysis.",
+    "crumbs": [
+      "HIPLOT",
+      "Funnel Plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/058-funnel-plot.html#setup",
+    "href": "Hiplot/058-funnel-plot.html#setup",
+    "title": "Funnel Plot",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: FunnelPlotR; gridExtra\n\n\n# Install packages\nif (!requireNamespace(\"FunnelPlotR\", quietly = TRUE)) {\n  install.packages(\"FunnelPlotR\")\n}\nif (!requireNamespace(\"gridExtra\", quietly = TRUE)) {\n  install.packages(\"gridExtra\")\n}\n\n# Load packages\nlibrary(FunnelPlotR)\nlibrary(gridExtra)",
+    "crumbs": [
+      "HIPLOT",
+      "Funnel Plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/058-funnel-plot.html#data-preparation",
+    "href": "Hiplot/058-funnel-plot.html#data-preparation",
+    "title": "Funnel Plot",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/058-funnel-plot-data.txt\", header = T)\n\n# View data\nhead(data)\n\n  los hmo white died age80 type type1 type2 type3 provnum     prds\n1   4   0     1    0     0    1     1     0     0   30001 9.667315\n2   9   1     1    0     0    1     1     0     0   30001 8.956472\n3   3   1     1    1     1    1     1     0     0   30001 6.856678\n4   9   0     1    0     0    1     1     0     0   30001 9.667315\n5   1   0     1    1     1    1     1     0     0   30001 7.400868\n6   4   0     1    1     0    1     1     0     0   30001 7.561051",
+    "crumbs": [
+      "HIPLOT",
+      "Funnel Plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/058-funnel-plot.html#visualization",
+    "href": "Hiplot/058-funnel-plot.html#visualization",
+    "title": "Funnel Plot",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Funnel Plot\nplot_cols &lt;- c(\"#925E9FFF\",\"#FDAF91FF\",\"#AD002AFF\",\"#ADB6B6FF\",\"#00468BFF\",\"#ED0000FF\",\"#42B540FF\",\"#0099B4FF\")\np &lt;- funnel_plot(\n  data, numerator = los, denominator = prds,  group = provnum, data_type = \"SR\",\n  limit = 99, label = \"outlier\", sr_method = \"SHMI\", trim_by=0.1, \n  title = \"Funnel Plot\", x_range = \"auto\", y_range = \"auto\",\n  plot_cols=plot_cols\n  )\n\np\n\nA funnel plot object with 54 points of which 9 are outliers. \nPlot is adjusted for overdispersion. \n\n\n\n\n\n\n\n\nFigure 1: Funnel Plot",
+    "crumbs": [
+      "HIPLOT",
+      "Funnel Plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/060-gene-density.html",
+    "href": "Hiplot/060-gene-density.html",
+    "title": "Gene Density",
+    "section": "",
+    "text": "Chrosome data visualization.",
+    "crumbs": [
+      "HIPLOT",
+      "Gene Density"
+    ]
+  },
+  {
+    "objectID": "Hiplot/060-gene-density.html#setup",
+    "href": "Hiplot/060-gene-density.html#setup",
+    "title": "Gene Density",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: circlize; ComplexHeatmap; gtrellis; tidyverse; ggplotify; RColorBrewer\n\n\n# Install packages\nif (!requireNamespace(\"circlize\", quietly = TRUE)) {\n  install.packages(\"circlize\")\n}\nif (!requireNamespace(\"ComplexHeatmap\", quietly = TRUE)) {\n  install_github(\"jokergoo/ComplexHeatmap\")\n}\nif (!requireNamespace(\"gtrellis\", quietly = TRUE)) {\n  install_github(\"jokergoo/gtrellis\")\n}\nif (!requireNamespace(\"tidyverse\", quietly = TRUE)) {\n  install.packages(\"tidyverse\")\n}\nif (!requireNamespace(\"ggplotify\", quietly = TRUE)) {\n  install.packages(\"ggplotify\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# Load packages\nlibrary(circlize)\nlibrary(ComplexHeatmap)\nlibrary(gtrellis)\nlibrary(tidyverse)\nlibrary(ggplotify)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "Gene Density"
+    ]
+  },
+  {
+    "objectID": "Hiplot/060-gene-density.html#data-preparation",
+    "href": "Hiplot/060-gene-density.html#data-preparation",
+    "title": "Gene Density",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata1 &lt;- read.delim(\"files/Hiplot/060-gene-density-data1.txt\", header = T)\ndata2 &lt;- read.delim(\"files/Hiplot/060-gene-density-data2.txt\", header = T)\n\n# Convert data structure\nchrNum &lt;- str_replace(unique(data1$chr), \"Chr|chr\", \"\")\ndata1$chr &lt;- factor(data1$chr, levels = paste0(\"Chr\", chrNum))\ndata2$chr &lt;- factor(data2$chr, levels = paste0(\"Chr\", chrNum))\n# Set window to calculate gene density\nwindows &lt;- 100 * 1000 # default:100kb window size\ngene_density &lt;- genomicDensity(data2, window.size = windows)\ngene_density$chr &lt;- factor(gene_density$chr,\n  levels =  paste0(\"Chr\", chrNum)\n)\n\n# View data\nhead(data1)\n\n    chr start      end\n1  Chr5     0 29958434\n2  Chr8     0 28443022\n3  Chr9     0 23012720\n4 Chr10     0 23207287\n5 Chr12     0 27531856\n\nhead(data2)\n\n    chr start   end\n1 Chr10 38648 40060\n2 Chr10 45941 58338\n3 Chr10 67119 72971\n4 Chr10 75410 76305\n5 Chr10 80964 82250\n6 Chr10 94798 97746",
+    "crumbs": [
+      "HIPLOT",
+      "Gene Density"
+    ]
+  },
+  {
+    "objectID": "Hiplot/060-gene-density.html#visualization",
+    "href": "Hiplot/060-gene-density.html#visualization",
+    "title": "Gene Density",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Set the palettes\npalettes &lt;- c(\"#B2182B\",\"#EF8A62\",\"#FDDBC7\",\"#D1E5F0\",\"#67A9CF\",\"#2166AC\")\ncol_fun &lt;- colorRamp2(\n  seq(0, max(gene_density[[4]]), length = 6), rev(palettes)\n  )\ncm &lt;- ColorMapping(col_fun = col_fun)\n# Set the Legend\nlgd &lt;- color_mapping_legend(\n  cm, plot = TRUE, title = \"density\", color_bar = \"continuous\"\n  )\n# Plot\np &lt;- as.ggplot(function() {\n  gtrellis_layout(\n    data1, n_track = 2, ncol = 1, byrow = FALSE,\n    track_axis = FALSE, add_name_track = FALSE,\n    xpadding = c(0.1, 0), gap = unit(1, \"mm\"),\n    track_height = unit.c(unit(1, \"null\"), unit(4, \"mm\")),\n    track_ylim = c(0, max(gene_density[[4]]), 0, 1),\n    border = FALSE, asist_ticks = FALSE,\n    legend = lgd\n    )\n  # Add gene area map track\n  add_lines_track(gene_density, gene_density[[4]],\n                  area = TRUE, gp = gpar(fill = \"pink\"))\n  # Add gene density heatmap track\n  add_heatmap_track(gene_density, gene_density[[4]], fill = col_fun)\n  add_track(track = 2, clip = FALSE, panel_fun = function(gr) {\n    chr &lt;- get_cell_meta_data(\"name\")\n    if (chr == paste(\"Chr\", length(chrNum), sep = \"\")) {\n      grid.lines(get_cell_meta_data(\"xlim\"), unit(c(0, 0), \"npc\"),\n                 default.units = \"native\")\n      }\n    grid.text(chr, x = 0.01, y = 0.38, just = c(\"left\", \"bottom\"))\n    })\n  circos.clear()\n  })\n\np\n\n\n\n\n\n\n\nFigure 1: Gene Density\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Gene Density",
+    "crumbs": [
+      "HIPLOT",
+      "Gene Density"
     ]
   },
   {
