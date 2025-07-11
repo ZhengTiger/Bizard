@@ -301,6 +301,138 @@
     ]
   },
   {
+    "objectID": "Hiplot/045-donut.html",
+    "href": "Hiplot/045-donut.html",
+    "title": "环形图",
+    "section": "",
+    "text": "环形图是饼图的一种变体，它有一个允许包含数据整体额外信息的空白中心。且与饼图目的一致，都是用来说明数据比例。",
+    "crumbs": [
+      "HIPLOT",
+      "Donut"
+    ]
+  },
+  {
+    "objectID": "Hiplot/045-donut.html#环境配置",
+    "href": "Hiplot/045-donut.html#环境配置",
+    "title": "环形图",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# 加载包\nlibrary(ggplot2)",
+    "crumbs": [
+      "HIPLOT",
+      "Donut"
+    ]
+  },
+  {
+    "objectID": "Hiplot/045-donut.html#数据准备",
+    "href": "Hiplot/045-donut.html#数据准备",
+    "title": "环形图",
+    "section": "数据准备",
+    "text": "数据准备\n载入数据为不同分组及其数据。\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/045-donut-data.txt\", header = T)\n\n# 整理数据格式\ndata$fraction &lt;- data[, 2] / sum(data[, 2])\ndata$ymax &lt;- cumsum(data$fraction)\ndata$ymin &lt;- c(0, head(data$ymax, n = -1))\ndata$labelPosition &lt;- (data$ymax + data$ymin) / 2\ndata$label &lt;- paste0(data[, 1], \"\\n\",\n  \"(\", data[, 2], \", \", sprintf(\"%2.2f%%\", 100 * data[, 2] / sum(data[, 2])), \")\",\n  sep = \"\"\n)\n\n# 查看数据\nhead(data)\n\n   group value  fraction      ymax      ymin labelPosition                label\n1 Group1    13 0.1171171 0.1171171 0.0000000    0.05855856 Group1\\n(13, 11.71%)\n2 Group2    34 0.3063063 0.4234234 0.1171171    0.27027027 Group2\\n(34, 30.63%)\n3 Group3    21 0.1891892 0.6126126 0.4234234    0.51801802 Group3\\n(21, 18.92%)\n4 Group4    43 0.3873874 1.0000000 0.6126126    0.80630631 Group4\\n(43, 38.74%)",
+    "crumbs": [
+      "HIPLOT",
+      "Donut"
+    ]
+  },
+  {
+    "objectID": "Hiplot/045-donut.html#可视化",
+    "href": "Hiplot/045-donut.html#可视化",
+    "title": "环形图",
+    "section": "可视化",
+    "text": "可视化\n\n# 环形图\np &lt;- ggplot(data, aes_(ymax = as.name(\"ymax\"), ymin = as.name(\"ymin\"), \n                       xmax = 4, xmin = 3, fill = as.name(colnames(data)[1]))) +\n  geom_rect() +\n  geom_text(x = 5 + (4 - 5) / 3,\n            aes(y = labelPosition, label = label), size = 4) +\n  coord_polar(theta = \"y\") +\n  xlim(c(2, 5)) +\n  scale_fill_manual(values = c(\"#00468BCC\",\"#ED0000CC\",\"#42B540CC\",\"#0099B4CC\")) +\n  ggtitle(\"Donut Plot\") +\n  theme_void() +\n  theme(plot.title = element_text(hjust = 0.5),\n        legend.position = \"none\")\n\np\n\n\n\n\n\n\n\n图 1: 环形图\n\n\n\n\n\n不同颜色表示不同组群，不同面积表示数据及占比。",
+    "crumbs": [
+      "HIPLOT",
+      "Donut"
+    ]
+  },
+  {
+    "objectID": "Hiplot/043-diverging-scale.html",
+    "href": "Hiplot/043-diverging-scale.html",
+    "title": "双侧标准化图",
+    "section": "",
+    "text": "双侧标准化图是一种将连续的，定量的输入映射到连续的固定的插值器上的图形。",
+    "crumbs": [
+      "HIPLOT",
+      "Diverging Scale"
+    ]
+  },
+  {
+    "objectID": "Hiplot/043-diverging-scale.html#环境配置",
+    "href": "Hiplot/043-diverging-scale.html#环境配置",
+    "title": "双侧标准化图",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggcharts\n\n\n# 安装包\nif (!requireNamespace(\"ggcharts\", quietly = TRUE)) {\n  install.packages(\"ggcharts\")\n}\n\n# 加载包\nlibrary(ggcharts)",
+    "crumbs": [
+      "HIPLOT",
+      "Diverging Scale"
+    ]
+  },
+  {
+    "objectID": "Hiplot/043-diverging-scale.html#数据准备",
+    "href": "Hiplot/043-diverging-scale.html#数据准备",
+    "title": "双侧标准化图",
+    "section": "数据准备",
+    "text": "数据准备\n导入数据第一列为模型名称列表，其余列输入相关指标及对应数值。\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/043-diverging-scale-data.txt\", header = T)\n\n# 整理数据格式\ndata &lt;- dplyr::transmute(.data = data, x = model, y = scale(hp))\n\n# 查看数据\nhead(data)\n\n                  x          y\n1         Mazda RX4 -0.6130929\n2     Mazda RX4 Wag -0.6130929\n3        Datsun 710 -0.9123057\n4    Hornet 4 Drive -0.6130929\n5 Hornet Sportabout  0.5309561\n6           Valiant -0.7010967",
+    "crumbs": [
+      "HIPLOT",
+      "Diverging Scale"
+    ]
+  },
+  {
+    "objectID": "Hiplot/043-diverging-scale.html#可视化",
+    "href": "Hiplot/043-diverging-scale.html#可视化",
+    "title": "双侧标准化图",
+    "section": "可视化",
+    "text": "可视化\n\n1.条形图\n\n# 双侧条形图\nfill_colors &lt;- c(\"#C20B01\", \"#196ABD\")\nfill_colors &lt;- fill_colors[c(any(data[, \"y\"] &gt; 0), any(data[, \"y\"] &lt; 0))]\np &lt;- diverging_bar_chart(data = data, x = x, y = y, bar_colors = fill_colors,\n                         text_color = '#000000') + \n  theme(axis.text.x = element_text(color = \"#000000\"),\n        axis.title.x = element_text(colour = \"#000000\"),\n        axis.title.y = element_text(colour = \"#000000\"),\n        plot.background = element_blank()) + \n  labs(x = \"model\", y = \"scale(hp)\", title = \"\")\n\np\n\n\n\n\n\n\n\n图 1: 双侧条形图\n\n\n\n\n\n图示横轴表示hp数据，纵轴表示模型名称（分类），红色表示超过平均值的模型，蓝色表示低于平均值的模型，数据是按照大小赋值于 2 的比例尺上面。\n\n\n2.棒棒糖图\n\n# 双侧棒棒糖图\nfill_colors &lt;- c(\"#C20B01\", \"#196ABD\")\nfill_colors &lt;- fill_colors[c(any(data[, \"y\"] &gt; 0), any(data[, \"y\"] &lt; 0))]\np &lt;- diverging_lollipop_chart(\n  data = data, x = x, y = y, lollipop_colors = fill_colors,\n  line_size = 0.3, point_size = 1.9, text_color = '#000000') + \n  theme(axis.text.x = element_text(color = \"#000000\"),\n        axis.title.x = element_text(colour = \"#000000\"),\n        axis.title.y = element_text(colour = \"#000000\"),\n        plot.background = element_blank()) + \n  labs(x = \"model\", y = \"scale(hp)\", title = \"\")\n\np\n\n\n\n\n\n\n\n图 2: 双侧棒棒糖图",
+    "crumbs": [
+      "HIPLOT",
+      "Diverging Scale"
+    ]
+  },
+  {
+    "objectID": "Hiplot/041-deviation-plot.html",
+    "href": "Hiplot/041-deviation-plot.html",
+    "title": "偏差图",
+    "section": "",
+    "text": "偏差图可以直观地展示出数据之间的差异。",
+    "crumbs": [
+      "HIPLOT",
+      "Deviation Plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/041-deviation-plot.html#环境配置",
+    "href": "Hiplot/041-deviation-plot.html#环境配置",
+    "title": "偏差图",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggpubr\n\n\n# 安装包\nif (!requireNamespace(\"ggpubr\", quietly = TRUE)) {\n  install.packages(\"ggpubr\")\n}\n\n# 加载包\nlibrary(ggpubr)",
+    "crumbs": [
+      "HIPLOT",
+      "Deviation Plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/041-deviation-plot.html#数据准备",
+    "href": "Hiplot/041-deviation-plot.html#数据准备",
+    "title": "偏差图",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/041-deviation-plot-data.txt\", header = T)\n\n# 整理数据格式\ndata[[\"z_score\"]] &lt;- (data[[\"mpg\"]] - mean(data[[\"mpg\"]])) / sd(data[[\"mpg\"]])\ndata[[\"Group\"]] &lt;- factor(ifelse(data[[\"z_score\"]] &lt; 0, \"low\", \"high\"),\n                          levels = c(\"low\", \"high\")\n                          )\n\n# 查看数据\nhead(data)\n\n   mpg cyl disp  hp drat    wt  qsec vs am gear carb              name\n1 21.0   6  160 110 3.90 2.620 16.46  0  1    4    4         Mazda RX4\n2 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4     Mazda RX4 Wag\n3 22.8   4  108  93 3.85 2.320 18.61  1  1    4    1        Datsun 710\n4 21.4   6  258 110 3.08 3.215 19.44  1  0    3    1    Hornet 4 Drive\n5 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2 Hornet Sportabout\n6 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1           Valiant\n     z_score Group\n1  0.1508848  high\n2  0.1508848  high\n3  0.4495434  high\n4  0.2172534  high\n5 -0.2307345   low\n6 -0.3302874   low",
+    "crumbs": [
+      "HIPLOT",
+      "Deviation Plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/041-deviation-plot.html#可视化",
+    "href": "Hiplot/041-deviation-plot.html#可视化",
+    "title": "偏差图",
+    "section": "可视化",
+    "text": "可视化\n\n# 偏差图\np &lt;- ggbarplot(data,\n    x = \"name\",\n    y = \"z_score\",\n    fill = \"Group\",\n    color = \"white\",\n    sort.val = \"desc\",\n    sort.by.groups = FALSE,\n    x.text.angle = 90,\n    xlab = \"name\",\n    ylab = \"mpg\",\n    rotate = TRUE\n  ) +\n  scale_fill_manual(values = c(\"#e04d39\",\"#5bbad6\")) +\n  theme_bw() +\n  theme(text = element_text(family = \"Arial\"),\n        plot.title = element_text(size = 12,hjust = 0.5),\n        axis.title = element_text(size = 12),\n        axis.text = element_text(size = 10),\n        axis.text.x = element_text(angle = 0, hjust = 0.5,vjust = 1),\n        legend.position = \"right\",\n        legend.direction = \"vertical\",\n        legend.title = element_text(size = 10),\n        legend.text = element_text(size = 10))\n\np\n\n\n\n\n\n\n\n图 1: 偏差图",
+    "crumbs": [
+      "HIPLOT",
+      "Deviation Plot"
+    ]
+  },
+  {
     "objectID": "Hiplot/039-density-histogram.html",
     "href": "Hiplot/039-density-histogram.html",
     "title": "密度图-直方图",
@@ -734,7 +866,7 @@
     "href": "Hiplot/018-calibration-curve.html#可视化",
     "title": "校准曲线",
     "section": "可视化",
-    "text": "可视化\n\n# 校准曲线\np &lt;- as.ggplot(function() {\n  plot(lrm.cal,\n       xlab = \"Nomogram Predicted Survival\",\n       ylab = \"Actual Survival\",\n       main = \"Calibration Curve\"\n       )\n})\n\n\nn=168   Mean absolute error=0.065   Mean squared error=0.00498\n0.9 Quantile of absolute error=0.095\n\np\n\n\n\n\n\n\n\n图 1: 校准曲线",
+    "text": "可视化\n\n# 校准曲线\np &lt;- as.ggplot(function() {\n  plot(lrm.cal,\n       xlab = \"Nomogram Predicted Survival\",\n       ylab = \"Actual Survival\",\n       main = \"Calibration Curve\"\n       )\n})\n\n\nn=168   Mean absolute error=0.064   Mean squared error=0.00486\n0.9 Quantile of absolute error=0.095\n\np\n\n\n\n\n\n\n\n图 1: 校准曲线",
     "crumbs": [
       "HIPLOT",
       "Calibration Curve"
@@ -1942,6 +2074,138 @@
     "crumbs": [
       "HIPLOT",
       "Density"
+    ]
+  },
+  {
+    "objectID": "Hiplot/042-diffusion-map.html",
+    "href": "Hiplot/042-diffusion-map.html",
+    "title": "扩散映射图",
+    "section": "",
+    "text": "扩散映射（diffusion-map）是一种非线性降维算法，可以用于可视化发育轨迹。",
+    "crumbs": [
+      "HIPLOT",
+      "Diffusion Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/042-diffusion-map.html#环境配置",
+    "href": "Hiplot/042-diffusion-map.html#环境配置",
+    "title": "扩散映射图",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: destiny; ggplotify; scatterplot3d; ggpubr\n\n\n# 安装包\nif (!requireNamespace(\"destiny\", quietly = TRUE)) {\n  install_github(\"theislab/destiny\")\n}\nif (!requireNamespace(\"ggplotify\", quietly = TRUE)) {\n  install.packages(\"ggplotify\")\n}\nif (!requireNamespace(\"scatterplot3d\", quietly = TRUE)) {\n  install.packages(\"scatterplot3d\")\n}\nif (!requireNamespace(\"ggpubr\", quietly = TRUE)) {\n  install.packages(\"ggpubr\")\n}\n\n# 加载包\nlibrary(destiny)\nlibrary(ggplotify)\nlibrary(scatterplot3d)\nlibrary(ggpubr)",
+    "crumbs": [
+      "HIPLOT",
+      "Diffusion Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/042-diffusion-map.html#数据准备",
+    "href": "Hiplot/042-diffusion-map.html#数据准备",
+    "title": "扩散映射图",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata1 &lt;- read.delim(\"files/Hiplot/042-diffusion-map-data1.txt\", header = T)\ndata2 &lt;- read.delim(\"files/Hiplot/042-diffusion-map-data2.txt\", header = T)\n\n# 整理数据格式\nsample.info &lt;- data2\nrownames(data1) &lt;- data1[, 1]\ndata1 &lt;- as.matrix(data1[, -1])\n## tsne\nset.seed(123)\ndm_info &lt;- DiffusionMap(t(data1))\ndm_info &lt;- cbind(DC1 = dm_info$DC1, DC2 = dm_info$DC2, DC3 = dm_info$DC3)\ndm_data &lt;- data.frame(\n  sample = colnames(data1),\n  dm_info\n)\n\ncolorBy &lt;- sample.info[match(colnames(data1), sample.info[, 1]), \"Group\"]\ncolorBy &lt;- factor(colorBy, level = colorBy[!duplicated(colorBy)])\ndm_data$colorBy = colorBy\n\n# 查看数据\nhead(dm_data)\n\n   sample        DC1        DC2         DC3 colorBy\nM1     M1 0.05059918 0.15203860 -0.06533168      G1\nM2     M2 0.05030863 0.14435034 -0.06044277      G1\nM3     M3 0.04271398 0.09273382 -0.02730427      G1\nM4     M4 0.04680742 0.10425273 -0.03789962      G1\nM5     M5 0.04971521 0.12786900 -0.05608321      G1\nM6     M6 0.04840072 0.12728303 -0.05256815      G1",
+    "crumbs": [
+      "HIPLOT",
+      "Diffusion Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/042-diffusion-map.html#可视化",
+    "href": "Hiplot/042-diffusion-map.html#可视化",
+    "title": "扩散映射图",
+    "section": "可视化",
+    "text": "可视化\n\n1. 2D\n\n# 2D 扩散映射图\np &lt;- ggscatter(data = dm_data,  x = \"DC1\", y = \"DC2\", color = \"colorBy\",\n               size = 2, palette = \"lancet\", alpha = 1) +\n  labs(color = \"Group\") +\n  ggtitle(\"Diffusion Map\") +\n  scale_color_manual(values = c(\"#3B4992FF\",\"#EE0000FF\",\"#008B45FF\")) +\n  theme_classic() +\n  theme(text = element_text(family = \"Arial\"),\n        plot.title = element_text(size = 12,hjust = 0.5),\n        axis.title = element_text(size = 12),\n        axis.text = element_text(size = 10),\n        axis.text.x = element_text(angle = 0, hjust = 0.5,vjust = 1),\n        legend.position = \"right\",\n        legend.direction = \"vertical\",\n        legend.title = element_text(size = 10),\n        legend.text = element_text(size = 10))\n\np\n\n\n\n\n\n\n\n图 1: 2D 扩散映射图\n\n\n\n\n\n\n\n2. 3D\n\n# 3D 扩散映射图\ngroup.color &lt;- c(\"#3B4992FF\",\"#EE0000FF\",\"#008B45FF\")\nnames(group.color) &lt;- unique(dm_data$colorBy)\ngroup.color &lt;- group.color[!is.na(names(group.color))]\nif (length(group.color) == 0) {\n  group.color &lt;- c(Default=\"black\")\n  dm_data$colorBy &lt;- \"Default\"\n}\np &lt;- as.ggplot(function(){\n  scatterplot3d(x = dm_data$DC1, y = dm_data$DC2, z = dm_data$DC3,\n                color =  alpha(group.color[dm_data$colorBy], 1),\n                xlim=c(min(dm_data$DC1), max(dm_data$DC1)),\n                ylim=c(min(dm_data$DC2), max(dm_data$DC2)),\n                zlim=c(min(dm_data$DC3), max(dm_data$DC3)),\n                pch = 16, cex.symbols  = 0.6,\n                scale.y = 0.8,\n                xlab = \"DC1\", ylab = \"DC2\", zlab = \"DC3\",\n                angle = 40,\n                main = \"Diffusion Map\",\n                col.axis = \"#444444\", col.grid = \"#CCCCCC\")\n  legend(\"right\", legend = names(group.color),\n         col = alpha(group.color, 0.8), pch = 16)\n    })\np &lt;- p + theme_classic()\n\np\n\n\n\n\n\n\n\n图 2: 3D 扩散映射图",
+    "crumbs": [
+      "HIPLOT",
+      "Diffusion Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/044-diy-gsea.html",
+    "href": "Hiplot/044-diy-gsea.html",
+    "title": "自定义基因富集分析",
+    "section": "",
+    "text": "自定义基因集。",
+    "crumbs": [
+      "HIPLOT",
+      "DIY GSEA"
+    ]
+  },
+  {
+    "objectID": "Hiplot/044-diy-gsea.html#环境配置",
+    "href": "Hiplot/044-diy-gsea.html#环境配置",
+    "title": "自定义基因富集分析",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: clusterProfiler\n\n\n# 安装包\nif (!requireNamespace(\"clusterProfiler\", quietly = TRUE)) {\n  install_github(\"YuLab-SMU/clusterProfiler\")\n}\n\n# 加载包\nlibrary(clusterProfiler)",
+    "crumbs": [
+      "HIPLOT",
+      "DIY GSEA"
+    ]
+  },
+  {
+    "objectID": "Hiplot/044-diy-gsea.html#数据准备",
+    "href": "Hiplot/044-diy-gsea.html#数据准备",
+    "title": "自定义基因富集分析",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata1 &lt;- read.delim(\"files/Hiplot/044-diy-gsea-data1.txt\", header = T)\ndata2 &lt;- read.delim(\"files/Hiplot/044-diy-gsea-data2.txt\", header = T)\n\n# 整理数据格式\ndata1[,2] &lt;- as.numeric(data1[,2])\ngeneList &lt;- data1[,2]\nnames(geneList) &lt;- data1[,1]\ngeneList &lt;- sort(geneList, decreasing = TRUE)\nterm &lt;- data.frame(term=data2[,1], gene=data2[,2])\n\n# 查看数据\nhead(term)\n\n                         term   gene\n1 GO_ADAPTIVE_IMMUNE_RESPONSE ADAM17\n2 GO_ADAPTIVE_IMMUNE_RESPONSE  AICDA\n3 GO_ADAPTIVE_IMMUNE_RESPONSE  ALCAM\n4 GO_ADAPTIVE_IMMUNE_RESPONSE  ANXA1\n5 GO_ADAPTIVE_IMMUNE_RESPONSE   BATF\n6 GO_ADAPTIVE_IMMUNE_RESPONSE  BCL10",
+    "crumbs": [
+      "HIPLOT",
+      "DIY GSEA"
+    ]
+  },
+  {
+    "objectID": "Hiplot/044-diy-gsea.html#可视化",
+    "href": "Hiplot/044-diy-gsea.html#可视化",
+    "title": "自定义基因富集分析",
+    "section": "可视化",
+    "text": "可视化\n\n# 自定义基因富集分析\ny &lt;- clusterProfiler::GSEA(geneList, TERM2GENE = term, pvalueCutoff = 1)\np &lt;- gseaplot(\n  y,\n  y@result$Description[1],\n  color = \"#000000\",\n  by = \"runningScore\",\n  color.line = \"#4CAF50\",\n  color.vline= \"#FA5860\",\n  title = \"DIY GSEA Plot\",\n  )\n\np\n\n\n\n\n\n\n\n图 1: 自定义基因富集分析",
+    "crumbs": [
+      "HIPLOT",
+      "DIY GSEA"
+    ]
+  },
+  {
+    "objectID": "Hiplot/046-dotchart.html",
+    "href": "Hiplot/046-dotchart.html",
+    "title": "滑珠图",
+    "section": "",
+    "text": "滑珠图是一种珠子在柱上滑行的图形，是条形图与散点图的叠加。",
+    "crumbs": [
+      "HIPLOT",
+      "Dotchart"
+    ]
+  },
+  {
+    "objectID": "Hiplot/046-dotchart.html#环境配置",
+    "href": "Hiplot/046-dotchart.html#环境配置",
+    "title": "滑珠图",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggpubr\n\n\n# 安装包\nif (!requireNamespace(\"ggpubr\", quietly = TRUE)) {\n  install.packages(\"ggpubr\")\n}\n\n# 加载包\nlibrary(ggpubr)",
+    "crumbs": [
+      "HIPLOT",
+      "Dotchart"
+    ]
+  },
+  {
+    "objectID": "Hiplot/046-dotchart.html#数据准备",
+    "href": "Hiplot/046-dotchart.html#数据准备",
+    "title": "滑珠图",
+    "section": "数据准备",
+    "text": "数据准备\n载入数据为基因名称及其对应的基因表达值和分组。\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/046-dotchart-data.txt\", header = T)\n\n# 查看数据\nhead(data)\n\n      Name Value  Group\n1     BMP2  18.7 Group1\n2     XIST  14.3 Group1\n3 C19orf38  16.4 Group1\n4    PDZD3  17.3 Group1\n5   MAPRE2  15.2 Group1\n6     IRF4  10.4 Group1",
+    "crumbs": [
+      "HIPLOT",
+      "Dotchart"
+    ]
+  },
+  {
+    "objectID": "Hiplot/046-dotchart.html#可视化",
+    "href": "Hiplot/046-dotchart.html#可视化",
+    "title": "滑珠图",
+    "section": "可视化",
+    "text": "可视化\n\n# 滑珠图\np &lt;- ggdotchart(data, x = \"Name\", y = \"Value\", group = \"Group\", color = \"Group\",\n                rotate = T, sorting = \"descending\",\n                y.text.col = F, add = \"segments\", dot.size = 2) +\n  xlab(\"Name\") +\n  ylab(\"Value\") +\n  ggtitle(\"DotChart Plot\") +\n  scale_color_manual(values = c(\"#e04d39\",\"#5bbad6\",\"#1e9f86\")) +\n  theme_classic() +\n  theme(text = element_text(family = \"Arial\"),\n        plot.title = element_text(size = 12,hjust = 0.5),\n        axis.title = element_text(size = 12),\n        axis.text = element_text(size = 10),\n        axis.text.x = element_text(angle = 0, hjust = 0.5,vjust = 1),\n        legend.position = \"right\",\n        legend.direction = \"vertical\",\n        legend.title = element_text(size = 10),\n        legend.text = element_text(size = 10))\n\np\n\n\n\n\n\n\n\n图 1: 滑珠图\n\n\n\n\n\n每种颜色表示不同的分组，能够直观了解不同基因表达值的差异。",
+    "crumbs": [
+      "HIPLOT",
+      "Dotchart"
     ]
   },
   {
