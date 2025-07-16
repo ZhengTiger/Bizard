@@ -1007,68 +1007,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(kohmap, <span class="at">type=</span><span class="st">"codes"</span>, <span class="at">shape =</span> <span class="st">"straight"</span>, </span>
 <span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="fu">c</span>(<span class="st">"Codes X"</span>, <span class="st">"Codes Y"</span>), <span class="at">palette.name =</span> colors)</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set.seed</span>(<span class="dv">7</span>)</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>  sommap <span class="ot">&lt;-</span> <span class="fu">som</span>(<span class="fu">scale</span>(data), <span class="at">grid =</span> <span class="fu">somgrid</span>(<span class="dv">6</span>, <span class="dv">4</span>, <span class="st">"hexagonal"</span>))</span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>  <span class="do">## and the same for rectangular maps</span></span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(sommap, <span class="at">type=</span><span class="st">"dist.neighbours"</span>, </span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>       <span class="at">shape =</span> <span class="st">"straight"</span>,</span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>       <span class="at">palette.name =</span> colors,</span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>       <span class="at">main =</span> <span class="st">"SOM neighbour distances"</span>)</span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>  <span class="do">## use hierarchical clustering to cluster the codebook vectors</span></span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>  som.hc <span class="ot">&lt;-</span> <span class="fu">cutree</span>(<span class="fu">hclust</span>(<span class="fu">object.distances</span>(sommap, <span class="st">"codes"</span>)), <span class="dv">3</span>)</span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add.cluster.boundaries</span>(sommap, som.hc)</span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Show 'component planes'</span></span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(<span class="fu">getCodes</span>(sommap, <span class="dv">1</span>))) {</span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    <span class="fu">set.seed</span>(<span class="dv">7</span>)</span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    sommap <span class="ot">&lt;-</span> <span class="fu">som</span>(<span class="fu">scale</span>(data), <span class="at">grid =</span> <span class="fu">somgrid</span>(<span class="dv">6</span>, <span class="dv">4</span>, <span class="st">"hexagonal"</span>))</span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot</span>(sommap, <span class="at">shape =</span> <span class="st">"straight"</span>, <span class="at">type =</span> <span class="st">"property"</span>, </span>
-<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>        <span class="at">property =</span> <span class="fu">getCodes</span>(sommap, <span class="dv">1</span>)[,i],</span>
-<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>        <span class="at">palette.name =</span> colors,</span>
-<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="fu">colnames</span>(<span class="fu">getCodes</span>(sommap, <span class="dv">1</span>))[i])</span>
-<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a><span class="fu">p</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="fu">p</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-1Eeasy-som-1" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-1Eeasy-som-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-1Eeasy-som" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-1Eeasy-som-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="050-easy-som_files/figure-html/fig-1Eeasy-som-1.png" class="img-fluid figure-img" style="width:95.0%">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1Eeasy-som-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1Eeasy-som-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure 1: Easy SOM
-</figcaption></figure>
-</div>
-</div>
-<div class="cell-output-display">
-<div id="fig-1Eeasy-som-2" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-1Eeasy-som-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="050-easy-som_files/figure-html/fig-1Eeasy-som-2.png" class="img-fluid figure-img" style="width:95.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1Eeasy-som-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 2: Easy SOM
-</figcaption></figure>
-</div>
-</div>
-<div class="cell-output-display">
-<div id="fig-1Eeasy-som-3" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-1Eeasy-som-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="050-easy-som_files/figure-html/fig-1Eeasy-som-3.png" class="img-fluid figure-img" style="width:95.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1Eeasy-som-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 3: Easy SOM
-</figcaption></figure>
-</div>
-</div>
-<div class="cell-output-display">
-<div id="fig-1Eeasy-som-4" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-1Eeasy-som-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="050-easy-som_files/figure-html/fig-1Eeasy-som-4.png" class="img-fluid figure-img" style="width:95.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1Eeasy-som-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 4: Easy SOM
 </figcaption></figure>
 </div>
 </div>
