@@ -18,7 +18,7 @@
     "href": "Template/visualization_guidance_EN.html#setup",
     "title": "Contribution_guidance",
     "section": "Setup",
-    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming Language: R\nDependencies: (Populate R packages or other resources that the visualization tutorial depends on)\n\n\n#Example Code-----\n# Installing necessary packages\nif (!requireNamespace(\"readr\", quietly = TRUE)) {\n  install.packages(\"readr\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"tidyverse\", quietly = TRUE)) {\n  install.packages(\"tidyverse\")\n}\n\n# Loading the libraries\nlibrary(readr) \n\nWarning: package 'readr' was built under R version 4.2.3\n\nlibrary(ggplot2) \nlibrary(tidyverse)\n\nWarning: package 'tidyverse' was built under R version 4.2.3\n\n\nWarning: package 'tibble' was built under R version 4.2.3\n\n\nWarning: package 'tidyr' was built under R version 4.2.3\n\n\nWarning: package 'purrr' was built under R version 4.2.3\n\n\nWarning: package 'dplyr' was built under R version 4.2.3\n\n\nWarning: package 'stringr' was built under R version 4.2.2\n\n\nWarning: package 'forcats' was built under R version 4.2.3"
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming Language: R\nDependencies: (Populate R packages or other resources that the visualization tutorial depends on)\n\n\n#Example Code-----\n# Installing necessary packages\nif (!requireNamespace(\"readr\", quietly = TRUE)) {\n  install.packages(\"readr\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"tidyverse\", quietly = TRUE)) {\n  install.packages(\"tidyverse\")\n}\n\n# Loading the libraries\nlibrary(readr) \n\nWarning: package 'readr' was built under R version 4.2.3\n\nlibrary(ggplot2) \nlibrary(tidyverse)\n\nWarning: package 'tidyverse' was built under R version 4.2.3\n\n\nWarning: package 'tibble' was built under R version 4.2.3\n\n\nWarning: package 'tidyr' was built under R version 4.2.3\n\n\nWarning: package 'dplyr' was built under R version 4.2.3\n\n\nWarning: package 'stringr' was built under R version 4.2.2\n\n\nWarning: package 'forcats' was built under R version 4.2.3"
   },
   {
     "objectID": "Template/visualization_guidance_EN.html#data-preparation",
@@ -354,6 +354,270 @@
     "text": "What is Bizard?\nBizard brings together powerful visualization tools, curated code, and collaborative features, enabling researchers to streamline data analysis and present their findings in a clear and impactful way.\n\nComprehensive Visualization Repository: Bizard consolidates visualization codes from diverse sources, including conventional graphgallery charts and innovative contributions from global experts, providing a state-of-the-art toolkit for biomedical research.\nVersatile Chart Options: The repository features R code implementations for a wide range of visualizations—variable distributions, correlation analyses, ranking plots, and interactive charts—meeting diverse data analysis needs.\nReal-World Applications: Leveraging both native R datasets and authentic biomedical data examples, Bizard enables intuitive understanding and application of visualization techniques in real-world research contexts, accelerating clinical translation.\nTailored for Biomedical Data: Includes preprocessing algorithms, annotated plotting codes, and specialized methodologies to accommodate the complexities of biomedical datasets, making advanced visualization accessible even to users with limited programming expertise.\nIntegrated Statistical Analysis: Combines statistical analysis functions with visualization modules, ensuring rigorous, visually compelling outputs that bolster research reliability and advance evidence-based medicine.\nCollaborative and Open Innovation: Actively invites contributions from biomedical experts to refine features and address evolving data visualization challenges through collective expertise.\nMulti-Platform Accessibility: Offers resources through an open-source GitHub repository with interactive forums and a WeChat official account for tutorials and updates, fostering knowledge sharing and collaboration.\nDriving Research Excellence: Empowers researchers to elevate their data visualization skills, improve methodological standards, and advance precision medicine and personalized therapies.\nFuture Vision: Committed to expanding international collaborations and delivering innovative, refined solutions to address the growing complexity of biomedical data visualization and analysis.\n\n\n\n\n\n\n\nNote\n\n\n\nIf you find this useful or have suggestions for improvement, please let us know by leaving your comments in the GitHub Discussions💬 at the bottom of any page.",
     "crumbs": [
       "Welcome"
+    ]
+  },
+  {
+    "objectID": "Hiplot/072-ggpubr-boxplot.html",
+    "href": "Hiplot/072-ggpubr-boxplot.html",
+    "title": "GGPubr Boxplot",
+    "section": "",
+    "text": "Feature-rich boxplot (GGPubr interface).",
+    "crumbs": [
+      "HIPLOT",
+      "GGPubr Boxplot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/072-ggpubr-boxplot.html#setup",
+    "href": "Hiplot/072-ggpubr-boxplot.html#setup",
+    "title": "GGPubr Boxplot",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggpubr; ggthemes\n\n\n# Install packages\nif (!requireNamespace(\"ggpubr\", quietly = TRUE)) {\n  install.packages(\"ggpubr\")\n}\nif (!requireNamespace(\"ggthemes\", quietly = TRUE)) {\n  install.packages(\"ggthemes\")\n}\n\n# Load packages\nlibrary(ggpubr)\nlibrary(ggthemes)",
+    "crumbs": [
+      "HIPLOT",
+      "GGPubr Boxplot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/072-ggpubr-boxplot.html#data-preparation",
+    "href": "Hiplot/072-ggpubr-boxplot.html#data-preparation",
+    "title": "GGPubr Boxplot",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/072-ggpubr-boxplot-data.txt\", header = T)\n\n# View data\nhead(data)\n\n   len supp dose\n1  4.2   VC  0.5\n2 11.5   VC  0.5\n3  7.3   VC  0.5\n4  5.8   VC  0.5\n5  6.4   VC  0.5\n6 10.0   VC  0.5",
+    "crumbs": [
+      "HIPLOT",
+      "GGPubr Boxplot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/072-ggpubr-boxplot.html#visualization",
+    "href": "Hiplot/072-ggpubr-boxplot.html#visualization",
+    "title": "GGPubr Boxplot",
+    "section": "Visualization",
+    "text": "Visualization\n\n# GGPubr Boxplot\np &lt;- ggboxplot(\n  data = data, x = \"supp\", y = \"len\", facet.by = \"dose\",\n  merge = T,\n  color = \"supp\",\n  fill = \"white\") + \n  stat_compare_means(\n    label = \"p.signif\",\n    label.x.npc = \"center\",\n    method = \"wilcox\") + \n  scale_y_continuous(expand = expansion(mult = c(0.2, 0.2))) +\n  scale_fill_manual(values = c(\"#e04d39\",\"#5bbad6\")) +\n  ggtitle(\"Complex Boxplot\") + \n  theme_stata() +\n  theme(text = element_text(family = \"Arial\"),\n        plot.title = element_text(size = 12,hjust = 0.5),\n        axis.title = element_text(size = 12),\n        axis.text = element_text(size = 10),\n        axis.text.x = element_text(angle = 0, hjust = 0.5,vjust = 1),\n        legend.position = \"right\",\n        legend.direction = \"vertical\",\n        legend.title = element_text(size = 10),\n        legend.text = element_text(size = 10))\n\np\n\n\n\n\n\n\n\nFigure 1: GGPubr Boxplot",
+    "crumbs": [
+      "HIPLOT",
+      "GGPubr Boxplot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/069-ggpiestats-group.html",
+    "href": "Hiplot/069-ggpiestats-group.html",
+    "title": "Piestats Group",
+    "section": "",
+    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggstatsplot; ggplot2; cowplot\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# Load packages\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
+    "crumbs": [
+      "HIPLOT",
+      "Piestats Group"
+    ]
+  },
+  {
+    "objectID": "Hiplot/069-ggpiestats-group.html#setup",
+    "href": "Hiplot/069-ggpiestats-group.html#setup",
+    "title": "Piestats Group",
+    "section": "",
+    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggstatsplot; ggplot2; cowplot\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# Load packages\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
+    "crumbs": [
+      "HIPLOT",
+      "Piestats Group"
+    ]
+  },
+  {
+    "objectID": "Hiplot/069-ggpiestats-group.html#data-preparation",
+    "href": "Hiplot/069-ggpiestats-group.html#data-preparation",
+    "title": "Piestats Group",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/069-ggpiestats-group-data.txt\", header = T)\n\n# Convert data structure\naxis &lt;- c(\"genre\", \"mpaa\")\ndata[, axis[1]] &lt;- factor(data[, axis[1]], levels = unique(data[, axis[1]]))\ndata[, axis[2]] &lt;- factor(data[, axis[2]], levels = unique(data[, axis[2]]))\n\n# View data\nhead(data)\n\n                                               title year length budget rating\n1                          Shawshank Redemption, The 1994    142     25    9.1\n2     Lord of the Rings: The Return of the King, The 2003    251     94    9.0\n3 Lord of the Rings: The Fellowship of the Ring, The 2001    208     93    8.8\n4             Lord of the Rings: The Two Towers, The 2002    223     94    8.8\n5                                       Pulp Fiction 1994    168      8    8.8\n6                                   Schindler's List 1993    195     25    8.8\n   votes  mpaa  genre\n1 149494     R  Drama\n2 103631 PG-13 Action\n3 157608 PG-13 Action\n4 114797 PG-13 Action\n5 132745     R  Drama\n6  97667     R  Drama",
+    "crumbs": [
+      "HIPLOT",
+      "Piestats Group"
+    ]
+  },
+  {
+    "objectID": "Hiplot/069-ggpiestats-group.html#visualization",
+    "href": "Hiplot/069-ggpiestats-group.html#visualization",
+    "title": "Piestats Group",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Piestats Group\ng &lt;- unique(data[,axis[2]])\nplist &lt;- list()\nfor (i in 1:length(g)) {\n  fil &lt;- data[,axis[2]] == g[i]\n  plist[[i]] &lt;- \n    ggpiestats(\n      data = data[fil,], x = genre, \n      title= paste('', axis[2], g[i], sep = ':'),\n      plotgrid.args = list(ncol = 3),\n      label.repel = TRUE,\n      k = 2\n    ) +\n    scale_fill_manual(values = c(\"#3B4992FF\",\"#EE0000FF\",\"#008B45FF\",\"#631879FF\",\n                                 \"#008280FF\",\"#BB0021FF\",\"#5F559BFF\",\"#A20056FF\",\n                                 \"#808180FF\"))\n}\n\nplot_grid(plotlist = plist, ncol = 3)\n\n\n\n\n\n\n\nFigure 1: Piestats Group",
+    "crumbs": [
+      "HIPLOT",
+      "Piestats Group"
+    ]
+  },
+  {
+    "objectID": "Hiplot/067-gghistostats.html",
+    "href": "Hiplot/067-gghistostats.html",
+    "title": "Histostats",
+    "section": "",
+    "text": "Display data distribution and inference.",
+    "crumbs": [
+      "HIPLOT",
+      "Histostats"
+    ]
+  },
+  {
+    "objectID": "Hiplot/067-gghistostats.html#setup",
+    "href": "Hiplot/067-gghistostats.html#setup",
+    "title": "Histostats",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggstatsplot\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\n\n# Load packages\nlibrary(ggstatsplot)",
+    "crumbs": [
+      "HIPLOT",
+      "Histostats"
+    ]
+  },
+  {
+    "objectID": "Hiplot/067-gghistostats.html#data-preparation",
+    "href": "Hiplot/067-gghistostats.html#data-preparation",
+    "title": "Histostats",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/067-gghistostats-data.txt\", header = T)\n\n# Convert data structure\naxis &lt;- c(\"budget\", \"genre\")\ndata[, axis[2]] &lt;- factor(data[, axis[2]], levels = unique(data[, axis[2]]))\n\n# View data\nhead(data)\n\n                                                                 title year\n1                       Lord of the Rings: The Return of the King, The 2003\n2                   Lord of the Rings: The Fellowship of the Ring, The 2001\n3                               Lord of the Rings: The Two Towers, The 2002\n4                                                            Star Wars 1977\n5                       Star Wars: Episode V - The Empire Strikes Back 1980\n6 Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb 1964\n  length budget rating  votes  mpaa  genre\n1    251   94.0    9.0 103631 PG-13 Action\n2    208   93.0    8.8 157608 PG-13 Action\n3    223   94.0    8.8 114797 PG-13 Action\n4    125   11.0    8.8 134640    PG Action\n5    129   18.0    8.8 103706    PG Action\n6     93    1.8    8.7  63471    PG Comedy",
+    "crumbs": [
+      "HIPLOT",
+      "Histostats"
+    ]
+  },
+  {
+    "objectID": "Hiplot/067-gghistostats.html#visualization",
+    "href": "Hiplot/067-gghistostats.html#visualization",
+    "title": "Histostats",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Histostats\np &lt;- grouped_gghistostats(\n  data = data, x = budget, grouping.var = genre,\n  effsize.type = \"unbiased\",\n  type = \"parametric\",\n  centrality.k = 2,\n  plotgrid.args = list(ncol = 2),\n  centrality.parameter = \"solid\",\n  centrality.line.args = list(size = 1, color = \"black\"),\n  bar.fill = \"#0D47A1\", \n  centrality.label.args = list(color = \"#0D47A1\", size = 3),\n  test.value = as.numeric(0),\n  normal.curve = F,\n  normal.curve.args = list(size = 1)\n)\n\np\n\n\n\n\n\n\n\nFigure 1: Histostats",
+    "crumbs": [
+      "HIPLOT",
+      "Histostats"
+    ]
+  },
+  {
+    "objectID": "Hiplot/065-ggdag.html",
+    "href": "Hiplot/065-ggdag.html",
+    "title": "Directed Acyclic Graphs",
+    "section": "",
+    "text": "Visualizing directed acyclic graphs.",
+    "crumbs": [
+      "HIPLOT",
+      "Directed Acyclic Graphs"
+    ]
+  },
+  {
+    "objectID": "Hiplot/065-ggdag.html#setup",
+    "href": "Hiplot/065-ggdag.html#setup",
+    "title": "Directed Acyclic Graphs",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggdag\n\n\n# Install packages\nif (!requireNamespace(\"ggdag\", quietly = TRUE)) {\n  install.packages(\"ggdag\")\n}\n\n# Load packages\nlibrary(ggdag)",
+    "crumbs": [
+      "HIPLOT",
+      "Directed Acyclic Graphs"
+    ]
+  },
+  {
+    "objectID": "Hiplot/065-ggdag.html#data-preparation",
+    "href": "Hiplot/065-ggdag.html#data-preparation",
+    "title": "Directed Acyclic Graphs",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ntidy_ggdag &lt;- dagify(\n  y ~ x + z2 + w2 + w1,\n  x ~ z1 + w1 + w2,\n  z1 ~ w1 + v,\n  z2 ~ w2 + v,\n  w1 ~ ~w2, # bidirected path\n  exposure = \"x\",\n  outcome = \"y\") %&gt;%\n  tidy_dagitty()\n\n# View data\nhead(tidy_ggdag)\n\n$data\n# A tibble: 13 × 8\n   name      x      y direction to     xend   yend circular\n   &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;fct&gt;     &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;lgl&gt;   \n 1 v      3.62 -0.652 -&gt;        z1     2.91  0.575 FALSE   \n 2 v      3.62 -0.652 -&gt;        z2     2.41 -1.37  FALSE   \n 3 w1     1.97  0.348 -&gt;        x      1.38  0.512 FALSE   \n 4 w1     1.97  0.348 -&gt;        y      1.14 -0.619 FALSE   \n 5 w1     1.97  0.348 -&gt;        z1     2.91  0.575 FALSE   \n 6 w1     1.97  0.348 &lt;-&gt;       w2     1.78 -0.590 FALSE   \n 7 w2     1.78 -0.590 -&gt;        x      1.38  0.512 FALSE   \n 8 w2     1.78 -0.590 -&gt;        y      1.14 -0.619 FALSE   \n 9 w2     1.78 -0.590 -&gt;        z2     2.41 -1.37  FALSE   \n10 x      1.38  0.512 -&gt;        y      1.14 -0.619 FALSE   \n11 y      1.14 -0.619 &lt;NA&gt;      &lt;NA&gt;  NA    NA     FALSE   \n12 z1     2.91  0.575 -&gt;        x      1.38  0.512 FALSE   \n13 z2     2.41 -1.37  -&gt;        y      1.14 -0.619 FALSE   \n\n$dag\ndag {\nv\nw1\nw2\nx [exposure]\ny [outcome]\nz1\nz2\nv -&gt; z1\nv -&gt; z2\nw1 -&gt; x\nw1 -&gt; y\nw1 -&gt; z1\nw1 &lt;-&gt; w2\nw2 -&gt; x\nw2 -&gt; y\nw2 -&gt; z2\nx -&gt; y\nz1 -&gt; x\nz2 -&gt; y\n}",
+    "crumbs": [
+      "HIPLOT",
+      "Directed Acyclic Graphs"
+    ]
+  },
+  {
+    "objectID": "Hiplot/065-ggdag.html#visualization",
+    "href": "Hiplot/065-ggdag.html#visualization",
+    "title": "Directed Acyclic Graphs",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Directed Acyclic Graphs\np &lt;- ggdag(tidy_ggdag) +\n  theme_dag() \n\np\n\n\n\n\n\n\n\nFigure 1: Directed Acyclic Graphs",
+    "crumbs": [
+      "HIPLOT",
+      "Directed Acyclic Graphs"
+    ]
+  },
+  {
+    "objectID": "Hiplot/063-ggbarstats.html",
+    "href": "Hiplot/063-ggbarstats.html",
+    "title": "Barstats",
+    "section": "",
+    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggstatsplot; ggplot2; cowplot\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# Load packages\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
+    "crumbs": [
+      "HIPLOT",
+      "Barstats"
+    ]
+  },
+  {
+    "objectID": "Hiplot/063-ggbarstats.html#setup",
+    "href": "Hiplot/063-ggbarstats.html#setup",
+    "title": "Barstats",
+    "section": "",
+    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggstatsplot; ggplot2; cowplot\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# Load packages\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
+    "crumbs": [
+      "HIPLOT",
+      "Barstats"
+    ]
+  },
+  {
+    "objectID": "Hiplot/063-ggbarstats.html#data-preparation",
+    "href": "Hiplot/063-ggbarstats.html#data-preparation",
+    "title": "Barstats",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/063-ggbarstats-data.txt\", header = T)\n\n# Convert data structure\naxis &lt;- c(\"relig\", \"partyid\", \"race\")\ndata[, axis[1]] &lt;- factor(data[, axis[1]], levels = rev(unique(data[, axis[1]])))\ndata[, axis[2]] &lt;- factor(data[, axis[2]], levels = unique(data[, axis[2]]))\ndata[, axis[3]] &lt;- factor(data[, axis[3]], levels = unique(data[, axis[3]]))\n\n# View data\nhead(data)\n\n  year       marital age  race        rincome            partyid      relig\n1 2000 Never married  26 White  $8000 to 9999       Ind,near rep Protestant\n2 2000      Divorced  48 White  $8000 to 9999 Not str republican Protestant\n3 2000       Widowed  67 White Not applicable        Independent Protestant\n4 2000      Divorced  25 White Not applicable   Not str democrat       None\n5 2000       Married  25 White $20000 - 24999    Strong democrat Protestant\n6 2000      Divorced  44 White  $7000 to 7999       Ind,near dem Protestant\n              denom tvhours\n1  Southern baptist      12\n2  Baptist-dk which      NA\n3   No denomination       2\n4    Not applicable       1\n5  Southern baptist      NA\n6 Lutheran-mo synod      NA",
+    "crumbs": [
+      "HIPLOT",
+      "Barstats"
+    ]
+  },
+  {
+    "objectID": "Hiplot/063-ggbarstats.html#visualization",
+    "href": "Hiplot/063-ggbarstats.html#visualization",
+    "title": "Barstats",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Barstats\ng &lt;- unique(data[,axis[3]])\nplist &lt;- list()\nfor (i in 1:length(g)) {\n  fil &lt;- data[,axis[3]] == g[i]\n  plist[[i]] &lt;- ggbarstats(\n    data = data[fil,], x = relig, y = partyid,\n    plotgrid.args = list(ncol = 1), paired = F, k = 2) +\n    scale_fill_manual(values = c(\"#00468BFF\",\"#ED0000FF\",\"#42B540FF\"))\n}\np &lt;- plot_grid(plotlist = plist, ncol = 1)\n\np\n\n\n\n\n\n\n\nFigure 1: Barstats",
+    "crumbs": [
+      "HIPLOT",
+      "Barstats"
+    ]
+  },
+  {
+    "objectID": "Hiplot/061-gene-rank.html",
+    "href": "Hiplot/061-gene-rank.html",
+    "title": "Gene Ranking Dotplot",
+    "section": "",
+    "text": "Gene expression ranking visualization.",
+    "crumbs": [
+      "HIPLOT",
+      "Gene Ranking Dotplot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/061-gene-rank.html#setup",
+    "href": "Hiplot/061-gene-rank.html#setup",
+    "title": "Gene Ranking Dotplot",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggrepel; ggplot2; RColorBrewer\n\n\n# Install packages\nif (!requireNamespace(\"ggrepel\", quietly = TRUE)) {\n  install.packages(\"ggrepel\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# Load packages\nlibrary(ggrepel)\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "Gene Ranking Dotplot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/061-gene-rank.html#data-preparation",
+    "href": "Hiplot/061-gene-rank.html#data-preparation",
+    "title": "Gene Ranking Dotplot",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/061-gene-rank-data.txt\", header = T)\n\n# Convert data structure\n## ordered by log2FoldChange and pvalue\ndata &lt;- data[order(-data$log2FC, data$pvalue), ]\n## add the rank column\ndata$rank &lt;- 1:nrow(data)\n## get the top n up and down gene for labeling\ntop_n &lt;- 5\ntop_n_up &lt;- rownames(head(data, top_n))\ntop_n_down &lt;- rownames(tail(data, top_n))\ngenes_to_label &lt;- c(top_n_up, top_n_down)\ndata2 &lt;- data[genes_to_label, ]\n\n\n# View data\nhead(data)\n\n        gene   log2FC       pvalue rank\n514 LOC91370 3.889820 8.478310e-03    1\n293   LRRC25 3.492413 5.000000e-05    2\n470   BEGAIN 3.312996 3.347634e-03    3\n159   RDM1P5 3.125070 1.538852e-02    4\n194    CLDN1 3.096516 2.622163e-02    5\n626    KCNS1 2.949729 2.770000e-09    6",
+    "crumbs": [
+      "HIPLOT",
+      "Gene Ranking Dotplot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/061-gene-rank.html#visualization",
+    "href": "Hiplot/061-gene-rank.html#visualization",
+    "title": "Gene Ranking Dotplot",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Gene Ranking Dotplot\np &lt;- \n  ggplot(data, aes(rank, log2FC, color = pvalue, size = abs(log2FC))) + \n  geom_point() + \n  scale_color_gradientn(colours = colorRampPalette(brewer.pal(11,'RdYlBu'))(100)) +\n  geom_hline(yintercept = c(-1, 1), linetype = 2, size = 0.3) +\n  geom_hline(yintercept = 0, linetype = 1, size = 0.5) +\n  geom_vline(xintercept = median(data$rank), linetype = 2, size = 0.3) + \n  geom_text_repel(data = data2, aes(rank, log2FC, label = gene),\n                  size = 3, color = \"red\") +\n  xlab(\"\") + ylab(\"\") + \n  ylim(c(-max(abs(data$log2FC)), max(abs(data$log2FC)))) +\n  labs(color = \"Pvalue\", size = \"Log2FoldChange\") +\n  theme_bw(base_size = 12) +\n  theme(text = element_text(family = \"Arial\"),\n        plot.title = element_text(size = 12,hjust = 0.5),\n        axis.title = element_text(size = 12),\n        axis.text = element_text(size = 10),\n        axis.text.x = element_text(angle = 0, hjust = 0.5,vjust = 1),\n        legend.position = \"right\",\n        legend.direction = \"vertical\",\n        legend.title = element_text(size = 10),\n        legend.text = element_text(size = 10))\n\np\n\n\n\n\n\n\n\nFigure 1: Gene Ranking Dotplot",
+    "crumbs": [
+      "HIPLOT",
+      "Gene Ranking Dotplot"
     ]
   },
   {
@@ -900,7 +1164,7 @@
     "href": "Hiplot/035-custom-icon-scatter.html#setup",
     "title": "Custom Icon Scatter",
     "section": "Setup",
-    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: echarts4r; echarts4r.assets\n\n\n# Install packages\nif (!requireNamespace(\"echarts4r\", quietly = TRUE)) {\n  install.packages(\"echarts4r\")\n}\nif (!requireNamespace(\"echarts4r.assets\", quietly = TRUE)) {\n  install.packages(\"echarts4r.assets\")\n}\n\n# Load packages\nlibrary(echarts4r)\nlibrary(echarts4r.assets)",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: echarts4r; echarts4r.assets\n\n\n# Install packages\nif (!requireNamespace(\"echarts4r\", quietly = TRUE)) {\n  install.packages(\"echarts4r\")\n}\nif (!requireNamespace(\"echarts4r.assets\", quietly = TRUE)) {\n  install_github(\"JohnCoene/echarts4r.assets\")\n}\n\n# Load packages\nlibrary(echarts4r)\nlibrary(echarts4r.assets)",
     "crumbs": [
       "HIPLOT",
       "Custom Icon Scatter"
@@ -1230,7 +1494,7 @@
     "href": "Hiplot/018-calibration-curve.html#visualization",
     "title": "Calibration Curve",
     "section": "Visualization",
-    "text": "Visualization\n\n# Calibration Curve\np &lt;- as.ggplot(function() {\n  plot(lrm.cal,\n       xlab = \"Nomogram Predicted Survival\",\n       ylab = \"Actual Survival\",\n       main = \"Calibration Curve\"\n       )\n})\n\n\nn=168   Mean absolute error=0.065   Mean squared error=0.00509\n0.9 Quantile of absolute error=0.097\n\np\n\n\n\n\n\n\n\nFigure 1: Calibration Curve",
+    "text": "Visualization\n\n# Calibration Curve\np &lt;- as.ggplot(function() {\n  plot(lrm.cal,\n       xlab = \"Nomogram Predicted Survival\",\n       ylab = \"Actual Survival\",\n       main = \"Calibration Curve\"\n       )\n})\n\n\nn=168   Mean absolute error=0.065   Mean squared error=0.005\n0.9 Quantile of absolute error=0.095\n\np\n\n\n\n\n\n\n\nFigure 1: Calibration Curve",
     "crumbs": [
       "HIPLOT",
       "Calibration Curve"
@@ -3644,10 +3908,274 @@
     "href": "Hiplot/060-gene-density.html#visualization",
     "title": "Gene Density",
     "section": "Visualization",
-    "text": "Visualization\n\n# Set the palettes\npalettes &lt;- c(\"#B2182B\",\"#EF8A62\",\"#FDDBC7\",\"#D1E5F0\",\"#67A9CF\",\"#2166AC\")\ncol_fun &lt;- colorRamp2(\n  seq(0, max(gene_density[[4]]), length = 6), rev(palettes)\n  )\ncm &lt;- ColorMapping(col_fun = col_fun)\n# Set the Legend\nlgd &lt;- color_mapping_legend(\n  cm, plot = TRUE, title = \"density\", color_bar = \"continuous\"\n  )\n# Plot\np &lt;- as.ggplot(function() {\n  gtrellis_layout(\n    data1, n_track = 2, ncol = 1, byrow = FALSE,\n    track_axis = FALSE, add_name_track = FALSE,\n    xpadding = c(0.1, 0), gap = unit(1, \"mm\"),\n    track_height = unit.c(unit(1, \"null\"), unit(4, \"mm\")),\n    track_ylim = c(0, max(gene_density[[4]]), 0, 1),\n    border = FALSE, asist_ticks = FALSE,\n    legend = lgd\n    )\n  # Add gene area map track\n  add_lines_track(gene_density, gene_density[[4]],\n                  area = TRUE, gp = gpar(fill = \"pink\"))\n  # Add gene density heatmap track\n  add_heatmap_track(gene_density, gene_density[[4]], fill = col_fun)\n  add_track(track = 2, clip = FALSE, panel_fun = function(gr) {\n    chr &lt;- get_cell_meta_data(\"name\")\n    if (chr == paste(\"Chr\", length(chrNum), sep = \"\")) {\n      grid.lines(get_cell_meta_data(\"xlim\"), unit(c(0, 0), \"npc\"),\n                 default.units = \"native\")\n      }\n    grid.text(chr, x = 0.01, y = 0.38, just = c(\"left\", \"bottom\"))\n    })\n  circos.clear()\n  })\n\np\n\n\n\n\n\n\n\nFigure 1: Gene Density\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Gene Density",
+    "text": "Visualization\n\n# Set the palettes\npalettes &lt;- c(\"#B2182B\",\"#EF8A62\",\"#FDDBC7\",\"#D1E5F0\",\"#67A9CF\",\"#2166AC\")\ncol_fun &lt;- colorRamp2(\n  seq(0, max(gene_density[[4]]), length = 6), rev(palettes)\n  )\ncm &lt;- ColorMapping(col_fun = col_fun)\n# Set the Legend\nlgd &lt;- color_mapping_legend(\n  cm, plot = F, title = \"density\", color_bar = \"continuous\"\n  )\n# Plot\np &lt;- as.ggplot(function() {\n  gtrellis_layout(\n    data1, n_track = 2, ncol = 1, byrow = FALSE,\n    track_axis = FALSE, add_name_track = FALSE,\n    xpadding = c(0.1, 0), gap = unit(1, \"mm\"),\n    track_height = unit.c(unit(1, \"null\"), unit(4, \"mm\")),\n    track_ylim = c(0, max(gene_density[[4]]), 0, 1),\n    border = FALSE, asist_ticks = FALSE,\n    legend = lgd\n    )\n  # Add gene area map track\n  add_lines_track(gene_density, gene_density[[4]],\n                  area = TRUE, gp = gpar(fill = \"pink\"))\n  # Add gene density heatmap track\n  add_heatmap_track(gene_density, gene_density[[4]], fill = col_fun)\n  add_track(track = 2, clip = FALSE, panel_fun = function(gr) {\n    chr &lt;- get_cell_meta_data(\"name\")\n    if (chr == paste(\"Chr\", length(chrNum), sep = \"\")) {\n      grid.lines(get_cell_meta_data(\"xlim\"), unit(c(0, 0), \"npc\"),\n                 default.units = \"native\")\n      }\n    grid.text(chr, x = 0.01, y = 0.38, just = c(\"left\", \"bottom\"))\n    })\n  circos.clear()\n  })\n\np\n\n\n\n\n\n\n\nFigure 1: Gene Density",
     "crumbs": [
       "HIPLOT",
       "Gene Density"
+    ]
+  },
+  {
+    "objectID": "Hiplot/062-gene-trend.html",
+    "href": "Hiplot/062-gene-trend.html",
+    "title": "Gene Cluster Trend",
+    "section": "",
+    "text": "The gene cluster trend is used to display different gene expression trend with multiple lines showing the similar expression patterns in each cluster.",
+    "crumbs": [
+      "HIPLOT",
+      "Gene Cluster Trend"
+    ]
+  },
+  {
+    "objectID": "Hiplot/062-gene-trend.html#setup",
+    "href": "Hiplot/062-gene-trend.html#setup",
+    "title": "Gene Cluster Trend",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: Mfuzz; ggplotify; RColorBrewer\n\n\n# Install packages\nif (!requireNamespace(\"Mfuzz\", quietly = TRUE)) {\n  install_github(\"MatthiasFutschik/Mfuzz\")\n}\nif (!requireNamespace(\"ggplotify\", quietly = TRUE)) {\n  install.packages(\"ggplotify\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# Load packages\nlibrary(Mfuzz)\nlibrary(ggplotify)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "Gene Cluster Trend"
+    ]
+  },
+  {
+    "objectID": "Hiplot/062-gene-trend.html#data-preparation",
+    "href": "Hiplot/062-gene-trend.html#data-preparation",
+    "title": "Gene Cluster Trend",
+    "section": "Data Preparation",
+    "text": "Data Preparation\nThe loaded data are a gene expression matrix with each row represent a gene and each column represent a time-point sample.\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/062-gene-trend-data.txt\", header = T)\n\n# Convert data structure\n## Convert a gene expression matrix to an ExpressionSet object\nrow.names(data) &lt;- data[,1]\ndata &lt;- data[,-1]\ndata &lt;- as.matrix(data)\neset &lt;- new(\"ExpressionSet\", exprs = data)\n## Filter genes with more than 25% missing values\neset &lt;- filter.NA(eset, thres=0.25)\n\n0 genes excluded.\n\n## Remove genes with small differences between samples based on standard deviation\neset &lt;- filter.std(eset, min.std=0, visu = F)\n\n0 genes excluded.\n\n## Data Standardization\neset &lt;- standardise(eset)\n## Set the number of clusters\nc &lt;- 6\n## Evaluate the optimal m value\nm &lt;- mestimate(eset)\n## Perform mfuzz clustering\ncl &lt;- mfuzz(eset, c = c, m = m)\n\n# View data\nhead(data)\n\n           Time1      Time2       Time3\nGene1  0.1774993  1.6563226 -1.15259948\nGene2 -0.5037254 -0.5207024  0.46416071\nGene3  0.1050310  0.6079246  0.72893247\nGene4 -1.1791537  0.4340085  0.41061745\nGene5  0.8368975 -0.7047414 -1.46114720\nGene6  0.2611762  0.1351524 -0.01890809",
+    "crumbs": [
+      "HIPLOT",
+      "Gene Cluster Trend"
+    ]
+  },
+  {
+    "objectID": "Hiplot/062-gene-trend.html#visualization",
+    "href": "Hiplot/062-gene-trend.html#visualization",
+    "title": "Gene Cluster Trend",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Gene Cluster Trend\np &lt;- as.ggplot(function(){\n  mfuzz.plot2(\n  eset,\n  cl,\n  xlab = \"Time\",\n  ylab = \"Expression changes\",\n  mfrow = c(2,(c/2+0.5)),\n  colo = \"fancy\",\n  centre = T,\n  centre.col = \"red\",\n  time.labels = colnames(eset),\n  x11=F)\n  })\n\np\n\n\n\n\n\n\n\nFigure 1: Gene Cluster Trend\n\n\n\n\n\nAs shown in the example figure, the genes are clustered into different groups, with each group showing similar expression patterns across different time-points. The average expression trend is highlighted in each cluster.",
+    "crumbs": [
+      "HIPLOT",
+      "Gene Cluster Trend"
+    ]
+  },
+  {
+    "objectID": "Hiplot/064-ggbetweenstats.html",
+    "href": "Hiplot/064-ggbetweenstats.html",
+    "title": "Betweenstats",
+    "section": "",
+    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggstatsplot; ggplot2; cowplot\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# Load packages\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
+    "crumbs": [
+      "HIPLOT",
+      "Betweenstats"
+    ]
+  },
+  {
+    "objectID": "Hiplot/064-ggbetweenstats.html#setup",
+    "href": "Hiplot/064-ggbetweenstats.html#setup",
+    "title": "Betweenstats",
+    "section": "",
+    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggstatsplot; ggplot2; cowplot\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# Load packages\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
+    "crumbs": [
+      "HIPLOT",
+      "Betweenstats"
+    ]
+  },
+  {
+    "objectID": "Hiplot/064-ggbetweenstats.html#data-preparation",
+    "href": "Hiplot/064-ggbetweenstats.html#data-preparation",
+    "title": "Betweenstats",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/064-ggbetweenstats-data.txt\", header = T)\n\n# Convert data structure\naxis &lt;- c(\"mpaa\", \"length\", \"genre\")\ndata[, axis[1]] &lt;- factor(data[, axis[1]], levels = unique(data[, axis[1]]))\ndata[, axis[3]] &lt;- factor(data[, axis[3]], levels = unique(data[, axis[3]]))\n\n# View data\nhead(data)\n\n                                                                 title year\n1                       Lord of the Rings: The Return of the King, The 2003\n2                   Lord of the Rings: The Fellowship of the Ring, The 2001\n3                               Lord of the Rings: The Two Towers, The 2002\n4                                                            Star Wars 1977\n5                       Star Wars: Episode V - The Empire Strikes Back 1980\n6 Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb 1964\n  length budget rating  votes  mpaa  genre\n1    251   94.0    9.0 103631 PG-13 Action\n2    208   93.0    8.8 157608 PG-13 Action\n3    223   94.0    8.8 114797 PG-13 Action\n4    125   11.0    8.8 134640    PG Action\n5    129   18.0    8.8 103706    PG Action\n6     93    1.8    8.7  63471    PG Comedy",
+    "crumbs": [
+      "HIPLOT",
+      "Betweenstats"
+    ]
+  },
+  {
+    "objectID": "Hiplot/064-ggbetweenstats.html#visualization",
+    "href": "Hiplot/064-ggbetweenstats.html#visualization",
+    "title": "Betweenstats",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Betweenstats\ng &lt;- unique(data[,axis[3]])\nplist &lt;- list()\nfor (i in 1:length(g)) {\n  fil &lt;- data[,axis[3]] == g[i]\n  plist[[i]] &lt;- ggbetweenstats(\n    data = data[fil,], x = mpaa, y = length,\n    title= paste('', axis[3], g[i], sep = ':'),\n    p.adjust.method = \"holm\",\n    plot.type = \"boxviolin\",\n    pairwise.comparisons = T,\n    pairwise.display = \"significant\",\n    effsize.type = \"unbiased\",\n    notch = T,\n    type = \"parametric\",\n    plotgrid.args = list(ncol = 2)) +\n    scale_color_manual(values = c(\"#00468BFF\",\"#ED0000FF\",\"#42B540FF\"))\n}\n\nError in validObject(.Object) : \n  invalid class \"ddenseModelMatrix\" object: superclass \"xMatrix\" not defined in the environment of the object's class\n\n\nError in validObject(.Object) : \n  invalid class \"ddenseModelMatrix\" object: superclass \"xMatrix\" not defined in the environment of the object's class\n\n\nError in validObject(.Object) : \n  invalid class \"ddenseModelMatrix\" object: superclass \"xMatrix\" not defined in the environment of the object's class\n\n\nError in validObject(.Object) : \n  invalid class \"ddenseModelMatrix\" object: superclass \"xMatrix\" not defined in the environment of the object's class\n\np &lt;- plot_grid(plotlist = plist, ncol = 2)\n\np\n\n\n\n\n\n\n\nFigure 1: Betweenstats",
+    "crumbs": [
+      "HIPLOT",
+      "Betweenstats"
+    ]
+  },
+  {
+    "objectID": "Hiplot/066-ggdist.html",
+    "href": "Hiplot/066-ggdist.html",
+    "title": "Dist Plot",
+    "section": "",
+    "text": "The dist plot is a visual diagram using a confidence distribution.",
+    "crumbs": [
+      "HIPLOT",
+      "Dist Plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/066-ggdist.html#setup",
+    "href": "Hiplot/066-ggdist.html#setup",
+    "title": "Dist Plot",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggdist; tidyr; broom; modelr; ggplot2\n\n\n# Install packages\nif (!requireNamespace(\"ggdist\", quietly = TRUE)) {\n  install.packages(\"ggdist\")\n}\nif (!requireNamespace(\"tidyr\", quietly = TRUE)) {\n  install.packages(\"tidyr\")\n}\nif (!requireNamespace(\"broom\", quietly = TRUE)) {\n  install.packages(\"broom\")\n}\nif (!requireNamespace(\"modelr\", quietly = TRUE)) {\n  install.packages(\"modelr\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# Load packages\nlibrary(ggdist)\nlibrary(tidyr)\nlibrary(broom)\nlibrary(modelr)\nlibrary(ggplot2)",
+    "crumbs": [
+      "HIPLOT",
+      "Dist Plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/066-ggdist.html#data-preparation",
+    "href": "Hiplot/066-ggdist.html#data-preparation",
+    "title": "Dist Plot",
+    "section": "Data Preparation",
+    "text": "Data Preparation\nThe loaded data are five conditions and their corresponding values.\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/066-ggdist-data.txt\", header = T)\n\n# Convert data structure\ndata[, 1] &lt;- factor(data[, 1], levels = rev(unique(data[, 1])))\ndata &lt;- tibble(data)\ndata2 = lm(response ~ condition, data = data)\ndata3 &lt;- data_grid(data, condition) %&gt;%\n  augment(data2, newdata = ., se_fit = TRUE)\n\n# View data\nhead(data)\n\n# A tibble: 6 × 2\n  condition response\n  &lt;fct&gt;        &lt;dbl&gt;\n1 A           -0.420\n2 B            1.69 \n3 C            1.37 \n4 D            1.04 \n5 E           -0.144\n6 A           -0.301",
+    "crumbs": [
+      "HIPLOT",
+      "Dist Plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/066-ggdist.html#visualization",
+    "href": "Hiplot/066-ggdist.html#visualization",
+    "title": "Dist Plot",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Dist Plot\np &lt;- ggplot(data3, aes_(y = as.name(colnames(data[1])))) +\n  stat_dist_halfeye(aes(dist = \"student_t\", arg1 = df.residual(data2),\n                        arg2 = .fitted, arg3 = .se.fit),\n                    scale = .5) +\n  geom_point(aes_(x = as.name(colnames(data[2]))),\n             data = data, pch = \"|\", size = 2,\n             position = position_nudge(y = -.15)) +\n  ggtitle(\"ggdist Plot\") + \n  xlab(\"response\") + ylab(\"condition\") +\n  theme_ggdist() +\n  theme(text = element_text(family = \"Arial\"),\n        plot.title = element_text(size = 12,hjust = 0.5),\n        axis.title = element_text(size = 12),\n        axis.text = element_text(size = 10),\n        axis.text.x = element_text(angle = 0, hjust = 0.5,vjust = 1),\n        legend.position = \"right\",\n        legend.direction = \"vertical\",\n        legend.title = element_text(size = 10),\n        legend.text = element_text(size = 10))\n\np\n\n\n\n\n\n\n\nFigure 1: Dist Plot\n\n\n\n\n\nThe diagram shows the confidence distribution of the mean under the conditions, and the approximate distribution of the corresponding values under the five conditions can be seen.",
+    "crumbs": [
+      "HIPLOT",
+      "Dist Plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/068-ggpie.html",
+    "href": "Hiplot/068-ggpie.html",
+    "title": "GGPIE",
+    "section": "",
+    "text": "The pie chart is a statistical chart that shows the proportion of each part by dividing a circle into sections.",
+    "crumbs": [
+      "HIPLOT",
+      "GGPIE"
+    ]
+  },
+  {
+    "objectID": "Hiplot/068-ggpie.html#setup",
+    "href": "Hiplot/068-ggpie.html#setup",
+    "title": "GGPIE",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggpie; dplyr; ggplot2; cowplot\n\n\n# Install packages\nif (!requireNamespace(\"ggpie\", quietly = TRUE)) {\n  install.packages(\"ggpie\")\n}\nif (!requireNamespace(\"dplyr\", quietly = TRUE)) {\n  install.packages(\"dplyr\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# Load packages\nlibrary(ggpie)\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(cowplot)",
+    "crumbs": [
+      "HIPLOT",
+      "GGPIE"
+    ]
+  },
+  {
+    "objectID": "Hiplot/068-ggpie.html#data-preparation",
+    "href": "Hiplot/068-ggpie.html#data-preparation",
+    "title": "GGPIE",
+    "section": "Data Preparation",
+    "text": "Data Preparation\nThe loaded data are different groups and their data.\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/068-ggpie-data.txt\", header = T)\n\n# Convert data structure\naxis &lt;- c(\"am\", \"cyl\")\ndata[, axis[1]] &lt;- factor(data[, axis[1]], levels = unique(data[, axis[1]]))\ndata[, axis[2]] &lt;- factor(data[, axis[2]], levels = unique(data[, axis[2]]))\n\n# View data\nhead(data)\n\n   mpg cyl disp  hp drat    wt  qsec vs am gear carb\n1 21.0   6  160 110 3.90 2.620 16.46  0  1    4    4\n2 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4\n3 22.8   4  108  93 3.85 2.320 18.61  1  1    4    1\n4 21.4   6  258 110 3.08 3.215 19.44  1  0    3    1\n5 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2\n6 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1",
+    "crumbs": [
+      "HIPLOT",
+      "GGPIE"
+    ]
+  },
+  {
+    "objectID": "Hiplot/068-ggpie.html#visualization",
+    "href": "Hiplot/068-ggpie.html#visualization",
+    "title": "GGPIE",
+    "section": "Visualization",
+    "text": "Visualization\n\n# GGPIE\nplist &lt;- list()\nfor (j in unique(data[, axis[2]])) {\n  plist[[j]] &lt;- ggpie(\n    data = data[data[, axis[2]] == j,],\n    group_key = axis[1], count_type = \"full\",\n    label_type = \"horizon\", label_size = 8,\n    label_info = \"all\", label_pos = \"out\") + \n    scale_fill_manual(values = c(\"#00468BFF\",\"#ED0000FF\")) +\n    ggtitle(j)\n  }\n\nplot_grid(plotlist = plist, ncol = 3)\n\n\n\n\n\n\n\nFigure 1: GGPIE\n\n\n\n\n\nIn a circle graph, the arc length of each slice (the arc length of its center Angle and the region corresponding to its center Angle) is proportional to the number represented. The pie chart shows the number of samples for the 1 to 4 components and the corresponding proportions. The number of samples in one group is 13, accounting for 11.71%; the number of samples in two groups is 34, accounting for 30.63%; the number of samples in three groups is 21, accounting for 18.92%; and the number of samples in four groups is 43, accounting for 38.74%.",
+    "crumbs": [
+      "HIPLOT",
+      "GGPIE"
+    ]
+  },
+  {
+    "objectID": "Hiplot/071-ggpiestats.html",
+    "href": "Hiplot/071-ggpiestats.html",
+    "title": "Piestats",
+    "section": "",
+    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggstatsplot; ggplot2\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# Load packages\nlibrary(ggstatsplot)\nlibrary(ggplot2)",
+    "crumbs": [
+      "HIPLOT",
+      "Piestats"
+    ]
+  },
+  {
+    "objectID": "Hiplot/071-ggpiestats.html#setup",
+    "href": "Hiplot/071-ggpiestats.html#setup",
+    "title": "Piestats",
+    "section": "",
+    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggstatsplot; ggplot2\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# Load packages\nlibrary(ggstatsplot)\nlibrary(ggplot2)",
+    "crumbs": [
+      "HIPLOT",
+      "Piestats"
+    ]
+  },
+  {
+    "objectID": "Hiplot/071-ggpiestats.html#data-preparation",
+    "href": "Hiplot/071-ggpiestats.html#data-preparation",
+    "title": "Piestats",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/071-ggpiestats-data.txt\", header = T)\n\n# Convert data structure\naxis &lt;- c(\"am\", \"cyl\")\ndata[, axis[1]] &lt;- factor(data[, axis[1]], levels = unique(data[, axis[1]]))\ndata[, axis[2]] &lt;- factor(data[, axis[2]], levels = unique(data[, axis[2]]))\n\n# View data\nhead(data)\n\n   mpg cyl disp  hp drat    wt  qsec vs am gear carb\n1 21.0   6  160 110 3.90 2.620 16.46  0  1    4    4\n2 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4\n3 22.8   4  108  93 3.85 2.320 18.61  1  1    4    1\n4 21.4   6  258 110 3.08 3.215 19.44  1  0    3    1\n5 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2\n6 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1",
+    "crumbs": [
+      "HIPLOT",
+      "Piestats"
+    ]
+  },
+  {
+    "objectID": "Hiplot/071-ggpiestats.html#visualization",
+    "href": "Hiplot/071-ggpiestats.html#visualization",
+    "title": "Piestats",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Piestats\np &lt;- ggpiestats(data = data, x = am, y = cyl,\n                paired = F) +\n  scale_fill_manual(values = c(\"#3B4992FF\",\"#EE0000FF\"))\n\np\n\n\n\n\n\n\n\nFigure 1: Piestats",
+    "crumbs": [
+      "HIPLOT",
+      "Piestats"
+    ]
+  },
+  {
+    "objectID": "Hiplot/073-ggscatterstats.html",
+    "href": "Hiplot/073-ggscatterstats.html",
+    "title": "Scatterstats",
+    "section": "",
+    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggpubr; ggthemes\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\n\n# Load packages\nlibrary(ggstatsplot)",
+    "crumbs": [
+      "HIPLOT",
+      "Scatterstats"
+    ]
+  },
+  {
+    "objectID": "Hiplot/073-ggscatterstats.html#setup",
+    "href": "Hiplot/073-ggscatterstats.html#setup",
+    "title": "Scatterstats",
+    "section": "",
+    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggpubr; ggthemes\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\n\n# Load packages\nlibrary(ggstatsplot)",
+    "crumbs": [
+      "HIPLOT",
+      "Scatterstats"
+    ]
+  },
+  {
+    "objectID": "Hiplot/073-ggscatterstats.html#data-preparation",
+    "href": "Hiplot/073-ggscatterstats.html#data-preparation",
+    "title": "Scatterstats",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/073-ggscatterstats-data.txt\", header = T)\n\n# View data\nhead(data)\n\n                                                                 title year\n1                       Lord of the Rings: The Return of the King, The 2003\n2                   Lord of the Rings: The Fellowship of the Ring, The 2001\n3                               Lord of the Rings: The Two Towers, The 2002\n4                                                            Star Wars 1977\n5                       Star Wars: Episode V - The Empire Strikes Back 1980\n6 Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb 1964\n  length budget rating  votes  mpaa  genre\n1    251   94.0    9.0 103631 PG-13 Action\n2    208   93.0    8.8 157608 PG-13 Action\n3    223   94.0    8.8 114797 PG-13 Action\n4    125   11.0    8.8 134640    PG Action\n5    129   18.0    8.8 103706    PG Action\n6     93    1.8    8.7  63471    PG Comedy",
+    "crumbs": [
+      "HIPLOT",
+      "Scatterstats"
+    ]
+  },
+  {
+    "objectID": "Hiplot/073-ggscatterstats.html#visualization",
+    "href": "Hiplot/073-ggscatterstats.html#visualization",
+    "title": "Scatterstats",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Scatterstats\np &lt;- ggscatterstats(\n  data = data, x = rating, y = budget\n)\n\np\n\n\n\n\n\n\n\nFigure 1: Scatterstats",
+    "crumbs": [
+      "HIPLOT",
+      "Scatterstats"
     ]
   },
   {
@@ -4021,7 +4549,7 @@
     "href": "Template/visualization_guidance_CH.html#环境配置",
     "title": "Contribution_guidance",
     "section": "环境配置",
-    "text": "环境配置\n\n系统要求 跨平台（Linux/MacOS/Windows）\n编程语言: R\n依赖资源: （填充可视化教程依赖的R包或其他资源）\n\n\n#代码示例----- \n# Installing necessary packages\nif (!requireNamespace(\"readr\", quietly = TRUE)) {\n  install.packages(\"readr\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"tidyverse\", quietly = TRUE)) {\n  install.packages(\"tidyverse\")\n}\n\n# Loading the libraries\nlibrary(readr) \n\nWarning: package 'readr' was built under R version 4.2.3\n\nlibrary(ggplot2) \nlibrary(tidyverse)\n\nWarning: package 'tidyverse' was built under R version 4.2.3\n\n\nWarning: package 'tibble' was built under R version 4.2.3\n\n\nWarning: package 'tidyr' was built under R version 4.2.3\n\n\nWarning: package 'purrr' was built under R version 4.2.3\n\n\nWarning: package 'dplyr' was built under R version 4.2.3\n\n\nWarning: package 'stringr' was built under R version 4.2.2\n\n\nWarning: package 'forcats' was built under R version 4.2.3"
+    "text": "环境配置\n\n系统要求 跨平台（Linux/MacOS/Windows）\n编程语言: R\n依赖资源: （填充可视化教程依赖的R包或其他资源）\n\n\n#代码示例----- \n# Installing necessary packages\nif (!requireNamespace(\"readr\", quietly = TRUE)) {\n  install.packages(\"readr\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"tidyverse\", quietly = TRUE)) {\n  install.packages(\"tidyverse\")\n}\n\n# Loading the libraries\nlibrary(readr) \n\nWarning: package 'readr' was built under R version 4.2.3\n\nlibrary(ggplot2) \nlibrary(tidyverse)\n\nWarning: package 'tidyverse' was built under R version 4.2.3\n\n\nWarning: package 'tibble' was built under R version 4.2.3\n\n\nWarning: package 'tidyr' was built under R version 4.2.3\n\n\nWarning: package 'dplyr' was built under R version 4.2.3\n\n\nWarning: package 'stringr' was built under R version 4.2.2\n\n\nWarning: package 'forcats' was built under R version 4.2.3"
   },
   {
     "objectID": "Template/visualization_guidance_CH.html#数据准备",
