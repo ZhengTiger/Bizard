@@ -938,6 +938,108 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Scatterstats</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Hiplot/074-ggseqlogo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seqlogo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Hiplot/075-ggwithinstats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Complex-Violin</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Hiplot/076-ggwordcloud.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ggwordcloud</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Hiplot/077-gobar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GOBar Plot</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Hiplot/078-gobubble.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GOBubble Plot</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Hiplot/079-gocircle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GOCircle Plot</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Hiplot/080-grdotplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Group Rank Dotplot</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Hiplot/081-group-bubble.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Group Bubble</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Hiplot/082-group-comparison.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Group-comparison Heatmap</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Hiplot/083-group-dumbbell.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Group Dumbbell</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Hiplot/084-group-line.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Group Line</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Hiplot/085-half-violin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Half Violin</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Hiplot/086-heatmap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Heatmap</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Hiplot/087-hic-heatmap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hi-C Heatmap</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Hiplot/088-histogram.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Histogram</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Hiplot/089-interval-area-chart.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interval Area Chart</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Hiplot/090-interval-bar-chart.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interval Bar Chart</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item">
@@ -1023,21 +1125,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>$data
 # A tibble: 13 × 8
-   name      x      y direction to     xend   yend circular
-   &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;fct&gt;     &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;lgl&gt;   
- 1 v      3.62 -0.652 -&gt;        z1     2.91  0.575 FALSE   
- 2 v      3.62 -0.652 -&gt;        z2     2.41 -1.37  FALSE   
- 3 w1     1.97  0.348 -&gt;        x      1.38  0.512 FALSE   
- 4 w1     1.97  0.348 -&gt;        y      1.14 -0.619 FALSE   
- 5 w1     1.97  0.348 -&gt;        z1     2.91  0.575 FALSE   
- 6 w1     1.97  0.348 &lt;-&gt;       w2     1.78 -0.590 FALSE   
- 7 w2     1.78 -0.590 -&gt;        x      1.38  0.512 FALSE   
- 8 w2     1.78 -0.590 -&gt;        y      1.14 -0.619 FALSE   
- 9 w2     1.78 -0.590 -&gt;        z2     2.41 -1.37  FALSE   
-10 x      1.38  0.512 -&gt;        y      1.14 -0.619 FALSE   
-11 y      1.14 -0.619 &lt;NA&gt;      &lt;NA&gt;  NA    NA     FALSE   
-12 z1     2.91  0.575 -&gt;        x      1.38  0.512 FALSE   
-13 z2     2.41 -1.37  -&gt;        y      1.14 -0.619 FALSE   
+   name       x     y direction to      xend   yend circular
+   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;     &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;lgl&gt;   
+ 1 v      1.37  1.47  -&gt;        z1     0.262  2.32  FALSE   
+ 2 v      1.37  1.47  -&gt;        z2     0.493  0.351 FALSE   
+ 3 w1    -0.469 1.61  -&gt;        x     -1.10   1.75  FALSE   
+ 4 w1    -0.469 1.61  -&gt;        y     -1.03   0.604 FALSE   
+ 5 w1    -0.469 1.61  -&gt;        z1     0.262  2.32  FALSE   
+ 6 w1    -0.469 1.61  &lt;-&gt;       w2    -0.425  0.636 FALSE   
+ 7 w2    -0.425 0.636 -&gt;        x     -1.10   1.75  FALSE   
+ 8 w2    -0.425 0.636 -&gt;        y     -1.03   0.604 FALSE   
+ 9 w2    -0.425 0.636 -&gt;        z2     0.493  0.351 FALSE   
+10 x     -1.10  1.75  -&gt;        y     -1.03   0.604 FALSE   
+11 y     -1.03  0.604 &lt;NA&gt;      &lt;NA&gt;  NA     NA     FALSE   
+12 z1     0.262 2.32  -&gt;        x     -1.10   1.75  FALSE   
+13 z2     0.493 0.351 -&gt;        y     -1.03   0.604 FALSE   
 
 $dag
 dag {
