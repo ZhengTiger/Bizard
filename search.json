@@ -357,6 +357,622 @@
     ]
   },
   {
+    "objectID": "Hiplot/119-meta-bin.html",
+    "href": "Hiplot/119-meta-bin.html",
+    "title": "Meta-analysis of Binary Data",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Meta-analysis of Binary Data plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/meta-bin?lang=en",
+    "crumbs": [
+      "HIPLOT",
+      "Meta-analysis of Binary Data"
+    ]
+  },
+  {
+    "objectID": "Hiplot/119-meta-bin.html#setup",
+    "href": "Hiplot/119-meta-bin.html#setup",
+    "title": "Meta-analysis of Binary Data",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: meta; ggplotify\n\n\n# Install packages\nif (!requireNamespace(\"meta\", quietly = TRUE)) {\n  install.packages(\"meta\")\n}\nif (!requireNamespace(\"ggplotify\", quietly = TRUE)) {\n  install.packages(\"ggplotify\")\n}\n\n# Load packages\nlibrary(meta)\nlibrary(ggplotify)",
+    "crumbs": [
+      "HIPLOT",
+      "Meta-analysis of Binary Data"
+    ]
+  },
+  {
+    "objectID": "Hiplot/119-meta-bin.html#data-preparation",
+    "href": "Hiplot/119-meta-bin.html#data-preparation",
+    "title": "Meta-analysis of Binary Data",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/119-meta-bin-data.txt\", header = T)\n\n# Convert data structure\nm1 &lt;- metabin(ev.exp, n.exp, ev.cont, n.cont, studlab = Study, data = data)\n\n# View data\nhead(data)\n\n       Study ev.exp n.exp ev.cont n.cont\n1   Fletcher      1    12       4     11\n2      Dewar      4    21       7     21\n3 Lippschutz      6    43       7     41\n4 European_1     20    83      15     84\n5 European_2     69   373      94    357",
+    "crumbs": [
+      "HIPLOT",
+      "Meta-analysis of Binary Data"
+    ]
+  },
+  {
+    "objectID": "Hiplot/119-meta-bin.html#visualization",
+    "href": "Hiplot/119-meta-bin.html#visualization",
+    "title": "Meta-analysis of Binary Data",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Meta-analysis of Binary Data\np &lt;- as.ggplot(function(){\n  meta::forest(m1, layout = \"meta\")\n  })\n\np\n\n\n\n\n\n\n\nFigure 1: Meta-analysis of Binary Data",
+    "crumbs": [
+      "HIPLOT",
+      "Meta-analysis of Binary Data"
+    ]
+  },
+  {
+    "objectID": "Hiplot/117-map-world2.html",
+    "href": "Hiplot/117-map-world2.html",
+    "title": "World Map 2",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot World Map 2 plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/map-world2?lang=en",
+    "crumbs": [
+      "HIPLOT",
+      "World Map 2"
+    ]
+  },
+  {
+    "objectID": "Hiplot/117-map-world2.html#setup",
+    "href": "Hiplot/117-map-world2.html#setup",
+    "title": "World Map 2",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; RColorBrewer\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "World Map 2"
+    ]
+  },
+  {
+    "objectID": "Hiplot/117-map-world2.html#data-preparation",
+    "href": "Hiplot/117-map-world2.html#data-preparation",
+    "title": "World Map 2",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/117-map-world2-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/world.rds\")\n\n# Convert data structure\ndt_map$Value &lt;- data$death_rate[match(dt_map$ENG_NAME, data$region)]\n\n# View data\nhead(data)\n\n          region death_rate\n1    Afghanistan       13.4\n2        Albania        6.8\n3        Algeria        4.3\n4 American Samoa        5.9\n5        Andorra        7.3\n6         Angola        9.2",
+    "crumbs": [
+      "HIPLOT",
+      "World Map 2"
+    ]
+  },
+  {
+    "objectID": "Hiplot/117-map-world2.html#visualization",
+    "href": "Hiplot/117-map-world2.html#visualization",
+    "title": "World Map 2",
+    "section": "Visualization",
+    "text": "Visualization\n\n# World Map 2\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(round(min(dt_map$Value)), round(max(dt_map$Value)), \n                 round((max(dt_map$Value)-min(dt_map$Value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"World Map\")\n\np\n\n\n\n\n\n\n\nFigure 1: World Map 2",
+    "crumbs": [
+      "HIPLOT",
+      "World Map 2"
+    ]
+  },
+  {
+    "objectID": "Hiplot/115-map-usa.html",
+    "href": "Hiplot/115-map-usa.html",
+    "title": "USA Map (States)",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot USA Map (States) plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/map-usa?lang=en",
+    "crumbs": [
+      "HIPLOT",
+      "USA Map (States)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/115-map-usa.html#setup",
+    "href": "Hiplot/115-map-usa.html#setup",
+    "title": "USA Map (States)",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; RColorBrewer\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "USA Map (States)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/115-map-usa.html#data-preparation",
+    "href": "Hiplot/115-map-usa.html#data-preparation",
+    "title": "USA Map (States)",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/115-map-usa-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/usa.rds\")\n\n# Convert data structure\ndt_map$Value &lt;- data$value[match(dt_map$state, data$name)]\n\n# View data\nhead(data)\n\n          name value\n1   Washington   438\n2      Montana   103\n3        Maine   614\n4 North Dakota   256\n5 South Dakota   639\n6      Wyoming   599",
+    "crumbs": [
+      "HIPLOT",
+      "USA Map (States)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/115-map-usa.html#visualization",
+    "href": "Hiplot/115-map-usa.html#visualization",
+    "title": "USA Map (States)",
+    "section": "Visualization",
+    "text": "Visualization\n\n# USA Map (States)\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"USA Map\")\n\np\n\n\n\n\n\n\n\nFigure 1: USA Map (States)",
+    "crumbs": [
+      "HIPLOT",
+      "USA Map (States)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/113-map-uk.html",
+    "href": "Hiplot/113-map-uk.html",
+    "title": "UK Map",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot UK Map plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/map-uk?lang=en",
+    "crumbs": [
+      "HIPLOT",
+      "South America Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/113-map-uk.html#setup",
+    "href": "Hiplot/113-map-uk.html#setup",
+    "title": "UK Map",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; RColorBrewer\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "South America Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/113-map-uk.html#data-preparation",
+    "href": "Hiplot/113-map-uk.html#data-preparation",
+    "title": "UK Map",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/113-map-uk-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/uk.rds\")\n\n# Convert data structure\ndt_map$Value &lt;- data$value[match(dt_map$name, data$name)]\n\n# View data\nhead(data)\n\n              name value\n1 Northern Ireland   691\n2         Scotland   455\n3          England   530\n4            Wales   767",
+    "crumbs": [
+      "HIPLOT",
+      "South America Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/113-map-uk.html#visualization",
+    "href": "Hiplot/113-map-uk.html#visualization",
+    "title": "UK Map",
+    "section": "Visualization",
+    "text": "Visualization\n\n# UK Map\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"UK Map\")\n\np\n\n\n\n\n\n\n\nFigure 1: UK Map",
+    "crumbs": [
+      "HIPLOT",
+      "South America Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/111-map-south-america.html",
+    "href": "Hiplot/111-map-south-america.html",
+    "title": "South America Map",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot South America Map plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/map-south-america?lang=en",
+    "crumbs": [
+      "HIPLOT",
+      "South America Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/111-map-south-america.html#setup",
+    "href": "Hiplot/111-map-south-america.html#setup",
+    "title": "South America Map",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; RColorBrewer\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "South America Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/111-map-south-america.html#data-preparation",
+    "href": "Hiplot/111-map-south-america.html#data-preparation",
+    "title": "South America Map",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/111-map-south-america-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/sa.rds\")\n\n# Convert data structure\ndt_map$Value &lt;- data$value[match(dt_map$ENG_NAME, data$region)]\n\n# View data\nhead(data)\n\n     region value\n1 Argentina   198\n2   Bolivia   568\n3    Brazil   191\n4     Chile   275\n5  Colombia   901\n6   Ecuador   604",
+    "crumbs": [
+      "HIPLOT",
+      "South America Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/111-map-south-america.html#visualization",
+    "href": "Hiplot/111-map-south-america.html#visualization",
+    "title": "South America Map",
+    "section": "Visualization",
+    "text": "Visualization\n\n# South America Map\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"South America Map\")\n\np\n\n\n\n\n\n\n\nFigure 1: South America Map",
+    "crumbs": [
+      "HIPLOT",
+      "South America Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/108-map-north-america.html",
+    "href": "Hiplot/108-map-north-america.html",
+    "title": "North America Map",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot North America Map plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/map-north-america?lang=en",
+    "crumbs": [
+      "HIPLOT",
+      "North America Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/108-map-north-america.html#setup",
+    "href": "Hiplot/108-map-north-america.html#setup",
+    "title": "North America Map",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; RColorBrewer\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "North America Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/108-map-north-america.html#data-preparation",
+    "href": "Hiplot/108-map-north-america.html#data-preparation",
+    "title": "North America Map",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/108-map-north-america-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/na.rds\")\n\n# Convert data structure\ndt_map$Value &lt;- data$value[match(dt_map$ENG_NAME, data$region)]\n\n# View data\nhead(data)\n\n             region value\n1 ANTIGUA & BARBUDA   918\n2     Anguilla (UK)    95\n3          BARBADOS   878\n4            BELIZE   874\n5      Bermuda (UK)   159\n6            CANADA   118",
+    "crumbs": [
+      "HIPLOT",
+      "North America Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/108-map-north-america.html#visualization",
+    "href": "Hiplot/108-map-north-america.html#visualization",
+    "title": "North America Map",
+    "section": "Visualization",
+    "text": "Visualization\n\n# North America Map\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"North America Map\")\n\np\n\n\n\n\n\n\n\nFigure 1: North America Map",
+    "crumbs": [
+      "HIPLOT",
+      "North America Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/106-map-germany-town.html",
+    "href": "Hiplot/106-map-germany-town.html",
+    "title": "Germany Map (Town)",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Germany Map (Town) plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/map-germany-town?lang=en",
+    "crumbs": [
+      "HIPLOT",
+      "Germany Map (Town)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/106-map-germany-town.html#setup",
+    "href": "Hiplot/106-map-germany-town.html#setup",
+    "title": "Germany Map (Town)",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; RColorBrewer\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "Germany Map (Town)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/106-map-germany-town.html#data-preparation",
+    "href": "Hiplot/106-map-germany-town.html#data-preparation",
+    "title": "Germany Map (Town)",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/106-map-germany-town-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/germany_town.rds\")\n\n# Convert data structure\ndt_map$Value &lt;- data$value[match(dt_map$ENG_NAME, data$name)]\n\n# View data\nhead(data)\n\n          name value\n1 Allmendingen   711\n2      Altheim   540\n3    Berghülen   582\n4   Blaubeuren   454\n5    Blaustein   766\n6     Balzheim   480",
+    "crumbs": [
+      "HIPLOT",
+      "Germany Map (Town)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/106-map-germany-town.html#visualization",
+    "href": "Hiplot/106-map-germany-town.html#visualization",
+    "title": "Germany Map (Town)",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Germany Map (Town)\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"Germany Map\")\n\np\n\n\n\n\n\n\n\nFigure 1: Germany Map (Town)",
+    "crumbs": [
+      "HIPLOT",
+      "Germany Map (Town)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/103-map-france-town.html",
+    "href": "Hiplot/103-map-france-town.html",
+    "title": "France Map (Town)",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot France Map (Town) plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/map-france-town?lang=en",
+    "crumbs": [
+      "HIPLOT",
+      "France Map (Town)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/103-map-france-town.html#setup",
+    "href": "Hiplot/103-map-france-town.html#setup",
+    "title": "France Map (Town)",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; RColorBrewer\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "France Map (Town)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/103-map-france-town.html#data-preparation",
+    "href": "Hiplot/103-map-france-town.html#data-preparation",
+    "title": "France Map (Town)",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/103-map-france-town-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/france_town.rds\")\n\n# Convert data structure\ndt_map$Value &lt;- data$value[match(dt_map$ENG_NAME, data$name)]\n\n# View data\nhead(data)\n\n                   name value\n1           Bischwiller   669\n2              Haguenau   935\n3 Niederbronn-les-Bains   356\n4              Molsheim   199\n5               Rosheim   971\n6                Saales   532",
+    "crumbs": [
+      "HIPLOT",
+      "France Map (Town)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/103-map-france-town.html#visualization",
+    "href": "Hiplot/103-map-france-town.html#visualization",
+    "title": "France Map (Town)",
+    "section": "Visualization",
+    "text": "Visualization\n\n# France Map (Town)\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"France Map\")\n\np\n\n\n\n\n\n\n\nFigure 1: France Map (Town)",
+    "crumbs": [
+      "HIPLOT",
+      "France Map (Town)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/101-map-china2.html",
+    "href": "Hiplot/101-map-china2.html",
+    "title": "China Map 2",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot China Map 2 plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/map-china2?lang=en",
+    "crumbs": [
+      "HIPLOT",
+      "China Map 2"
+    ]
+  },
+  {
+    "objectID": "Hiplot/101-map-china2.html#setup",
+    "href": "Hiplot/101-map-china2.html#setup",
+    "title": "China Map 2",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; RColorBrewer\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "China Map 2"
+    ]
+  },
+  {
+    "objectID": "Hiplot/101-map-china2.html#data-preparation",
+    "href": "Hiplot/101-map-china2.html#data-preparation",
+    "title": "China Map 2",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/101-map-china2-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/china.rds\")\n\n# Convert data structure\ndt_map$Value &lt;- data$value[match(dt_map$FCNAME, data$name)]\n\n# View data\nhead(data)\n\n    name value\n1 安徽省  6118\n2 福建省  3581\n3 甘肃省  2617\n4 广东省  9449\n5 贵州省  3762\n6 海南省   845",
+    "crumbs": [
+      "HIPLOT",
+      "China Map 2"
+    ]
+  },
+  {
+    "objectID": "Hiplot/101-map-china2.html#visualization",
+    "href": "Hiplot/101-map-china2.html#visualization",
+    "title": "China Map 2",
+    "section": "Visualization",
+    "text": "Visualization\n\n# China Map 2\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"China Map\")\n\np\n\n\n\n\n\n\n\nFigure 1: China Map 2",
+    "crumbs": [
+      "HIPLOT",
+      "China Map 2"
+    ]
+  },
+  {
+    "objectID": "Hiplot/099-map-china-county.html",
+    "href": "Hiplot/099-map-china-county.html",
+    "title": "China Map (County)",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot China Map (County) plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/map-china-county?lang=en",
+    "crumbs": [
+      "HIPLOT",
+      "China Map (County)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/099-map-china-county.html#setup",
+    "href": "Hiplot/099-map-china-county.html#setup",
+    "title": "China Map (County)",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; RColorBrewer\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "China Map (County)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/099-map-china-county.html#data-preparation",
+    "href": "Hiplot/099-map-china-county.html#data-preparation",
+    "title": "China Map (County)",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/099-map-china-county-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/china.county.rds\")\n\n# Convert data structure\ndt_map$Value &lt;- data$value[match(dt_map$county, data$name)]\n\n# View data\nhead(data)\n\n      name value\n1   东城区   739\n2   西城区   536\n3   朝阳区   138\n4   丰台区   561\n5 石景山区   345\n6   海淀区   898",
+    "crumbs": [
+      "HIPLOT",
+      "China Map (County)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/099-map-china-county.html#visualization",
+    "href": "Hiplot/099-map-china-county.html#visualization",
+    "title": "China Map (County)",
+    "section": "Visualization",
+    "text": "Visualization\n\n# China Map (County)\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"China City Map\")\n\np\n\n\n\n\n\n\n\nFigure 1: China Map (County)",
+    "crumbs": [
+      "HIPLOT",
+      "China Map (County)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/097-map-americas.html",
+    "href": "Hiplot/097-map-americas.html",
+    "title": "Americas Map",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Americas Map plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/map-americas?lang=en",
+    "crumbs": [
+      "HIPLOT",
+      "Americas Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/097-map-americas.html#setup",
+    "href": "Hiplot/097-map-americas.html#setup",
+    "title": "Americas Map",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; RColorBrewer\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "Americas Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/097-map-americas.html#data-preparation",
+    "href": "Hiplot/097-map-americas.html#data-preparation",
+    "title": "Americas Map",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/097-map-americas-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/amr.rds\")\n\n# Convert data structure\ndt_map$Value &lt;- data$value[match(dt_map$ENG_NAME, data$region)]\n\n# View data\nhead(data)\n\n               region value\n1 Aruba (Netherlands)    48\n2 Antigua and Barbuda   749\n3           Argentina   667\n4       Anguilla (UK)    14\n5            Barbados    83\n6        Bermuda (UK)   109",
+    "crumbs": [
+      "HIPLOT",
+      "Americas Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/097-map-americas.html#visualization",
+    "href": "Hiplot/097-map-americas.html#visualization",
+    "title": "Americas Map",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Americas Map\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"Americas Map\")\n\np\n\n\n\n\n\n\n\nFigure 1: Americas Map",
+    "crumbs": [
+      "HIPLOT",
+      "Americas Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/095-line.html",
+    "href": "Hiplot/095-line.html",
+    "title": "Line",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Line plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/line?lang=en\nThe line chart is a statistical chart that USES a linear or logarithmic scale to draw data in a two - or three-dimensional view to show the data set or track the characteristics of the data over time.",
+    "crumbs": [
+      "HIPLOT",
+      "Line"
+    ]
+  },
+  {
+    "objectID": "Hiplot/095-line.html#setup",
+    "href": "Hiplot/095-line.html#setup",
+    "title": "Line",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; ggthemes\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"ggthemes\", quietly = TRUE)) {\n  install.packages(\"ggthemes\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(ggthemes)",
+    "crumbs": [
+      "HIPLOT",
+      "Line"
+    ]
+  },
+  {
+    "objectID": "Hiplot/095-line.html#data-preparation",
+    "href": "Hiplot/095-line.html#data-preparation",
+    "title": "Line",
+    "section": "Data Preparation",
+    "text": "Data Preparation\nThe loaded data are the horizontal axis values and their corresponding vertical axis values and groups.\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/095-line-data.txt\", header = T)\n\n# Convert data structure\ndata[,3] &lt;- factor(data[,3], levels = unique(data[,3]))\n\n# View data\nhead(data)\n\n  Value1 Value2  Group\n1      1      1 treat1\n2      2      4 treat1\n3      3      9 treat1\n4      4     16 treat1\n5      5     25 treat1\n6      6     36 treat1",
+    "crumbs": [
+      "HIPLOT",
+      "Line"
+    ]
+  },
+  {
+    "objectID": "Hiplot/095-line.html#visualization",
+    "href": "Hiplot/095-line.html#visualization",
+    "title": "Line",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Line\np &lt;- ggplot(data, aes(x = Value1, y = Value2)) +\n  geom_line(alpha = 1, aes(color = Group, linetype = Group)) +\n  geom_point(aes(color = Group, shape = Group)) +\n  ggtitle(\"Line Regression Plot\") +\n  scale_fill_manual(values = c(\"#e04d39\",\"#5bbad6\")) +\n  theme_stata() +\n  theme(text = element_text(family = \"Arial\"),\n        plot.title = element_text(size = 12,hjust = 0.5),\n        axis.title = element_text(size = 12),\n        axis.text = element_text(size = 10),\n        axis.text.x = element_text(angle = 0, hjust = 0.5,vjust = 1),\n        legend.position = \"right\",\n        legend.direction = \"vertical\",\n        legend.title = element_text(size = 10),\n        legend.text = element_text(size = 10))\n\np\n\n\n\n\n\n\n\nFigure 1: Line\n\n\n\n\n\nThe diagram shows that value1 is positively correlated with Value2 in treatment plan 1, while Value1 is negatively correlated with Value2 in treatment plan 2.",
+    "crumbs": [
+      "HIPLOT",
+      "Line"
+    ]
+  },
+  {
+    "objectID": "Hiplot/093-line-errorbar.html",
+    "href": "Hiplot/093-line-errorbar.html",
+    "title": "Line (errorbar)",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Line (errorbar) plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/line-errorbar?lang=en\nThe error line mainly indicates the error range of each data point and shows the potential error or uncertainty relative to each data in the series.",
+    "crumbs": [
+      "HIPLOT",
+      "Line (errorbar)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/093-line-errorbar.html#setup",
+    "href": "Hiplot/093-line-errorbar.html#setup",
+    "title": "Line (errorbar)",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggpubr\n\n\n# Install packages\nif (!requireNamespace(\"ggpubr\", quietly = TRUE)) {\n  install.packages(\"ggpubr\")\n}\n\n# Load packages\nlibrary(ggpubr)",
+    "crumbs": [
+      "HIPLOT",
+      "Line (errorbar)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/093-line-errorbar.html#data-preparation",
+    "href": "Hiplot/093-line-errorbar.html#data-preparation",
+    "title": "Line (errorbar)",
+    "section": "Data Preparation",
+    "text": "Data Preparation\nThe loaded data are two groups and their corresponding values.\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/093-line-errorbar-data.txt\", header = T)\n\n# Convert data structure\ndata[, 3] &lt;- factor(data[, 3], levels = unique(data[, 3]))\n\n# View data\nhead(data)\n\n  Value Group2 Group1\n1   4.2 treat1    low\n2  11.5 treat1    low\n3   7.3 treat1    low\n4   5.8 treat1    low\n5   6.4 treat1    low\n6  10.0 treat1    low",
+    "crumbs": [
+      "HIPLOT",
+      "Line (errorbar)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/093-line-errorbar.html#visualization",
+    "href": "Hiplot/093-line-errorbar.html#visualization",
+    "title": "Line (errorbar)",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Line (errorbar)\np &lt;- ggline(\n  data, x = \"Group1\", y = \"Value\", color = \"Group2\",\n  add = \"mean_se\", title = \"Line plot with errorbar\", palette = \"npg\") +\n  stat_compare_means(aes_(group = as.name(\"Group2\"))) +\n  theme_bw() +\n  theme(text = element_text(family = \"Arial\"),\n        plot.title = element_text(size = 12, hjust = 0.5),\n        axis.title = element_text(size = 12),\n        axis.text = element_text(size = 10),\n        axis.text.x = element_text(angle = 0, hjust = 0.5,vjust = 1),\n        legend.position = \"right\",\n        legend.direction = \"vertical\",\n        legend.title = element_text(size = 10),\n        legend.text = element_text(size = 10))\n\np\n\n\n\n\n\n\n\nFigure 1: Line (errorbar)\n\n\n\n\n\nThe red line in low type represents the maximum value of the low type in treat1, the red line represents the minimum value of the low type in treat1, and so on. Conduct rank-sum test on treat1 and treat2 according to low,mid and high types respectively, and display p-value at the top of the figure.",
+    "crumbs": [
+      "HIPLOT",
+      "Line (errorbar)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/091-likert.html",
+    "href": "Hiplot/091-likert.html",
+    "title": "Likert Plot",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Likert Plot plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/likert?lang=en\nDescriptive statistical analysis of Likert scale data.",
+    "crumbs": [
+      "HIPLOT",
+      "Likert Plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/091-likert.html#setup",
+    "href": "Hiplot/091-likert.html#setup",
+    "title": "Likert Plot",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplotify; likert\n\n\n# Install packages\nif (!requireNamespace(\"ggplotify\", quietly = TRUE)) {\n  install.packages(\"ggplotify\")\n}\nif (!requireNamespace(\"likert\", quietly = TRUE)) {\n  install.packages(\"likert\")\n}\n\n# Load packages\nlibrary(ggplotify)\nlibrary(likert)",
+    "crumbs": [
+      "HIPLOT",
+      "Likert Plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/091-likert.html#data-preparation",
+    "href": "Hiplot/091-likert.html#data-preparation",
+    "title": "Likert Plot",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/091-likert-data.txt\", header = T)\n\n# Convert data structure\nlevs &lt;- unique(unlist(data))\nfor (i in 1:ncol(data)) {\n  data[,i] &lt;- factor(data[, i], levels = levs)\n}\n\n# View data\nhead(data)\n\n            ST24Q01           ST24Q02        ST24Q03           ST24Q04\n1 Strongly disagree    Strongly agree          Agree Strongly disagree\n2          Disagree    Strongly agree Strongly agree Strongly disagree\n3          Disagree          Disagree       Disagree             Agree\n4          Disagree          Disagree       Disagree          Disagree\n5          Disagree             Agree       Disagree Strongly disagree\n6             Agree Strongly disagree          Agree Strongly disagree\n            ST24Q05           ST24Q06        ST24Q07           ST24Q08\n1             Agree Strongly disagree          Agree          Disagree\n2    Strongly agree Strongly disagree          Agree          Disagree\n3          Disagree          Disagree       Disagree          Disagree\n4          Disagree Strongly disagree       Disagree          Disagree\n5             Agree Strongly disagree Strongly agree Strongly disagree\n6 Strongly disagree          Disagree       Disagree             Agree\n            ST24Q09           ST24Q10           ST24Q11\n1 Strongly disagree             Agree             Agree\n2 Strongly disagree             Agree             Agree\n3          Disagree          Disagree          Disagree\n4 Strongly disagree          Disagree          Disagree\n5 Strongly disagree Strongly disagree             Agree\n6          Disagree             Agree Strongly disagree",
+    "crumbs": [
+      "HIPLOT",
+      "Likert Plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/091-likert.html#visualization",
+    "href": "Hiplot/091-likert.html#visualization",
+    "title": "Likert Plot",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Likert Plot\npobj &lt;- likert(data)\ncolrs &lt;- c(\"#3B4992FF\",\"#EE0000FF\")\np &lt;- as.ggplot(plot(pobj, type = \"bar\", \n                    low.color = colrs[1], high.color = colrs[2], wrap = 50))\n\np\n\n\n\n\n\n\n\nFigure 1: Likert Plot",
+    "crumbs": [
+      "HIPLOT",
+      "Likert Plot"
+    ]
+  },
+  {
     "objectID": "Hiplot/089-interval-area-chart.html",
     "href": "Hiplot/089-interval-area-chart.html",
     "title": "Interval Area Chart",
@@ -3039,7 +3655,7 @@
     "href": "Hiplot/001-area.html",
     "title": "Area Plot",
     "section": "",
-    "text": "The area chart displays graphically quantitative data. It is based on the line chart. The area between axis and line are commonly emphasized with colors, textures and hatchings.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Area plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/area?lang=en\nThe area chart displays graphically quantitative data. It is based on the line chart. The area between axis and line are commonly emphasized with colors, textures and hatchings.",
     "crumbs": [
       "HIPLOT",
       "Area"
@@ -3424,7 +4040,7 @@
     "href": "Hiplot/018-calibration-curve.html#visualization",
     "title": "Calibration Curve",
     "section": "Visualization",
-    "text": "Visualization\n\n# Calibration Curve\np &lt;- as.ggplot(function() {\n  plot(lrm.cal,\n       xlab = \"Nomogram Predicted Survival\",\n       ylab = \"Actual Survival\",\n       main = \"Calibration Curve\"\n       )\n})\n\n\nn=168   Mean absolute error=0.066   Mean squared error=0.0051\n0.9 Quantile of absolute error=0.097\n\np\n\n\n\n\n\n\n\nFigure 1: Calibration Curve",
+    "text": "Visualization\n\n# Calibration Curve\np &lt;- as.ggplot(function() {\n  plot(lrm.cal,\n       xlab = \"Nomogram Predicted Survival\",\n       ylab = \"Actual Survival\",\n       main = \"Calibration Curve\"\n       )\n})\n\n\nn=168   Mean absolute error=0.065   Mean squared error=0.00504\n0.9 Quantile of absolute error=0.097\n\np\n\n\n\n\n\n\n\nFigure 1: Calibration Curve",
     "crumbs": [
       "HIPLOT",
       "Calibration Curve"
@@ -4381,7 +4997,7 @@
     "href": "Hiplot/065-ggdag.html#data-preparation",
     "title": "Directed Acyclic Graphs",
     "section": "Data Preparation",
-    "text": "Data Preparation\n\n# Load data\ntidy_ggdag &lt;- dagify(\n  y ~ x + z2 + w2 + w1,\n  x ~ z1 + w1 + w2,\n  z1 ~ w1 + v,\n  z2 ~ w2 + v,\n  w1 ~ ~w2, # bidirected path\n  exposure = \"x\",\n  outcome = \"y\") %&gt;%\n  tidy_dagitty()\n\n# View data\nhead(tidy_ggdag)\n\n$data\n# A tibble: 13 × 8\n   name       x     y direction to      xend   yend circular\n   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;     &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;lgl&gt;   \n 1 v      1.37  1.47  -&gt;        z1     0.262  2.32  FALSE   \n 2 v      1.37  1.47  -&gt;        z2     0.493  0.351 FALSE   \n 3 w1    -0.469 1.61  -&gt;        x     -1.10   1.75  FALSE   \n 4 w1    -0.469 1.61  -&gt;        y     -1.03   0.604 FALSE   \n 5 w1    -0.469 1.61  -&gt;        z1     0.262  2.32  FALSE   \n 6 w1    -0.469 1.61  &lt;-&gt;       w2    -0.425  0.636 FALSE   \n 7 w2    -0.425 0.636 -&gt;        x     -1.10   1.75  FALSE   \n 8 w2    -0.425 0.636 -&gt;        y     -1.03   0.604 FALSE   \n 9 w2    -0.425 0.636 -&gt;        z2     0.493  0.351 FALSE   \n10 x     -1.10  1.75  -&gt;        y     -1.03   0.604 FALSE   \n11 y     -1.03  0.604 &lt;NA&gt;      &lt;NA&gt;  NA     NA     FALSE   \n12 z1     0.262 2.32  -&gt;        x     -1.10   1.75  FALSE   \n13 z2     0.493 0.351 -&gt;        y     -1.03   0.604 FALSE   \n\n$dag\ndag {\nv\nw1\nw2\nx [exposure]\ny [outcome]\nz1\nz2\nv -&gt; z1\nv -&gt; z2\nw1 -&gt; x\nw1 -&gt; y\nw1 -&gt; z1\nw1 &lt;-&gt; w2\nw2 -&gt; x\nw2 -&gt; y\nw2 -&gt; z2\nx -&gt; y\nz1 -&gt; x\nz2 -&gt; y\n}",
+    "text": "Data Preparation\n\n# Load data\ntidy_ggdag &lt;- dagify(\n  y ~ x + z2 + w2 + w1,\n  x ~ z1 + w1 + w2,\n  z1 ~ w1 + v,\n  z2 ~ w2 + v,\n  w1 ~ ~w2, # bidirected path\n  exposure = \"x\",\n  outcome = \"y\") %&gt;%\n  tidy_dagitty()\n\n# View data\nhead(tidy_ggdag)\n\n$data\n# A tibble: 13 × 8\n   name        x     y direction to       xend  yend circular\n   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;     &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;   \n 1 v     -2.05    2.80 -&gt;        z1    -1.54    1.49 FALSE   \n 2 v     -2.05    2.80 -&gt;        z2    -0.736   3.33 FALSE   \n 3 w1    -0.559   1.72 -&gt;        x     -0.0700  1.31 FALSE   \n 4 w1    -0.559   1.72 -&gt;        y      0.440   2.35 FALSE   \n 5 w1    -0.559   1.72 -&gt;        z1    -1.54    1.49 FALSE   \n 6 w1    -0.559   1.72 &lt;-&gt;       w2    -0.133   2.58 FALSE   \n 7 w2    -0.133   2.58 -&gt;        x     -0.0700  1.31 FALSE   \n 8 w2    -0.133   2.58 -&gt;        y      0.440   2.35 FALSE   \n 9 w2    -0.133   2.58 -&gt;        z2    -0.736   3.33 FALSE   \n10 x     -0.0700  1.31 -&gt;        y      0.440   2.35 FALSE   \n11 y      0.440   2.35 &lt;NA&gt;      &lt;NA&gt;  NA      NA    FALSE   \n12 z1    -1.54    1.49 -&gt;        x     -0.0700  1.31 FALSE   \n13 z2    -0.736   3.33 -&gt;        y      0.440   2.35 FALSE   \n\n$dag\ndag {\nv\nw1\nw2\nx [exposure]\ny [outcome]\nz1\nz2\nv -&gt; z1\nv -&gt; z2\nw1 -&gt; x\nw1 -&gt; y\nw1 -&gt; z1\nw1 &lt;-&gt; w2\nw2 -&gt; x\nw2 -&gt; y\nw2 -&gt; z2\nx -&gt; y\nz1 -&gt; x\nz2 -&gt; y\n}",
     "crumbs": [
       "HIPLOT",
       "Directed Acyclic Graphs"
@@ -4924,6 +5540,622 @@
     "crumbs": [
       "HIPLOT",
       "Interval Bar Chart"
+    ]
+  },
+  {
+    "objectID": "Hiplot/092-line-color-dot.html",
+    "href": "Hiplot/092-line-color-dot.html",
+    "title": "Line (Color Dot)",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Line (Color Dot) plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/line-color-dot?lang=en",
+    "crumbs": [
+      "HIPLOT",
+      "Line (Color Dot)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/092-line-color-dot.html#setup",
+    "href": "Hiplot/092-line-color-dot.html#setup",
+    "title": "Line (Color Dot)",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: grafify\n\n\n# Install packages\nif (!requireNamespace(\"grafify\", quietly = TRUE)) {\n  install.packages(\"grafify\")\n}\n\n# Load packages\nlibrary(grafify)",
+    "crumbs": [
+      "HIPLOT",
+      "Line (Color Dot)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/092-line-color-dot.html#data-preparation",
+    "href": "Hiplot/092-line-color-dot.html#data-preparation",
+    "title": "Line (Color Dot)",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/092-line-color-dot-data.txt\", header = T)\n\n# Convert data structure\nx &lt;- \"Time\"\ny &lt;- \"PI\"\ngroup &lt;- \"Experiment\"\nfacet &lt;- \"Genotype\"\ndata[, x] &lt;- factor(data[, x], levels = unique(data[, x]))\ndata[, group] &lt;- factor(data[, group], levels = unique(data[, group]))\ndata[, facet] &lt;- factor(data[, facet], levels = unique(data[, facet]))\n\n# View data\nhead(data)\n\n  Experiment Time Subject Genotype       PI Time2\n1         e1 t100      s1       WT 20.47120   100\n2         e2 t100      s2       WT 28.88967   100\n3         e3 t100      s3       WT 11.55061   100\n4         e4 t100      s4       WT 23.24516   100\n5         e5 t100      s5       WT 30.20904   100\n6         e6 t100      s6       WT 28.68300   100",
+    "crumbs": [
+      "HIPLOT",
+      "Line (Color Dot)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/092-line-color-dot.html#visualization",
+    "href": "Hiplot/092-line-color-dot.html#visualization",
+    "title": "Line (Color Dot)",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Line (Color Dot)\np &lt;- plot_befafter_colours(\n  data = data, xcol = get(x), ycol = get(y), match = get(group),\n  symsize = 5, symthick = 1, s_alpha = 1) +\n  facet_wrap(facet) +\n  guides(fill = guide_legend(title = group)) +\n  scale_fill_grafify() +\n  xlab(x) + ylab(y) +\n  ggtitle(\"Two-way repeated measures\") +\n  theme(text = element_text(family = \"Arial\"),\n        plot.title = element_text(size = 12, hjust = 0.5),\n        axis.title = element_text(size = 12),\n        axis.text = element_text(size = 10),\n        axis.text.x = element_text(angle = 0, hjust = 0.5,vjust = 1),\n        legend.position = \"right\",\n        legend.direction = \"vertical\",\n        legend.title = element_text(size = 10),\n        legend.text = element_text(size = 10))\n\np\n\n\n\n\n\n\n\nFigure 1: Line (Color Dot)",
+    "crumbs": [
+      "HIPLOT",
+      "Line (Color Dot)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/094-line-regression.html",
+    "href": "Hiplot/094-line-regression.html",
+    "title": "Line Regression",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Line Regression plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/line-regression?lang=en\nLinear regression is a regression method for linear modeling of the relationship between independent variables and dependent variables.If there is only one independent variable, it is called simple regression, and if there is more than one independent variable, it is called multiple regression.",
+    "crumbs": [
+      "HIPLOT",
+      "Line Regression"
+    ]
+  },
+  {
+    "objectID": "Hiplot/094-line-regression.html#setup",
+    "href": "Hiplot/094-line-regression.html#setup",
+    "title": "Line Regression",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggrepel; ggplot2\n\n\n# Install packages\nif (!requireNamespace(\"ggrepel\", quietly = TRUE)) {\n  install.packages(\"ggrepel\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# Load packages\nlibrary(ggrepel)\nlibrary(ggplot2)",
+    "crumbs": [
+      "HIPLOT",
+      "Line Regression"
+    ]
+  },
+  {
+    "objectID": "Hiplot/094-line-regression.html#data-preparation",
+    "href": "Hiplot/094-line-regression.html#data-preparation",
+    "title": "Line Regression",
+    "section": "Data Preparation",
+    "text": "Data Preparation\nThe loaded data are independent variables, dependent variables and groups.\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/094-line-regression-data.txt\", header = T)\n\n# Convert data structure\ndata$group &lt;- factor(data$group, levels = unique(data$group))\n\n# View data\nhead(data)\n\n  value1 value2 group\n1   36.8  29.44    G1\n2   54.0  43.20    G1\n3   26.0  26.00    G1\n4   39.0  31.20    G1\n5   33.0  29.70    G1\n6   29.0  34.80    G1",
+    "crumbs": [
+      "HIPLOT",
+      "Line Regression"
+    ]
+  },
+  {
+    "objectID": "Hiplot/094-line-regression.html#visualization",
+    "href": "Hiplot/094-line-regression.html#visualization",
+    "title": "Line Regression",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Line Regression\n## Defining the equation\nequation &lt;- function(x, add_p = FALSE) {\n  xs &lt;- summary(x)\n  lm_coef &lt;- list(\n    a = as.numeric(round(coef(x)[1], digits = 2)),\n    b = as.numeric(round(coef(x)[2], digits = 2)),\n    r2 = round(xs$r.squared, digits = 2),\n    pval = xs$coef[2, 4] \n  )\n  if (add_p) {\n    lm_eq &lt;- substitute(italic(y) == a + b %.% italic(x) * \",\" ~ ~\n  italic(R)^2 ~ \"=\" ~ r2 * \",\" ~ ~ italic(p) ~ \"=\" ~ pval, lm_coef)\n  } else {\n    lm_eq &lt;- substitute(italic(y) == a + b %.% italic(x) * \",\" ~ ~\n  italic(R)^2 ~ \"=\" ~ r2, lm_coef)\n  }\n  as.expression(lm_eq)\n}\n## Plot\np &lt;- ggplot(data, aes(x = value1, y = value2, colour = group)) +\n  geom_point(show.legend = TRUE) +\n  geom_smooth(method = \"lm\", se = T, show.legend = F) +\n  geom_rug(sides = \"bl\", size = 1, show.legend = F) +\n  scale_color_manual(values = c(\"#00468BFF\",\"#ED0000FF\")) +\n  ggtitle(\"Line Reguression Plot\") +\n  theme_bw() +\n  theme(text = element_text(family = \"Arial\"),\n        plot.title = element_text(size = 12, hjust = 0.5),\n        axis.title = element_text(size = 12),\n        axis.text = element_text(size = 10),\n        axis.text.x = element_text(angle = 0, hjust = 0.5,vjust = 1),\n        legend.position = \"right\",\n        legend.direction = \"vertical\",\n        legend.title = element_text(size = 10),\n        legend.text = element_text(size = 10))\n  \n## Add annotations for each group using ggrepel\nrepels &lt;- rep(\"\", nrow(data))\nfor (g in unique(data$group)) {\n  fit &lt;- lm(value2 ~ value1, data = data[data$group == g, ])\n  v &lt;- max(data[data$group == g, \"value2\"])\n  repels[which(data$value2 == v)[1]] &lt;- equation(fit, add_p = F)\n}\np &lt;- p + geom_text_repel(\n  data = data,\n  label = repels,\n  size = 4,\n  force = 5,\n  label.padding = 5,\n  na.rm = TRUE,\n  min.segment.length = 100,\n  show.legend = FALSE,\n  nudge_x = 0,\n  nudge_y = 0\n  )\n\np\n\n\n\n\n\n\n\nFigure 1: Line Regression\n\n\n\n\n\nDifferent colors represent different groups, and linear regression equations can be added. The closer R squared is to 1, the closer the fitted curve is to the actual curve.",
+    "crumbs": [
+      "HIPLOT",
+      "Line Regression"
+    ]
+  },
+  {
+    "objectID": "Hiplot/096-map-africa.html",
+    "href": "Hiplot/096-map-africa.html",
+    "title": "Africa Map",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Africa Map plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/map-africa?lang=en",
+    "crumbs": [
+      "HIPLOT",
+      "Africa Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/096-map-africa.html#setup",
+    "href": "Hiplot/096-map-africa.html#setup",
+    "title": "Africa Map",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; RColorBrewer\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "Africa Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/096-map-africa.html#data-preparation",
+    "href": "Hiplot/096-map-africa.html#data-preparation",
+    "title": "Africa Map",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/096-map-africa-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/afr.rds\")\n\n# Convert data structure\ndt_map$Value &lt;- data$value[match(dt_map$ADM0_NAME, data$region)]\n\n# View data\nhead(data)\n\n        region value\n1        Sudan   258\n2       Angola   911\n3        Benin   318\n4     Botswana   759\n5 Burkina Faso   983\n6     Cameroon   618",
+    "crumbs": [
+      "HIPLOT",
+      "Africa Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/096-map-africa.html#visualization",
+    "href": "Hiplot/096-map-africa.html#visualization",
+    "title": "Africa Map",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Africa Map\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(9, 985, 139),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"Africa Map\")\n\np\n\n\n\n\n\n\n\nFigure 1: Africa Map",
+    "crumbs": [
+      "HIPLOT",
+      "Africa Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/098-map-china-city.html",
+    "href": "Hiplot/098-map-china-city.html",
+    "title": "China Map (City)",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot China Map (City) plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/map-china-city?lang=en",
+    "crumbs": [
+      "HIPLOT",
+      "China Map (City)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/098-map-china-city.html#setup",
+    "href": "Hiplot/098-map-china-city.html#setup",
+    "title": "China Map (City)",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; RColorBrewer\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "China Map (City)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/098-map-china-city.html#data-preparation",
+    "href": "Hiplot/098-map-china-city.html#data-preparation",
+    "title": "China Map (City)",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/098-map-china-city-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/china.city.rds\")\n\n# Convert data structure\ndt_map$Value &lt;- data$value[match(dt_map$city, data$name)]\n\n# View data\nhead(data)\n\n      name value\n1   北京市   756\n2   天津市   321\n3 石家庄市   232\n4   唐山市   467\n5 秦皇岛市   549\n6   邯郸市   226",
+    "crumbs": [
+      "HIPLOT",
+      "China Map (City)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/098-map-china-city.html#visualization",
+    "href": "Hiplot/098-map-china-city.html#visualization",
+    "title": "China Map (City)",
+    "section": "Visualization",
+    "text": "Visualization\n\n# China Map (City)\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"China City Map\")\n\np\n\n\n\n\n\n\n\nFigure 1: China Map (City)",
+    "crumbs": [
+      "HIPLOT",
+      "China Map (City)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/100-map-china.html",
+    "href": "Hiplot/100-map-china.html",
+    "title": "China Map",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot China Map plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/map-china?lang=en",
+    "crumbs": [
+      "HIPLOT",
+      "China Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/100-map-china.html#setup",
+    "href": "Hiplot/100-map-china.html#setup",
+    "title": "China Map",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; RColorBrewer\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "China Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/100-map-china.html#data-preparation",
+    "href": "Hiplot/100-map-china.html#data-preparation",
+    "title": "China Map",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/100-map-china-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/china.rds\")\n\n# Convert data structure\ndt_map$Value &lt;- data$value[match(dt_map$FCNAME, data$name)]\n\n# View data\nhead(data)\n\n    name value\n1 安徽省  6118\n2 福建省  3581\n3 甘肃省  2617\n4 广东省  9449\n5 贵州省  3762\n6 海南省   845",
+    "crumbs": [
+      "HIPLOT",
+      "China Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/100-map-china.html#visualization",
+    "href": "Hiplot/100-map-china.html#visualization",
+    "title": "China Map",
+    "section": "Visualization",
+    "text": "Visualization\n\n# China Map\np &lt;- ggplot(dt_map, aes(x = long, y = lat, group = group, fill = Value)) +\n  labs(fill = \"Value\") +\n  geom_polygon() +\n  geom_path() +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    na.value = \"grey10\",\n    limits = c(0, max(dt_map$Value) * 1.2)) +\n    ggtitle(\"China Map Plot\") +\n  theme_minimal()\n\np\n\n\n\n\n\n\n\nFigure 1: China Map",
+    "crumbs": [
+      "HIPLOT",
+      "China Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/102-map-europe.html",
+    "href": "Hiplot/102-map-europe.html",
+    "title": "Europe Map",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Europe Map plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/map-europe?lang=en",
+    "crumbs": [
+      "HIPLOT",
+      "Europe Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/102-map-europe.html#setup",
+    "href": "Hiplot/102-map-europe.html#setup",
+    "title": "Europe Map",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; RColorBrewer\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "Europe Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/102-map-europe.html#data-preparation",
+    "href": "Hiplot/102-map-europe.html#data-preparation",
+    "title": "Europe Map",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/102-map-europe-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/eu.rds\")\n\n# Convert data structure\ndt_map$Value &lt;- data$value[match(dt_map$ENG_NAME, data$region)]\n\n# View data\nhead(data)\n\n              region value\n1            Albania   758\n2            Andorra   139\n3            Austria   256\n4            Belgium   959\n5 Bosnia Herzegovina   422\n6            Croatia   791",
+    "crumbs": [
+      "HIPLOT",
+      "Europe Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/102-map-europe.html#visualization",
+    "href": "Hiplot/102-map-europe.html#visualization",
+    "title": "Europe Map",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Europe Map\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"Europe Map\")\n\np\n\n\n\n\n\n\n\nFigure 1: Europe Map",
+    "crumbs": [
+      "HIPLOT",
+      "Europe Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/104-map-france.html",
+    "href": "Hiplot/104-map-france.html",
+    "title": "France Map",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot France Map plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/map-france?lang=en",
+    "crumbs": [
+      "HIPLOT",
+      "France Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/104-map-france.html#setup",
+    "href": "Hiplot/104-map-france.html#setup",
+    "title": "France Map",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; RColorBrewer\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "France Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/104-map-france.html#data-preparation",
+    "href": "Hiplot/104-map-france.html#data-preparation",
+    "title": "France Map",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/104-map-france-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/france.rds\")\n\n# Convert data structure\ndt_map$Value &lt;- data$value[match(dt_map$ENG_NAME, data$name)]\n\n# View data\nhead(data)\n\n            name value\n1       Bas-Rhin   338\n2      Haut-Rhin   353\n3       Dordogne   168\n4        Gironde   158\n5         Landes   221\n6 Lot-et-Garonne   658",
+    "crumbs": [
+      "HIPLOT",
+      "France Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/104-map-france.html#visualization",
+    "href": "Hiplot/104-map-france.html#visualization",
+    "title": "France Map",
+    "section": "Visualization",
+    "text": "Visualization\n\n# France Map\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"France Map\")\n\np\n\n\n\n\n\n\n\nFigure 1: France Map",
+    "crumbs": [
+      "HIPLOT",
+      "France Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/107-map-germany.html",
+    "href": "Hiplot/107-map-germany.html",
+    "title": "Germany Map",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Germany Map plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/map-germany?lang=en",
+    "crumbs": [
+      "HIPLOT",
+      "Germany Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/107-map-germany.html#setup",
+    "href": "Hiplot/107-map-germany.html#setup",
+    "title": "Germany Map",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; RColorBrewer\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "Germany Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/107-map-germany.html#data-preparation",
+    "href": "Hiplot/107-map-germany.html#data-preparation",
+    "title": "Germany Map",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/107-map-germany-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/germany.rds\")\n\n# Convert data structure\ndt_map$Value &lt;- data$value[match(dt_map$ENG_NAME, data$name)]\n\n# View data\nhead(data)\n\n               name value\n1 Baden-Württemberg   334\n2            Bayern   562\n3            Berlin   980\n4       Brandenburg   577\n5            Bremen    54\n6           Hamburg   528",
+    "crumbs": [
+      "HIPLOT",
+      "Germany Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/107-map-germany.html#visualization",
+    "href": "Hiplot/107-map-germany.html#visualization",
+    "title": "Germany Map",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Germany Map\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"Germany Map\")\n\np\n\n\n\n\n\n\n\nFigure 1: Germany Map",
+    "crumbs": [
+      "HIPLOT",
+      "Germany Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/109-map-oceania-antarc.html",
+    "href": "Hiplot/109-map-oceania-antarc.html",
+    "title": "Oceania/Antarc Map",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Oceania/Antarc Map plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/map-oceania-antarc?lang=en",
+    "crumbs": [
+      "HIPLOT",
+      "Oceania/Antarc Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/109-map-oceania-antarc.html#setup",
+    "href": "Hiplot/109-map-oceania-antarc.html#setup",
+    "title": "Oceania/Antarc Map",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; RColorBrewer\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "Oceania/Antarc Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/109-map-oceania-antarc.html#data-preparation",
+    "href": "Hiplot/109-map-oceania-antarc.html#data-preparation",
+    "title": "Oceania/Antarc Map",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/109-map-oceania-antarc-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/oca.rds\")\n\n# Convert data structure\ndt_map$Value &lt;- data$value[match(dt_map$ENG_NAME, data$region)]\n\n# View data\nhead(data)\n\n                      region value\n1        American Samoa (US)   672\n2                 Antarctica     3\n3    Pacific Is Refuges (US)   320\n4 Cook Islands (NEW ZEALAND)   740\n5                       FIJI   303\n6  French Polynesia (FRANCE)   879",
+    "crumbs": [
+      "HIPLOT",
+      "Oceania/Antarc Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/109-map-oceania-antarc.html#visualization",
+    "href": "Hiplot/109-map-oceania-antarc.html#visualization",
+    "title": "Oceania/Antarc Map",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Oceania/Antarc Map\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"Oceania/Antarc Map\")\n\np\n\n\n\n\n\n\n\nFigure 1: Oceania/Antarc Map",
+    "crumbs": [
+      "HIPLOT",
+      "Oceania/Antarc Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/112-map-uk-city.html",
+    "href": "Hiplot/112-map-uk-city.html",
+    "title": "UK Map (City)",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot UK Map (City) plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/map-uk-city?lang=en",
+    "crumbs": [
+      "HIPLOT",
+      "Oceania/Antarc Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/112-map-uk-city.html#setup",
+    "href": "Hiplot/112-map-uk-city.html#setup",
+    "title": "UK Map (City)",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; RColorBrewer\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "Oceania/Antarc Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/112-map-uk-city.html#data-preparation",
+    "href": "Hiplot/112-map-uk-city.html#data-preparation",
+    "title": "UK Map (City)",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/112.map-uk-city-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/uk_city.rds\")\n\n# Convert data structure\ndt_map$Value &lt;- data$value[match(dt_map$ENG_NAME, data$name)]\n\n# View data\nhead(data)\n\n               name value\n1 Rhondda Cynon Taf   503\n2       Eilean Siar   221\n3          Bridgend   993\n4           Lincoln   798\n5     Richmondshire   169\n6           Ashford   653",
+    "crumbs": [
+      "HIPLOT",
+      "Oceania/Antarc Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/112-map-uk-city.html#visualization",
+    "href": "Hiplot/112-map-uk-city.html#visualization",
+    "title": "UK Map (City)",
+    "section": "Visualization",
+    "text": "Visualization\n\n# UK Map (City)\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"UK Map\")\n\np\n\n\n\n\n\n\n\nFigure 1: UK Map (City)",
+    "crumbs": [
+      "HIPLOT",
+      "Oceania/Antarc Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/114-map-usa-county.html",
+    "href": "Hiplot/114-map-usa-county.html",
+    "title": "USA Map (County)",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot USA Map (County) plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/map-usa-county?lang=en",
+    "crumbs": [
+      "HIPLOT",
+      "Oceania/Antarc Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/114-map-usa-county.html#setup",
+    "href": "Hiplot/114-map-usa-county.html#setup",
+    "title": "USA Map (County)",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; RColorBrewer\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "Oceania/Antarc Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/114-map-usa-county.html#data-preparation",
+    "href": "Hiplot/114-map-usa-county.html#data-preparation",
+    "title": "USA Map (County)",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/114-map-usa-county-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/usa.county.rds\")\n\n# Convert data structure\ndt_map$Value &lt;- data$value[match(dt_map$county, data$name)]\n\n# View data\nhead(data)\n\n               name value\n1 Lake of the Woods   167\n2             Ferry   801\n3           Stevens   785\n4          Okanogan   783\n5      Pend Oreille   796\n6          Boundary   126",
+    "crumbs": [
+      "HIPLOT",
+      "Oceania/Antarc Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/114-map-usa-county.html#visualization",
+    "href": "Hiplot/114-map-usa-county.html#visualization",
+    "title": "USA Map (County)",
+    "section": "Visualization",
+    "text": "Visualization\n\n# USA Map (County)\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"USA County Map\")\n\np\n\n\n\n\n\n\n\nFigure 1: USA Map (County)",
+    "crumbs": [
+      "HIPLOT",
+      "Oceania/Antarc Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/116-map-world.html",
+    "href": "Hiplot/116-map-world.html",
+    "title": "World Map",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot World Map plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/map-world?lang=en",
+    "crumbs": [
+      "HIPLOT",
+      "World Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/116-map-world.html#setup",
+    "href": "Hiplot/116-map-world.html#setup",
+    "title": "World Map",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; RColorBrewer\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "World Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/116-map-world.html#data-preparation",
+    "href": "Hiplot/116-map-world.html#data-preparation",
+    "title": "World Map",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/116-map-world-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/world.rds\")\n\n# Convert data structure\ndt_map$Value &lt;- data$death_rate[match(dt_map$ENG_CONTIN, data$region)]\n\n# View data\nhead(data)\n\n          region death_rate\n1    Afghanistan       13.4\n2        Albania        6.8\n3        Algeria        4.3\n4 American Samoa        5.9\n5        Andorra        7.3\n6         Angola        9.2",
+    "crumbs": [
+      "HIPLOT",
+      "World Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/116-map-world.html#visualization",
+    "href": "Hiplot/116-map-world.html#visualization",
+    "title": "World Map",
+    "section": "Visualization",
+    "text": "Visualization\n\n# World Map\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), \n            color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    na.value = \"grey10\",\n    limits = c(0, max(dt_map$Value) * 1.2)) +\n    ggtitle(\"World Map Plot\") +\n  theme_minimal() +\n  theme(plot.title = element_text(hjust = 0.5),\n        legend.position = \"bottom\", legend.direction = \"horizontal\")\n\np\n\n\n\n\n\n\n\nFigure 1: World Map",
+    "crumbs": [
+      "HIPLOT",
+      "World Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/118-matrix-bubble.html",
+    "href": "Hiplot/118-matrix-bubble.html",
+    "title": "Matrix Bubble",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Matrix Bubble plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/matrix-bubble?lang=en\nThe color matrix bubble is used to visualize the expression matrix data of multiple genes (rows) in various cells (columns).",
+    "crumbs": [
+      "HIPLOT",
+      "Matrix Bubble"
+    ]
+  },
+  {
+    "objectID": "Hiplot/118-matrix-bubble.html#setup",
+    "href": "Hiplot/118-matrix-bubble.html#setup",
+    "title": "Matrix Bubble",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggalluvial; ggplot2\n\n\n# Install packages\nif (!requireNamespace(\"ggalluvial\", quietly = TRUE)) {\n  install.packages(\"ggalluvial\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# Load packages\nlibrary(ggalluvial)\nlibrary(ggplot2)",
+    "crumbs": [
+      "HIPLOT",
+      "Matrix Bubble"
+    ]
+  },
+  {
+    "objectID": "Hiplot/118-matrix-bubble.html#data-preparation",
+    "href": "Hiplot/118-matrix-bubble.html#data-preparation",
+    "title": "Matrix Bubble",
+    "section": "Data Preparation",
+    "text": "Data Preparation\nData Structure：\n\n&lt;1st-col&gt;: (String) cell sample name as X axis\n&lt;2nd-col&gt;: (String) gene name as the Y axis\n&lt;3rd-col&gt;: (Numeric) gene expression\n&lt;4rd-col&gt;: (Numeric) groups\n\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/118-matrix-bubble-data.txt\", header = T)\n\n# Convert data structure\ndata[, 1] &lt;- factor(data[, 1], levels = unique(data[, 1]))\ndata[, 2] &lt;- factor(data[, 2], levels = unique(data[, 2]))\n\n# View data\nhead(data)\n\n      x     y value  group\n1 cell1 gene1     1 groupC\n2 cell1 gene2     5 groupC\n3 cell1 gene3    10 groupC\n4 cell1 gene4    15 groupC\n5 cell1 gene5    20 groupC\n6 cell1 gene6    25 groupC",
+    "crumbs": [
+      "HIPLOT",
+      "Matrix Bubble"
+    ]
+  },
+  {
+    "objectID": "Hiplot/118-matrix-bubble.html#visualization",
+    "href": "Hiplot/118-matrix-bubble.html#visualization",
+    "title": "Matrix Bubble",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Matrix Bubble\np &lt;- ggplot(data = data, aes(x = x, y = y, size = value, color = y)) +\n  geom_point(alpha = 1) +\n  labs(title = \"Matrix Bubble\") +\n  guides(color = FALSE) +\n  theme(panel.background = element_blank(),\n        panel.grid.major = element_line(colour = \"gray\"),\n        strip.background = element_blank(),\n        panel.border = element_rect(colour = \"black\", fill = NA),\n        panel.spacing = unit(0, \"lines\"),\n        plot.title = element_text(size = 12, hjust = 0.5),\n        text = element_text(family = \"Arial\"),\n        legend.title = element_text(size = 10),\n        axis.text.x = element_text(angle=0, hjust=0.5, vjust=1)) +\n  facet_grid(~group, scales = 'fixed', margins = F) +\n  scale_color_manual(values = c(\n    \"#3B4992FF\",\"#EE0000FF\",\"#008B45FF\",\"#631879FF\",\"#008280FF\",\"#BB0021FF\",\n    \"#5F559BFF\",\"#A20056FF\",\"#808180FF\",\"#1B1919FF\"))\n\np\n\n\n\n\n\n\n\nFigure 1: Matrix Bubble",
+    "crumbs": [
+      "HIPLOT",
+      "Matrix Bubble"
+    ]
+  },
+  {
+    "objectID": "Hiplot/120-meta-cont.html",
+    "href": "Hiplot/120-meta-cont.html",
+    "title": "Meta-analysis of Continuous Data",
+    "section": "",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Meta-analysis of Continuous Data plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/meta-cont?lang=en",
+    "crumbs": [
+      "HIPLOT",
+      "Meta-analysis of Continuous Data"
+    ]
+  },
+  {
+    "objectID": "Hiplot/120-meta-cont.html#setup",
+    "href": "Hiplot/120-meta-cont.html#setup",
+    "title": "Meta-analysis of Continuous Data",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: meta; ggplotify\n\n\n# Install packages\nif (!requireNamespace(\"meta\", quietly = TRUE)) {\n  install.packages(\"meta\")\n}\nif (!requireNamespace(\"ggplotify\", quietly = TRUE)) {\n  install.packages(\"ggplotify\")\n}\n\n# Load packages\nlibrary(meta)\nlibrary(ggplotify)",
+    "crumbs": [
+      "HIPLOT",
+      "Meta-analysis of Continuous Data"
+    ]
+  },
+  {
+    "objectID": "Hiplot/120-meta-cont.html#data-preparation",
+    "href": "Hiplot/120-meta-cont.html#data-preparation",
+    "title": "Meta-analysis of Continuous Data",
+    "section": "Data Preparation",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/120-meta-cont-data.txt\", header = T)\n\n# Convert data structure\nm1 &lt;- metacont(n.e, mean.e, sd.e, n.c, mean.c, sd.c, studlab = Study, data = data,\n              sm = \"SMD\")\n\n# View data\nhead(data)\n\n  Study n.e mean.e sd.e n.c mean.c  sd.c\n1     A  13    5.0 4.70  13   6.50  3.80\n2     B  30    4.9 1.71  50   6.10  2.30\n3     C  35   22.5 3.44  35  24.90 10.65\n4     D  20   12.5 1.47  20  12.30  1.66\n5     E   8    6.5 0.76   8   7.38  1.41",
+    "crumbs": [
+      "HIPLOT",
+      "Meta-analysis of Continuous Data"
+    ]
+  },
+  {
+    "objectID": "Hiplot/120-meta-cont.html#visualization",
+    "href": "Hiplot/120-meta-cont.html#visualization",
+    "title": "Meta-analysis of Continuous Data",
+    "section": "Visualization",
+    "text": "Visualization\n\n# Meta-analysis of Continuous Data\np &lt;- as.ggplot(function(){\n  meta::forest(m1, layout = \"meta\")\n  })\n\np\n\n\n\n\n\n\n\nFigure 1: Meta-analysis of Continuous Data",
+    "crumbs": [
+      "HIPLOT",
+      "Meta-analysis of Continuous Data"
     ]
   },
   {

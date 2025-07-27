@@ -301,6 +301,622 @@
     ]
   },
   {
+    "objectID": "Hiplot/119-meta-bin.html",
+    "href": "Hiplot/119-meta-bin.html",
+    "title": "二分类变量 Meta 分析",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Meta-analysis of Binary Data 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/meta-bin?lang=zh_cn",
+    "crumbs": [
+      "HIPLOT",
+      "Meta-analysis of Binary Data"
+    ]
+  },
+  {
+    "objectID": "Hiplot/119-meta-bin.html#环境配置",
+    "href": "Hiplot/119-meta-bin.html#环境配置",
+    "title": "二分类变量 Meta 分析",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: meta; ggplotify\n\n\n# 安装包\nif (!requireNamespace(\"meta\", quietly = TRUE)) {\n  install.packages(\"meta\")\n}\nif (!requireNamespace(\"ggplotify\", quietly = TRUE)) {\n  install.packages(\"ggplotify\")\n}\n\n# 加载包\nlibrary(meta)\nlibrary(ggplotify)",
+    "crumbs": [
+      "HIPLOT",
+      "Meta-analysis of Binary Data"
+    ]
+  },
+  {
+    "objectID": "Hiplot/119-meta-bin.html#数据准备",
+    "href": "Hiplot/119-meta-bin.html#数据准备",
+    "title": "二分类变量 Meta 分析",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/119-meta-bin-data.txt\", header = T)\n\n# 整理数据格式\nm1 &lt;- metabin(ev.exp, n.exp, ev.cont, n.cont, studlab = Study, data = data)\n\n# 查看数据\nhead(data)\n\n       Study ev.exp n.exp ev.cont n.cont\n1   Fletcher      1    12       4     11\n2      Dewar      4    21       7     21\n3 Lippschutz      6    43       7     41\n4 European_1     20    83      15     84\n5 European_2     69   373      94    357",
+    "crumbs": [
+      "HIPLOT",
+      "Meta-analysis of Binary Data"
+    ]
+  },
+  {
+    "objectID": "Hiplot/119-meta-bin.html#可视化",
+    "href": "Hiplot/119-meta-bin.html#可视化",
+    "title": "二分类变量 Meta 分析",
+    "section": "可视化",
+    "text": "可视化\n\n# 二分类变量 Meta 分析\np &lt;- as.ggplot(function(){\n  meta::forest(m1, layout = \"meta\")\n  })\n\np\n\n\n\n\n\n\n\n图 1: 二分类变量 Meta 分析",
+    "crumbs": [
+      "HIPLOT",
+      "Meta-analysis of Binary Data"
+    ]
+  },
+  {
+    "objectID": "Hiplot/117-map-world2.html",
+    "href": "Hiplot/117-map-world2.html",
+    "title": "世界地图 2",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot World Map 2 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/map-world2?lang=zh_cn",
+    "crumbs": [
+      "HIPLOT",
+      "World Map 2"
+    ]
+  },
+  {
+    "objectID": "Hiplot/117-map-world2.html#环境配置",
+    "href": "Hiplot/117-map-world2.html#环境配置",
+    "title": "世界地图 2",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2; RColorBrewer\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "World Map 2"
+    ]
+  },
+  {
+    "objectID": "Hiplot/117-map-world2.html#数据准备",
+    "href": "Hiplot/117-map-world2.html#数据准备",
+    "title": "世界地图 2",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/117-map-world2-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/world.rds\")\n\n# 整理数据格式\ndt_map$Value &lt;- data$death_rate[match(dt_map$ENG_NAME, data$region)]\n\n# 查看数据\nhead(data)\n\n          region death_rate\n1    Afghanistan       13.4\n2        Albania        6.8\n3        Algeria        4.3\n4 American Samoa        5.9\n5        Andorra        7.3\n6         Angola        9.2",
+    "crumbs": [
+      "HIPLOT",
+      "World Map 2"
+    ]
+  },
+  {
+    "objectID": "Hiplot/117-map-world2.html#可视化",
+    "href": "Hiplot/117-map-world2.html#可视化",
+    "title": "世界地图 2",
+    "section": "可视化",
+    "text": "可视化\n\n# 世界地图 2\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(round(min(dt_map$Value)), round(max(dt_map$Value)), \n                 round((max(dt_map$Value)-min(dt_map$Value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"World Map\")\n\np\n\n\n\n\n\n\n\n图 1: 世界地图 2",
+    "crumbs": [
+      "HIPLOT",
+      "World Map 2"
+    ]
+  },
+  {
+    "objectID": "Hiplot/115-map-usa.html",
+    "href": "Hiplot/115-map-usa.html",
+    "title": "美国地图 (州)",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot USA Map (States) 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/map-usa?lang=zh_cn",
+    "crumbs": [
+      "HIPLOT",
+      "USA Map (States)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/115-map-usa.html#环境配置",
+    "href": "Hiplot/115-map-usa.html#环境配置",
+    "title": "美国地图 (州)",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2; RColorBrewer\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "USA Map (States)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/115-map-usa.html#数据准备",
+    "href": "Hiplot/115-map-usa.html#数据准备",
+    "title": "美国地图 (州)",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/115-map-usa-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/usa.rds\")\n\n# 整理数据格式\ndt_map$Value &lt;- data$value[match(dt_map$state, data$name)]\n\n# 查看数据\nhead(data)\n\n          name value\n1   Washington   438\n2      Montana   103\n3        Maine   614\n4 North Dakota   256\n5 South Dakota   639\n6      Wyoming   599",
+    "crumbs": [
+      "HIPLOT",
+      "USA Map (States)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/115-map-usa.html#可视化",
+    "href": "Hiplot/115-map-usa.html#可视化",
+    "title": "美国地图 (州)",
+    "section": "可视化",
+    "text": "可视化\n\n# 美国地图 (州)\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"USA Map\")\n\np\n\n\n\n\n\n\n\n图 1: 美国地图 (州)",
+    "crumbs": [
+      "HIPLOT",
+      "USA Map (States)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/113-map-uk.html",
+    "href": "Hiplot/113-map-uk.html",
+    "title": "英国地图",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot UK Map 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/map-uk?lang=zh_cn",
+    "crumbs": [
+      "HIPLOT",
+      "South America Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/113-map-uk.html#环境配置",
+    "href": "Hiplot/113-map-uk.html#环境配置",
+    "title": "英国地图",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2; RColorBrewer\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "South America Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/113-map-uk.html#数据准备",
+    "href": "Hiplot/113-map-uk.html#数据准备",
+    "title": "英国地图",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/113-map-uk-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/uk.rds\")\n\n# 整理数据格式\ndt_map$Value &lt;- data$value[match(dt_map$name, data$name)]\n\n# 查看数据\nhead(data)\n\n              name value\n1 Northern Ireland   691\n2         Scotland   455\n3          England   530\n4            Wales   767",
+    "crumbs": [
+      "HIPLOT",
+      "South America Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/113-map-uk.html#可视化",
+    "href": "Hiplot/113-map-uk.html#可视化",
+    "title": "英国地图",
+    "section": "可视化",
+    "text": "可视化\n\n# 英国地图\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"UK Map\")\n\np\n\n\n\n\n\n\n\n图 1: 英国地图",
+    "crumbs": [
+      "HIPLOT",
+      "South America Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/111-map-south-america.html",
+    "href": "Hiplot/111-map-south-america.html",
+    "title": "南美洲地图",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot South America Map 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/map-south-america?lang=zh_cn",
+    "crumbs": [
+      "HIPLOT",
+      "South America Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/111-map-south-america.html#环境配置",
+    "href": "Hiplot/111-map-south-america.html#环境配置",
+    "title": "南美洲地图",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2; RColorBrewer\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "South America Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/111-map-south-america.html#数据准备",
+    "href": "Hiplot/111-map-south-america.html#数据准备",
+    "title": "南美洲地图",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/111-map-south-america-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/sa.rds\")\n\n# 整理数据格式\ndt_map$Value &lt;- data$value[match(dt_map$ENG_NAME, data$region)]\n\n# 查看数据\nhead(data)\n\n     region value\n1 Argentina   198\n2   Bolivia   568\n3    Brazil   191\n4     Chile   275\n5  Colombia   901\n6   Ecuador   604",
+    "crumbs": [
+      "HIPLOT",
+      "South America Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/111-map-south-america.html#可视化",
+    "href": "Hiplot/111-map-south-america.html#可视化",
+    "title": "南美洲地图",
+    "section": "可视化",
+    "text": "可视化\n\n# 南美洲地图\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"South America Map\")\n\np\n\n\n\n\n\n\n\n图 1: 南美洲地图",
+    "crumbs": [
+      "HIPLOT",
+      "South America Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/108-map-north-america.html",
+    "href": "Hiplot/108-map-north-america.html",
+    "title": "北美洲地图",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot North America Map 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/map-north-america?lang=zh_cn",
+    "crumbs": [
+      "HIPLOT",
+      "North America Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/108-map-north-america.html#环境配置",
+    "href": "Hiplot/108-map-north-america.html#环境配置",
+    "title": "北美洲地图",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2; RColorBrewer\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "North America Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/108-map-north-america.html#数据准备",
+    "href": "Hiplot/108-map-north-america.html#数据准备",
+    "title": "北美洲地图",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/108-map-north-america-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/na.rds\")\n\n# 整理数据格式\ndt_map$Value &lt;- data$value[match(dt_map$ENG_NAME, data$region)]\n\n# 查看数据\nhead(data)\n\n             region value\n1 ANTIGUA & BARBUDA   918\n2     Anguilla (UK)    95\n3          BARBADOS   878\n4            BELIZE   874\n5      Bermuda (UK)   159\n6            CANADA   118",
+    "crumbs": [
+      "HIPLOT",
+      "North America Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/108-map-north-america.html#可视化",
+    "href": "Hiplot/108-map-north-america.html#可视化",
+    "title": "北美洲地图",
+    "section": "可视化",
+    "text": "可视化\n\n# 北美洲地图\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"North America Map\")\n\np\n\n\n\n\n\n\n\n图 1: 北美洲地图",
+    "crumbs": [
+      "HIPLOT",
+      "North America Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/106-map-germany-town.html",
+    "href": "Hiplot/106-map-germany-town.html",
+    "title": "德国地图 (镇)",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Germany Map (Town) 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/map-germany-town?lang=zh_cn",
+    "crumbs": [
+      "HIPLOT",
+      "Germany Map (Town)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/106-map-germany-town.html#环境配置",
+    "href": "Hiplot/106-map-germany-town.html#环境配置",
+    "title": "德国地图 (镇)",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2; RColorBrewer\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "Germany Map (Town)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/106-map-germany-town.html#数据准备",
+    "href": "Hiplot/106-map-germany-town.html#数据准备",
+    "title": "德国地图 (镇)",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/106-map-germany-town-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/germany_town.rds\")\n\n# 整理数据格式\ndt_map$Value &lt;- data$value[match(dt_map$ENG_NAME, data$name)]\n\n# 查看数据\nhead(data)\n\n          name value\n1 Allmendingen   711\n2      Altheim   540\n3    Berghülen   582\n4   Blaubeuren   454\n5    Blaustein   766\n6     Balzheim   480",
+    "crumbs": [
+      "HIPLOT",
+      "Germany Map (Town)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/106-map-germany-town.html#可视化",
+    "href": "Hiplot/106-map-germany-town.html#可视化",
+    "title": "德国地图 (镇)",
+    "section": "可视化",
+    "text": "可视化\n\n# 德国地图 (镇)\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"Germany Map\")\n\np\n\n\n\n\n\n\n\n图 1: 德国地图 (镇)",
+    "crumbs": [
+      "HIPLOT",
+      "Germany Map (Town)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/103-map-france-town.html",
+    "href": "Hiplot/103-map-france-town.html",
+    "title": "法国地图 (镇)",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot France Map (Town) 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/map-france-town?lang=zh_cn",
+    "crumbs": [
+      "HIPLOT",
+      "France Map (Town)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/103-map-france-town.html#环境配置",
+    "href": "Hiplot/103-map-france-town.html#环境配置",
+    "title": "法国地图 (镇)",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2; RColorBrewer\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "France Map (Town)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/103-map-france-town.html#数据准备",
+    "href": "Hiplot/103-map-france-town.html#数据准备",
+    "title": "法国地图 (镇)",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/103-map-france-town-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/france_town.rds\")\n\n# 整理数据格式\ndt_map$Value &lt;- data$value[match(dt_map$ENG_NAME, data$name)]\n\n# 查看数据\nhead(data)\n\n                   name value\n1           Bischwiller   669\n2              Haguenau   935\n3 Niederbronn-les-Bains   356\n4              Molsheim   199\n5               Rosheim   971\n6                Saales   532",
+    "crumbs": [
+      "HIPLOT",
+      "France Map (Town)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/103-map-france-town.html#可视化",
+    "href": "Hiplot/103-map-france-town.html#可视化",
+    "title": "法国地图 (镇)",
+    "section": "可视化",
+    "text": "可视化\n\n# 法国地图 (镇)\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"France Map\")\n\np\n\n\n\n\n\n\n\n图 1: 法国地图 (镇)",
+    "crumbs": [
+      "HIPLOT",
+      "France Map (Town)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/101-map-china2.html",
+    "href": "Hiplot/101-map-china2.html",
+    "title": "中国地图 2",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot China Map 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/map-china2?lang=zh_cn",
+    "crumbs": [
+      "HIPLOT",
+      "China Map 2"
+    ]
+  },
+  {
+    "objectID": "Hiplot/101-map-china2.html#环境配置",
+    "href": "Hiplot/101-map-china2.html#环境配置",
+    "title": "中国地图 2",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2; RColorBrewer\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "China Map 2"
+    ]
+  },
+  {
+    "objectID": "Hiplot/101-map-china2.html#数据准备",
+    "href": "Hiplot/101-map-china2.html#数据准备",
+    "title": "中国地图 2",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/101-map-china2-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/china.rds\")\n\n# 整理数据格式\ndt_map$Value &lt;- data$value[match(dt_map$FCNAME, data$name)]\n\n# 查看数据\nhead(data)\n\n    name value\n1 安徽省  6118\n2 福建省  3581\n3 甘肃省  2617\n4 广东省  9449\n5 贵州省  3762\n6 海南省   845",
+    "crumbs": [
+      "HIPLOT",
+      "China Map 2"
+    ]
+  },
+  {
+    "objectID": "Hiplot/101-map-china2.html#可视化",
+    "href": "Hiplot/101-map-china2.html#可视化",
+    "title": "中国地图 2",
+    "section": "可视化",
+    "text": "可视化\n\n# 中国地图2\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"China Map\")\n\np\n\n\n\n\n\n\n\n图 1: 中国地图2",
+    "crumbs": [
+      "HIPLOT",
+      "China Map 2"
+    ]
+  },
+  {
+    "objectID": "Hiplot/099-map-china-county.html",
+    "href": "Hiplot/099-map-china-county.html",
+    "title": "中国地图 (县)",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot China Map (County) 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/map-china-county?lang=zh_cn",
+    "crumbs": [
+      "HIPLOT",
+      "China Map (County)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/099-map-china-county.html#环境配置",
+    "href": "Hiplot/099-map-china-county.html#环境配置",
+    "title": "中国地图 (县)",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2; RColorBrewer\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "China Map (County)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/099-map-china-county.html#数据准备",
+    "href": "Hiplot/099-map-china-county.html#数据准备",
+    "title": "中国地图 (县)",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/099-map-china-county-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/china.county.rds\")\n\n# 整理数据格式\ndt_map$Value &lt;- data$value[match(dt_map$county, data$name)]\n\n# 查看数据\nhead(data)\n\n      name value\n1   东城区   739\n2   西城区   536\n3   朝阳区   138\n4   丰台区   561\n5 石景山区   345\n6   海淀区   898",
+    "crumbs": [
+      "HIPLOT",
+      "China Map (County)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/099-map-china-county.html#可视化",
+    "href": "Hiplot/099-map-china-county.html#可视化",
+    "title": "中国地图 (县)",
+    "section": "可视化",
+    "text": "可视化\n\n# 中国地图 (县)\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"China City Map\")\n\np\n\n\n\n\n\n\n\n图 1: 中国地图 (县)",
+    "crumbs": [
+      "HIPLOT",
+      "China Map (County)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/097-map-americas.html",
+    "href": "Hiplot/097-map-americas.html",
+    "title": "美洲地图",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Americas Map 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/map-americas?lang=zh_cn",
+    "crumbs": [
+      "HIPLOT",
+      "Americas Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/097-map-americas.html#环境配置",
+    "href": "Hiplot/097-map-americas.html#环境配置",
+    "title": "美洲地图",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2; RColorBrewer\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "Americas Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/097-map-americas.html#数据准备",
+    "href": "Hiplot/097-map-americas.html#数据准备",
+    "title": "美洲地图",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/097-map-americas-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/amr.rds\")\n\n# 整理数据格式\ndt_map$Value &lt;- data$value[match(dt_map$ENG_NAME, data$region)]\n\n# 查看数据\nhead(data)\n\n               region value\n1 Aruba (Netherlands)    48\n2 Antigua and Barbuda   749\n3           Argentina   667\n4       Anguilla (UK)    14\n5            Barbados    83\n6        Bermuda (UK)   109",
+    "crumbs": [
+      "HIPLOT",
+      "Americas Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/097-map-americas.html#可视化",
+    "href": "Hiplot/097-map-americas.html#可视化",
+    "title": "美洲地图",
+    "section": "可视化",
+    "text": "可视化\n\n# 美洲地图\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"Americas Map\")\n\np\n\n\n\n\n\n\n\n图 1: 美洲地图",
+    "crumbs": [
+      "HIPLOT",
+      "Americas Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/095-line.html",
+    "href": "Hiplot/095-line.html",
+    "title": "线图",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Line 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/line?lang=zh_cn\n线图是指使用线性刻度或对数刻度在二维或三维视图中绘制数据，从而显示数据集或跟踪数据随时间变化的变化特征的统计图表。",
+    "crumbs": [
+      "HIPLOT",
+      "Line"
+    ]
+  },
+  {
+    "objectID": "Hiplot/095-line.html#环境配置",
+    "href": "Hiplot/095-line.html#环境配置",
+    "title": "线图",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2; ggthemes\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"ggthemes\", quietly = TRUE)) {\n  install.packages(\"ggthemes\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(ggthemes)",
+    "crumbs": [
+      "HIPLOT",
+      "Line"
+    ]
+  },
+  {
+    "objectID": "Hiplot/095-line.html#数据准备",
+    "href": "Hiplot/095-line.html#数据准备",
+    "title": "线图",
+    "section": "数据准备",
+    "text": "数据准备\n载入数据为横轴数值及其对应的纵轴数值和分组。\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/095-line-data.txt\", header = T)\n\n# 整理数据格式\ndata[,3] &lt;- factor(data[,3], levels = unique(data[,3]))\n\n# 查看数据\nhead(data)\n\n  Value1 Value2  Group\n1      1      1 treat1\n2      2      4 treat1\n3      3      9 treat1\n4      4     16 treat1\n5      5     25 treat1\n6      6     36 treat1",
+    "crumbs": [
+      "HIPLOT",
+      "Line"
+    ]
+  },
+  {
+    "objectID": "Hiplot/095-line.html#可视化",
+    "href": "Hiplot/095-line.html#可视化",
+    "title": "线图",
+    "section": "可视化",
+    "text": "可视化\n\n# 线图\np &lt;- ggplot(data, aes(x = Value1, y = Value2)) +\n  geom_line(alpha = 1, aes(color = Group, linetype = Group)) +\n  geom_point(aes(color = Group, shape = Group)) +\n  ggtitle(\"Line Regression Plot\") +\n  scale_fill_manual(values = c(\"#e04d39\",\"#5bbad6\")) +\n  theme_stata() +\n  theme(text = element_text(family = \"Arial\"),\n        plot.title = element_text(size = 12,hjust = 0.5),\n        axis.title = element_text(size = 12),\n        axis.text = element_text(size = 10),\n        axis.text.x = element_text(angle = 0, hjust = 0.5,vjust = 1),\n        legend.position = \"right\",\n        legend.direction = \"vertical\",\n        legend.title = element_text(size = 10),\n        legend.text = element_text(size = 10))\n\np\n\n\n\n\n\n\n\n图 1: 线图\n\n\n\n\n\n图示表明治疗方案一中 value1 值与 value2 值呈正相关，而治疗方案二 value1 值与 value2 值呈负相关。",
+    "crumbs": [
+      "HIPLOT",
+      "Line"
+    ]
+  },
+  {
+    "objectID": "Hiplot/093-line-errorbar.html",
+    "href": "Hiplot/093-line-errorbar.html",
+    "title": "线图（误差线）",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Line (errorbar) 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/line-errorbar?lang=zh_cn\n误差线主要指示数据每一个数据点的误差范围，显示潜在的误差或相对于系列中每一个数据的的不确定程度。",
+    "crumbs": [
+      "HIPLOT",
+      "Line (errorbar)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/093-line-errorbar.html#环境配置",
+    "href": "Hiplot/093-line-errorbar.html#环境配置",
+    "title": "线图（误差线）",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggpubr\n\n\n# 安装包\nif (!requireNamespace(\"ggpubr\", quietly = TRUE)) {\n  install.packages(\"ggpubr\")\n}\n\n# 加载包\nlibrary(ggpubr)",
+    "crumbs": [
+      "HIPLOT",
+      "Line (errorbar)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/093-line-errorbar.html#数据准备",
+    "href": "Hiplot/093-line-errorbar.html#数据准备",
+    "title": "线图（误差线）",
+    "section": "数据准备",
+    "text": "数据准备\n载入数据为两种分组及其对应的数值。\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/093-line-errorbar-data.txt\", header = T)\n\n# 整理数据格式\ndata[, 3] &lt;- factor(data[, 3], levels = unique(data[, 3]))\n\n# 查看数据\nhead(data)\n\n  Value Group2 Group1\n1   4.2 treat1    low\n2  11.5 treat1    low\n3   7.3 treat1    low\n4   5.8 treat1    low\n5   6.4 treat1    low\n6  10.0 treat1    low",
+    "crumbs": [
+      "HIPLOT",
+      "Line (errorbar)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/093-line-errorbar.html#可视化",
+    "href": "Hiplot/093-line-errorbar.html#可视化",
+    "title": "线图（误差线）",
+    "section": "可视化",
+    "text": "可视化\n\n# 线图（误差线）\np &lt;- ggline(\n  data, x = \"Group1\", y = \"Value\", color = \"Group2\",\n  add = \"mean_se\", title = \"Line plot with errorbar\", palette = \"npg\") +\n  stat_compare_means(aes_(group = as.name(\"Group2\"))) +\n  theme_bw() +\n  theme(text = element_text(family = \"Arial\"),\n        plot.title = element_text(size = 12, hjust = 0.5),\n        axis.title = element_text(size = 12),\n        axis.text = element_text(size = 10),\n        axis.text.x = element_text(angle = 0, hjust = 0.5,vjust = 1),\n        legend.position = \"right\",\n        legend.direction = \"vertical\",\n        legend.title = element_text(size = 10),\n        legend.text = element_text(size = 10))\n\np\n\n\n\n\n\n\n\n图 1: 线图（误差线）\n\n\n\n\n\nlow 类型中的红色上线表示 treat1 中 low 类型中数值最大值，红色下线表示 treat1 中 low 类型中数值最小值，其他以此类推。分别对treat1 和 treat2 按照 low，mid，high 类型进行秩和检验，显示 P 值于图形上方。",
+    "crumbs": [
+      "HIPLOT",
+      "Line (errorbar)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/091-likert.html",
+    "href": "Hiplot/091-likert.html",
+    "title": "李克特图",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Likert Plot 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/likert?lang=zh_cn\n对李克特量表带数据进行可视化描述性统计分析。",
+    "crumbs": [
+      "HIPLOT",
+      "Likert Plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/091-likert.html#环境配置",
+    "href": "Hiplot/091-likert.html#环境配置",
+    "title": "李克特图",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplotify; likert\n\n\n# 安装包\nif (!requireNamespace(\"ggplotify\", quietly = TRUE)) {\n  install.packages(\"ggplotify\")\n}\nif (!requireNamespace(\"likert\", quietly = TRUE)) {\n  install.packages(\"likert\")\n}\n\n# 加载包\nlibrary(ggplotify)\nlibrary(likert)",
+    "crumbs": [
+      "HIPLOT",
+      "Likert Plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/091-likert.html#数据准备",
+    "href": "Hiplot/091-likert.html#数据准备",
+    "title": "李克特图",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/091-likert-data.txt\", header = T)\n\n# 整理数据格式\nlevs &lt;- unique(unlist(data))\nfor (i in 1:ncol(data)) {\n  data[,i] &lt;- factor(data[, i], levels = levs)\n}\n\n# 查看数据\nhead(data)\n\n            ST24Q01           ST24Q02        ST24Q03           ST24Q04\n1 Strongly disagree    Strongly agree          Agree Strongly disagree\n2          Disagree    Strongly agree Strongly agree Strongly disagree\n3          Disagree          Disagree       Disagree             Agree\n4          Disagree          Disagree       Disagree          Disagree\n5          Disagree             Agree       Disagree Strongly disagree\n6             Agree Strongly disagree          Agree Strongly disagree\n            ST24Q05           ST24Q06        ST24Q07           ST24Q08\n1             Agree Strongly disagree          Agree          Disagree\n2    Strongly agree Strongly disagree          Agree          Disagree\n3          Disagree          Disagree       Disagree          Disagree\n4          Disagree Strongly disagree       Disagree          Disagree\n5             Agree Strongly disagree Strongly agree Strongly disagree\n6 Strongly disagree          Disagree       Disagree             Agree\n            ST24Q09           ST24Q10           ST24Q11\n1 Strongly disagree             Agree             Agree\n2 Strongly disagree             Agree             Agree\n3          Disagree          Disagree          Disagree\n4 Strongly disagree          Disagree          Disagree\n5 Strongly disagree Strongly disagree             Agree\n6          Disagree             Agree Strongly disagree",
+    "crumbs": [
+      "HIPLOT",
+      "Likert Plot"
+    ]
+  },
+  {
+    "objectID": "Hiplot/091-likert.html#可视化",
+    "href": "Hiplot/091-likert.html#可视化",
+    "title": "李克特图",
+    "section": "可视化",
+    "text": "可视化\n\n# 李克特图\npobj &lt;- likert(data)\ncolrs &lt;- c(\"#3B4992FF\",\"#EE0000FF\")\np &lt;- as.ggplot(plot(pobj, type = \"bar\", \n                    low.color = colrs[1], high.color = colrs[2], wrap = 50))\n\np\n\n\n\n\n\n\n\n图 1: 李克特图",
+    "crumbs": [
+      "HIPLOT",
+      "Likert Plot"
+    ]
+  },
+  {
     "objectID": "Hiplot/089-interval-area-chart.html",
     "href": "Hiplot/089-interval-area-chart.html",
     "title": "区间区域图",
@@ -2213,7 +2829,7 @@
     "href": "Hiplot/001-area.html",
     "title": "面积图",
     "section": "",
-    "text": "面积图是一种基于折线图并以图形方式显示定量数据的图形。轴和线之间的区域通常用颜色、纹理和图案来强调。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Area 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/area?lang=zh_cn\n面积图是一种基于折线图并以图形方式显示定量数据的图形。轴和线之间的区域通常用颜色、纹理和图案来强调。",
     "crumbs": [
       "HIPLOT",
       "Area"
@@ -2598,7 +3214,7 @@
     "href": "Hiplot/018-calibration-curve.html#可视化",
     "title": "校准曲线",
     "section": "可视化",
-    "text": "可视化\n\n# 校准曲线\np &lt;- as.ggplot(function() {\n  plot(lrm.cal,\n       xlab = \"Nomogram Predicted Survival\",\n       ylab = \"Actual Survival\",\n       main = \"Calibration Curve\"\n       )\n})\n\n\nn=168   Mean absolute error=0.067   Mean squared error=0.00543\n0.9 Quantile of absolute error=0.101\n\np\n\n\n\n\n\n\n\n图 1: 校准曲线",
+    "text": "可视化\n\n# 校准曲线\np &lt;- as.ggplot(function() {\n  plot(lrm.cal,\n       xlab = \"Nomogram Predicted Survival\",\n       ylab = \"Actual Survival\",\n       main = \"Calibration Curve\"\n       )\n})\n\n\nn=168   Mean absolute error=0.065   Mean squared error=0.00501\n0.9 Quantile of absolute error=0.095\n\np\n\n\n\n\n\n\n\n图 1: 校准曲线",
     "crumbs": [
       "HIPLOT",
       "Calibration Curve"
@@ -3555,7 +4171,7 @@
     "href": "Hiplot/065-ggdag.html#数据准备",
     "title": "有向无环图",
     "section": "数据准备",
-    "text": "数据准备\n\n# 加载数据\ntidy_ggdag &lt;- dagify(\n  y ~ x + z2 + w2 + w1,\n  x ~ z1 + w1 + w2,\n  z1 ~ w1 + v,\n  z2 ~ w2 + v,\n  w1 ~ ~w2, # bidirected path\n  exposure = \"x\",\n  outcome = \"y\") %&gt;%\n  tidy_dagitty()\n\n# 查看数据\nhead(tidy_ggdag)\n\n$data\n# A tibble: 13 × 8\n   name       x       y direction to      xend    yend circular\n   &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;fct&gt;     &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;lgl&gt;   \n 1 v     -1.27  -2.26   -&gt;        z1    -0.913 -0.906  FALSE   \n 2 v     -1.27  -2.26   -&gt;        z2    -2.65  -1.92   FALSE   \n 3 w1    -1.86  -0.535  -&gt;        x     -1.99   0.0935 FALSE   \n 4 w1    -1.86  -0.535  -&gt;        y     -3.01  -0.421  FALSE   \n 5 w1    -1.86  -0.535  -&gt;        z1    -0.913 -0.906  FALSE   \n 6 w1    -1.86  -0.535  &lt;-&gt;       w2    -2.73  -0.964  FALSE   \n 7 w2    -2.73  -0.964  -&gt;        x     -1.99   0.0935 FALSE   \n 8 w2    -2.73  -0.964  -&gt;        y     -3.01  -0.421  FALSE   \n 9 w2    -2.73  -0.964  -&gt;        z2    -2.65  -1.92   FALSE   \n10 x     -1.99   0.0935 -&gt;        y     -3.01  -0.421  FALSE   \n11 y     -3.01  -0.421  &lt;NA&gt;      &lt;NA&gt;  NA     NA      FALSE   \n12 z1    -0.913 -0.906  -&gt;        x     -1.99   0.0935 FALSE   \n13 z2    -2.65  -1.92   -&gt;        y     -3.01  -0.421  FALSE   \n\n$dag\ndag {\nv\nw1\nw2\nx [exposure]\ny [outcome]\nz1\nz2\nv -&gt; z1\nv -&gt; z2\nw1 -&gt; x\nw1 -&gt; y\nw1 -&gt; z1\nw1 &lt;-&gt; w2\nw2 -&gt; x\nw2 -&gt; y\nw2 -&gt; z2\nx -&gt; y\nz1 -&gt; x\nz2 -&gt; y\n}",
+    "text": "数据准备\n\n# 加载数据\ntidy_ggdag &lt;- dagify(\n  y ~ x + z2 + w2 + w1,\n  x ~ z1 + w1 + w2,\n  z1 ~ w1 + v,\n  z2 ~ w2 + v,\n  w1 ~ ~w2, # bidirected path\n  exposure = \"x\",\n  outcome = \"y\") %&gt;%\n  tidy_dagitty()\n\n# 查看数据\nhead(tidy_ggdag)\n\n$data\n# A tibble: 13 × 8\n   name       x     y direction to      xend  yend circular\n   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;   \n 1 v     -2.21  -4.84 -&gt;        z1    -0.846 -4.45 FALSE   \n 2 v     -2.21  -4.84 -&gt;        z2    -2.63  -3.50 FALSE   \n 3 w1    -0.916 -3.47 -&gt;        x     -0.537 -2.97 FALSE   \n 4 w1    -0.916 -3.47 -&gt;        y     -1.58  -2.43 FALSE   \n 5 w1    -0.916 -3.47 -&gt;        z1    -0.846 -4.45 FALSE   \n 6 w1    -0.916 -3.47 &lt;-&gt;       w2    -1.75  -3.04 FALSE   \n 7 w2    -1.75  -3.04 -&gt;        x     -0.537 -2.97 FALSE   \n 8 w2    -1.75  -3.04 -&gt;        y     -1.58  -2.43 FALSE   \n 9 w2    -1.75  -3.04 -&gt;        z2    -2.63  -3.50 FALSE   \n10 x     -0.537 -2.97 -&gt;        y     -1.58  -2.43 FALSE   \n11 y     -1.58  -2.43 &lt;NA&gt;      &lt;NA&gt;  NA     NA    FALSE   \n12 z1    -0.846 -4.45 -&gt;        x     -0.537 -2.97 FALSE   \n13 z2    -2.63  -3.50 -&gt;        y     -1.58  -2.43 FALSE   \n\n$dag\ndag {\nv\nw1\nw2\nx [exposure]\ny [outcome]\nz1\nz2\nv -&gt; z1\nv -&gt; z2\nw1 -&gt; x\nw1 -&gt; y\nw1 -&gt; z1\nw1 &lt;-&gt; w2\nw2 -&gt; x\nw2 -&gt; y\nw2 -&gt; z2\nx -&gt; y\nz1 -&gt; x\nz2 -&gt; y\n}",
     "crumbs": [
       "HIPLOT",
       "Directed Acyclic Graphs"
@@ -4098,6 +4714,622 @@
     "crumbs": [
       "HIPLOT",
       "Interval Bar Chart"
+    ]
+  },
+  {
+    "objectID": "Hiplot/092-line-color-dot.html",
+    "href": "Hiplot/092-line-color-dot.html",
+    "title": "线图（颜色点）",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Line (Color Dot) 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/line-color-dot?lang=zh_cn",
+    "crumbs": [
+      "HIPLOT",
+      "Line (Color Dot)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/092-line-color-dot.html#环境配置",
+    "href": "Hiplot/092-line-color-dot.html#环境配置",
+    "title": "线图（颜色点）",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: grafify\n\n\n# 安装包\nif (!requireNamespace(\"grafify\", quietly = TRUE)) {\n  install.packages(\"grafify\")\n}\n\n# 加载包\nlibrary(grafify)",
+    "crumbs": [
+      "HIPLOT",
+      "Line (Color Dot)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/092-line-color-dot.html#数据准备",
+    "href": "Hiplot/092-line-color-dot.html#数据准备",
+    "title": "线图（颜色点）",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/092-line-color-dot-data.txt\", header = T)\n\n# 整理数据格式\nx &lt;- \"Time\"\ny &lt;- \"PI\"\ngroup &lt;- \"Experiment\"\nfacet &lt;- \"Genotype\"\ndata[, x] &lt;- factor(data[, x], levels = unique(data[, x]))\ndata[, group] &lt;- factor(data[, group], levels = unique(data[, group]))\ndata[, facet] &lt;- factor(data[, facet], levels = unique(data[, facet]))\n\n# 查看数据\nhead(data)\n\n  Experiment Time Subject Genotype       PI Time2\n1         e1 t100      s1       WT 20.47120   100\n2         e2 t100      s2       WT 28.88967   100\n3         e3 t100      s3       WT 11.55061   100\n4         e4 t100      s4       WT 23.24516   100\n5         e5 t100      s5       WT 30.20904   100\n6         e6 t100      s6       WT 28.68300   100",
+    "crumbs": [
+      "HIPLOT",
+      "Line (Color Dot)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/092-line-color-dot.html#可视化",
+    "href": "Hiplot/092-line-color-dot.html#可视化",
+    "title": "线图（颜色点）",
+    "section": "可视化",
+    "text": "可视化\n\n# 线图（颜色点）\np &lt;- plot_befafter_colours(\n  data = data, xcol = get(x), ycol = get(y), match = get(group),\n  symsize = 5, symthick = 1, s_alpha = 1) +\n  facet_wrap(facet) +\n  guides(fill = guide_legend(title = group)) +\n  scale_fill_grafify() +\n  xlab(x) + ylab(y) +\n  ggtitle(\"Two-way repeated measures\") +\n  theme(text = element_text(family = \"Arial\"),\n        plot.title = element_text(size = 12, hjust = 0.5),\n        axis.title = element_text(size = 12),\n        axis.text = element_text(size = 10),\n        axis.text.x = element_text(angle = 0, hjust = 0.5,vjust = 1),\n        legend.position = \"right\",\n        legend.direction = \"vertical\",\n        legend.title = element_text(size = 10),\n        legend.text = element_text(size = 10))\n\np\n\n\n\n\n\n\n\n图 1: 线图（颜色点）",
+    "crumbs": [
+      "HIPLOT",
+      "Line (Color Dot)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/094-line-regression.html",
+    "href": "Hiplot/094-line-regression.html",
+    "title": "线性回归",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Line Regression 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/line-regression?lang=zh_cn\n线性回归是一种对自变量和因变量之间关系进行线性建模的回归方法。只有一个自变量的情况称为简单回归,大于一个自变量情况的叫做多元回归。",
+    "crumbs": [
+      "HIPLOT",
+      "Line Regression"
+    ]
+  },
+  {
+    "objectID": "Hiplot/094-line-regression.html#环境配置",
+    "href": "Hiplot/094-line-regression.html#环境配置",
+    "title": "线性回归",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggrepel; ggplot2\n\n\n# 安装包\nif (!requireNamespace(\"ggrepel\", quietly = TRUE)) {\n  install.packages(\"ggrepel\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# 加载包\nlibrary(ggrepel)\nlibrary(ggplot2)",
+    "crumbs": [
+      "HIPLOT",
+      "Line Regression"
+    ]
+  },
+  {
+    "objectID": "Hiplot/094-line-regression.html#数据准备",
+    "href": "Hiplot/094-line-regression.html#数据准备",
+    "title": "线性回归",
+    "section": "数据准备",
+    "text": "数据准备\n载入数据为自变量，因变量和分组。\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/094-line-regression-data.txt\", header = T)\n\n# 整理数据格式\ndata$group &lt;- factor(data$group, levels = unique(data$group))\n\n# 查看数据\nhead(data)\n\n  value1 value2 group\n1   36.8  29.44    G1\n2   54.0  43.20    G1\n3   26.0  26.00    G1\n4   39.0  31.20    G1\n5   33.0  29.70    G1\n6   29.0  34.80    G1",
+    "crumbs": [
+      "HIPLOT",
+      "Line Regression"
+    ]
+  },
+  {
+    "objectID": "Hiplot/094-line-regression.html#可视化",
+    "href": "Hiplot/094-line-regression.html#可视化",
+    "title": "线性回归",
+    "section": "可视化",
+    "text": "可视化\n\n# 线性回归\n## 定义方程\nequation &lt;- function(x, add_p = FALSE) {\n  xs &lt;- summary(x)\n  lm_coef &lt;- list(\n    a = as.numeric(round(coef(x)[1], digits = 2)),\n    b = as.numeric(round(coef(x)[2], digits = 2)),\n    r2 = round(xs$r.squared, digits = 2),\n    pval = xs$coef[2, 4] \n  )\n  if (add_p) {\n    lm_eq &lt;- substitute(italic(y) == a + b %.% italic(x) * \",\" ~ ~\n  italic(R)^2 ~ \"=\" ~ r2 * \",\" ~ ~ italic(p) ~ \"=\" ~ pval, lm_coef)\n  } else {\n    lm_eq &lt;- substitute(italic(y) == a + b %.% italic(x) * \",\" ~ ~\n  italic(R)^2 ~ \"=\" ~ r2, lm_coef)\n  }\n  as.expression(lm_eq)\n}\n## 绘图\np &lt;- ggplot(data, aes(x = value1, y = value2, colour = group)) +\n  geom_point(show.legend = TRUE) +\n  geom_smooth(method = \"lm\", se = T, show.legend = F) +\n  geom_rug(sides = \"bl\", size = 1, show.legend = F) +\n  scale_color_manual(values = c(\"#00468BFF\",\"#ED0000FF\")) +\n  ggtitle(\"Line Reguression Plot\") +\n  theme_bw() +\n  theme(text = element_text(family = \"Arial\"),\n        plot.title = element_text(size = 12, hjust = 0.5),\n        axis.title = element_text(size = 12),\n        axis.text = element_text(size = 10),\n        axis.text.x = element_text(angle = 0, hjust = 0.5,vjust = 1),\n        legend.position = \"right\",\n        legend.direction = \"vertical\",\n        legend.title = element_text(size = 10),\n        legend.text = element_text(size = 10))\n  \n## 使用 ggrepel 为每个组添加注释\nrepels &lt;- rep(\"\", nrow(data))\nfor (g in unique(data$group)) {\n  fit &lt;- lm(value2 ~ value1, data = data[data$group == g, ])\n  v &lt;- max(data[data$group == g, \"value2\"])\n  repels[which(data$value2 == v)[1]] &lt;- equation(fit, add_p = F)\n}\np &lt;- p + geom_text_repel(\n  data = data,\n  label = repels,\n  size = 4,\n  force = 5,\n  label.padding = 5,\n  na.rm = TRUE,\n  min.segment.length = 100,\n  show.legend = FALSE,\n  nudge_x = 0,\n  nudge_y = 0\n  )\n\np\n\n\n\n\n\n\n\n图 1: 线性回归\n\n\n\n\n\n不同颜色表示不同分组，可添加线性回归方程，R的平方越接近 1，说明拟合的曲线和实际曲线越趋近。灰色条带代表 95% 置信区间。",
+    "crumbs": [
+      "HIPLOT",
+      "Line Regression"
+    ]
+  },
+  {
+    "objectID": "Hiplot/096-map-africa.html",
+    "href": "Hiplot/096-map-africa.html",
+    "title": "非洲地图",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Africa Map 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/map-africa?lang=zh_cn",
+    "crumbs": [
+      "HIPLOT",
+      "Africa Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/096-map-africa.html#环境配置",
+    "href": "Hiplot/096-map-africa.html#环境配置",
+    "title": "非洲地图",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2; RColorBrewer\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "Africa Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/096-map-africa.html#数据准备",
+    "href": "Hiplot/096-map-africa.html#数据准备",
+    "title": "非洲地图",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/096-map-africa-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/afr.rds\")\n\n# 整理数据格式\ndt_map$Value &lt;- data$value[match(dt_map$ADM0_NAME, data$region)]\n\n# 查看数据\nhead(data)\n\n        region value\n1        Sudan   258\n2       Angola   911\n3        Benin   318\n4     Botswana   759\n5 Burkina Faso   983\n6     Cameroon   618",
+    "crumbs": [
+      "HIPLOT",
+      "Africa Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/096-map-africa.html#可视化",
+    "href": "Hiplot/096-map-africa.html#可视化",
+    "title": "非洲地图",
+    "section": "可视化",
+    "text": "可视化\n\n# 非洲地图\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(9, 985, 139),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"Africa Map\")\n\np\n\n\n\n\n\n\n\n图 1: 非洲地图",
+    "crumbs": [
+      "HIPLOT",
+      "Africa Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/098-map-china-city.html",
+    "href": "Hiplot/098-map-china-city.html",
+    "title": "中国地图 (市)",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Americas Map 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/map-china-city?lang=zh_cn",
+    "crumbs": [
+      "HIPLOT",
+      "China Map (City)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/098-map-china-city.html#环境配置",
+    "href": "Hiplot/098-map-china-city.html#环境配置",
+    "title": "中国地图 (市)",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2; RColorBrewer\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "China Map (City)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/098-map-china-city.html#数据准备",
+    "href": "Hiplot/098-map-china-city.html#数据准备",
+    "title": "中国地图 (市)",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/098-map-china-city-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/china.city.rds\")\n\n# 整理数据格式\ndt_map$Value &lt;- data$value[match(dt_map$city, data$name)]\n\n# 查看数据\nhead(data)\n\n      name value\n1   北京市   756\n2   天津市   321\n3 石家庄市   232\n4   唐山市   467\n5 秦皇岛市   549\n6   邯郸市   226",
+    "crumbs": [
+      "HIPLOT",
+      "China Map (City)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/098-map-china-city.html#可视化",
+    "href": "Hiplot/098-map-china-city.html#可视化",
+    "title": "中国地图 (市)",
+    "section": "可视化",
+    "text": "可视化\n\n# 中国地图 (市)\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"China City Map\")\n\np\n\n\n\n\n\n\n\n图 1: 中国地图 (市)",
+    "crumbs": [
+      "HIPLOT",
+      "China Map (City)"
+    ]
+  },
+  {
+    "objectID": "Hiplot/100-map-china.html",
+    "href": "Hiplot/100-map-china.html",
+    "title": "中国地图",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot China Map 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/map-china?lang=zh_cn",
+    "crumbs": [
+      "HIPLOT",
+      "China Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/100-map-china.html#环境配置",
+    "href": "Hiplot/100-map-china.html#环境配置",
+    "title": "中国地图",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2; RColorBrewer\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "China Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/100-map-china.html#数据准备",
+    "href": "Hiplot/100-map-china.html#数据准备",
+    "title": "中国地图",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/100-map-china-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/china.rds\")\n\n# 整理数据格式\ndt_map$Value &lt;- data$value[match(dt_map$FCNAME, data$name)]\n\n# 查看数据\nhead(data)\n\n    name value\n1 安徽省  6118\n2 福建省  3581\n3 甘肃省  2617\n4 广东省  9449\n5 贵州省  3762\n6 海南省   845",
+    "crumbs": [
+      "HIPLOT",
+      "China Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/100-map-china.html#可视化",
+    "href": "Hiplot/100-map-china.html#可视化",
+    "title": "中国地图",
+    "section": "可视化",
+    "text": "可视化\n\n# 中国地图\np &lt;- ggplot(dt_map, aes(x = long, y = lat, group = group, fill = Value)) +\n  labs(fill = \"Value\") +\n  geom_polygon() +\n  geom_path() +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    na.value = \"grey10\",\n    limits = c(0, max(dt_map$Value) * 1.2)) +\n    ggtitle(\"China Map Plot\") +\n  theme_minimal()\n\np\n\n\n\n\n\n\n\n图 1: 中国地图",
+    "crumbs": [
+      "HIPLOT",
+      "China Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/102-map-europe.html",
+    "href": "Hiplot/102-map-europe.html",
+    "title": "欧洲地图",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Europe Map 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/map-europe?lang=zh_cn",
+    "crumbs": [
+      "HIPLOT",
+      "Europe Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/102-map-europe.html#环境配置",
+    "href": "Hiplot/102-map-europe.html#环境配置",
+    "title": "欧洲地图",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2; RColorBrewer\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "Europe Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/102-map-europe.html#数据准备",
+    "href": "Hiplot/102-map-europe.html#数据准备",
+    "title": "欧洲地图",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/102-map-europe-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/eu.rds\")\n\n# 整理数据格式\ndt_map$Value &lt;- data$value[match(dt_map$ENG_NAME, data$region)]\n\n# 查看数据\nhead(data)\n\n              region value\n1            Albania   758\n2            Andorra   139\n3            Austria   256\n4            Belgium   959\n5 Bosnia Herzegovina   422\n6            Croatia   791",
+    "crumbs": [
+      "HIPLOT",
+      "Europe Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/102-map-europe.html#可视化",
+    "href": "Hiplot/102-map-europe.html#可视化",
+    "title": "欧洲地图",
+    "section": "可视化",
+    "text": "可视化\n\n# 欧洲地图\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"Europe Map\")\n\np\n\n\n\n\n\n\n\n图 1: 欧洲地图",
+    "crumbs": [
+      "HIPLOT",
+      "Europe Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/104-map-france.html",
+    "href": "Hiplot/104-map-france.html",
+    "title": "法国地图",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot France Map 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/map-france?lang=zh_cn",
+    "crumbs": [
+      "HIPLOT",
+      "France Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/104-map-france.html#环境配置",
+    "href": "Hiplot/104-map-france.html#环境配置",
+    "title": "法国地图",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2; RColorBrewer\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "France Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/104-map-france.html#数据准备",
+    "href": "Hiplot/104-map-france.html#数据准备",
+    "title": "法国地图",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/104-map-france-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/france.rds\")\n\n# 整理数据格式\ndt_map$Value &lt;- data$value[match(dt_map$ENG_NAME, data$name)]\n\n# 查看数据\nhead(data)\n\n            name value\n1       Bas-Rhin   338\n2      Haut-Rhin   353\n3       Dordogne   168\n4        Gironde   158\n5         Landes   221\n6 Lot-et-Garonne   658",
+    "crumbs": [
+      "HIPLOT",
+      "France Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/104-map-france.html#可视化",
+    "href": "Hiplot/104-map-france.html#可视化",
+    "title": "法国地图",
+    "section": "可视化",
+    "text": "可视化\n\n# 法国地图\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"France Map\")\n\np\n\n\n\n\n\n\n\n图 1: 法国地图",
+    "crumbs": [
+      "HIPLOT",
+      "France Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/107-map-germany.html",
+    "href": "Hiplot/107-map-germany.html",
+    "title": "德国地图",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Germany Map 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/map-germany?lang=zh_cn",
+    "crumbs": [
+      "HIPLOT",
+      "Germany Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/107-map-germany.html#环境配置",
+    "href": "Hiplot/107-map-germany.html#环境配置",
+    "title": "德国地图",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2; RColorBrewer\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "Germany Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/107-map-germany.html#数据准备",
+    "href": "Hiplot/107-map-germany.html#数据准备",
+    "title": "德国地图",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/107-map-germany-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/germany.rds\")\n\n# 整理数据格式\ndt_map$Value &lt;- data$value[match(dt_map$ENG_NAME, data$name)]\n\n# 查看数据\nhead(data)\n\n               name value\n1 Baden-Württemberg   334\n2            Bayern   562\n3            Berlin   980\n4       Brandenburg   577\n5            Bremen    54\n6           Hamburg   528",
+    "crumbs": [
+      "HIPLOT",
+      "Germany Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/107-map-germany.html#可视化",
+    "href": "Hiplot/107-map-germany.html#可视化",
+    "title": "德国地图",
+    "section": "可视化",
+    "text": "可视化\n\n# 德国地图\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"Germany Map\")\n\np\n\n\n\n\n\n\n\n图 1: 德国地图",
+    "crumbs": [
+      "HIPLOT",
+      "Germany Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/109-map-oceania-antarc.html",
+    "href": "Hiplot/109-map-oceania-antarc.html",
+    "title": "大洋洲/南极洲地图",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Oceania/Antarc Map 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/map-oceania-antarc?lang=zh_cn",
+    "crumbs": [
+      "HIPLOT",
+      "Oceania/Antarc Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/109-map-oceania-antarc.html#环境配置",
+    "href": "Hiplot/109-map-oceania-antarc.html#环境配置",
+    "title": "大洋洲/南极洲地图",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2; RColorBrewer\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "Oceania/Antarc Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/109-map-oceania-antarc.html#数据准备",
+    "href": "Hiplot/109-map-oceania-antarc.html#数据准备",
+    "title": "大洋洲/南极洲地图",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/109-map-oceania-antarc-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/oca.rds\")\n\n# 整理数据格式\ndt_map$Value &lt;- data$value[match(dt_map$ENG_NAME, data$region)]\n\n# 查看数据\nhead(data)\n\n                      region value\n1        American Samoa (US)   672\n2                 Antarctica     3\n3    Pacific Is Refuges (US)   320\n4 Cook Islands (NEW ZEALAND)   740\n5                       FIJI   303\n6  French Polynesia (FRANCE)   879",
+    "crumbs": [
+      "HIPLOT",
+      "Oceania/Antarc Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/109-map-oceania-antarc.html#可视化",
+    "href": "Hiplot/109-map-oceania-antarc.html#可视化",
+    "title": "大洋洲/南极洲地图",
+    "section": "可视化",
+    "text": "可视化\n\n# 大洋洲/南极洲地图\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"Oceania/Antarc Map\")\n\np\n\n\n\n\n\n\n\n图 1: 大洋洲/南极洲地图",
+    "crumbs": [
+      "HIPLOT",
+      "Oceania/Antarc Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/112-map-uk-city.html",
+    "href": "Hiplot/112-map-uk-city.html",
+    "title": "英国地图 (城市)",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot UK Map (City) 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/map-uk-city?lang=zh_cn",
+    "crumbs": [
+      "HIPLOT",
+      "Oceania/Antarc Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/112-map-uk-city.html#环境配置",
+    "href": "Hiplot/112-map-uk-city.html#环境配置",
+    "title": "英国地图 (城市)",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2; RColorBrewer\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "Oceania/Antarc Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/112-map-uk-city.html#数据准备",
+    "href": "Hiplot/112-map-uk-city.html#数据准备",
+    "title": "英国地图 (城市)",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/112.map-uk-city-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/uk_city.rds\")\n\n# 整理数据格式\ndt_map$Value &lt;- data$value[match(dt_map$ENG_NAME, data$name)]\n\n# 查看数据\nhead(data)\n\n               name value\n1 Rhondda Cynon Taf   503\n2       Eilean Siar   221\n3          Bridgend   993\n4           Lincoln   798\n5     Richmondshire   169\n6           Ashford   653",
+    "crumbs": [
+      "HIPLOT",
+      "Oceania/Antarc Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/112-map-uk-city.html#可视化",
+    "href": "Hiplot/112-map-uk-city.html#可视化",
+    "title": "英国地图 (城市)",
+    "section": "可视化",
+    "text": "可视化\n\n# 英国地图 (城市)\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"UK Map\")\n\np\n\n\n\n\n\n\n\n图 1: 英国地图 (城市)",
+    "crumbs": [
+      "HIPLOT",
+      "Oceania/Antarc Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/114-map-usa-county.html",
+    "href": "Hiplot/114-map-usa-county.html",
+    "title": "美国地图 (县)",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot USA Map (County) 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/map-usa-county?lang=zh_cn",
+    "crumbs": [
+      "HIPLOT",
+      "Oceania/Antarc Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/114-map-usa-county.html#环境配置",
+    "href": "Hiplot/114-map-usa-county.html#环境配置",
+    "title": "美国地图 (县)",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2; RColorBrewer\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "Oceania/Antarc Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/114-map-usa-county.html#数据准备",
+    "href": "Hiplot/114-map-usa-county.html#数据准备",
+    "title": "美国地图 (县)",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/114-map-usa-county-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/usa.county.rds\")\n\n# 整理数据格式\ndt_map$Value &lt;- data$value[match(dt_map$county, data$name)]\n\n# 查看数据\nhead(data)\n\n               name value\n1 Lake of the Woods   167\n2             Ferry   801\n3           Stevens   785\n4          Okanogan   783\n5      Pend Oreille   796\n6          Boundary   126",
+    "crumbs": [
+      "HIPLOT",
+      "Oceania/Antarc Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/114-map-usa-county.html#可视化",
+    "href": "Hiplot/114-map-usa-county.html#可视化",
+    "title": "美国地图 (县)",
+    "section": "可视化",
+    "text": "可视化\n\n# 美国地图 (县)\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    breaks = seq(min(data$value), max(data$value), \n                 round((max(data$value)-min(data$value))/7)),\n    name = \"Color Key\",\n    guide = guide_legend(\n      direction = \"vertical\", keyheight = unit(1, units = \"mm\"),\n      keywidth = unit(8, units = \"mm\"),\n      title.position = \"top\", title.hjust = 0.5, label.hjust = 0.5,\n      nrow = 1, byrow = T, reverse = F, label.position = \"bottom\")) +\n  theme(text = element_text(color = \"#3A3F4A\"),\n        axis.text = element_blank(),\n        axis.ticks = element_blank(),\n        panel.grid.major = element_blank(),\n        panel.grid.minor = element_blank(),\n        legend.position = \"top\",\n        legend.text = element_text(size = 4 * 1.5, color = \"black\"),\n        legend.title = element_text(size = 5 * 1.5, color = \"black\"),\n        plot.title = element_text(\n          face = \"bold\", size = 5 * 1.5, hjust = 0.5, \n          margin = margin(t = 4, b = 5), color = \"black\"),\n        plot.background = element_rect(fill = \"#FFFFFF\", color = \"#FFFFFF\"),\n        panel.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        legend.background = element_rect(fill = \"#FFFFFF\", color = NA),\n        plot.margin = unit(c(1.5, 1.5, 1.5, 1.5), \"cm\")) +\n  labs(x = NULL, y = NULL, title = \"USA County Map\")\n\np\n\n\n\n\n\n\n\n图 1: 美国地图 (县)",
+    "crumbs": [
+      "HIPLOT",
+      "Oceania/Antarc Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/116-map-world.html",
+    "href": "Hiplot/116-map-world.html",
+    "title": "世界地图",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot World Map 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/map-world?lang=zh_cn",
+    "crumbs": [
+      "HIPLOT",
+      "World Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/116-map-world.html#环境配置",
+    "href": "Hiplot/116-map-world.html#环境配置",
+    "title": "世界地图",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2; RColorBrewer\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"RColorBrewer\", quietly = TRUE)) {\n  install.packages(\"RColorBrewer\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(RColorBrewer)",
+    "crumbs": [
+      "HIPLOT",
+      "World Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/116-map-world.html#数据准备",
+    "href": "Hiplot/116-map-world.html#数据准备",
+    "title": "世界地图",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/116-map-world-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/world.rds\")\n\n# 整理数据格式\ndt_map$Value &lt;- data$death_rate[match(dt_map$ENG_NAME, data$region)]\n\n# 查看数据\nhead(data)\n\n          region death_rate\n1    Afghanistan       13.4\n2        Albania        6.8\n3        Algeria        4.3\n4 American Samoa        5.9\n5        Andorra        7.3\n6         Angola        9.2",
+    "crumbs": [
+      "HIPLOT",
+      "World Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/116-map-world.html#可视化",
+    "href": "Hiplot/116-map-world.html#可视化",
+    "title": "世界地图",
+    "section": "可视化",
+    "text": "可视化\n\n# 世界地图\np &lt;- ggplot(dt_map) +\n  geom_polygon(aes(x = long, y = lat, group = group, fill = Value),\n               alpha = 0.9, size = 0.5) +\n  geom_path(aes(x = long, y = lat, group = group), \n            color = \"black\", size = 0.2) +\n  scale_fill_gradientn(\n    colours = colorRampPalette(rev(brewer.pal(11,\"RdYlBu\")))(500),\n    na.value = \"grey10\",\n    limits = c(0, max(dt_map$Value) * 1.2)) +\n    ggtitle(\"World Map Plot\") +\n  theme_minimal() +\n  theme(plot.title = element_text(hjust = 0.5),\n        legend.position = \"bottom\", legend.direction = \"horizontal\")\n\np\n\n\n\n\n\n\n\n图 1: 世界地图",
+    "crumbs": [
+      "HIPLOT",
+      "World Map"
+    ]
+  },
+  {
+    "objectID": "Hiplot/118-matrix-bubble.html",
+    "href": "Hiplot/118-matrix-bubble.html",
+    "title": "矩阵气泡图",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Matrix Bubble 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/matrix-bubble?lang=zh_cn\n彩色矩阵气泡用于可视化不同细胞（列）中多个基因（行）的表达矩阵数据。",
+    "crumbs": [
+      "HIPLOT",
+      "Matrix Bubble"
+    ]
+  },
+  {
+    "objectID": "Hiplot/118-matrix-bubble.html#环境配置",
+    "href": "Hiplot/118-matrix-bubble.html#环境配置",
+    "title": "矩阵气泡图",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggalluvial; ggplot2\n\n\n# 安装包\nif (!requireNamespace(\"ggalluvial\", quietly = TRUE)) {\n  install.packages(\"ggalluvial\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# 加载包\nlibrary(ggalluvial)\nlibrary(ggplot2)",
+    "crumbs": [
+      "HIPLOT",
+      "Matrix Bubble"
+    ]
+  },
+  {
+    "objectID": "Hiplot/118-matrix-bubble.html#数据准备",
+    "href": "Hiplot/118-matrix-bubble.html#数据准备",
+    "title": "矩阵气泡图",
+    "section": "数据准备",
+    "text": "数据准备\n数据结构：\n\n&lt;1st-col&gt;: (String) 单元格样本名称作为 X 轴\n&lt;2nd-col&gt;: (String) 基因名作为Y轴\n&lt;3rd-col&gt;: (Numeric) 基因表达\n&lt;4rd-col&gt;: (Numeric) 组\n\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/118-matrix-bubble-data.txt\", header = T)\n\n# 整理数据格式\ndata[, 1] &lt;- factor(data[, 1], levels = unique(data[, 1]))\ndata[, 2] &lt;- factor(data[, 2], levels = unique(data[, 2]))\n\n# 查看数据\nhead(data)\n\n      x     y value  group\n1 cell1 gene1     1 groupC\n2 cell1 gene2     5 groupC\n3 cell1 gene3    10 groupC\n4 cell1 gene4    15 groupC\n5 cell1 gene5    20 groupC\n6 cell1 gene6    25 groupC",
+    "crumbs": [
+      "HIPLOT",
+      "Matrix Bubble"
+    ]
+  },
+  {
+    "objectID": "Hiplot/118-matrix-bubble.html#可视化",
+    "href": "Hiplot/118-matrix-bubble.html#可视化",
+    "title": "矩阵气泡图",
+    "section": "可视化",
+    "text": "可视化\n\n# 矩阵气泡图\np &lt;- ggplot(data = data, aes(x = x, y = y, size = value, color = y)) +\n  geom_point(alpha = 1) +\n  labs(title = \"Matrix Bubble\") +\n  guides(color = FALSE) +\n  theme(panel.background = element_blank(),\n        panel.grid.major = element_line(colour = \"gray\"),\n        strip.background = element_blank(),\n        panel.border = element_rect(colour = \"black\", fill = NA),\n        panel.spacing = unit(0, \"lines\"),\n        plot.title = element_text(size = 12, hjust = 0.5),\n        text = element_text(family = \"Arial\"),\n        legend.title = element_text(size = 10),\n        axis.text.x = element_text(angle=0, hjust=0.5, vjust=1)) +\n  facet_grid(~group, scales = 'fixed', margins = F) +\n  scale_color_manual(values = c(\n    \"#3B4992FF\",\"#EE0000FF\",\"#008B45FF\",\"#631879FF\",\"#008280FF\",\"#BB0021FF\",\n    \"#5F559BFF\",\"#A20056FF\",\"#808180FF\",\"#1B1919FF\"))\n\np\n\n\n\n\n\n\n\n图 1: 矩阵气泡图",
+    "crumbs": [
+      "HIPLOT",
+      "Matrix Bubble"
+    ]
+  },
+  {
+    "objectID": "Hiplot/120-meta-cont.html",
+    "href": "Hiplot/120-meta-cont.html",
+    "title": "连续变量 Meta 分析",
+    "section": "",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Meta-analysis of Continuous Data 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/meta-cont?lang=zh_cn",
+    "crumbs": [
+      "HIPLOT",
+      "Meta-analysis of Continuous Data"
+    ]
+  },
+  {
+    "objectID": "Hiplot/120-meta-cont.html#环境配置",
+    "href": "Hiplot/120-meta-cont.html#环境配置",
+    "title": "连续变量 Meta 分析",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: meta; ggplotify\n\n\n# 安装包\nif (!requireNamespace(\"meta\", quietly = TRUE)) {\n  install.packages(\"meta\")\n}\nif (!requireNamespace(\"ggplotify\", quietly = TRUE)) {\n  install.packages(\"ggplotify\")\n}\n\n# 加载包\nlibrary(meta)\nlibrary(ggplotify)",
+    "crumbs": [
+      "HIPLOT",
+      "Meta-analysis of Continuous Data"
+    ]
+  },
+  {
+    "objectID": "Hiplot/120-meta-cont.html#数据准备",
+    "href": "Hiplot/120-meta-cont.html#数据准备",
+    "title": "连续变量 Meta 分析",
+    "section": "数据准备",
+    "text": "数据准备\n\n# 加载数据\ndata &lt;- read.delim(\"files/Hiplot/120-meta-cont-data.txt\", header = T)\n\n# 整理数据格式\nm1 &lt;- metacont(n.e, mean.e, sd.e, n.c, mean.c, sd.c, studlab = Study, data = data,\n              sm = \"SMD\")\n\n# 查看数据\nhead(data)\n\n  Study n.e mean.e sd.e n.c mean.c  sd.c\n1     A  13    5.0 4.70  13   6.50  3.80\n2     B  30    4.9 1.71  50   6.10  2.30\n3     C  35   22.5 3.44  35  24.90 10.65\n4     D  20   12.5 1.47  20  12.30  1.66\n5     E   8    6.5 0.76   8   7.38  1.41",
+    "crumbs": [
+      "HIPLOT",
+      "Meta-analysis of Continuous Data"
+    ]
+  },
+  {
+    "objectID": "Hiplot/120-meta-cont.html#可视化",
+    "href": "Hiplot/120-meta-cont.html#可视化",
+    "title": "连续变量 Meta 分析",
+    "section": "可视化",
+    "text": "可视化\n\n# 连续变量 Meta 分析\np &lt;- as.ggplot(function(){\n  meta::forest(m1, layout = \"meta\")\n  })\n\np\n\n\n\n\n\n\n\n图 1: 连续变量 Meta 分析",
+    "crumbs": [
+      "HIPLOT",
+      "Meta-analysis of Continuous Data"
     ]
   },
   {
