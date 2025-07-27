@@ -1248,7 +1248,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Authors</div>
     <div class="quarto-title-meta-contents">
-             <p><strong>[Editor]</strong> Hu Zheng; </p>
+             <p><strong>[Editor]</strong> <a href="https://github.com/ZhengTiger">Hu Zheng</a>; </p>
              <p><strong>[Contributors]</strong> </p>
           </div>
   </div>
@@ -1259,7 +1259,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>Visualizing directed acyclic graphs.</p>
+</header><div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Hiplot website</strong></p>
+<p>This page is the tutorial for source code version of the Hiplot <code>Directed Acyclic Graphs</code> plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:</p>
+<p><a href="https://hiplot.cn/basic/ggdag?lang=en" class="uri">https://hiplot.cn/basic/ggdag?lang=en</a></p>
+</div>
+</div>
+<p>Visualizing directed acyclic graphs.</p>
 <section id="setup" class="level2"><h2 class="anchored" data-anchor-id="setup">Setup</h2>
 <ul>
 <li><p>System Requirements: Cross-platform (Linux/MacOS/Windows)</p></li>
@@ -1293,21 +1308,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>$data
 # A tibble: 13 × 8
-   name        x     y direction to       xend  yend circular
-   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;     &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;   
- 1 v     -2.05    2.80 -&gt;        z1    -1.54    1.49 FALSE   
- 2 v     -2.05    2.80 -&gt;        z2    -0.736   3.33 FALSE   
- 3 w1    -0.559   1.72 -&gt;        x     -0.0700  1.31 FALSE   
- 4 w1    -0.559   1.72 -&gt;        y      0.440   2.35 FALSE   
- 5 w1    -0.559   1.72 -&gt;        z1    -1.54    1.49 FALSE   
- 6 w1    -0.559   1.72 &lt;-&gt;       w2    -0.133   2.58 FALSE   
- 7 w2    -0.133   2.58 -&gt;        x     -0.0700  1.31 FALSE   
- 8 w2    -0.133   2.58 -&gt;        y      0.440   2.35 FALSE   
- 9 w2    -0.133   2.58 -&gt;        z2    -0.736   3.33 FALSE   
-10 x     -0.0700  1.31 -&gt;        y      0.440   2.35 FALSE   
-11 y      0.440   2.35 &lt;NA&gt;      &lt;NA&gt;  NA      NA    FALSE   
-12 z1    -1.54    1.49 -&gt;        x     -0.0700  1.31 FALSE   
-13 z2    -0.736   3.33 -&gt;        y      0.440   2.35 FALSE   
+   name       x     y direction to      xend   yend circular
+   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;     &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;lgl&gt;   
+ 1 v     -0.205 1.42  -&gt;        z1    -1.54   0.946 FALSE   
+ 2 v     -0.205 1.42  -&gt;        z2    -0.647  2.75  FALSE   
+ 3 w1    -2.04  1.80  -&gt;        x     -2.65   1.96  FALSE   
+ 4 w1    -2.04  1.80  -&gt;        y     -2.13   3.02  FALSE   
+ 5 w1    -2.04  1.80  -&gt;        z1    -1.54   0.946 FALSE   
+ 6 w1    -2.04  1.80  &lt;-&gt;       w2    -1.63   2.64  FALSE   
+ 7 w2    -1.63  2.64  -&gt;        x     -2.65   1.96  FALSE   
+ 8 w2    -1.63  2.64  -&gt;        y     -2.13   3.02  FALSE   
+ 9 w2    -1.63  2.64  -&gt;        z2    -0.647  2.75  FALSE   
+10 x     -2.65  1.96  -&gt;        y     -2.13   3.02  FALSE   
+11 y     -2.13  3.02  &lt;NA&gt;      &lt;NA&gt;  NA     NA     FALSE   
+12 z1    -1.54  0.946 -&gt;        x     -2.65   1.96  FALSE   
+13 z2    -0.647 2.75  -&gt;        y     -2.13   3.02  FALSE   
 
 $dag
 dag {

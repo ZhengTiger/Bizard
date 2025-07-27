@@ -921,7 +921,7 @@
     "href": "Hiplot/089-interval-area-chart.html",
     "title": "区间区域图",
     "section": "",
-    "text": "系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# 加载包\nlibrary(ggplot2)",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Interval Area Chart 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/interval-area-chart?lang=zh_cn",
     "crumbs": [
       "HIPLOT",
       "Interval Area Chart"
@@ -931,8 +931,8 @@
     "objectID": "Hiplot/089-interval-area-chart.html#环境配置",
     "href": "Hiplot/089-interval-area-chart.html#环境配置",
     "title": "区间区域图",
-    "section": "",
-    "text": "系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# 加载包\nlibrary(ggplot2)",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# 加载包\nlibrary(ggplot2)",
     "crumbs": [
       "HIPLOT",
       "Interval Area Chart"
@@ -965,7 +965,7 @@
     "href": "Hiplot/087-hic-heatmap.html",
     "title": "Hi-C 热图",
     "section": "",
-    "text": "Hi-C 热图用于显示不同染色体上的全基因组染色质与热图的相互作用。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Hi-C Heatmap 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/hic-heatmap?lang=zh_cn\nHi-C 热图用于显示不同染色体上的全基因组染色质与热图的相互作用。",
     "crumbs": [
       "HIPLOT",
       "Hi-C Heatmap"
@@ -1009,7 +1009,7 @@
     "href": "Hiplot/085-half-violin.html",
     "title": "半小提琴图",
     "section": "",
-    "text": "半小提琴图是在保留小提琴图右半部分图形的基础上，将左侧部分换成数据频次计数图形，也是用于显示数据分布及概率密度的统计图表。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Half Violin 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/half-violin?lang=zh_cn\n半小提琴图是在保留小提琴图右半部分图形的基础上，将左侧部分换成数据频次计数图形，也是用于显示数据分布及概率密度的统计图表。",
     "crumbs": [
       "HIPLOT",
       "Half Violin"
@@ -1053,7 +1053,7 @@
     "href": "Hiplot/083-group-dumbbell.html",
     "title": "分组哑铃图",
     "section": "",
-    "text": "系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2; ggalt\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"ggalt\", quietly = TRUE)) {\n  install.packages(\"ggalt\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(ggalt)",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Group Dumbbell 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/group-dumbbell?lang=zh_cn",
     "crumbs": [
       "HIPLOT",
       "Group Dumbbell"
@@ -1063,8 +1063,8 @@
     "objectID": "Hiplot/083-group-dumbbell.html#环境配置",
     "href": "Hiplot/083-group-dumbbell.html#环境配置",
     "title": "分组哑铃图",
-    "section": "",
-    "text": "系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2; ggalt\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"ggalt\", quietly = TRUE)) {\n  install.packages(\"ggalt\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(ggalt)",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2; ggalt\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"ggalt\", quietly = TRUE)) {\n  install.packages(\"ggalt\")\n}\n\n# 加载包\nlibrary(ggplot2)\nlibrary(ggalt)",
     "crumbs": [
       "HIPLOT",
       "Group Dumbbell"
@@ -1097,7 +1097,7 @@
     "href": "Hiplot/081-group-bubble.html",
     "title": "分组气泡图",
     "section": "",
-    "text": "系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# 加载包\nlibrary(ggplot2)",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Group Bubble 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/group-bubble?lang=zh_cn",
     "crumbs": [
       "HIPLOT",
       "Group Bubble"
@@ -1107,8 +1107,8 @@
     "objectID": "Hiplot/081-group-bubble.html#环境配置",
     "href": "Hiplot/081-group-bubble.html#环境配置",
     "title": "分组气泡图",
-    "section": "",
-    "text": "系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# 加载包\nlibrary(ggplot2)",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# 加载包\nlibrary(ggplot2)",
     "crumbs": [
       "HIPLOT",
       "Group Bubble"
@@ -1141,7 +1141,7 @@
     "href": "Hiplot/079-gocircle.html",
     "title": "GO圈图",
     "section": "",
-    "text": "GO圈图用于显示圆图结合了基因表达和基因注释富集数据。术语的子集与GOBar图一起显示与基因表达数据的散点图结合使用。整个图都在特定的坐标系上绘制，以实现圆形布局。该段标记为术语ID。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot GOCircle Plot 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/gocircle?lang=zh_cn\nGO圈图用于显示圆图结合了基因表达和基因注释富集数据。术语的子集与GOBar图一起显示与基因表达数据的散点图结合使用。整个图都在特定的坐标系上绘制，以实现圆形布局。该段标记为术语ID。",
     "crumbs": [
       "HIPLOT",
       "GOCircle Plot"
@@ -1185,7 +1185,7 @@
     "href": "Hiplot/077-gobar.html",
     "title": "GO 条形图",
     "section": "",
-    "text": "GO 条形图用于显示按 z-score 或 adjusted p-value 的负对数排序的 Z-score 彩色条形图。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot GOBar Plot 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/gobar?lang=zh_cn\nGO 条形图用于显示按 z-score 或 adjusted p-value 的负对数排序的 Z-score 彩色条形图。",
     "crumbs": [
       "HIPLOT",
       "GOBar Plot"
@@ -1229,7 +1229,7 @@
     "href": "Hiplot/075-ggwithinstats.html",
     "title": "复杂小提琴图",
     "section": "",
-    "text": "系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggstatsplot; ggplot2; cowplot\n\n\n# 安装包\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# 加载包\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Complex-Violin 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/ggwithinstats?lang=zh_cn",
     "crumbs": [
       "HIPLOT",
       "Complex-Violin"
@@ -1239,8 +1239,8 @@
     "objectID": "Hiplot/075-ggwithinstats.html#环境配置",
     "href": "Hiplot/075-ggwithinstats.html#环境配置",
     "title": "复杂小提琴图",
-    "section": "",
-    "text": "系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggstatsplot; ggplot2; cowplot\n\n\n# 安装包\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# 加载包\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggstatsplot; ggplot2; cowplot\n\n\n# 安装包\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# 加载包\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
     "crumbs": [
       "HIPLOT",
       "Complex-Violin"
@@ -1273,7 +1273,7 @@
     "href": "Hiplot/073-ggscatterstats.html",
     "title": "散点图（Scatterstats）",
     "section": "",
-    "text": "系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggpubr; ggthemes\n\n\n# 安装包\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\n\n# 加载包\nlibrary(ggstatsplot)",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Scatterstats 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/ggscatterstats?lang=zh_cn",
     "crumbs": [
       "HIPLOT",
       "Scatterstats"
@@ -1283,8 +1283,8 @@
     "objectID": "Hiplot/073-ggscatterstats.html#环境配置",
     "href": "Hiplot/073-ggscatterstats.html#环境配置",
     "title": "散点图（Scatterstats）",
-    "section": "",
-    "text": "系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggpubr; ggthemes\n\n\n# 安装包\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\n\n# 加载包\nlibrary(ggstatsplot)",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggpubr; ggthemes\n\n\n# 安装包\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\n\n# 加载包\nlibrary(ggstatsplot)",
     "crumbs": [
       "HIPLOT",
       "Scatterstats"
@@ -1317,7 +1317,7 @@
     "href": "Hiplot/071-ggpiestats.html",
     "title": "饼状图（ggpiestats）",
     "section": "",
-    "text": "系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggstatsplot; ggplot2\n\n\n# 安装包\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# 加载包\nlibrary(ggstatsplot)\nlibrary(ggplot2)",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Piestats 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/ggpiestats?lang=zh_cn",
     "crumbs": [
       "HIPLOT",
       "Piestats"
@@ -1327,8 +1327,8 @@
     "objectID": "Hiplot/071-ggpiestats.html#环境配置",
     "href": "Hiplot/071-ggpiestats.html#环境配置",
     "title": "饼状图（ggpiestats）",
-    "section": "",
-    "text": "系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggstatsplot; ggplot2\n\n\n# 安装包\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# 加载包\nlibrary(ggstatsplot)\nlibrary(ggplot2)",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggstatsplot; ggplot2\n\n\n# 安装包\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# 加载包\nlibrary(ggstatsplot)\nlibrary(ggplot2)",
     "crumbs": [
       "HIPLOT",
       "Piestats"
@@ -1361,7 +1361,7 @@
     "href": "Hiplot/068-ggpie.html",
     "title": "饼状图（GGPIE）",
     "section": "",
-    "text": "饼图是通过将一个圆形切分成多个切片以显示每一部分所占总体比例的统计图表。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot GGPIE 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/ggpie?lang=zh_cn\n饼图是通过将一个圆形切分成多个切片以显示每一部分所占总体比例的统计图表。",
     "crumbs": [
       "HIPLOT",
       "GGPIE"
@@ -1405,7 +1405,7 @@
     "href": "Hiplot/066-ggdist.html",
     "title": "分布图",
     "section": "",
-    "text": "分布图是一种采用置信分布的可视化图形。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Dist Plot 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/ggdist?lang=zh_cn\n分布图是一种采用置信分布的可视化图形。",
     "crumbs": [
       "HIPLOT",
       "Dist Plot"
@@ -1449,7 +1449,7 @@
     "href": "Hiplot/064-ggbetweenstats.html",
     "title": "小提琴图（Betweenstats）",
     "section": "",
-    "text": "系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggstatsplot; ggplot2; cowplot\n\n\n# 安装包\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# 加载包\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Betweenstats 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/ggbetweenstats?lang=zh_cn",
     "crumbs": [
       "HIPLOT",
       "Betweenstats"
@@ -1459,8 +1459,8 @@
     "objectID": "Hiplot/064-ggbetweenstats.html#环境配置",
     "href": "Hiplot/064-ggbetweenstats.html#环境配置",
     "title": "小提琴图（Betweenstats）",
-    "section": "",
-    "text": "系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggstatsplot; ggplot2; cowplot\n\n\n# 安装包\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# 加载包\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggstatsplot; ggplot2; cowplot\n\n\n# 安装包\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# 加载包\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
     "crumbs": [
       "HIPLOT",
       "Betweenstats"
@@ -1493,7 +1493,7 @@
     "href": "Hiplot/062-gene-trend.html",
     "title": "基因聚类趋势图",
     "section": "",
-    "text": "基因聚类趋势图用于显示不同的基因表达趋势，多条线显示了每个类群中相似的表达模式。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Gene Cluster Trend 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/gene-trend?lang=zh_cn\n基因聚类趋势图用于显示不同的基因表达趋势，多条线显示了每个类群中相似的表达模式。",
     "crumbs": [
       "HIPLOT",
       "Gene Cluster Trend"
@@ -1537,7 +1537,7 @@
     "href": "Hiplot/060-gene-density.html",
     "title": "基因密度图",
     "section": "",
-    "text": "染色体数据展示。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Gene Density 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/gene-density?lang=zh_cn\n染色体数据展示。",
     "crumbs": [
       "HIPLOT",
       "Gene Density"
@@ -1581,7 +1581,7 @@
     "href": "Hiplot/058-funnel-plot.html",
     "title": "漏斗图",
     "section": "",
-    "text": "可以用于分析 Meta 分析结果中潜在偏倚因子。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Funnel Plot 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/funnel-plot?lang=zh_cn\n可以用于分析 Meta 分析结果中潜在偏倚因子。",
     "crumbs": [
       "HIPLOT",
       "Funnel Plot"
@@ -1625,7 +1625,7 @@
     "href": "Hiplot/056-flowerplot.html",
     "title": "花瓣图",
     "section": "",
-    "text": "绘制多集合花瓣图。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Flower plot 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/flowerplot?lang=zh_cn\n绘制多集合花瓣图。",
     "crumbs": [
       "HIPLOT",
       "Flower plot"
@@ -1669,7 +1669,7 @@
     "href": "Hiplot/054-fan.html",
     "title": "扇形图",
     "section": "",
-    "text": "扇形图是旨在以所占扇形的大小清楚表示各组数据所占百分比的统计图表。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Fan Plot 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/fan?lang=zh_cn\n扇形图是旨在以所占扇形的大小清楚表示各组数据所占百分比的统计图表。",
     "crumbs": [
       "HIPLOT",
       "Fan Plot"
@@ -1713,7 +1713,7 @@
     "href": "Hiplot/052-extended-scatter.html",
     "title": "扩展散点图",
     "section": "",
-    "text": "在散点图的基础上拓展边缘图像。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Extended Scatter 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/extended-scatter?lang=zh_cn\n在散点图的基础上拓展边缘图像。",
     "crumbs": [
       "HIPLOT",
       "Extended Scatter"
@@ -1757,7 +1757,7 @@
     "href": "Hiplot/050-easy-som.html",
     "title": "简易 SOM",
     "section": "",
-    "text": "建立 SOM 模型，并可视化结果。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Easy SOM 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/easy-som?lang=zh_cn\n建立 SOM 模型，并可视化结果。",
     "crumbs": [
       "HIPLOT",
       "Easy SOM"
@@ -1801,7 +1801,7 @@
     "href": "Hiplot/048-dumbbell.html",
     "title": "哑铃图",
     "section": "",
-    "text": "哑铃图用于展示数据变化。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Dumbbell Chart 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/dumbbell?lang=zh_cn\n哑铃图用于展示数据变化。",
     "crumbs": [
       "HIPLOT",
       "Dumbbell Chart"
@@ -1845,7 +1845,7 @@
     "href": "Hiplot/046-dotchart.html",
     "title": "滑珠图",
     "section": "",
-    "text": "滑珠图是一种珠子在柱上滑行的图形，是条形图与散点图的叠加。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Dotchart 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/dotchart?lang=zh_cn\n滑珠图是一种珠子在柱上滑行的图形，是条形图与散点图的叠加。",
     "crumbs": [
       "HIPLOT",
       "Dotchart"
@@ -1889,7 +1889,7 @@
     "href": "Hiplot/044-diy-gsea.html",
     "title": "自定义基因富集分析",
     "section": "",
-    "text": "自定义基因集。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot DIY GSEA 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/diy-gsea?lang=zh_cn\n自定义基因集。",
     "crumbs": [
       "HIPLOT",
       "DIY GSEA"
@@ -1933,7 +1933,7 @@
     "href": "Hiplot/042-diffusion-map.html",
     "title": "扩散映射图",
     "section": "",
-    "text": "扩散映射（diffusion-map）是一种非线性降维算法，可以用于可视化发育轨迹。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Diffusion Map 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/diffusion-map?lang=zh_cn\n扩散映射（diffusion-map）是一种非线性降维算法，可以用于可视化发育轨迹。",
     "crumbs": [
       "HIPLOT",
       "Diffusion Map"
@@ -1977,7 +1977,7 @@
     "href": "Hiplot/040-density.html",
     "title": "密度图",
     "section": "",
-    "text": "核密度图是一种用来观察连续型变量分布的图形。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Density 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/density?lang=zh_cn\n核密度图是一种用来观察连续型变量分布的图形。",
     "crumbs": [
       "HIPLOT",
       "Density"
@@ -2021,7 +2021,7 @@
     "href": "Hiplot/038-density-hist-mirror.html",
     "title": "镜像密度图和直方图",
     "section": "",
-    "text": "镜像密度图和直方图是一种使用上下双侧绘制方法用来观察连续型变量分布的图形。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Mirror Density & Histogram 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/density-hist-mirror?lang=zh_cn\n镜像密度图和直方图是一种使用上下双侧绘制方法用来观察连续型变量分布的图形。",
     "crumbs": [
       "HIPLOT",
       "Mirror Density & Histogram"
@@ -2065,7 +2065,7 @@
     "href": "Hiplot/036-d3-wordcloud.html",
     "title": "D3 词云",
     "section": "",
-    "text": "文云文本展示。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot D3 Wordcloud 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/d3-wordcloud?lang=zh_cn\n文云文本展示。",
     "crumbs": [
       "HIPLOT",
       "D3 Wordcloud"
@@ -2109,7 +2109,7 @@
     "href": "Hiplot/034-custom-heat-map.html",
     "title": "自定义热图",
     "section": "",
-    "text": "自定义热图，按照给定数据直接绘制热图。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Custom Heatmap 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/custom-heat-map?lang=zh_cn\n自定义热图，按照给定数据直接绘制热图。",
     "crumbs": [
       "HIPLOT",
       "Custom Heatmap"
@@ -2153,7 +2153,7 @@
     "href": "Hiplot/030-cor-heatmap.html",
     "title": "相关性热图",
     "section": "",
-    "text": "相关性热图是一种分析多个变量，两两之间相关性的图形。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Area 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/cor-heatmap?lang=zh_cn\n相关性热图是一种分析多个变量，两两之间相关性的图形。",
     "crumbs": [
       "HIPLOT",
       "Correlation Heatmap"
@@ -2197,7 +2197,7 @@
     "href": "Hiplot/028-contour-xy.html",
     "title": "等高线图 (XY)",
     "section": "",
-    "text": "等高线图 (XY) 是一种通过等高线反映数据密集程度的数据处理方式。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Contour (XY) 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/contour-xy?lang=zh_cn\n等高线图 (XY) 是一种通过等高线反映数据密集程度的数据处理方式。",
     "crumbs": [
       "HIPLOT",
       "Contour (XY)"
@@ -2241,7 +2241,7 @@
     "href": "Hiplot/026-connected-scatterplot.html",
     "title": "连接散点图",
     "section": "",
-    "text": "连接散点图",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Connected Scatterplot 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/connected-scatterplot?lang=zh_cn\n连接散点图",
     "crumbs": [
       "HIPLOT",
       "Connected Scatterplot"
@@ -2285,7 +2285,7 @@
     "href": "Hiplot/024-circular-pie-chart.html",
     "title": "环形饼图",
     "section": "",
-    "text": "饼图的另一种形式",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Circular Pie Chart 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/circular-pie-chart?lang=zh_cn\n饼图的另一种形式",
     "crumbs": [
       "HIPLOT",
       "Circular Pie Chart"
@@ -2329,7 +2329,7 @@
     "href": "Hiplot/021-circle-packing.html",
     "title": "圆堆图",
     "section": "",
-    "text": "用于展示不同类型之间的数量差异。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Circle Packing 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/circle-packing?lang=zh_cn\n用于展示不同类型之间的数量差异。",
     "crumbs": [
       "HIPLOT",
       "Circle Packing"
@@ -2373,7 +2373,7 @@
     "href": "Hiplot/019-chi-square-fisher.html",
     "title": "卡方与 Fisher 检验",
     "section": "",
-    "text": "卡方与 Fisher 检验可用于分类变量频数差异检验，该工具将自动选择卡方和 Fisher 确切性检验统计方法。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Chi-square-fisher Test 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/chi-square-fisher?lang=zh_cn\n卡方与 Fisher 检验可用于分类变量频数差异检验，该工具将自动选择卡方和 Fisher 确切性检验统计方法。",
     "crumbs": [
       "HIPLOT",
       "Chi-square-fisher Test"
@@ -2417,7 +2417,7 @@
     "href": "Hiplot/017-bumpchart.html",
     "title": "凹凸图",
     "section": "",
-    "text": "凹凸图可以用于展示多组数值变化情况。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Bumpchart 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/bumpchart?lang=zh_cn\n凹凸图可以用于展示多组数值变化情况。",
     "crumbs": [
       "HIPLOT",
       "Bumpchart"
@@ -2461,7 +2461,7 @@
     "href": "Hiplot/015-boxplot.html",
     "title": "箱式图",
     "section": "",
-    "text": "箱形图是一种通过四分位数图形象化地描述一组数据分布特征的方法。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Boxplot 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/boxplot?lang=zh_cn\n箱形图是一种通过四分位数图形象化地描述一组数据分布特征的方法。",
     "crumbs": [
       "HIPLOT",
       "Boxplot"
@@ -2505,7 +2505,7 @@
     "href": "Hiplot/013-big-corrplot.html",
     "title": "大样本相关性热图",
     "section": "",
-    "text": "相关性热图是一种分析多个变量，两两之间相关性的图形。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Corrplot Big Data 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/big-corrplot?lang=zh_cn\n相关性热图是一种分析多个变量，两两之间相关性的图形。",
     "crumbs": [
       "HIPLOT",
       "Corrplot Big Data"
@@ -2549,7 +2549,7 @@
     "href": "Hiplot/011-beanplot.html",
     "title": "豆荚图",
     "section": "",
-    "text": "豆荚图是一种描述一组数据分布特征的方法。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Beanplot 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/beanplot?lang=zh_cn\n豆荚图是一种描述一组数据分布特征的方法。",
     "crumbs": [
       "HIPLOT",
       "Beanplot"
@@ -2593,7 +2593,7 @@
     "href": "Hiplot/009-barplot-line-multiple.html",
     "title": "多柱状图和线图",
     "section": "",
-    "text": "在一个图表中显示多个条形图或线形图。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Multiple Barplot&Line 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/barplot-line-multiple?lang=zh_cn\n在一个图表中显示多个条形图或线形图。",
     "crumbs": [
       "HIPLOT",
       "Multiple Barplot&Line"
@@ -2637,7 +2637,7 @@
     "href": "Hiplot/006-barplot-errorbar2.html",
     "title": "误差线柱状图2",
     "section": "",
-    "text": "带误差线和误差组的条形图。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Barplot (errorbar2) 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/barplot-errorbar2?lang=zh_cn\n带误差线和误差组的条形图。",
     "crumbs": [
       "HIPLOT",
       "Barplot (errorbar2)"
@@ -2681,7 +2681,7 @@
     "href": "Hiplot/004-barplot-color-group.html",
     "title": "颜色组柱状图",
     "section": "",
-    "text": "颜色组柱状图可以用于分组展示数据值，并按顺序标注不同颜色。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Barplot Color Group 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/barplot-color-group?lang=zh_cn\n颜色组柱状图可以用于分组展示数据值，并按顺序标注不同颜色。",
     "crumbs": [
       "HIPLOT",
       "Barplot Color Group"
@@ -2725,7 +2725,7 @@
     "href": "Hiplot/002-barcode-plot.html",
     "title": "条码图",
     "section": "",
-    "text": "条码图适用于展示大量数据的分布情况。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Barcode Plot 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/barcode-plot?lang=zh_cn\n条码图适用于展示大量数据的分布情况。",
     "crumbs": [
       "HIPLOT",
       "Barcode Plot"
@@ -2873,7 +2873,7 @@
     "href": "Hiplot/003-barplot-3d.html",
     "title": "三维柱状图",
     "section": "",
-    "text": "三维柱状图用于为数据提供三维外观。第三维通常出于美学原因而使用，但其不能改善数据的读取。仍旨在显示离散类别之间的比较。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot 3D Barplot 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/barplot-3d?lang=zh_cn\n三维柱状图用于为数据提供三维外观。第三维通常出于美学原因而使用，但其不能改善数据的读取。仍旨在显示离散类别之间的比较。",
     "crumbs": [
       "HIPLOT",
       "3D Barplot"
@@ -2917,7 +2917,7 @@
     "href": "Hiplot/005-barplot-errorbar.html",
     "title": "误差线柱状图",
     "section": "",
-    "text": "带误差线和误差组的条形图。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Barplot (errorbar) 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/barplot-errorbar?lang=zh_cn\n带误差线和误差组的条形图。",
     "crumbs": [
       "HIPLOT",
       "Barplot (errorbar)"
@@ -2961,7 +2961,7 @@
     "href": "Hiplot/008-barplot-gradient.html",
     "title": "渐变柱状图",
     "section": "",
-    "text": "同气泡图相似，不过是在柱状图的基础上，用颜色渐变的长方形同时展示两个变量的可视化图形。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Barplot Gradient 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/barplot-gradient?lang=zh_cn\n同气泡图相似，不过是在柱状图的基础上，用颜色渐变的长方形同时展示两个变量的可视化图形。",
     "crumbs": [
       "HIPLOT",
       "Barplot Gradient"
@@ -3005,7 +3005,7 @@
     "href": "Hiplot/010-barplot.html",
     "title": "柱状图",
     "section": "",
-    "text": "条形图用于显示带有矩形条的类别数据，矩形条的高度或长度与它们所代表的值成比例。条形图可以垂直或水平绘制。条形图显示了离散类别之间的比较。图表的一个轴显示要比较的特定类别，另一个轴代表测量值。一些条形图显示的条形也可显示多个测量变量的值。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Barplot 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/barplot?lang=zh_cn\n条形图用于显示带有矩形条的类别数据，矩形条的高度或长度与它们所代表的值成比例。条形图可以垂直或水平绘制。条形图显示了离散类别之间的比较。图表的一个轴显示要比较的特定类别，另一个轴代表测量值。一些条形图显示的条形也可显示多个测量变量的值。",
     "crumbs": [
       "HIPLOT",
       "Barplot"
@@ -3049,7 +3049,7 @@
     "href": "Hiplot/012-beeswarm.html",
     "title": "蜜蜂群图",
     "section": "",
-    "text": "蜜蜂群图是一种类似蜜蜂群，样本间互不干涉的列散点图。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Beeswarm 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/beeswarm?lang=zh_cn\n蜜蜂群图是一种类似蜜蜂群，样本间互不干涉的列散点图。",
     "crumbs": [
       "HIPLOT",
       "Beeswarm"
@@ -3093,7 +3093,7 @@
     "href": "Hiplot/014-bivariate.html",
     "title": "双变量图",
     "section": "",
-    "text": "展示双变量关系。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Bivariate Chart 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/bivariate?lang=zh_cn\n展示双变量关系。",
     "crumbs": [
       "HIPLOT",
       "Bivariate Chart"
@@ -3137,7 +3137,7 @@
     "href": "Hiplot/016-bubble.html",
     "title": "气泡图",
     "section": "",
-    "text": "气泡图是在散点图的基础上，用气泡的大小来展示第三个变量,从而能够同时对三个变量进行对比分析的统计图表。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Bubble 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/bubble?lang=zh_cn\n气泡图是在散点图的基础上，用气泡的大小来展示第三个变量,从而能够同时对三个变量进行对比分析的统计图表。",
     "crumbs": [
       "HIPLOT",
       "Bubble"
@@ -3181,7 +3181,7 @@
     "href": "Hiplot/018-calibration-curve.html",
     "title": "校准曲线",
     "section": "",
-    "text": "校准曲线用于评估一致性/校准，即预测值和实际值之间的差异。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Calibration Curve 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/calibration-curve?lang=zh_cn\n校准曲线用于评估一致性/校准，即预测值和实际值之间的差异。",
     "crumbs": [
       "HIPLOT",
       "Calibration Curve"
@@ -3214,7 +3214,7 @@
     "href": "Hiplot/018-calibration-curve.html#可视化",
     "title": "校准曲线",
     "section": "可视化",
-    "text": "可视化\n\n# 校准曲线\np &lt;- as.ggplot(function() {\n  plot(lrm.cal,\n       xlab = \"Nomogram Predicted Survival\",\n       ylab = \"Actual Survival\",\n       main = \"Calibration Curve\"\n       )\n})\n\n\nn=168   Mean absolute error=0.065   Mean squared error=0.00501\n0.9 Quantile of absolute error=0.095\n\np\n\n\n\n\n\n\n\n图 1: 校准曲线",
+    "text": "可视化\n\n# 校准曲线\np &lt;- as.ggplot(function() {\n  plot(lrm.cal,\n       xlab = \"Nomogram Predicted Survival\",\n       ylab = \"Actual Survival\",\n       main = \"Calibration Curve\"\n       )\n})\n\n\nn=168   Mean absolute error=0.065   Mean squared error=0.005\n0.9 Quantile of absolute error=0.095\n\np\n\n\n\n\n\n\n\n图 1: 校准曲线",
     "crumbs": [
       "HIPLOT",
       "Calibration Curve"
@@ -3225,7 +3225,7 @@
     "href": "Hiplot/020-chord.html",
     "title": "弦图",
     "section": "",
-    "text": "复杂的数据关系交互作用以和弦图的形式表现出来。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Chord Plot 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/chord?lang=zh_cn\n复杂的数据关系交互作用以和弦图的形式表现出来。",
     "crumbs": [
       "HIPLOT",
       "Chord Plot"
@@ -3269,7 +3269,7 @@
     "href": "Hiplot/023-circular-barplot.html",
     "title": "环状条形图",
     "section": "",
-    "text": "绘制环状条形图",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Circular Barplot 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/circular-barplot?lang=zh_cn\n绘制环状条形图",
     "crumbs": [
       "HIPLOT",
       "Circular Barplot"
@@ -3313,7 +3313,7 @@
     "href": "Hiplot/025-complex-heatmap.html",
     "title": "复合热图",
     "section": "",
-    "text": "一个多组学插件同时绘制热图、注释和突变信息。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Complex Heatmap 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/complex-heatmap?lang=zh_cn\n一个多组学插件同时绘制热图、注释和突变信息。",
     "crumbs": [
       "HIPLOT",
       "Complex Heatmap"
@@ -3357,7 +3357,7 @@
     "href": "Hiplot/027-contour-matrix.html",
     "title": "等高线图 (矩阵)",
     "section": "",
-    "text": "等高图（矩阵）是一种以二维形式展示三维数据的图形。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Contour (Matrix) 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/contour-matrix?lang=zh_cn\n等高图（矩阵）是一种以二维形式展示三维数据的图形。",
     "crumbs": [
       "HIPLOT",
       "Contour (Matrix)"
@@ -3401,7 +3401,7 @@
     "href": "Hiplot/029-cor-heatmap-simple.html",
     "title": "简单可变相关热图",
     "section": "",
-    "text": "提供一个简单化版本的相关热图可视化。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Simplified Correlation Heatmap 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/cor-heatmap-simple?lang=zh_cn\n提供一个简单化版本的相关热图可视化。",
     "crumbs": [
       "HIPLOT",
       "Simplified Correlation Heatmap"
@@ -3445,7 +3445,7 @@
     "href": "Hiplot/033-corrplot.html",
     "title": "相关性热图 (Corrplot)",
     "section": "",
-    "text": "相关性热图是一种分析多个变量，两两之间相关性的图形。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Corrplot 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/corrplot?lang=zh_cn\n相关性热图是一种分析多个变量，两两之间相关性的图形。",
     "crumbs": [
       "HIPLOT",
       "Corrplot"
@@ -3489,7 +3489,7 @@
     "href": "Hiplot/035-custom-icon-scatter.html",
     "title": "自定义图标散点图",
     "section": "",
-    "text": "可自定义图标的散点图。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Custom Icon Scatter 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/custom-icon-scatter?lang=zh_cn\n可自定义图标的散点图。",
     "crumbs": [
       "HIPLOT",
       "Custom Icon Scatter"
@@ -3533,7 +3533,7 @@
     "href": "Hiplot/037-dendrogram.html",
     "title": "系统树图",
     "section": "",
-    "text": "系统树图是一种以树的形状表示的图。这种图表在不同情景有不同的含义。如：在层次聚类中，说明了相应分析产生的聚类的排列。在生物信息中，它显示基因或样本的聚集，有时在热图的边缘。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Dendrogram 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/dendrogram?lang=zh_cn\n系统树图是一种以树的形状表示的图。这种图表在不同情景有不同的含义。如：在层次聚类中，说明了相应分析产生的聚类的排列。在生物信息中，它显示基因或样本的聚集，有时在热图的边缘。",
     "crumbs": [
       "HIPLOT",
       "Dendrogram"
@@ -3577,7 +3577,7 @@
     "href": "Hiplot/039-density-histogram.html",
     "title": "密度图-直方图",
     "section": "",
-    "text": "使用密度图或直方图展示数据分布。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Density-Histogram 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/density-histogram?lang=zh_cn\n使用密度图或直方图展示数据分布。",
     "crumbs": [
       "HIPLOT",
       "Density-Histogram"
@@ -3621,7 +3621,7 @@
     "href": "Hiplot/041-deviation-plot.html",
     "title": "偏差图",
     "section": "",
-    "text": "偏差图可以直观地展示出数据之间的差异。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Deviation Plot 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/deviation-plot?lang=zh_cn\n偏差图可以直观地展示出数据之间的差异。",
     "crumbs": [
       "HIPLOT",
       "Deviation Plot"
@@ -3665,7 +3665,7 @@
     "href": "Hiplot/043-diverging-scale.html",
     "title": "双侧标准化图",
     "section": "",
-    "text": "双侧标准化图是一种将连续的，定量的输入映射到连续的固定的插值器上的图形。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Diverging Scale 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/diverging-scale?lang=zh_cn\n双侧标准化图是一种将连续的，定量的输入映射到连续的固定的插值器上的图形。",
     "crumbs": [
       "HIPLOT",
       "Diverging Scale"
@@ -3709,7 +3709,7 @@
     "href": "Hiplot/045-donut.html",
     "title": "环形图",
     "section": "",
-    "text": "环形图是饼图的一种变体，它有一个允许包含数据整体额外信息的空白中心。且与饼图目的一致，都是用来说明数据比例。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Donut 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/donut?lang=zh_cn\n环形图是饼图的一种变体，它有一个允许包含数据整体额外信息的空白中心。且与饼图目的一致，都是用来说明数据比例。",
     "crumbs": [
       "HIPLOT",
       "Donut"
@@ -3753,7 +3753,7 @@
     "href": "Hiplot/047-dual-y-axis.html",
     "title": "双Y轴图",
     "section": "",
-    "text": "双Y轴图可以将两组数量级较大的数据放在同一个图中进行展示。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Dual Y Axis Chart 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/dual-y-axis?lang=zh_cn\n双Y轴图可以将两组数量级较大的数据放在同一个图中进行展示。",
     "crumbs": [
       "HIPLOT",
       "Dual Y Axis Chart"
@@ -3797,7 +3797,7 @@
     "href": "Hiplot/049-easy-pairs.html",
     "title": "简易配对图",
     "section": "",
-    "text": "显示一个矩阵图，用于查看多个变量的相关关系和数据分布。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Easy Pairs 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/easy-pairs?lang=zh_cn\n显示一个矩阵图，用于查看多个变量的相关关系和数据分布。",
     "crumbs": [
       "HIPLOT",
       "Easy Pairs"
@@ -3841,7 +3841,7 @@
     "href": "Hiplot/051-eulerr.html",
     "title": "比例韦恩图",
     "section": "",
-    "text": "系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: eulerr; ggplotify\n\n\n# 安装包\nif (!requireNamespace(\"eulerr\", quietly = TRUE)) {\n  install.packages(\"eulerr\")\n}\nif (!requireNamespace(\"ggplotify\", quietly = TRUE)) {\n  install.packages(\"ggplotify\")\n}\n\n# 加载包\nlibrary(eulerr)\nlibrary(ggplotify)",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Eulerr Plot 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/eulerr?lang=zh_cn",
     "crumbs": [
       "HIPLOT",
       "Eulerr Plot"
@@ -3851,8 +3851,8 @@
     "objectID": "Hiplot/051-eulerr.html#环境配置",
     "href": "Hiplot/051-eulerr.html#环境配置",
     "title": "比例韦恩图",
-    "section": "",
-    "text": "系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: eulerr; ggplotify\n\n\n# 安装包\nif (!requireNamespace(\"eulerr\", quietly = TRUE)) {\n  install.packages(\"eulerr\")\n}\nif (!requireNamespace(\"ggplotify\", quietly = TRUE)) {\n  install.packages(\"ggplotify\")\n}\n\n# 加载包\nlibrary(eulerr)\nlibrary(ggplotify)",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: eulerr; ggplotify\n\n\n# 安装包\nif (!requireNamespace(\"eulerr\", quietly = TRUE)) {\n  install.packages(\"eulerr\")\n}\nif (!requireNamespace(\"ggplotify\", quietly = TRUE)) {\n  install.packages(\"ggplotify\")\n}\n\n# 加载包\nlibrary(eulerr)\nlibrary(ggplotify)",
     "crumbs": [
       "HIPLOT",
       "Eulerr Plot"
@@ -3885,7 +3885,7 @@
     "href": "Hiplot/053-ezcox.html",
     "title": "Cox 模型森林图",
     "section": "",
-    "text": "COX 模型森林图对 COX 模型构建风险森林图，以便于筛选变量的一种可视化图形。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Cox Models Forest 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/ezcox?lang=zh_cn\nCOX 模型森林图对 COX 模型构建风险森林图，以便于筛选变量的一种可视化图形。",
     "crumbs": [
       "HIPLOT",
       "Cox Models Forest"
@@ -3929,7 +3929,7 @@
     "href": "Hiplot/055-fishplot.html",
     "title": "鱼形图",
     "section": "",
-    "text": "克隆演化分析。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Fishplot 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/fishplot?lang=zh_cn\n克隆演化分析。",
     "crumbs": [
       "HIPLOT",
       "Fishplot"
@@ -3973,7 +3973,7 @@
     "href": "Hiplot/057-funnel-plot-metafor.html",
     "title": "漏斗图 (metafor)",
     "section": "",
-    "text": "可以用于分析 Meta 分析结果中潜在偏倚因子。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Funnel Plot (metafor) 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/funnel-plot-metafor?lang=zh_cn\n可以用于分析 Meta 分析结果中潜在偏倚因子。",
     "crumbs": [
       "HIPLOT",
       "Funnel Plot (metafor)"
@@ -4017,7 +4017,7 @@
     "href": "Hiplot/059-gantt.html",
     "title": "甘特图",
     "section": "",
-    "text": "甘特图是一种用来说明项目进度条形图。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Gantt 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/gantt?lang=zh_cn\n甘特图是一种用来说明项目进度条形图。",
     "crumbs": [
       "HIPLOT",
       "Gantt"
@@ -4061,7 +4061,7 @@
     "href": "Hiplot/061-gene-rank.html",
     "title": "基因差异表达排序图",
     "section": "",
-    "text": "基因表达排序可视化。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Gene Ranking Dotplot 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/gene-rank?lang=zh_cn\n基因表达排序可视化。",
     "crumbs": [
       "HIPLOT",
       "Gene Ranking Dotplot"
@@ -4105,7 +4105,7 @@
     "href": "Hiplot/063-ggbarstats.html",
     "title": "堆叠条形图",
     "section": "",
-    "text": "系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggstatsplot; ggplot2; cowplot\n\n\n# 安装包\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# 加载包\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Barstats 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/ggbarstats?lang=zh_cn",
     "crumbs": [
       "HIPLOT",
       "Barstats"
@@ -4115,8 +4115,8 @@
     "objectID": "Hiplot/063-ggbarstats.html#环境配置",
     "href": "Hiplot/063-ggbarstats.html#环境配置",
     "title": "堆叠条形图",
-    "section": "",
-    "text": "系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggstatsplot; ggplot2; cowplot\n\n\n# 安装包\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# 加载包\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggstatsplot; ggplot2; cowplot\n\n\n# 安装包\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# 加载包\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
     "crumbs": [
       "HIPLOT",
       "Barstats"
@@ -4149,7 +4149,7 @@
     "href": "Hiplot/065-ggdag.html",
     "title": "有向无环图",
     "section": "",
-    "text": "有向无环图可视化。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Directed Acyclic Graphs 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/ggdag?lang=zh_cn\n有向无环图可视化。",
     "crumbs": [
       "HIPLOT",
       "Directed Acyclic Graphs"
@@ -4171,7 +4171,7 @@
     "href": "Hiplot/065-ggdag.html#数据准备",
     "title": "有向无环图",
     "section": "数据准备",
-    "text": "数据准备\n\n# 加载数据\ntidy_ggdag &lt;- dagify(\n  y ~ x + z2 + w2 + w1,\n  x ~ z1 + w1 + w2,\n  z1 ~ w1 + v,\n  z2 ~ w2 + v,\n  w1 ~ ~w2, # bidirected path\n  exposure = \"x\",\n  outcome = \"y\") %&gt;%\n  tidy_dagitty()\n\n# 查看数据\nhead(tidy_ggdag)\n\n$data\n# A tibble: 13 × 8\n   name       x     y direction to      xend  yend circular\n   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;   \n 1 v     -2.21  -4.84 -&gt;        z1    -0.846 -4.45 FALSE   \n 2 v     -2.21  -4.84 -&gt;        z2    -2.63  -3.50 FALSE   \n 3 w1    -0.916 -3.47 -&gt;        x     -0.537 -2.97 FALSE   \n 4 w1    -0.916 -3.47 -&gt;        y     -1.58  -2.43 FALSE   \n 5 w1    -0.916 -3.47 -&gt;        z1    -0.846 -4.45 FALSE   \n 6 w1    -0.916 -3.47 &lt;-&gt;       w2    -1.75  -3.04 FALSE   \n 7 w2    -1.75  -3.04 -&gt;        x     -0.537 -2.97 FALSE   \n 8 w2    -1.75  -3.04 -&gt;        y     -1.58  -2.43 FALSE   \n 9 w2    -1.75  -3.04 -&gt;        z2    -2.63  -3.50 FALSE   \n10 x     -0.537 -2.97 -&gt;        y     -1.58  -2.43 FALSE   \n11 y     -1.58  -2.43 &lt;NA&gt;      &lt;NA&gt;  NA     NA    FALSE   \n12 z1    -0.846 -4.45 -&gt;        x     -0.537 -2.97 FALSE   \n13 z2    -2.63  -3.50 -&gt;        y     -1.58  -2.43 FALSE   \n\n$dag\ndag {\nv\nw1\nw2\nx [exposure]\ny [outcome]\nz1\nz2\nv -&gt; z1\nv -&gt; z2\nw1 -&gt; x\nw1 -&gt; y\nw1 -&gt; z1\nw1 &lt;-&gt; w2\nw2 -&gt; x\nw2 -&gt; y\nw2 -&gt; z2\nx -&gt; y\nz1 -&gt; x\nz2 -&gt; y\n}",
+    "text": "数据准备\n\n# 加载数据\ntidy_ggdag &lt;- dagify(\n  y ~ x + z2 + w2 + w1,\n  x ~ z1 + w1 + w2,\n  z1 ~ w1 + v,\n  z2 ~ w2 + v,\n  w1 ~ ~w2, # bidirected path\n  exposure = \"x\",\n  outcome = \"y\") %&gt;%\n  tidy_dagitty()\n\n# 查看数据\nhead(tidy_ggdag)\n\n$data\n# A tibble: 13 × 8\n   name       x     y direction to      xend  yend circular\n   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;   \n 1 v     -2.18  -4.04 -&gt;        z1    -1.83  -2.68 FALSE   \n 2 v     -2.18  -4.04 -&gt;        z2    -0.796 -4.37 FALSE   \n 3 w1    -0.395 -2.26 -&gt;        x     -0.839 -2.71 FALSE   \n 4 w1    -0.395 -2.26 -&gt;        y     -0.333 -3.50 FALSE   \n 5 w1    -0.395 -2.26 -&gt;        z1    -1.83  -2.68 FALSE   \n 6 w1    -0.395 -2.26 &lt;-&gt;       w2     0.236 -3.25 FALSE   \n 7 w2     0.236 -3.25 -&gt;        x     -0.839 -2.71 FALSE   \n 8 w2     0.236 -3.25 -&gt;        y     -0.333 -3.50 FALSE   \n 9 w2     0.236 -3.25 -&gt;        z2    -0.796 -4.37 FALSE   \n10 x     -0.839 -2.71 -&gt;        y     -0.333 -3.50 FALSE   \n11 y     -0.333 -3.50 &lt;NA&gt;      &lt;NA&gt;  NA     NA    FALSE   \n12 z1    -1.83  -2.68 -&gt;        x     -0.839 -2.71 FALSE   \n13 z2    -0.796 -4.37 -&gt;        y     -0.333 -3.50 FALSE   \n\n$dag\ndag {\nv\nw1\nw2\nx [exposure]\ny [outcome]\nz1\nz2\nv -&gt; z1\nv -&gt; z2\nw1 -&gt; x\nw1 -&gt; y\nw1 -&gt; z1\nw1 &lt;-&gt; w2\nw2 -&gt; x\nw2 -&gt; y\nw2 -&gt; z2\nx -&gt; y\nz1 -&gt; x\nz2 -&gt; y\n}",
     "crumbs": [
       "HIPLOT",
       "Directed Acyclic Graphs"
@@ -4193,7 +4193,7 @@
     "href": "Hiplot/067-gghistostats.html",
     "title": "条形图（Histostats）",
     "section": "",
-    "text": "展示数据分布及统计推断。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Histostats 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/gghistostats?lang=zh_cn\n展示数据分布及统计推断。",
     "crumbs": [
       "HIPLOT",
       "Histostats"
@@ -4237,7 +4237,7 @@
     "href": "Hiplot/069-ggpiestats-group.html",
     "title": "分组饼状图（ggpiestats）",
     "section": "",
-    "text": "系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggstatsplot; ggplot2; cowplot\n\n\n# 安装包\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# 加载包\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Piestats Group 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/ggpiestats-group?lang=zh_cn",
     "crumbs": [
       "HIPLOT",
       "Piestats Group"
@@ -4247,8 +4247,8 @@
     "objectID": "Hiplot/069-ggpiestats-group.html#环境配置",
     "href": "Hiplot/069-ggpiestats-group.html#环境配置",
     "title": "分组饼状图（ggpiestats）",
-    "section": "",
-    "text": "系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggstatsplot; ggplot2; cowplot\n\n\n# 安装包\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# 加载包\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggstatsplot; ggplot2; cowplot\n\n\n# 安装包\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# 加载包\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
     "crumbs": [
       "HIPLOT",
       "Piestats Group"
@@ -4281,7 +4281,7 @@
     "href": "Hiplot/072-ggpubr-boxplot.html",
     "title": "GGPubr 箱线图",
     "section": "",
-    "text": "特性丰富的箱线图（GGPubr 接口）。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot GGPubr Boxplot 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/ggpubr-boxplot?lang=zh_cn\n特性丰富的箱线图（GGPubr 接口）。",
     "crumbs": [
       "HIPLOT",
       "GGPubr Boxplot"
@@ -4325,7 +4325,7 @@
     "href": "Hiplot/074-ggseqlogo.html",
     "title": "序列 Logo",
     "section": "",
-    "text": "序列 Logo 是一种用来描述结合位点序列模式的图形。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Seqlogo 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/ggseqlogo?lang=zh_cn\n序列 Logo 是一种用来描述结合位点序列模式的图形。",
     "crumbs": [
       "HIPLOT",
       "Seqlogo"
@@ -4369,7 +4369,7 @@
     "href": "Hiplot/076-ggwordcloud.html",
     "title": "ggplot2 词云",
     "section": "",
-    "text": "词云是通过形成“关键字云层”或“关键字渲染”来可视化Web文本中经常出现的“关键字”。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot ggwordcloud 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/ggwordcloud?lang=zh_cn\n词云是通过形成“关键字云层”或“关键字渲染”来可视化Web文本中经常出现的“关键字”。",
     "crumbs": [
       "HIPLOT",
       "ggwordcloud"
@@ -4413,7 +4413,7 @@
     "href": "Hiplot/078-gobubble.html",
     "title": "GO气泡图",
     "section": "",
-    "text": "GO气泡图用于显示按z-score或adjusted p-value的负相对序列的Z-score彩色气泡图。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot GOBubble Plot 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/gobubble?lang=zh_cn\nGO气泡图用于显示按z-score或adjusted p-value的负相对序列的Z-score彩色气泡图。",
     "crumbs": [
       "HIPLOT",
       "GOBubble Plot"
@@ -4457,7 +4457,7 @@
     "href": "Hiplot/080-grdotplot.html",
     "title": "分组排序点图",
     "section": "",
-    "text": "不同组别连续变量样本值及分布比较。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Group Rank Dotplot 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/grdotplot?lang=zh_cn\n不同组别连续变量样本值及分布比较。",
     "crumbs": [
       "HIPLOT",
       "Group Rank Dotplot"
@@ -4501,7 +4501,7 @@
     "href": "Hiplot/082-group-comparison.html",
     "title": "分组比较热图",
     "section": "",
-    "text": "分组比较热图提供了一种进行多组比较并使用热图可视化的紧凑方式，以替换绘制许多个箱线图。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Group-comparison Heatmap 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/group-comparison?lang=zh_cn\n分组比较热图提供了一种进行多组比较并使用热图可视化的紧凑方式，以替换绘制许多个箱线图。",
     "crumbs": [
       "HIPLOT",
       "Group-comparison Heatmap"
@@ -4545,7 +4545,7 @@
     "href": "Hiplot/084-group-line.html",
     "title": "分组折线图",
     "section": "",
-    "text": "系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# 加载包\nlibrary(ggplot2)",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Group Line 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/group-line?lang=zh_cn",
     "crumbs": [
       "HIPLOT",
       "Group Line"
@@ -4555,8 +4555,8 @@
     "objectID": "Hiplot/084-group-line.html#环境配置",
     "href": "Hiplot/084-group-line.html#环境配置",
     "title": "分组折线图",
-    "section": "",
-    "text": "系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# 加载包\nlibrary(ggplot2)",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# 加载包\nlibrary(ggplot2)",
     "crumbs": [
       "HIPLOT",
       "Group Line"
@@ -4589,7 +4589,7 @@
     "href": "Hiplot/086-heatmap.html",
     "title": "热图",
     "section": "",
-    "text": "热图是对实验数据分布情况进行分析的直观可视化方法，可以用来进行实验数据的质量控制和差异数据的具象化展示，还可以对数据和样品进行聚类分析，观测样品质量。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Heatmap 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/heatmap?lang=zh_cn\n热图是对实验数据分布情况进行分析的直观可视化方法，可以用来进行实验数据的质量控制和差异数据的具象化展示，还可以对数据和样品进行聚类分析，观测样品质量。",
     "crumbs": [
       "HIPLOT",
       "Heatmap"
@@ -4633,7 +4633,7 @@
     "href": "Hiplot/088-histogram.html",
     "title": "直方图",
     "section": "",
-    "text": "直方图是由一系列高度不等的纵向条纹或线段表示连续性变量数据的分布情况。",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Histogram 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/histogram?lang=zh_cn\n直方图是由一系列高度不等的纵向条纹或线段表示连续性变量数据的分布情况。",
     "crumbs": [
       "HIPLOT",
       "Histogram"
@@ -4677,7 +4677,7 @@
     "href": "Hiplot/090-interval-bar-chart.html",
     "title": "区间条形图",
     "section": "",
-    "text": "系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# 加载包\nlibrary(ggplot2)",
+    "text": "注记\n\n\n\nHiplot 网站\n本页面为 Hiplot Interval Bar Chart 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:\nhttps://hiplot.cn/basic/interval-bar-chart?lang=zh_cn",
     "crumbs": [
       "HIPLOT",
       "Interval Bar Chart"
@@ -4687,8 +4687,8 @@
     "objectID": "Hiplot/090-interval-bar-chart.html#环境配置",
     "href": "Hiplot/090-interval-bar-chart.html#环境配置",
     "title": "区间条形图",
-    "section": "",
-    "text": "系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# 加载包\nlibrary(ggplot2)",
+    "section": "环境配置",
+    "text": "环境配置\n\n系统: Cross-platform (Linux/MacOS/Windows)\n编程语言: R\n依赖包: ggplot2\n\n\n# 安装包\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# 加载包\nlibrary(ggplot2)",
     "crumbs": [
       "HIPLOT",
       "Interval Bar Chart"

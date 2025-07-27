@@ -1248,7 +1248,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">作者</div>
     <div class="quarto-title-meta-contents">
-             <p><strong>[编辑]</strong> 郑虎; </p>
+             <p><strong>[编辑]</strong> <a href="https://github.com/ZhengTiger">郑虎</a>; </p>
              <p><strong>[审核]</strong> . </p>
           </div>
   </div>
@@ -1259,7 +1259,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>有向无环图可视化。</p>
+</header><div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+注记
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Hiplot 网站</strong></p>
+<p>本页面为 Hiplot <code>Directed Acyclic Graphs</code> 插件的源码版本教程，您也可以使用 Hiplot 网站实现无代码绘图，更多信息请查看以下链接:</p>
+<p><a href="https://hiplot.cn/basic/ggdag?lang=zh_cn" class="uri">https://hiplot.cn/basic/ggdag?lang=zh_cn</a></p>
+</div>
+</div>
+<p>有向无环图可视化。</p>
 <section id="环境配置" class="level2"><h2 class="anchored" data-anchor-id="环境配置">环境配置</h2>
 <ul>
 <li><p>系统: Cross-platform (Linux/MacOS/Windows)</p></li>
@@ -1295,19 +1310,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # A tibble: 13 × 8
    name       x     y direction to      xend  yend circular
    &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;   
- 1 v     -2.21  -4.84 -&gt;        z1    -0.846 -4.45 FALSE   
- 2 v     -2.21  -4.84 -&gt;        z2    -2.63  -3.50 FALSE   
- 3 w1    -0.916 -3.47 -&gt;        x     -0.537 -2.97 FALSE   
- 4 w1    -0.916 -3.47 -&gt;        y     -1.58  -2.43 FALSE   
- 5 w1    -0.916 -3.47 -&gt;        z1    -0.846 -4.45 FALSE   
- 6 w1    -0.916 -3.47 &lt;-&gt;       w2    -1.75  -3.04 FALSE   
- 7 w2    -1.75  -3.04 -&gt;        x     -0.537 -2.97 FALSE   
- 8 w2    -1.75  -3.04 -&gt;        y     -1.58  -2.43 FALSE   
- 9 w2    -1.75  -3.04 -&gt;        z2    -2.63  -3.50 FALSE   
-10 x     -0.537 -2.97 -&gt;        y     -1.58  -2.43 FALSE   
-11 y     -1.58  -2.43 &lt;NA&gt;      &lt;NA&gt;  NA     NA    FALSE   
-12 z1    -0.846 -4.45 -&gt;        x     -0.537 -2.97 FALSE   
-13 z2    -2.63  -3.50 -&gt;        y     -1.58  -2.43 FALSE   
+ 1 v     -2.18  -4.04 -&gt;        z1    -1.83  -2.68 FALSE   
+ 2 v     -2.18  -4.04 -&gt;        z2    -0.796 -4.37 FALSE   
+ 3 w1    -0.395 -2.26 -&gt;        x     -0.839 -2.71 FALSE   
+ 4 w1    -0.395 -2.26 -&gt;        y     -0.333 -3.50 FALSE   
+ 5 w1    -0.395 -2.26 -&gt;        z1    -1.83  -2.68 FALSE   
+ 6 w1    -0.395 -2.26 &lt;-&gt;       w2     0.236 -3.25 FALSE   
+ 7 w2     0.236 -3.25 -&gt;        x     -0.839 -2.71 FALSE   
+ 8 w2     0.236 -3.25 -&gt;        y     -0.333 -3.50 FALSE   
+ 9 w2     0.236 -3.25 -&gt;        z2    -0.796 -4.37 FALSE   
+10 x     -0.839 -2.71 -&gt;        y     -0.333 -3.50 FALSE   
+11 y     -0.333 -3.50 &lt;NA&gt;      &lt;NA&gt;  NA     NA    FALSE   
+12 z1    -1.83  -2.68 -&gt;        x     -0.839 -2.71 FALSE   
+13 z2    -0.796 -4.37 -&gt;        y     -0.333 -3.50 FALSE   
 
 $dag
 dag {

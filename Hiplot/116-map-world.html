@@ -1300,7 +1300,7 @@ Note
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>dt_map <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"files/Hiplot/world.rds"</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert data structure</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>dt_map<span class="sc">$</span>Value <span class="ot">&lt;-</span> data<span class="sc">$</span>death_rate[<span class="fu">match</span>(dt_map<span class="sc">$</span>ENG_CONTIN, data<span class="sc">$</span>region)]</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>dt_map<span class="sc">$</span>Value <span class="ot">&lt;-</span> data<span class="sc">$</span>death_rate[<span class="fu">match</span>(dt_map<span class="sc">$</span>ENG_NAME, data<span class="sc">$</span>region)]</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># View data</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

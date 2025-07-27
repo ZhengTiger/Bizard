@@ -977,7 +977,7 @@
     "href": "Hiplot/089-interval-area-chart.html",
     "title": "Interval Area Chart",
     "section": "",
-    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# Load packages\nlibrary(ggplot2)",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Interval Area Chart plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/interval-area-chart?lang=en",
     "crumbs": [
       "HIPLOT",
       "Interval Area Chart"
@@ -987,8 +987,8 @@
     "objectID": "Hiplot/089-interval-area-chart.html#setup",
     "href": "Hiplot/089-interval-area-chart.html#setup",
     "title": "Interval Area Chart",
-    "section": "",
-    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# Load packages\nlibrary(ggplot2)",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# Load packages\nlibrary(ggplot2)",
     "crumbs": [
       "HIPLOT",
       "Interval Area Chart"
@@ -1021,7 +1021,7 @@
     "href": "Hiplot/087-hic-heatmap.html",
     "title": "Hi-C Heatmap",
     "section": "",
-    "text": "The HiC heatmap is used to display the genome-wide chromatin interaction with heatmap on different chromosomes.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Hi-C Heatmap plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/hic-heatmap?lang=en\nThe HiC heatmap is used to display the genome-wide chromatin interaction with heatmap on different chromosomes.",
     "crumbs": [
       "HIPLOT",
       "Hi-C Heatmap"
@@ -1065,7 +1065,7 @@
     "href": "Hiplot/085-half-violin.html",
     "title": "Half Violin",
     "section": "",
-    "text": "The half violin plot is a statistical graph used to display the distribution and probability density of data by replacing the left part with the data frequency count graph on the basis of keeping the right part of violin graph.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Half Violin plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/half-violin?lang=en\nThe half violin plot is a statistical graph used to display the distribution and probability density of data by replacing the left part with the data frequency count graph on the basis of keeping the right part of violin graph.",
     "crumbs": [
       "HIPLOT",
       "Half Violin"
@@ -1109,7 +1109,7 @@
     "href": "Hiplot/083-group-dumbbell.html",
     "title": "Group Dumbbell",
     "section": "",
-    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; ggalt\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"ggalt\", quietly = TRUE)) {\n  install.packages(\"ggalt\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(ggalt)",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Group Dumbbell plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/group-dumbbell?lang=en",
     "crumbs": [
       "HIPLOT",
       "Group Dumbbell"
@@ -1119,8 +1119,8 @@
     "objectID": "Hiplot/083-group-dumbbell.html#setup",
     "href": "Hiplot/083-group-dumbbell.html#setup",
     "title": "Group Dumbbell",
-    "section": "",
-    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; ggalt\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"ggalt\", quietly = TRUE)) {\n  install.packages(\"ggalt\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(ggalt)",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2; ggalt\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"ggalt\", quietly = TRUE)) {\n  install.packages(\"ggalt\")\n}\n\n# Load packages\nlibrary(ggplot2)\nlibrary(ggalt)",
     "crumbs": [
       "HIPLOT",
       "Group Dumbbell"
@@ -1153,7 +1153,7 @@
     "href": "Hiplot/081-group-bubble.html",
     "title": "Group Bubble",
     "section": "",
-    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# Load packages\nlibrary(ggplot2)",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Group Bubble plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/group-bubble?lang=en",
     "crumbs": [
       "HIPLOT",
       "Group Bubble"
@@ -1163,8 +1163,8 @@
     "objectID": "Hiplot/081-group-bubble.html#setup",
     "href": "Hiplot/081-group-bubble.html#setup",
     "title": "Group Bubble",
-    "section": "",
-    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# Load packages\nlibrary(ggplot2)",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# Load packages\nlibrary(ggplot2)",
     "crumbs": [
       "HIPLOT",
       "Group Bubble"
@@ -1197,7 +1197,7 @@
     "href": "Hiplot/079-gocircle.html",
     "title": "GOCircle Plot",
     "section": "",
-    "text": "The gocircle plot is used to display the circular plot combines gene expression and gene- annotation enrichment data. A subset of terms is displayed like the GOBar plot in combination with a scatter plot of the gene expression data. The whole plot is drawn on a specific coordinate system to achieve the circular layout. The segments are labeled with the term ID.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot GOCircle Plot plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/gocircle?lang=en\nThe gocircle plot is used to display the circular plot combines gene expression and gene- annotation enrichment data. A subset of terms is displayed like the GOBar plot in combination with a scatter plot of the gene expression data. The whole plot is drawn on a specific coordinate system to achieve the circular layout. The segments are labeled with the term ID.",
     "crumbs": [
       "HIPLOT",
       "GOCircle Plot"
@@ -1241,7 +1241,7 @@
     "href": "Hiplot/077-gobar.html",
     "title": "GOBar Plot",
     "section": "",
-    "text": "The gobar plot is used to display Z-score coloured barplot of terms ordered alternatively by z-score or the negative logarithm of the adjusted p-value.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot GOBar Plot plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/gobar?lang=en\nThe gobar plot is used to display Z-score coloured barplot of terms ordered alternatively by z-score or the negative logarithm of the adjusted p-value.",
     "crumbs": [
       "HIPLOT",
       "GOBar Plot"
@@ -1285,7 +1285,7 @@
     "href": "Hiplot/075-ggwithinstats.html",
     "title": "Complex-Violin",
     "section": "",
-    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggstatsplot; ggplot2; cowplot\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# Load packages\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Complex-Violin plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/ggwithinstats?lang=en",
     "crumbs": [
       "HIPLOT",
       "Complex-Violin"
@@ -1295,8 +1295,8 @@
     "objectID": "Hiplot/075-ggwithinstats.html#setup",
     "href": "Hiplot/075-ggwithinstats.html#setup",
     "title": "Complex-Violin",
-    "section": "",
-    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggstatsplot; ggplot2; cowplot\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# Load packages\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggstatsplot; ggplot2; cowplot\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# Load packages\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
     "crumbs": [
       "HIPLOT",
       "Complex-Violin"
@@ -1329,7 +1329,7 @@
     "href": "Hiplot/073-ggscatterstats.html",
     "title": "Scatterstats",
     "section": "",
-    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggpubr; ggthemes\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\n\n# Load packages\nlibrary(ggstatsplot)",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Scatterstats plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/ggscatterstats?lang=en",
     "crumbs": [
       "HIPLOT",
       "Scatterstats"
@@ -1339,8 +1339,8 @@
     "objectID": "Hiplot/073-ggscatterstats.html#setup",
     "href": "Hiplot/073-ggscatterstats.html#setup",
     "title": "Scatterstats",
-    "section": "",
-    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggpubr; ggthemes\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\n\n# Load packages\nlibrary(ggstatsplot)",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggpubr; ggthemes\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\n\n# Load packages\nlibrary(ggstatsplot)",
     "crumbs": [
       "HIPLOT",
       "Scatterstats"
@@ -1373,7 +1373,7 @@
     "href": "Hiplot/071-ggpiestats.html",
     "title": "Piestats",
     "section": "",
-    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggstatsplot; ggplot2\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# Load packages\nlibrary(ggstatsplot)\nlibrary(ggplot2)",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Piestats plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/ggpiestats?lang=en",
     "crumbs": [
       "HIPLOT",
       "Piestats"
@@ -1383,8 +1383,8 @@
     "objectID": "Hiplot/071-ggpiestats.html#setup",
     "href": "Hiplot/071-ggpiestats.html#setup",
     "title": "Piestats",
-    "section": "",
-    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggstatsplot; ggplot2\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# Load packages\nlibrary(ggstatsplot)\nlibrary(ggplot2)",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggstatsplot; ggplot2\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# Load packages\nlibrary(ggstatsplot)\nlibrary(ggplot2)",
     "crumbs": [
       "HIPLOT",
       "Piestats"
@@ -1417,7 +1417,7 @@
     "href": "Hiplot/068-ggpie.html",
     "title": "GGPIE",
     "section": "",
-    "text": "The pie chart is a statistical chart that shows the proportion of each part by dividing a circle into sections.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot GGPIE plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/ggpie?lang=en\nThe pie chart is a statistical chart that shows the proportion of each part by dividing a circle into sections.",
     "crumbs": [
       "HIPLOT",
       "GGPIE"
@@ -1461,7 +1461,7 @@
     "href": "Hiplot/066-ggdist.html",
     "title": "Dist Plot",
     "section": "",
-    "text": "The dist plot is a visual diagram using a confidence distribution.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Dist Plot plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/ggdist?lang=en\nThe dist plot is a visual diagram using a confidence distribution.",
     "crumbs": [
       "HIPLOT",
       "Dist Plot"
@@ -1505,7 +1505,7 @@
     "href": "Hiplot/064-ggbetweenstats.html",
     "title": "Betweenstats",
     "section": "",
-    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggstatsplot; ggplot2; cowplot\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# Load packages\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Betweenstats plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/ggbetweenstats?lang=en",
     "crumbs": [
       "HIPLOT",
       "Betweenstats"
@@ -1515,8 +1515,8 @@
     "objectID": "Hiplot/064-ggbetweenstats.html#setup",
     "href": "Hiplot/064-ggbetweenstats.html#setup",
     "title": "Betweenstats",
-    "section": "",
-    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggstatsplot; ggplot2; cowplot\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# Load packages\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggstatsplot; ggplot2; cowplot\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# Load packages\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
     "crumbs": [
       "HIPLOT",
       "Betweenstats"
@@ -1549,7 +1549,7 @@
     "href": "Hiplot/062-gene-trend.html",
     "title": "Gene Cluster Trend",
     "section": "",
-    "text": "The gene cluster trend is used to display different gene expression trend with multiple lines showing the similar expression patterns in each cluster.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Gene Cluster Trend plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/gene-trend?lang=en\nThe gene cluster trend is used to display different gene expression trend with multiple lines showing the similar expression patterns in each cluster.",
     "crumbs": [
       "HIPLOT",
       "Gene Cluster Trend"
@@ -1593,7 +1593,7 @@
     "href": "Hiplot/060-gene-density.html",
     "title": "Gene Density",
     "section": "",
-    "text": "Chrosome data visualization.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Gene Density plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/gene-density?lang=en\nChrosome data visualization.",
     "crumbs": [
       "HIPLOT",
       "Gene Density"
@@ -1637,7 +1637,7 @@
     "href": "Hiplot/058-funnel-plot.html",
     "title": "Funnel Plot",
     "section": "",
-    "text": "Can be used to show potential bias factors in Meta-analysis.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Funnel Plot plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/funnel-plot?lang=en\nCan be used to show potential bias factors in Meta-analysis.",
     "crumbs": [
       "HIPLOT",
       "Funnel Plot"
@@ -1681,7 +1681,7 @@
     "href": "Hiplot/056-flowerplot.html",
     "title": "Flower plot",
     "section": "",
-    "text": "Flower plot with multiple sets.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Flower plot plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/flowerplot?lang=en\nFlower plot with multiple sets.",
     "crumbs": [
       "HIPLOT",
       "Flower plot"
@@ -1725,7 +1725,7 @@
     "href": "Hiplot/054-fan.html",
     "title": "Fan Plot",
     "section": "",
-    "text": "The pie chart is a statistical chart designed to clearly show the percentage of each data group by the size of the pie.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Fan Plot plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/fan?lang=en\nThe pie chart is a statistical chart designed to clearly show the percentage of each data group by the size of the pie.",
     "crumbs": [
       "HIPLOT",
       "Fan Plot"
@@ -1769,7 +1769,7 @@
     "href": "Hiplot/052-extended-scatter.html",
     "title": "Extended Scatter",
     "section": "",
-    "text": "An extended scatter plot adds marginal plots to the basic scatter plot to provide a more comprehensive view of the data distribution.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Extended Scatter plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/extended-scatter?lang=en\nAn extended scatter plot adds marginal plots to the basic scatter plot to provide a more comprehensive view of the data distribution.",
     "crumbs": [
       "HIPLOT",
       "Extended Scatter"
@@ -1813,7 +1813,7 @@
     "href": "Hiplot/050-easy-som.html",
     "title": "Easy SOM",
     "section": "",
-    "text": "Establish the SOM model and conduct the visulization.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Easy SOM plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/easy-som?lang=en\nEstablish the SOM model and conduct the visulization.",
     "crumbs": [
       "HIPLOT",
       "Easy SOM"
@@ -1857,7 +1857,7 @@
     "href": "Hiplot/048-dumbbell.html",
     "title": "Dumbbell Chart",
     "section": "",
-    "text": "Dumbbell Chart can display the data change.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Dumbbell Chart plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/dumbbell?lang=en\nDumbbell Chart can display the data change.",
     "crumbs": [
       "HIPLOT",
       "Dumbbell Chart"
@@ -1901,7 +1901,7 @@
     "href": "Hiplot/046-dotchart.html",
     "title": "Dotchart",
     "section": "",
-    "text": "Sliding bead chart is a graph of beads sliding on a column. It is the superposition of bar chart and scatter chart.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Dotchart plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/dotchart?lang=en\nSliding bead chart is a graph of beads sliding on a column. It is the superposition of bar chart and scatter chart.",
     "crumbs": [
       "HIPLOT",
       "Dotchart"
@@ -1945,7 +1945,7 @@
     "href": "Hiplot/044-diy-gsea.html",
     "title": "DIY GSEA",
     "section": "",
-    "text": "Make your geneset.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot DIY GSEA plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/diy-gsea?lang=en\nMake your geneset.",
     "crumbs": [
       "HIPLOT",
       "DIY GSEA"
@@ -1989,7 +1989,7 @@
     "href": "Hiplot/042-diffusion-map.html",
     "title": "Diffusion Map",
     "section": "",
-    "text": "Diffusion Map is a nonlinear dimensionality reduction algorithm that can be used to visualize developmental trajectories.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Diffusion Map plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/diffusion-map?lang=en\nDiffusion Map is a nonlinear dimensionality reduction algorithm that can be used to visualize developmental trajectories.",
     "crumbs": [
       "HIPLOT",
       "Diffusion Map"
@@ -2033,7 +2033,7 @@
     "href": "Hiplot/040-density.html",
     "title": "Density",
     "section": "",
-    "text": "The kernel density map is a graph used to observe the distribution of continuous variables.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Density plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/density?lang=en\nThe kernel density map is a graph used to observe the distribution of continuous variables.",
     "crumbs": [
       "HIPLOT",
       "Density"
@@ -2077,7 +2077,7 @@
     "href": "Hiplot/038-density-hist-mirror.html",
     "title": "Mirror Density & Histogram",
     "section": "",
-    "text": "The mirror density & histogram is a graph used to observe the distribution of continuous variables in two side view: top and bottom.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Mirror Density & Histogram plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/density-hist-mirror?lang=en\nThe mirror density & histogram is a graph used to observe the distribution of continuous variables in two side view: top and bottom.",
     "crumbs": [
       "HIPLOT",
       "Mirror Density & Histogram"
@@ -2121,7 +2121,7 @@
     "href": "Hiplot/036-d3-wordcloud.html",
     "title": "D3 Wordcloud",
     "section": "",
-    "text": "Display the wordcloud。",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot D3 Wordcloud plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/d3-wordcloud?lang=en\nDisplay the wordcloud。",
     "crumbs": [
       "HIPLOT",
       "D3 Wordcloud"
@@ -2165,7 +2165,7 @@
     "href": "Hiplot/034-custom-heat-map.html",
     "title": "Custom Heatmap",
     "section": "",
-    "text": "Custom Heatmap, directly plot a heatmap based on the given data.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Custom Heatmap plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/custom-heat-map?lang=en\nCustom Heatmap, directly plot a heatmap based on the given data.",
     "crumbs": [
       "HIPLOT",
       "Custom Heatmap"
@@ -2209,7 +2209,7 @@
     "href": "Hiplot/030-cor-heatmap.html",
     "title": "Correlation Heatmap",
     "section": "",
-    "text": "The correlation heat map is a graph that analyzes the correlation between two or more variables.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Area plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/cor-heatmap?lang=en\nThe correlation heat map is a graph that analyzes the correlation between two or more variables.",
     "crumbs": [
       "HIPLOT",
       "Correlation Heatmap"
@@ -2253,7 +2253,7 @@
     "href": "Hiplot/028-contour-xy.html",
     "title": "Contour (XY)",
     "section": "",
-    "text": "Contour plot (XY) is a data processing method that reflects data density through contour line.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Contour (XY) plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/contour-xy?lang=en\nContour plot (XY) is a data processing method that reflects data density through contour line.",
     "crumbs": [
       "HIPLOT",
       "Contour (XY)"
@@ -2297,7 +2297,7 @@
     "href": "Hiplot/026-connected-scatterplot.html",
     "title": "Connected Scatterplot",
     "section": "",
-    "text": "Connected scatterplot",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Connected Scatterplot plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/connected-scatterplot?lang=en\nConnected scatterplot",
     "crumbs": [
       "HIPLOT",
       "Connected Scatterplot"
@@ -2341,7 +2341,7 @@
     "href": "Hiplot/024-circular-pie-chart.html",
     "title": "Circular Pie Chart",
     "section": "",
-    "text": "Another form of the pie chart.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Circular Pie Chart plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/circular-pie-chart?lang=en\nAnother form of the pie chart.",
     "crumbs": [
       "HIPLOT",
       "Circular Pie Chart"
@@ -2385,7 +2385,7 @@
     "href": "Hiplot/021-circle-packing.html",
     "title": "Circle Packing",
     "section": "",
-    "text": "Circle packing is a visualization method used to display the differences in quantity among different categories.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Circle Packing plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/circle-packing?lang=en\nCircle packing is a visualization method used to display the differences in quantity among different categories.",
     "crumbs": [
       "HIPLOT",
       "Circle Packing"
@@ -2429,7 +2429,7 @@
     "href": "Hiplot/019-chi-square-fisher.html",
     "title": "Chi-square-fisher Test",
     "section": "",
-    "text": "Chi-square and Fisher test can be used to test the frequency difference of categorical variables. The tool will automatically select the statistical method of Chi-square and Fisher exact test.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Chi-square-fisher Test plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/chi-square-fisher?lang=en\nChi-square and Fisher test can be used to test the frequency difference of categorical variables. The tool will automatically select the statistical method of Chi-square and Fisher exact test.",
     "crumbs": [
       "HIPLOT",
       "Chi-square-fisher Test"
@@ -2473,7 +2473,7 @@
     "href": "Hiplot/017-bumpchart.html",
     "title": "Bumpchart",
     "section": "",
-    "text": "Bump chart can be used to display the change of grouped values.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Bumpchart plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/bumpchart?lang=en\nBump chart can be used to display the change of grouped values.",
     "crumbs": [
       "HIPLOT",
       "Bumpchart"
@@ -2517,7 +2517,7 @@
     "href": "Hiplot/015-boxplot.html",
     "title": "Boxplot",
     "section": "",
-    "text": "The box plot is a method of visualizing the distribution characteristics of a set of data by means of a quartile graph.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Boxplot plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/boxplot?lang=en\nThe box plot is a method of visualizing the distribution characteristics of a set of data by means of a quartile graph.",
     "crumbs": [
       "HIPLOT",
       "Boxplot"
@@ -2561,7 +2561,7 @@
     "href": "Hiplot/013-big-corrplot.html",
     "title": "Corrplot Big Data",
     "section": "",
-    "text": "The correlation heat map is a graph that analyzes the correlation between two or more variables.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Corrplot Big Data plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/big-corrplot?lang=en\nThe correlation heat map is a graph that analyzes the correlation between two or more variables.",
     "crumbs": [
       "HIPLOT",
       "Corrplot Big Data"
@@ -2605,7 +2605,7 @@
     "href": "Hiplot/011-beanplot.html",
     "title": "Beanplot",
     "section": "",
-    "text": "The beanplot is a method of visualizing the distribution characteristics.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Beanplot plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/beanplot?lang=en\nThe beanplot is a method of visualizing the distribution characteristics.",
     "crumbs": [
       "HIPLOT",
       "Beanplot"
@@ -2649,7 +2649,7 @@
     "href": "Hiplot/009-barplot-line-multiple.html",
     "title": "Multiple Barplot&Line",
     "section": "",
-    "text": "Displaying multiple bar or line plot in one diagram.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Multiple Barplot&Line plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/barplot-line-multiple?lang=en\nDisplaying multiple bar or line plot in one diagram.",
     "crumbs": [
       "HIPLOT",
       "Multiple Barplot&Line"
@@ -2693,7 +2693,7 @@
     "href": "Hiplot/006-barplot-errorbar2.html",
     "title": "Barplot (errorbar2)",
     "section": "",
-    "text": "Bar plot with error-lines and groups.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Barplot (errorbar2) plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/barplot-errorbar2?lang=en\nBar plot with error-lines and groups.",
     "crumbs": [
       "HIPLOT",
       "Barplot (errorbar2)"
@@ -2737,7 +2737,7 @@
     "href": "Hiplot/004-barplot-color-group.html",
     "title": "Barplot Color Group",
     "section": "",
-    "text": "The color group barplot can be used to display data values in groups, and to label different colors in sequence.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Barplot Color Group plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/barplot-color-group?lang=en\nThe color group barplot can be used to display data values in groups, and to label different colors in sequence.",
     "crumbs": [
       "HIPLOT",
       "Barplot Color Group"
@@ -2781,7 +2781,7 @@
     "href": "Hiplot/002-barcode-plot.html",
     "title": "Barcode Plot",
     "section": "",
-    "text": "Barcode Plot is Suitable for displaying the distribution of large amounts of data.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Barcode Plot plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/barcode-plot?lang=en\nBarcode Plot is Suitable for displaying the distribution of large amounts of data.",
     "crumbs": [
       "HIPLOT",
       "Barcode Plot"
@@ -3699,7 +3699,7 @@
     "href": "Hiplot/003-barplot-3d.html",
     "title": "3D Barplot",
     "section": "",
-    "text": "3D bar charts are used to provide a 3D look and feel for the data. The third dimension is often used for aesthetic reasons, but it does not improve data reading. Still intended to show comparisons between discrete categories.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot 3D Barplot plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/barplot-3d?lang=en\n3D bar charts are used to provide a 3D look and feel for the data. The third dimension is often used for aesthetic reasons, but it does not improve data reading. Still intended to show comparisons between discrete categories.",
     "crumbs": [
       "HIPLOT",
       "3D Barplot"
@@ -3743,7 +3743,7 @@
     "href": "Hiplot/005-barplot-errorbar.html",
     "title": "Barplot (errorbar)",
     "section": "",
-    "text": "Bar plot with error-lines and groups.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Barplot (errorbar) plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/barplot-errorbar?lang=en\nBar plot with error-lines and groups.",
     "crumbs": [
       "HIPLOT",
       "Barplot (errorbar)"
@@ -3787,7 +3787,7 @@
     "href": "Hiplot/008-barplot-gradient.html",
     "title": "Barplot Gradient",
     "section": "",
-    "text": "It is similar to the bubble chart, but on the basis of the histogram, a color gradient rectangle is used to simultaneously display the visualization of two variables.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Barplot Gradient plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/barplot-gradient?lang=en\nIt is similar to the bubble chart, but on the basis of the histogram, a color gradient rectangle is used to simultaneously display the visualization of two variables.",
     "crumbs": [
       "HIPLOT",
       "Barplot Gradient"
@@ -3831,7 +3831,7 @@
     "href": "Hiplot/010-barplot.html",
     "title": "Barplot",
     "section": "",
-    "text": "Bar charts are used to display category data with rectangular bars whose height or length is proportional to the value they represent. Bar charts can be drawn vertically or horizontally. The bar chart shows the comparison between the discrete categories. One axis of the chart shows the specific categories to be compared, and the other axis represents the measurements. Some bar charts show bars that can also show the values of multiple measurement variables.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Barplot plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/barplot?lang=en\nBar charts are used to display category data with rectangular bars whose height or length is proportional to the value they represent. Bar charts can be drawn vertically or horizontally. The bar chart shows the comparison between the discrete categories. One axis of the chart shows the specific categories to be compared, and the other axis represents the measurements. Some bar charts show bars that can also show the values of multiple measurement variables.",
     "crumbs": [
       "HIPLOT",
       "Barplot"
@@ -3875,7 +3875,7 @@
     "href": "Hiplot/012-beeswarm.html",
     "title": "Beeswarm",
     "section": "",
-    "text": "The beeswarm is a noninterference scatter plot which is similar to a bee colony.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Beeswarm plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/beeswarm?lang=en\nThe beeswarm is a noninterference scatter plot which is similar to a bee colony.",
     "crumbs": [
       "HIPLOT",
       "Beeswarm"
@@ -3919,7 +3919,7 @@
     "href": "Hiplot/014-bivariate.html",
     "title": "Bivariate Chart",
     "section": "",
-    "text": "Display the bivariate.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Bivariate Chart plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/bivariate?lang=en\nDisplay the bivariate.",
     "crumbs": [
       "HIPLOT",
       "Bivariate Chart"
@@ -3963,7 +3963,7 @@
     "href": "Hiplot/016-bubble.html",
     "title": "Bubble",
     "section": "",
-    "text": "The bubble chart is a statistical chart that shows the third variable by the size of the bubble on the basis of the scatter chart, so that the three variables can be compared and analyzed simultaneously.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Bubble plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/bubble?lang=en\nThe bubble chart is a statistical chart that shows the third variable by the size of the bubble on the basis of the scatter chart, so that the three variables can be compared and analyzed simultaneously.",
     "crumbs": [
       "HIPLOT",
       "Bubble"
@@ -4007,7 +4007,7 @@
     "href": "Hiplot/018-calibration-curve.html",
     "title": "Calibration Curve",
     "section": "",
-    "text": "The calibration curve is used to evaluate the consistency / calibration, i.e. the difference between the predicted value and the real value.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Calibration Curve plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/calibration-curve?lang=en\nThe calibration curve is used to evaluate the consistency / calibration, i.e. the difference between the predicted value and the real value.",
     "crumbs": [
       "HIPLOT",
       "Calibration Curve"
@@ -4040,7 +4040,7 @@
     "href": "Hiplot/018-calibration-curve.html#visualization",
     "title": "Calibration Curve",
     "section": "Visualization",
-    "text": "Visualization\n\n# Calibration Curve\np &lt;- as.ggplot(function() {\n  plot(lrm.cal,\n       xlab = \"Nomogram Predicted Survival\",\n       ylab = \"Actual Survival\",\n       main = \"Calibration Curve\"\n       )\n})\n\n\nn=168   Mean absolute error=0.065   Mean squared error=0.00504\n0.9 Quantile of absolute error=0.097\n\np\n\n\n\n\n\n\n\nFigure 1: Calibration Curve",
+    "text": "Visualization\n\n# Calibration Curve\np &lt;- as.ggplot(function() {\n  plot(lrm.cal,\n       xlab = \"Nomogram Predicted Survival\",\n       ylab = \"Actual Survival\",\n       main = \"Calibration Curve\"\n       )\n})\n\n\nn=168   Mean absolute error=0.064   Mean squared error=0.00487\n0.9 Quantile of absolute error=0.093\n\np\n\n\n\n\n\n\n\nFigure 1: Calibration Curve",
     "crumbs": [
       "HIPLOT",
       "Calibration Curve"
@@ -4051,7 +4051,7 @@
     "href": "Hiplot/020-chord.html",
     "title": "Chord Plot",
     "section": "",
-    "text": "The complex interaction is visualized in the form of chord graph.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Chord Plot plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/chord?lang=en\nThe complex interaction is visualized in the form of chord graph.",
     "crumbs": [
       "HIPLOT",
       "Chord Plot"
@@ -4095,7 +4095,7 @@
     "href": "Hiplot/023-circular-barplot.html",
     "title": "Circular Barplot",
     "section": "",
-    "text": "Drawing circular barplot",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Circular Barplot plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/circular-barplot?lang=en\nDrawing circular barplot",
     "crumbs": [
       "HIPLOT",
       "Circular Barplot"
@@ -4139,7 +4139,7 @@
     "href": "Hiplot/025-complex-heatmap.html",
     "title": "Complex Heatmap",
     "section": "",
-    "text": "A multi-omics plugins to draw heatmap, meta annotation, and mutations.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Complex Heatmap plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/complex-heatmap?lang=en\nA multi-omics plugins to draw heatmap, meta annotation, and mutations.",
     "crumbs": [
       "HIPLOT",
       "Complex Heatmap"
@@ -4183,7 +4183,7 @@
     "href": "Hiplot/027-contour-matrix.html",
     "title": "Contour (Matrix)",
     "section": "",
-    "text": "The contour map (matrix) is a graph that displays three-dimensional data in a two-dimensional form",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Contour (Matrix) plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/contour-matrix?lang=en\nThe contour map (matrix) is a graph that displays three-dimensional data in a two-dimensional form",
     "crumbs": [
       "HIPLOT",
       "Contour (Matrix)"
@@ -4227,7 +4227,7 @@
     "href": "Hiplot/029-cor-heatmap-simple.html",
     "title": "Simplified Correlation Heatmap",
     "section": "",
-    "text": "Simplified variables correlation heatmap",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Simplified Correlation Heatmap plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/cor-heatmap-simple?lang=en\nSimplified variables correlation heatmap",
     "crumbs": [
       "HIPLOT",
       "Simplified Correlation Heatmap"
@@ -4271,7 +4271,7 @@
     "href": "Hiplot/033-corrplot.html",
     "title": "Corrplot",
     "section": "",
-    "text": "The correlation heat map is a graph that analyzes the correlation between two or more variables.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Corrplot plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/corrplot?lang=en\nThe correlation heat map is a graph that analyzes the correlation between two or more variables.",
     "crumbs": [
       "HIPLOT",
       "Corrplot"
@@ -4315,7 +4315,7 @@
     "href": "Hiplot/035-custom-icon-scatter.html",
     "title": "Custom Icon Scatter",
     "section": "",
-    "text": "A scatter plot with customizable icons.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Custom Icon Scatter plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/custom-icon-scatter?lang=en\nA scatter plot with customizable icons.",
     "crumbs": [
       "HIPLOT",
       "Custom Icon Scatter"
@@ -4359,7 +4359,7 @@
     "href": "Hiplot/037-dendrogram.html",
     "title": "Dendrogram",
     "section": "",
-    "text": "The dendrogram is a diagram representing a tree. This diagrammatic representation is frequently used in different contexts:In hierarchical clustering, it illustrates the arrangement of the clusters produced by the corresponding analyses.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Dendrogram plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/dendrogram?lang=en\nThe dendrogram is a diagram representing a tree. This diagrammatic representation is frequently used in different contexts:In hierarchical clustering, it illustrates the arrangement of the clusters produced by the corresponding analyses.",
     "crumbs": [
       "HIPLOT",
       "Dendrogram"
@@ -4403,7 +4403,7 @@
     "href": "Hiplot/039-density-histogram.html",
     "title": "Density-Histogram",
     "section": "",
-    "text": "Use density plots or histograms to show data distribution.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Density-Histogram plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/density-histogram?lang=en\nUse density plots or histograms to show data distribution.",
     "crumbs": [
       "HIPLOT",
       "Density-Histogram"
@@ -4447,7 +4447,7 @@
     "href": "Hiplot/041-deviation-plot.html",
     "title": "Deviation Plot",
     "section": "",
-    "text": "Deviation plot provides a visual representation of the differences between data points.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Deviation Plot plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/deviation-plot?lang=en\nDeviation plot provides a visual representation of the differences between data points.",
     "crumbs": [
       "HIPLOT",
       "Deviation Plot"
@@ -4491,7 +4491,7 @@
     "href": "Hiplot/043-diverging-scale.html",
     "title": "Diverging Scale",
     "section": "",
-    "text": "The diverging scale is a graph that maps a continuous, quantitative input to a continuous fixed interpolator.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Diverging Scale plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/diverging-scale?lang=en\nThe diverging scale is a graph that maps a continuous, quantitative input to a continuous fixed interpolator.",
     "crumbs": [
       "HIPLOT",
       "Diverging Scale"
@@ -4535,7 +4535,7 @@
     "href": "Hiplot/045-donut.html",
     "title": "Donut",
     "section": "",
-    "text": "The donut is a variant of the pie chart, with a blank center allowing for additional information about the data as a whole to be included. Doughnut charts are similar to pie charts in that their aim is to illustrate proportions.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Donut plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/donut?lang=en\nThe donut is a variant of the pie chart, with a blank center allowing for additional information about the data as a whole to be included. Doughnut charts are similar to pie charts in that their aim is to illustrate proportions.",
     "crumbs": [
       "HIPLOT",
       "Donut"
@@ -4579,7 +4579,7 @@
     "href": "Hiplot/047-dual-y-axis.html",
     "title": "Dual Y Axis Chart",
     "section": "",
-    "text": "The dual Y-axis graph can put two groups of data with larger orders of magnitude in the same graph for display.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Dual Y Axis Chart plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/dual-y-axis?lang=en\nThe dual Y-axis graph can put two groups of data with larger orders of magnitude in the same graph for display.",
     "crumbs": [
       "HIPLOT",
       "Dual Y Axis Chart"
@@ -4623,7 +4623,7 @@
     "href": "Hiplot/049-easy-pairs.html",
     "title": "Easy Pairs",
     "section": "",
-    "text": "Display a matrix of plots for viewing correlation relationship and distributions of multiple variables.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Easy Pairs plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/easy-pairs?lang=en\nDisplay a matrix of plots for viewing correlation relationship and distributions of multiple variables.",
     "crumbs": [
       "HIPLOT",
       "Easy Pairs"
@@ -4667,7 +4667,7 @@
     "href": "Hiplot/051-eulerr.html",
     "title": "Eulerr Plot",
     "section": "",
-    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: eulerr; ggplotify\n\n\n# Install packages\nif (!requireNamespace(\"eulerr\", quietly = TRUE)) {\n  install.packages(\"eulerr\")\n}\nif (!requireNamespace(\"ggplotify\", quietly = TRUE)) {\n  install.packages(\"ggplotify\")\n}\n\n# Load packages\nlibrary(eulerr)\nlibrary(ggplotify)",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Eulerr Plot plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/eulerr?lang=en",
     "crumbs": [
       "HIPLOT",
       "Eulerr Plot"
@@ -4677,8 +4677,8 @@
     "objectID": "Hiplot/051-eulerr.html#setup",
     "href": "Hiplot/051-eulerr.html#setup",
     "title": "Eulerr Plot",
-    "section": "",
-    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: eulerr; ggplotify\n\n\n# Install packages\nif (!requireNamespace(\"eulerr\", quietly = TRUE)) {\n  install.packages(\"eulerr\")\n}\nif (!requireNamespace(\"ggplotify\", quietly = TRUE)) {\n  install.packages(\"ggplotify\")\n}\n\n# Load packages\nlibrary(eulerr)\nlibrary(ggplotify)",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: eulerr; ggplotify\n\n\n# Install packages\nif (!requireNamespace(\"eulerr\", quietly = TRUE)) {\n  install.packages(\"eulerr\")\n}\nif (!requireNamespace(\"ggplotify\", quietly = TRUE)) {\n  install.packages(\"ggplotify\")\n}\n\n# Load packages\nlibrary(eulerr)\nlibrary(ggplotify)",
     "crumbs": [
       "HIPLOT",
       "Eulerr Plot"
@@ -4711,7 +4711,7 @@
     "href": "Hiplot/053-ezcox.html",
     "title": "Cox Models Forest",
     "section": "",
-    "text": "Cox model forest is a visual representation of a COX model that constructs a risk forest map to facilitate variable screening.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Cox Models Forest plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/ezcox?lang=en\nCox model forest is a visual representation of a COX model that constructs a risk forest map to facilitate variable screening.",
     "crumbs": [
       "HIPLOT",
       "Cox Models Forest"
@@ -4755,7 +4755,7 @@
     "href": "Hiplot/055-fishplot.html",
     "title": "Fishplot",
     "section": "",
-    "text": "Clone evolution analysis",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Fishplot plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/fishplot?lang=en\nClone evolution analysis",
     "crumbs": [
       "HIPLOT",
       "Fishplot"
@@ -4799,7 +4799,7 @@
     "href": "Hiplot/057-funnel-plot-metafor.html",
     "title": "Funnel Plot (metafor)",
     "section": "",
-    "text": "Can be used to show potential bias factors in Meta-analysis.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Funnel Plot (metafor) plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/funnel-plot-metafor?lang=en\nCan be used to show potential bias factors in Meta-analysis.",
     "crumbs": [
       "HIPLOT",
       "Funnel Plot (metafor)"
@@ -4843,7 +4843,7 @@
     "href": "Hiplot/059-gantt.html",
     "title": "Gantt",
     "section": "",
-    "text": "The Gantt chart is a type of bar chart that illustrates a project schedule.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Gantt plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/gantt?lang=en\nThe Gantt chart is a type of bar chart that illustrates a project schedule.",
     "crumbs": [
       "HIPLOT",
       "Gantt"
@@ -4887,7 +4887,7 @@
     "href": "Hiplot/061-gene-rank.html",
     "title": "Gene Ranking Dotplot",
     "section": "",
-    "text": "Gene expression ranking visualization.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Gene Ranking Dotplot plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/gene-rank?lang=en\nGene expression ranking visualization.",
     "crumbs": [
       "HIPLOT",
       "Gene Ranking Dotplot"
@@ -4931,7 +4931,7 @@
     "href": "Hiplot/063-ggbarstats.html",
     "title": "Barstats",
     "section": "",
-    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggstatsplot; ggplot2; cowplot\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# Load packages\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Barstats plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/ggbarstats?lang=en",
     "crumbs": [
       "HIPLOT",
       "Barstats"
@@ -4941,8 +4941,8 @@
     "objectID": "Hiplot/063-ggbarstats.html#setup",
     "href": "Hiplot/063-ggbarstats.html#setup",
     "title": "Barstats",
-    "section": "",
-    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggstatsplot; ggplot2; cowplot\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# Load packages\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggstatsplot; ggplot2; cowplot\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# Load packages\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
     "crumbs": [
       "HIPLOT",
       "Barstats"
@@ -4975,7 +4975,7 @@
     "href": "Hiplot/065-ggdag.html",
     "title": "Directed Acyclic Graphs",
     "section": "",
-    "text": "Visualizing directed acyclic graphs.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Directed Acyclic Graphs plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/ggdag?lang=en\nVisualizing directed acyclic graphs.",
     "crumbs": [
       "HIPLOT",
       "Directed Acyclic Graphs"
@@ -4997,7 +4997,7 @@
     "href": "Hiplot/065-ggdag.html#data-preparation",
     "title": "Directed Acyclic Graphs",
     "section": "Data Preparation",
-    "text": "Data Preparation\n\n# Load data\ntidy_ggdag &lt;- dagify(\n  y ~ x + z2 + w2 + w1,\n  x ~ z1 + w1 + w2,\n  z1 ~ w1 + v,\n  z2 ~ w2 + v,\n  w1 ~ ~w2, # bidirected path\n  exposure = \"x\",\n  outcome = \"y\") %&gt;%\n  tidy_dagitty()\n\n# View data\nhead(tidy_ggdag)\n\n$data\n# A tibble: 13 × 8\n   name        x     y direction to       xend  yend circular\n   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;     &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt;   \n 1 v     -2.05    2.80 -&gt;        z1    -1.54    1.49 FALSE   \n 2 v     -2.05    2.80 -&gt;        z2    -0.736   3.33 FALSE   \n 3 w1    -0.559   1.72 -&gt;        x     -0.0700  1.31 FALSE   \n 4 w1    -0.559   1.72 -&gt;        y      0.440   2.35 FALSE   \n 5 w1    -0.559   1.72 -&gt;        z1    -1.54    1.49 FALSE   \n 6 w1    -0.559   1.72 &lt;-&gt;       w2    -0.133   2.58 FALSE   \n 7 w2    -0.133   2.58 -&gt;        x     -0.0700  1.31 FALSE   \n 8 w2    -0.133   2.58 -&gt;        y      0.440   2.35 FALSE   \n 9 w2    -0.133   2.58 -&gt;        z2    -0.736   3.33 FALSE   \n10 x     -0.0700  1.31 -&gt;        y      0.440   2.35 FALSE   \n11 y      0.440   2.35 &lt;NA&gt;      &lt;NA&gt;  NA      NA    FALSE   \n12 z1    -1.54    1.49 -&gt;        x     -0.0700  1.31 FALSE   \n13 z2    -0.736   3.33 -&gt;        y      0.440   2.35 FALSE   \n\n$dag\ndag {\nv\nw1\nw2\nx [exposure]\ny [outcome]\nz1\nz2\nv -&gt; z1\nv -&gt; z2\nw1 -&gt; x\nw1 -&gt; y\nw1 -&gt; z1\nw1 &lt;-&gt; w2\nw2 -&gt; x\nw2 -&gt; y\nw2 -&gt; z2\nx -&gt; y\nz1 -&gt; x\nz2 -&gt; y\n}",
+    "text": "Data Preparation\n\n# Load data\ntidy_ggdag &lt;- dagify(\n  y ~ x + z2 + w2 + w1,\n  x ~ z1 + w1 + w2,\n  z1 ~ w1 + v,\n  z2 ~ w2 + v,\n  w1 ~ ~w2, # bidirected path\n  exposure = \"x\",\n  outcome = \"y\") %&gt;%\n  tidy_dagitty()\n\n# View data\nhead(tidy_ggdag)\n\n$data\n# A tibble: 13 × 8\n   name       x     y direction to      xend   yend circular\n   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;     &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;lgl&gt;   \n 1 v     -0.205 1.42  -&gt;        z1    -1.54   0.946 FALSE   \n 2 v     -0.205 1.42  -&gt;        z2    -0.647  2.75  FALSE   \n 3 w1    -2.04  1.80  -&gt;        x     -2.65   1.96  FALSE   \n 4 w1    -2.04  1.80  -&gt;        y     -2.13   3.02  FALSE   \n 5 w1    -2.04  1.80  -&gt;        z1    -1.54   0.946 FALSE   \n 6 w1    -2.04  1.80  &lt;-&gt;       w2    -1.63   2.64  FALSE   \n 7 w2    -1.63  2.64  -&gt;        x     -2.65   1.96  FALSE   \n 8 w2    -1.63  2.64  -&gt;        y     -2.13   3.02  FALSE   \n 9 w2    -1.63  2.64  -&gt;        z2    -0.647  2.75  FALSE   \n10 x     -2.65  1.96  -&gt;        y     -2.13   3.02  FALSE   \n11 y     -2.13  3.02  &lt;NA&gt;      &lt;NA&gt;  NA     NA     FALSE   \n12 z1    -1.54  0.946 -&gt;        x     -2.65   1.96  FALSE   \n13 z2    -0.647 2.75  -&gt;        y     -2.13   3.02  FALSE   \n\n$dag\ndag {\nv\nw1\nw2\nx [exposure]\ny [outcome]\nz1\nz2\nv -&gt; z1\nv -&gt; z2\nw1 -&gt; x\nw1 -&gt; y\nw1 -&gt; z1\nw1 &lt;-&gt; w2\nw2 -&gt; x\nw2 -&gt; y\nw2 -&gt; z2\nx -&gt; y\nz1 -&gt; x\nz2 -&gt; y\n}",
     "crumbs": [
       "HIPLOT",
       "Directed Acyclic Graphs"
@@ -5019,7 +5019,7 @@
     "href": "Hiplot/067-gghistostats.html",
     "title": "Histostats",
     "section": "",
-    "text": "Display data distribution and inference.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Histostats plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/gghistostats?lang=en\nDisplay data distribution and inference.",
     "crumbs": [
       "HIPLOT",
       "Histostats"
@@ -5063,7 +5063,7 @@
     "href": "Hiplot/069-ggpiestats-group.html",
     "title": "Piestats Group",
     "section": "",
-    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggstatsplot; ggplot2; cowplot\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# Load packages\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Piestats Group plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/ggpiestats-group?lang=en",
     "crumbs": [
       "HIPLOT",
       "Piestats Group"
@@ -5073,8 +5073,8 @@
     "objectID": "Hiplot/069-ggpiestats-group.html#setup",
     "href": "Hiplot/069-ggpiestats-group.html#setup",
     "title": "Piestats Group",
-    "section": "",
-    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggstatsplot; ggplot2; cowplot\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# Load packages\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggstatsplot; ggplot2; cowplot\n\n\n# Install packages\nif (!requireNamespace(\"ggstatsplot\", quietly = TRUE)) {\n  install.packages(\"ggstatsplot\")\n}\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\nif (!requireNamespace(\"cowplot\", quietly = TRUE)) {\n  install.packages(\"cowplot\")\n}\n\n# Load packages\nlibrary(ggstatsplot)\nlibrary(ggplot2)\nlibrary(cowplot)",
     "crumbs": [
       "HIPLOT",
       "Piestats Group"
@@ -5107,7 +5107,7 @@
     "href": "Hiplot/072-ggpubr-boxplot.html",
     "title": "GGPubr Boxplot",
     "section": "",
-    "text": "Feature-rich boxplot (GGPubr interface).",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot GGPubr Boxplot plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/ggpubr-boxplot?lang=en\nFeature-rich boxplot (GGPubr interface).",
     "crumbs": [
       "HIPLOT",
       "GGPubr Boxplot"
@@ -5151,7 +5151,7 @@
     "href": "Hiplot/074-ggseqlogo.html",
     "title": "Seqlogo",
     "section": "",
-    "text": "The sequence LOGO is a graphic that describes a sequence pattern of binding sites.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Seqlogo plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/ggseqlogo?lang=en\nThe sequence LOGO is a graphic that describes a sequence pattern of binding sites.",
     "crumbs": [
       "HIPLOT",
       "Seqlogo"
@@ -5195,7 +5195,7 @@
     "href": "Hiplot/076-ggwordcloud.html",
     "title": "ggwordcloud",
     "section": "",
-    "text": "The word cloud is to visualize the “keywords” that appear frequently in the web text by forming a “keyword cloud layer” or “keyword rendering”.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot ggwordcloud plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/ggwordcloud?lang=en\nThe word cloud is to visualize the “keywords” that appear frequently in the web text by forming a “keyword cloud layer” or “keyword rendering”.",
     "crumbs": [
       "HIPLOT",
       "ggwordcloud"
@@ -5239,7 +5239,7 @@
     "href": "Hiplot/078-gobubble.html",
     "title": "GOBubble Plot",
     "section": "",
-    "text": "The gobubble plot is used to display Z-score coloured bubble plot of terms ordered alternatively by z-score or the negative logarithm of the adjusted p-value.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot GOBubble Plot plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/gobubble?lang=en\nThe gobubble plot is used to display Z-score coloured bubble plot of terms ordered alternatively by z-score or the negative logarithm of the adjusted p-value.",
     "crumbs": [
       "HIPLOT",
       "GOBubble Plot"
@@ -5283,7 +5283,7 @@
     "href": "Hiplot/080-grdotplot.html",
     "title": "Group Rank Dotplot",
     "section": "",
-    "text": "Values distribution for different groups.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Group Rank Dotplot plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/grdotplot?lang=en\nValues distribution for different groups.",
     "crumbs": [
       "HIPLOT",
       "Group Rank Dotplot"
@@ -5327,7 +5327,7 @@
     "href": "Hiplot/082-group-comparison.html",
     "title": "Group-comparison Heatmap",
     "section": "",
-    "text": "Group-comparison Heatmap provides a way to compare multiple variables across multiple (&gt;2) groups and visualize the result with heatmap.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Group-comparison Heatmap plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/group-comparison?lang=en\nGroup-comparison Heatmap provides a way to compare multiple variables across multiple (&gt;2) groups and visualize the result with heatmap.",
     "crumbs": [
       "HIPLOT",
       "Group-comparison Heatmap"
@@ -5371,7 +5371,7 @@
     "href": "Hiplot/084-group-line.html",
     "title": "Group Line",
     "section": "",
-    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# Load packages\nlibrary(ggplot2)",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Group Line plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/group-line?lang=en",
     "crumbs": [
       "HIPLOT",
       "Group Line"
@@ -5381,8 +5381,8 @@
     "objectID": "Hiplot/084-group-line.html#setup",
     "href": "Hiplot/084-group-line.html#setup",
     "title": "Group Line",
-    "section": "",
-    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# Load packages\nlibrary(ggplot2)",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# Load packages\nlibrary(ggplot2)",
     "crumbs": [
       "HIPLOT",
       "Group Line"
@@ -5415,7 +5415,7 @@
     "href": "Hiplot/086-heatmap.html",
     "title": "Heatmap",
     "section": "",
-    "text": "Heat map is an intuitive and visual method for analyzing the distribution of experimental data, which can be used for quality control of experimental data and visualization display of difference data, as well as clustering of data and samples to observe sample quality.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Heatmap plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/heatmap?lang=en\nHeat map is an intuitive and visual method for analyzing the distribution of experimental data, which can be used for quality control of experimental data and visualization display of difference data, as well as clustering of data and samples to observe sample quality.",
     "crumbs": [
       "HIPLOT",
       "Heatmap"
@@ -5459,7 +5459,7 @@
     "href": "Hiplot/088-histogram.html",
     "title": "Histogram",
     "section": "",
-    "text": "Histogram refers to the distribution of continuous variable data by a series of vertical stripes or line segments with different heights.",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Histogram plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/histogram?lang=en\nHistogram refers to the distribution of continuous variable data by a series of vertical stripes or line segments with different heights.",
     "crumbs": [
       "HIPLOT",
       "Histogram"
@@ -5503,7 +5503,7 @@
     "href": "Hiplot/090-interval-bar-chart.html",
     "title": "Interval Bar Chart",
     "section": "",
-    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# Load packages\nlibrary(ggplot2)",
+    "text": "Note\n\n\n\nHiplot website\nThis page is the tutorial for source code version of the Hiplot Interval Bar Chart plugin. You can also use the Hiplot website to achieve no code ploting. For more information please see the following link:\nhttps://hiplot.cn/basic/interval-bar-chart?lang=en",
     "crumbs": [
       "HIPLOT",
       "Interval Bar Chart"
@@ -5513,8 +5513,8 @@
     "objectID": "Hiplot/090-interval-bar-chart.html#setup",
     "href": "Hiplot/090-interval-bar-chart.html#setup",
     "title": "Interval Bar Chart",
-    "section": "",
-    "text": "System Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# Load packages\nlibrary(ggplot2)",
+    "section": "Setup",
+    "text": "Setup\n\nSystem Requirements: Cross-platform (Linux/MacOS/Windows)\nProgramming language: R\nDependent packages: ggplot2\n\n\n# Install packages\nif (!requireNamespace(\"ggplot2\", quietly = TRUE)) {\n  install.packages(\"ggplot2\")\n}\n\n# Load packages\nlibrary(ggplot2)",
     "crumbs": [
       "HIPLOT",
       "Interval Bar Chart"
@@ -6053,7 +6053,7 @@
     "href": "Hiplot/116-map-world.html#data-preparation",
     "title": "World Map",
     "section": "Data Preparation",
-    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/116-map-world-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/world.rds\")\n\n# Convert data structure\ndt_map$Value &lt;- data$death_rate[match(dt_map$ENG_CONTIN, data$region)]\n\n# View data\nhead(data)\n\n          region death_rate\n1    Afghanistan       13.4\n2        Albania        6.8\n3        Algeria        4.3\n4 American Samoa        5.9\n5        Andorra        7.3\n6         Angola        9.2",
+    "text": "Data Preparation\n\n# Load data\ndata &lt;- read.delim(\"files/Hiplot/116-map-world-data.txt\", header = T)\ndt_map &lt;- readRDS(\"files/Hiplot/world.rds\")\n\n# Convert data structure\ndt_map$Value &lt;- data$death_rate[match(dt_map$ENG_NAME, data$region)]\n\n# View data\nhead(data)\n\n          region death_rate\n1    Afghanistan       13.4\n2        Albania        6.8\n3        Algeria        4.3\n4 American Samoa        5.9\n5        Andorra        7.3\n6         Angola        9.2",
     "crumbs": [
       "HIPLOT",
       "World Map"
