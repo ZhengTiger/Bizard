@@ -53,375 +53,371 @@
     <lastmod>2025-07-08T02:30:29.927Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/149-r-code-flow.html</loc>
-    <lastmod>2025-07-31T02:54:35.609Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/184-waffle.html</loc>
+    <lastmod>2025-08-06T11:58:33.271Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/147-pyramid-stack2.html</loc>
-    <lastmod>2025-07-30T12:25:40.365Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/182-visdat.html</loc>
+    <lastmod>2025-08-06T09:36:32.703Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/145-pyramid-chart2.html</loc>
-    <lastmod>2025-07-30T12:01:57.418Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/180-violin-group.html</loc>
+    <lastmod>2025-08-06T09:03:47.038Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/143-pseudo-enhanced-ma.html</loc>
-    <lastmod>2025-07-30T10:06:20.384Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/178-venn.html</loc>
+    <lastmod>2025-08-06T04:08:28.445Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/141-pie.html</loc>
-    <lastmod>2025-07-30T04:09:38.058Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/176-umap.html</loc>
+    <lastmod>2025-08-06T13:27:20.533Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/139-pie-group.html</loc>
-    <lastmod>2025-07-30T03:53:41.436Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/174-tricolor-histogram.html</loc>
+    <lastmod>2025-08-06T04:08:28.440Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/137-perspective.html</loc>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/172-treeheatr.html</loc>
+    <lastmod>2025-08-06T04:08:28.439Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/170-taylor-diagram.html</loc>
+    <lastmod>2025-08-06T13:29:42.745Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/168-streamgraph.html</loc>
+    <lastmod>2025-08-06T04:08:28.434Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/166-stack-violin.html</loc>
+    <lastmod>2025-08-06T13:30:45.141Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/164-simple-funnel-diagram.html</loc>
+    <lastmod>2025-08-06T04:08:28.429Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/162-scatter2.html</loc>
+    <lastmod>2025-08-06T04:08:28.428Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/160-scatter-gradient.html</loc>
+    <lastmod>2025-08-06T04:08:28.426Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/158-sankey.html</loc>
+    <lastmod>2025-08-06T04:08:28.423Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/156-roc.html</loc>
+    <lastmod>2025-08-06T04:08:28.422Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/154-ridge.html</loc>
+    <lastmod>2025-08-06T04:08:28.419Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/152-rcs-lrm.html</loc>
+    <lastmod>2025-08-06T04:08:28.417Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/150-radar.html</loc>
+    <lastmod>2025-08-06T04:08:28.408Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/148-qqplot.html</loc>
+    <lastmod>2025-08-06T04:08:28.381Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/146-pyramid-stack.html</loc>
+    <lastmod>2025-08-06T04:08:28.352Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/144-pyramid-chart.html</loc>
+    <lastmod>2025-08-06T04:08:28.326Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/142-point-sd.html</loc>
+    <lastmod>2025-08-06T04:08:28.299Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/140-pie-matrix.html</loc>
+    <lastmod>2025-07-30T03:53:41.437Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/138-pie-3d.html</loc>
     <lastmod>2025-07-30T03:53:41.434Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/135-pca2.html</loc>
-    <lastmod>2025-07-30T03:53:41.433Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/136-pcatools.html</loc>
+    <lastmod>2025-08-06T04:08:28.275Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/133-pareto-chart.html</loc>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/134-parliament.html</loc>
+    <lastmod>2025-07-30T03:53:41.431Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/132-parallel-coordinate.html</loc>
     <lastmod>2025-07-30T03:53:41.429Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/131-nomogram.html</loc>
-    <lastmod>2025-07-30T03:53:41.429Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/130-nomogram-logistic.html</loc>
+    <lastmod>2025-08-06T04:08:28.268Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/129-neural-network.html</loc>
-    <lastmod>2025-07-30T03:53:41.426Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/127-network-igraph.html</loc>
+    <lastmod>2025-08-06T04:08:28.232Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/125-multiple-histograms.html</loc>
-    <lastmod>2025-07-30T03:53:41.425Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/123-mosaic.html</loc>
+    <lastmod>2025-08-06T04:08:28.209Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/122-moon-charts.html</loc>
-    <lastmod>2025-07-30T03:53:41.423Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/121-metawho.html</loc>
+    <lastmod>2025-08-06T04:08:28.182Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/120-meta-cont.html</loc>
-    <lastmod>2025-07-30T03:53:41.414Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/119-meta-bin.html</loc>
+    <lastmod>2025-08-06T04:08:28.157Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/118-matrix-bubble.html</loc>
-    <lastmod>2025-07-30T03:53:41.383Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/117-map-world2.html</loc>
+    <lastmod>2025-08-06T04:08:28.132Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/116-map-world.html</loc>
-    <lastmod>2025-07-30T03:53:41.355Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/115-map-usa.html</loc>
+    <lastmod>2025-08-06T04:08:28.107Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/114-map-usa-county.html</loc>
-    <lastmod>2025-07-30T03:53:41.316Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/113-map-uk.html</loc>
+    <lastmod>2025-08-06T04:08:28.081Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/112-map-uk-city.html</loc>
-    <lastmod>2025-07-30T03:53:41.288Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/111-map-south-america.html</loc>
+    <lastmod>2025-08-06T04:08:28.054Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/109-map-oceania-antarc.html</loc>
-    <lastmod>2025-07-26T12:30:53.641Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/108-map-north-america.html</loc>
+    <lastmod>2025-08-06T04:08:28.027Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/107-map-germany.html</loc>
-    <lastmod>2025-07-26T12:20:56.400Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/106-map-germany-town.html</loc>
+    <lastmod>2025-08-06T04:08:28.001Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/104-map-france.html</loc>
-    <lastmod>2025-07-26T12:11:06.428Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/103-map-france-town.html</loc>
+    <lastmod>2025-08-06T04:08:27.968Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/102-map-europe.html</loc>
-    <lastmod>2025-07-26T12:05:44.810Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/101-map-china2.html</loc>
+    <lastmod>2025-08-06T04:08:27.937Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/100-map-china.html</loc>
-    <lastmod>2025-07-30T03:53:41.256Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/099-map-china-county.html</loc>
+    <lastmod>2025-08-06T04:08:27.910Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/098-map-china-city.html</loc>
-    <lastmod>2025-07-30T03:53:41.228Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/097-map-americas.html</loc>
+    <lastmod>2025-08-06T04:08:27.884Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/096-map-africa.html</loc>
-    <lastmod>2025-07-30T03:53:41.198Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/095-line.html</loc>
+    <lastmod>2025-08-06T04:08:27.853Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/094-line-regression.html</loc>
-    <lastmod>2025-07-30T03:53:41.169Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/093-line-errorbar.html</loc>
+    <lastmod>2025-08-06T04:08:27.829Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/092-line-color-dot.html</loc>
-    <lastmod>2025-07-30T03:53:41.141Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/091-likert.html</loc>
+    <lastmod>2025-08-06T04:08:27.803Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/090-interval-bar-chart.html</loc>
-    <lastmod>2025-07-30T03:53:41.106Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/089-interval-area-chart.html</loc>
+    <lastmod>2025-08-06T04:08:27.768Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/088-histogram.html</loc>
-    <lastmod>2025-07-30T03:53:41.064Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/087-hic-heatmap.html</loc>
+    <lastmod>2025-08-06T04:08:27.634Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/086-heatmap.html</loc>
-    <lastmod>2025-07-30T03:53:40.979Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/085-half-violin.html</loc>
+    <lastmod>2025-08-06T04:08:27.606Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/084-group-line.html</loc>
-    <lastmod>2025-07-30T03:53:40.951Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/083-group-dumbbell.html</loc>
+    <lastmod>2025-08-06T04:08:27.574Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/082-group-comparison.html</loc>
-    <lastmod>2025-07-30T03:53:40.915Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/081-group-bubble.html</loc>
+    <lastmod>2025-08-06T04:08:27.539Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/080-grdotplot.html</loc>
-    <lastmod>2025-07-30T03:53:40.888Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/079-gocircle.html</loc>
+    <lastmod>2025-08-06T04:08:27.492Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/078-gobubble.html</loc>
-    <lastmod>2025-07-30T03:53:40.847Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/077-gobar.html</loc>
+    <lastmod>2025-08-06T04:08:27.455Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/076-ggwordcloud.html</loc>
-    <lastmod>2025-07-30T03:53:40.820Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/075-ggwithinstats.html</loc>
+    <lastmod>2025-08-06T04:08:27.423Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/074-ggseqlogo.html</loc>
-    <lastmod>2025-07-30T03:53:40.775Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/073-ggscatterstats.html</loc>
+    <lastmod>2025-08-06T04:08:27.395Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/072-ggpubr-boxplot.html</loc>
-    <lastmod>2025-07-30T03:53:40.747Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/071-ggpiestats.html</loc>
+    <lastmod>2025-08-06T04:08:27.366Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/069-ggpiestats-group.html</loc>
-    <lastmod>2025-07-30T03:53:40.720Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/068-ggpie.html</loc>
+    <lastmod>2025-08-06T04:08:27.341Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/067-gghistostats.html</loc>
-    <lastmod>2025-07-30T03:53:40.690Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/066-ggdist.html</loc>
+    <lastmod>2025-08-06T04:08:27.319Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/065-ggdag.html</loc>
-    <lastmod>2025-07-30T03:53:40.661Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/064-ggbetweenstats.html</loc>
+    <lastmod>2025-08-06T04:08:27.293Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/063-ggbarstats.html</loc>
-    <lastmod>2025-07-30T03:53:40.628Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/062-gene-trend.html</loc>
+    <lastmod>2025-08-06T04:08:27.267Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/061-gene-rank.html</loc>
-    <lastmod>2025-07-30T03:53:40.602Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/060-gene-density.html</loc>
+    <lastmod>2025-08-06T04:08:27.243Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/059-gantt.html</loc>
-    <lastmod>2025-07-30T03:53:40.576Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/058-funnel-plot.html</loc>
+    <lastmod>2025-08-06T04:08:27.220Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/057-funnel-plot-metafor.html</loc>
-    <lastmod>2025-07-30T03:53:40.550Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/056-flowerplot.html</loc>
+    <lastmod>2025-08-06T04:08:27.197Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/055-fishplot.html</loc>
-    <lastmod>2025-07-30T03:53:40.522Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/054-fan.html</loc>
+    <lastmod>2025-08-06T04:08:27.149Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/053-ezcox.html</loc>
-    <lastmod>2025-07-30T03:53:40.471Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/052-extended-scatter.html</loc>
+    <lastmod>2025-08-06T04:08:27.126Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/051-eulerr.html</loc>
-    <lastmod>2025-07-30T03:53:40.442Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/050-easy-som.html</loc>
+    <lastmod>2025-08-06T04:08:27.102Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/049-easy-pairs.html</loc>
-    <lastmod>2025-07-30T03:53:40.413Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/048-dumbbell.html</loc>
+    <lastmod>2025-08-06T04:08:27.076Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/047-dual-y-axis.html</loc>
-    <lastmod>2025-07-30T03:53:40.387Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/046-dotchart.html</loc>
+    <lastmod>2025-08-06T04:08:27.051Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/045-donut.html</loc>
-    <lastmod>2025-07-30T03:53:40.363Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/044-diy-gsea.html</loc>
+    <lastmod>2025-08-06T04:08:27.023Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/043-diverging-scale.html</loc>
-    <lastmod>2025-07-30T03:53:40.337Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/042-diffusion-map.html</loc>
+    <lastmod>2025-08-06T04:08:26.993Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/041-deviation-plot.html</loc>
-    <lastmod>2025-07-30T03:53:40.304Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/040-density.html</loc>
+    <lastmod>2025-08-06T04:08:26.966Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/039-density-histogram.html</loc>
-    <lastmod>2025-07-30T03:53:40.277Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/038-density-hist-mirror.html</loc>
+    <lastmod>2025-08-06T04:08:26.942Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/037-dendrogram.html</loc>
-    <lastmod>2025-07-30T03:53:40.250Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/036-d3-wordcloud.html</loc>
+    <lastmod>2025-08-06T04:08:26.917Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/035-custom-icon-scatter.html</loc>
-    <lastmod>2025-07-30T03:53:40.222Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/034-custom-heat-map.html</loc>
+    <lastmod>2025-08-06T04:08:26.893Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/033-corrplot.html</loc>
-    <lastmod>2025-07-30T03:53:40.192Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/030-cor-heatmap.html</loc>
+    <lastmod>2025-08-06T04:08:26.866Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/029-cor-heatmap-simple.html</loc>
-    <lastmod>2025-07-30T03:53:40.164Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/028-contour-xy.html</loc>
+    <lastmod>2025-08-06T04:08:26.836Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/027-contour-matrix.html</loc>
-    <lastmod>2025-07-30T03:53:40.135Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/026-connected-scatterplot.html</loc>
+    <lastmod>2025-08-06T04:08:26.808Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/025-complex-heatmap.html</loc>
-    <lastmod>2025-07-30T03:53:40.108Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/024-circular-pie-chart.html</loc>
+    <lastmod>2025-08-06T04:08:26.785Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/023-circular-barplot.html</loc>
-    <lastmod>2025-07-30T03:53:40.081Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/021-circle-packing.html</loc>
+    <lastmod>2025-08-06T04:08:26.759Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/020-chord.html</loc>
-    <lastmod>2025-07-30T03:53:40.043Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/019-chi-square-fisher.html</loc>
+    <lastmod>2025-08-06T04:08:26.722Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/018-calibration-curve.html</loc>
-    <lastmod>2025-07-30T03:53:40.014Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/017-bumpchart.html</loc>
+    <lastmod>2025-08-06T04:08:26.697Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/016-bubble.html</loc>
-    <lastmod>2025-07-30T03:53:39.986Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/015-boxplot.html</loc>
+    <lastmod>2025-08-06T04:08:26.673Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/014-bivariate.html</loc>
-    <lastmod>2025-07-30T03:53:39.961Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/013-big-corrplot.html</loc>
+    <lastmod>2025-08-06T04:08:26.650Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/012-beeswarm.html</loc>
-    <lastmod>2025-07-30T03:53:39.935Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/011-beanplot.html</loc>
+    <lastmod>2025-08-06T04:08:26.579Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/010-barplot.html</loc>
-    <lastmod>2025-07-30T03:53:39.860Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/009-barplot-line-multiple.html</loc>
+    <lastmod>2025-08-06T04:08:26.554Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/008-barplot-gradient.html</loc>
-    <lastmod>2025-07-30T03:53:39.832Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/006-barplot-errorbar2.html</loc>
+    <lastmod>2025-08-06T04:08:26.529Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/005-barplot-errorbar.html</loc>
-    <lastmod>2025-07-30T03:53:39.804Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/004-barplot-color-group.html</loc>
+    <lastmod>2025-08-06T04:08:26.504Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/003-barplot-3d.html</loc>
-    <lastmod>2025-07-30T03:53:39.777Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/002-barcode-plot.html</loc>
+    <lastmod>2025-08-06T04:08:26.478Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/001-area.html</loc>
-    <lastmod>2025-07-30T03:53:39.748Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/000-test-demo.html</loc>
+    <lastmod>2025-08-06T04:08:26.456Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/GraphGallery.html</loc>
+    <loc>https://zhengtiger.github.io/Bizard/Distribution/ViolinPlot.html</loc>
     <lastmod>2025-07-08T02:30:29.858Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Distribution/Ridgeline.html</loc>
-    <lastmod>2025-07-30T03:53:39.739Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zhengtiger.github.io/Bizard/Distribution/Density.html</loc>
+    <loc>https://zhengtiger.github.io/Bizard/Distribution/Histogram.html</loc>
     <lastmod>2025-07-08T02:30:29.858Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Distribution/Beeswarm.html</loc>
+    <loc>https://zhengtiger.github.io/Bizard/Distribution/BoxPlot.html</loc>
     <lastmod>2025-07-08T02:30:29.856Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/DataOverTime/Streamgraph.html</loc>
-    <lastmod>2025-07-08T02:30:29.855Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zhengtiger.github.io/Bizard/DataOverTime/LineChart.html</loc>
-    <lastmod>2025-07-08T02:30:29.855Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zhengtiger.github.io/Bizard/Correlation/Scatter.html</loc>
-    <lastmod>2025-07-08T02:30:29.853Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zhengtiger.github.io/Bizard/Correlation/Density2D.html</loc>
-    <lastmod>2025-07-08T02:30:29.852Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zhengtiger.github.io/Bizard/Correlation/ConnectedScatter.html</loc>
-    <lastmod>2025-07-08T02:30:29.852Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zhengtiger.github.io/Bizard/Composition/Waffle.html</loc>
-    <lastmod>2025-07-08T02:30:29.850Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zhengtiger.github.io/Bizard/Composition/PieChart.html</loc>
-    <lastmod>2025-07-08T02:30:29.836Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zhengtiger.github.io/Bizard/Composition/Donut.html</loc>
-    <lastmod>2025-07-08T02:30:29.834Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zhengtiger.github.io/Bizard/Composition/CircularPacking.html</loc>
-    <lastmod>2025-07-08T02:30:29.834Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zhengtiger.github.io/Bizard/Animation/Animation.html</loc>
-    <lastmod>2025-07-08T02:30:29.833Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zhengtiger.github.io/Bizard/About.html</loc>
-    <lastmod>2025-07-08T02:30:29.833Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zhengtiger.github.io/Bizard/Animation/Interactivity.html</loc>
-    <lastmod>2025-07-08T02:30:29.834Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zhengtiger.github.io/Bizard/Composition/Dendrogram.html</loc>
-    <lastmod>2025-07-08T02:30:29.834Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zhengtiger.github.io/Bizard/Composition/GroupedBarplot.html</loc>
-    <lastmod>2025-07-08T02:30:29.834Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zhengtiger.github.io/Bizard/Composition/Treemap.html</loc>
-    <lastmod>2025-07-08T02:30:29.836Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zhengtiger.github.io/Bizard/Correlation/Bubble.html</loc>
-    <lastmod>2025-07-08T02:30:29.850Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zhengtiger.github.io/Bizard/Correlation/Correlogram.html</loc>
-    <lastmod>2025-07-08T02:30:29.852Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zhengtiger.github.io/Bizard/Correlation/Heatmap.html</loc>
-    <lastmod>2025-07-08T02:30:29.853Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zhengtiger.github.io/Bizard/DataOverTime/AreaChart.html</loc>
+    <loc>https://zhengtiger.github.io/Bizard/DataOverTime/Timeseries.html</loc>
     <lastmod>2025-07-08T02:30:29.855Z</lastmod>
   </url>
   <url>
@@ -429,304 +425,448 @@
     <lastmod>2025-07-08T02:30:29.855Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/DataOverTime/Timeseries.html</loc>
+    <loc>https://zhengtiger.github.io/Bizard/DataOverTime/AreaChart.html</loc>
     <lastmod>2025-07-08T02:30:29.855Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Distribution/BoxPlot.html</loc>
+    <loc>https://zhengtiger.github.io/Bizard/Correlation/Heatmap.html</loc>
+    <lastmod>2025-07-08T02:30:29.853Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Correlation/Correlogram.html</loc>
+    <lastmod>2025-07-08T02:30:29.852Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Correlation/Bubble.html</loc>
+    <lastmod>2025-07-08T02:30:29.850Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Composition/Treemap.html</loc>
+    <lastmod>2025-07-08T02:30:29.836Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Composition/GroupedBarplot.html</loc>
+    <lastmod>2025-07-08T02:30:29.834Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Composition/Dendrogram.html</loc>
+    <lastmod>2025-07-08T02:30:29.834Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Animation/Interactivity.html</loc>
+    <lastmod>2025-07-08T02:30:29.834Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/About.html</loc>
+    <lastmod>2025-07-08T02:30:29.833Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Animation/Animation.html</loc>
+    <lastmod>2025-07-08T02:30:29.833Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Composition/CircularPacking.html</loc>
+    <lastmod>2025-07-08T02:30:29.834Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Composition/Donut.html</loc>
+    <lastmod>2025-07-08T02:30:29.834Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Composition/PieChart.html</loc>
+    <lastmod>2025-07-08T02:30:29.836Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Composition/Waffle.html</loc>
+    <lastmod>2025-07-08T02:30:29.850Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Correlation/ConnectedScatter.html</loc>
+    <lastmod>2025-07-08T02:30:29.852Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Correlation/Density2D.html</loc>
+    <lastmod>2025-07-08T02:30:29.852Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Correlation/Scatter.html</loc>
+    <lastmod>2025-07-08T02:30:29.853Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/DataOverTime/LineChart.html</loc>
+    <lastmod>2025-07-08T02:30:29.855Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/DataOverTime/Streamgraph.html</loc>
+    <lastmod>2025-07-08T02:30:29.855Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Distribution/Beeswarm.html</loc>
     <lastmod>2025-07-08T02:30:29.856Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Distribution/Histogram.html</loc>
+    <loc>https://zhengtiger.github.io/Bizard/Distribution/Density.html</loc>
     <lastmod>2025-07-08T02:30:29.858Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Distribution/ViolinPlot.html</loc>
+    <loc>https://zhengtiger.github.io/Bizard/Distribution/Ridgeline.html</loc>
+    <lastmod>2025-08-06T04:08:26.455Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/GraphGallery.html</loc>
     <lastmod>2025-07-08T02:30:29.858Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/000-test-demo.html</loc>
-    <lastmod>2025-07-30T03:53:39.739Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/001-area.html</loc>
+    <lastmod>2025-08-06T04:08:26.463Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/002-barcode-plot.html</loc>
-    <lastmod>2025-07-30T03:53:39.763Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/003-barplot-3d.html</loc>
+    <lastmod>2025-08-06T04:08:26.491Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/004-barplot-color-group.html</loc>
-    <lastmod>2025-07-30T03:53:39.790Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/005-barplot-errorbar.html</loc>
+    <lastmod>2025-08-06T04:08:26.517Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/006-barplot-errorbar2.html</loc>
-    <lastmod>2025-07-30T03:53:39.818Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/008-barplot-gradient.html</loc>
+    <lastmod>2025-08-06T04:08:26.541Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/009-barplot-line-multiple.html</loc>
-    <lastmod>2025-07-30T03:53:39.847Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/010-barplot.html</loc>
+    <lastmod>2025-08-06T04:08:26.565Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/011-beanplot.html</loc>
-    <lastmod>2025-07-30T03:53:39.874Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/012-beeswarm.html</loc>
+    <lastmod>2025-08-06T04:08:26.638Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/013-big-corrplot.html</loc>
-    <lastmod>2025-07-30T03:53:39.948Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/014-bivariate.html</loc>
+    <lastmod>2025-08-06T04:08:26.662Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/015-boxplot.html</loc>
-    <lastmod>2025-07-30T03:53:39.974Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/016-bubble.html</loc>
+    <lastmod>2025-08-06T04:08:26.687Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/017-bumpchart.html</loc>
-    <lastmod>2025-07-30T03:53:39.999Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/018-calibration-curve.html</loc>
+    <lastmod>2025-08-06T04:08:26.709Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/019-chi-square-fisher.html</loc>
-    <lastmod>2025-07-30T03:53:40.028Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/020-chord.html</loc>
+    <lastmod>2025-08-06T04:08:26.734Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/021-circle-packing.html</loc>
-    <lastmod>2025-07-30T03:53:40.068Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/023-circular-barplot.html</loc>
+    <lastmod>2025-08-06T04:08:26.770Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/024-circular-pie-chart.html</loc>
-    <lastmod>2025-07-30T03:53:40.095Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/025-complex-heatmap.html</loc>
+    <lastmod>2025-08-06T04:08:26.797Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/026-connected-scatterplot.html</loc>
-    <lastmod>2025-07-30T03:53:40.121Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/027-contour-matrix.html</loc>
+    <lastmod>2025-08-06T04:08:26.820Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/028-contour-xy.html</loc>
-    <lastmod>2025-07-30T03:53:40.148Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/029-cor-heatmap-simple.html</loc>
+    <lastmod>2025-08-06T04:08:26.852Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/030-cor-heatmap.html</loc>
-    <lastmod>2025-07-30T03:53:40.178Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/033-corrplot.html</loc>
+    <lastmod>2025-08-06T04:08:26.881Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/034-custom-heat-map.html</loc>
-    <lastmod>2025-07-30T03:53:40.206Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/035-custom-icon-scatter.html</loc>
+    <lastmod>2025-08-06T04:08:26.905Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/036-d3-wordcloud.html</loc>
-    <lastmod>2025-07-30T03:53:40.236Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/037-dendrogram.html</loc>
+    <lastmod>2025-08-06T04:08:26.929Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/038-density-hist-mirror.html</loc>
-    <lastmod>2025-07-30T03:53:40.263Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/039-density-histogram.html</loc>
+    <lastmod>2025-08-06T04:08:26.953Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/040-density.html</loc>
-    <lastmod>2025-07-30T03:53:40.290Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/041-deviation-plot.html</loc>
+    <lastmod>2025-08-06T04:08:26.978Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/042-diffusion-map.html</loc>
-    <lastmod>2025-07-30T03:53:40.320Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/043-diverging-scale.html</loc>
+    <lastmod>2025-08-06T04:08:27.011Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/044-diy-gsea.html</loc>
-    <lastmod>2025-07-30T03:53:40.349Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/045-donut.html</loc>
+    <lastmod>2025-08-06T04:08:27.036Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/046-dotchart.html</loc>
-    <lastmod>2025-07-30T03:53:40.374Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/047-dual-y-axis.html</loc>
+    <lastmod>2025-08-06T04:08:27.064Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/048-dumbbell.html</loc>
-    <lastmod>2025-07-30T03:53:40.400Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/049-easy-pairs.html</loc>
+    <lastmod>2025-08-06T04:08:27.089Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/050-easy-som.html</loc>
-    <lastmod>2025-07-30T03:53:40.427Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/051-eulerr.html</loc>
+    <lastmod>2025-08-06T04:08:27.114Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/052-extended-scatter.html</loc>
-    <lastmod>2025-07-30T03:53:40.458Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/053-ezcox.html</loc>
+    <lastmod>2025-08-06T04:08:27.138Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/054-fan.html</loc>
-    <lastmod>2025-07-30T03:53:40.487Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/055-fishplot.html</loc>
+    <lastmod>2025-08-06T04:08:27.184Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/056-flowerplot.html</loc>
-    <lastmod>2025-07-30T03:53:40.536Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/057-funnel-plot-metafor.html</loc>
+    <lastmod>2025-08-06T04:08:27.208Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/058-funnel-plot.html</loc>
-    <lastmod>2025-07-30T03:53:40.563Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/059-gantt.html</loc>
+    <lastmod>2025-08-06T04:08:27.232Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/060-gene-density.html</loc>
-    <lastmod>2025-07-30T03:53:40.590Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/061-gene-rank.html</loc>
+    <lastmod>2025-08-06T04:08:27.255Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/062-gene-trend.html</loc>
-    <lastmod>2025-07-30T03:53:40.616Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/063-ggbarstats.html</loc>
+    <lastmod>2025-08-06T04:08:27.279Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/064-ggbetweenstats.html</loc>
-    <lastmod>2025-07-30T03:53:40.645Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/065-ggdag.html</loc>
+    <lastmod>2025-08-06T04:08:27.306Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/066-ggdist.html</loc>
-    <lastmod>2025-07-30T03:53:40.676Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/067-gghistostats.html</loc>
+    <lastmod>2025-08-06T04:08:27.329Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/068-ggpie.html</loc>
-    <lastmod>2025-07-30T03:53:40.704Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/069-ggpiestats-group.html</loc>
+    <lastmod>2025-08-06T04:08:27.355Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/071-ggpiestats.html</loc>
-    <lastmod>2025-07-30T03:53:40.733Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/072-ggpubr-boxplot.html</loc>
+    <lastmod>2025-08-06T04:08:27.380Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/073-ggscatterstats.html</loc>
-    <lastmod>2025-07-30T03:53:40.761Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/074-ggseqlogo.html</loc>
+    <lastmod>2025-08-06T04:08:27.409Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/075-ggwithinstats.html</loc>
-    <lastmod>2025-07-30T03:53:40.790Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/076-ggwordcloud.html</loc>
+    <lastmod>2025-08-06T04:08:27.439Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/077-gobar.html</loc>
-    <lastmod>2025-07-30T03:53:40.833Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/078-gobubble.html</loc>
+    <lastmod>2025-08-06T04:08:27.475Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/079-gocircle.html</loc>
-    <lastmod>2025-07-30T03:53:40.862Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/080-grdotplot.html</loc>
+    <lastmod>2025-08-06T04:08:27.526Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/081-group-bubble.html</loc>
-    <lastmod>2025-07-30T03:53:40.902Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/082-group-comparison.html</loc>
+    <lastmod>2025-08-06T04:08:27.553Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/083-group-dumbbell.html</loc>
-    <lastmod>2025-07-30T03:53:40.937Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/084-group-line.html</loc>
+    <lastmod>2025-08-06T04:08:27.589Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/085-half-violin.html</loc>
-    <lastmod>2025-07-30T03:53:40.963Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/086-heatmap.html</loc>
+    <lastmod>2025-08-06T04:08:27.620Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/087-hic-heatmap.html</loc>
-    <lastmod>2025-07-30T03:53:40.993Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/088-histogram.html</loc>
+    <lastmod>2025-08-06T04:08:27.733Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/089-interval-area-chart.html</loc>
-    <lastmod>2025-07-30T03:53:41.093Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/090-interval-bar-chart.html</loc>
+    <lastmod>2025-08-06T04:08:27.783Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/091-likert.html</loc>
-    <lastmod>2025-07-30T03:53:41.127Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/092-line-color-dot.html</loc>
+    <lastmod>2025-08-06T04:08:27.815Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/093-line-errorbar.html</loc>
-    <lastmod>2025-07-30T03:53:41.157Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/094-line-regression.html</loc>
+    <lastmod>2025-08-06T04:08:27.841Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/095-line.html</loc>
-    <lastmod>2025-07-30T03:53:41.183Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/096-map-africa.html</loc>
+    <lastmod>2025-08-06T04:08:27.868Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/097-map-americas.html</loc>
-    <lastmod>2025-07-30T03:53:41.213Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/098-map-china-city.html</loc>
+    <lastmod>2025-08-06T04:08:27.896Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/099-map-china-county.html</loc>
-    <lastmod>2025-07-30T03:53:41.242Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/100-map-china.html</loc>
+    <lastmod>2025-08-06T04:08:27.924Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/101-map-china2.html</loc>
-    <lastmod>2025-07-26T11:53:42.744Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/102-map-europe.html</loc>
+    <lastmod>2025-08-06T04:08:27.953Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/103-map-france-town.html</loc>
-    <lastmod>2025-07-26T12:07:29.997Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/104-map-france.html</loc>
+    <lastmod>2025-08-06T04:08:27.984Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/106-map-germany-town.html</loc>
-    <lastmod>2025-07-26T12:17:15.645Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/107-map-germany.html</loc>
+    <lastmod>2025-08-06T04:08:28.013Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/108-map-north-america.html</loc>
-    <lastmod>2025-07-26T12:26:49.451Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/109-map-oceania-antarc.html</loc>
+    <lastmod>2025-08-06T04:08:28.040Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/111-map-south-america.html</loc>
-    <lastmod>2025-07-30T03:53:41.273Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/112-map-uk-city.html</loc>
+    <lastmod>2025-08-06T04:08:28.066Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/113-map-uk.html</loc>
-    <lastmod>2025-07-30T03:53:41.301Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/114-map-usa-county.html</loc>
+    <lastmod>2025-08-06T04:08:28.094Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/115-map-usa.html</loc>
-    <lastmod>2025-07-30T03:53:41.340Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/116-map-world.html</loc>
+    <lastmod>2025-08-06T04:08:28.120Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/117-map-world2.html</loc>
-    <lastmod>2025-07-30T03:53:41.368Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/118-matrix-bubble.html</loc>
+    <lastmod>2025-08-06T04:08:28.146Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/119-meta-bin.html</loc>
-    <lastmod>2025-07-30T03:53:41.397Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/120-meta-cont.html</loc>
+    <lastmod>2025-08-06T04:08:28.169Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/121-metawho.html</loc>
-    <lastmod>2025-07-30T03:53:41.422Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/122-moon-charts.html</loc>
+    <lastmod>2025-08-06T04:08:28.196Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/123-mosaic.html</loc>
-    <lastmod>2025-07-30T03:53:41.423Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/125-multiple-histograms.html</loc>
+    <lastmod>2025-08-06T04:08:28.220Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/127-network-igraph.html</loc>
-    <lastmod>2025-07-30T03:53:41.425Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/129-neural-network.html</loc>
+    <lastmod>2025-08-06T04:08:28.244Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/130-nomogram-logistic.html</loc>
-    <lastmod>2025-07-30T03:53:41.428Z</lastmod>
-  </url>
-  <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/132-parallel-coordinate.html</loc>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/131-nomogram.html</loc>
     <lastmod>2025-07-30T03:53:41.429Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/134-parliament.html</loc>
-    <lastmod>2025-07-30T03:53:41.431Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/133-pareto-chart.html</loc>
+    <lastmod>2025-07-30T03:53:41.429Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/136-pcatools.html</loc>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/135-pca2.html</loc>
     <lastmod>2025-07-30T03:53:41.433Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/138-pie-3d.html</loc>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/137-perspective.html</loc>
     <lastmod>2025-07-30T03:53:41.434Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/140-pie-matrix.html</loc>
-    <lastmod>2025-07-30T03:53:41.437Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/139-pie-group.html</loc>
+    <lastmod>2025-07-30T03:53:41.436Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/142-point-sd.html</loc>
-    <lastmod>2025-07-30T04:35:36.120Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/141-pie.html</loc>
+    <lastmod>2025-08-06T04:08:28.283Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/144-pyramid-chart.html</loc>
-    <lastmod>2025-07-30T11:48:37.489Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/143-pseudo-enhanced-ma.html</loc>
+    <lastmod>2025-08-06T04:08:28.312Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/146-pyramid-stack.html</loc>
-    <lastmod>2025-07-30T12:16:28.919Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/145-pyramid-chart2.html</loc>
+    <lastmod>2025-08-06T04:08:28.337Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/148-qqplot.html</loc>
-    <lastmod>2025-07-30T12:40:10.242Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/147-pyramid-stack2.html</loc>
+    <lastmod>2025-08-06T04:08:28.364Z</lastmod>
   </url>
   <url>
-    <loc>https://zhengtiger.github.io/Bizard/Hiplot/150-radar.html</loc>
-    <lastmod>2025-07-30T13:11:45.013Z</lastmod>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/149-r-code-flow.html</loc>
+    <lastmod>2025-08-06T04:08:28.394Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/151-rcs-cox.html</loc>
+    <lastmod>2025-08-06T04:08:28.416Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/153-ribbon.html</loc>
+    <lastmod>2025-08-06T04:08:28.419Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/155-risk-plot.html</loc>
+    <lastmod>2025-08-06T04:08:28.420Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/157-rose-chart.html</loc>
+    <lastmod>2025-08-06T04:08:28.422Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/159-scatter-3d.html</loc>
+    <lastmod>2025-08-06T04:08:28.425Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/161-scatter.html</loc>
+    <lastmod>2025-08-06T04:08:28.426Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/163-scatterpie.html</loc>
+    <lastmod>2025-08-06T04:08:28.428Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/165-slopegraph.html</loc>
+    <lastmod>2025-08-06T04:08:28.431Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/167-stacked-percentage-bar-chart.html</loc>
+    <lastmod>2025-08-06T04:08:28.433Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/169-survival.html</loc>
+    <lastmod>2025-08-06T04:08:28.436Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/171-time-roc.html</loc>
+    <lastmod>2025-08-06T04:08:28.437Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/173-treemap.html</loc>
+    <lastmod>2025-08-06T04:08:28.439Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/175-tsne.html</loc>
+    <lastmod>2025-08-06T04:08:28.442Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/177-upset-plot.html</loc>
+    <lastmod>2025-08-06T04:08:28.443Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/179-venn2.html</loc>
+    <lastmod>2025-08-06T04:33:55.569Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/181-violin.html</loc>
+    <lastmod>2025-08-06T09:13:51.928Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/183-volcano.html</loc>
+    <lastmod>2025-08-06T09:57:32.978Z</lastmod>
+  </url>
+  <url>
+    <loc>https://zhengtiger.github.io/Bizard/Hiplot/185-waterfalls-plot.html</loc>
+    <lastmod>2025-08-06T12:08:20.247Z</lastmod>
   </url>
   <url>
     <loc>https://zhengtiger.github.io/Bizard/Omics/CollinearityPlot.html</loc>
